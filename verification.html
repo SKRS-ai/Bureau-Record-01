@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify | AI-IPVB Forensic Search Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --pure-white: #ffffff;
+            --off-white: #f8f9fa;
+            --border-std: #dee2e6;
+            --security-green: #28a745;
+        }
+
+        body {
+            background-color: var(--pure-white);
+            color: #1a1a1b;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* HEADER ALIGNMENT */
+        header {
+            background: var(--pure-white);
+            border-bottom: 4px solid var(--bureau-blue);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+        nav a { text-decoration: none; color: var(--bureau-blue); margin-left: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+
+        /* SEARCH HERO */
+        .search-hero { padding: 100px 10% 60px 10%; background: var(--off-white); border-bottom: 1px solid var(--border-std); text-align: center; }
+        .search-hero h1 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 2.8rem; margin: 0 0 20px 0; }
+        
+        .search-container { max-width: 800px; margin: 0 auto; position: relative; }
+        .search-input { 
+            width: 100%; 
+            padding: 25px 30px; 
+            font-size: 1.2rem; 
+            font-family: 'Courier New', monospace; 
+            background: white; 
+            border: 2px solid var(--bureau-blue); 
+            color: #000; 
+            letter-spacing: 2px;
+            box-sizing: border-box;
+        }
+        .search-input:focus { outline: none; border-color: var(--bureau-gold); box-shadow: 0 0 15px rgba(184, 134, 11, 0.2); }
+        .search-input::placeholder { color: #ccc; font-size: 0.9rem; font-family: 'Montserrat'; letter-spacing: 0; }
+
+        /* RESULT AREA */
+        .result-wrapper { padding: 60px 10%; display: none; }
+        .result-wrapper.active { display: block; animation: fadeIn 0.4s ease-in; }
+
+        .cert-box { border: 1px solid var(--border-std); padding: 40px; background: white; position: relative; }
+        .status-stamp { 
+            position: absolute; top: 30px; right: 30px; 
+            border: 3px solid var(--security-green); color: var(--security-green); 
+            padding: 10px 20px; font-weight: 900; text-transform: uppercase; 
+            transform: rotate(5deg); font-size: 1.2rem;
+        }
+
+        .data-label { font-size: 0.65rem; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+        .data-value { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.3rem; margin-bottom: 25px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        footer { background: var(--off-white); padding: 40px 10%; border-top: 1px solid var(--border-std); text-align: center; font-size: 0.75rem; color: #888; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-text">AI-IPVB</a>
+    <nav>
+        <a href="purpose.html">Methodology</a>
+        <a href="library.html">Library</a>
+        <a href="verification.html" style="color: var(--bureau-gold);">Verification</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<section class="search-hero">
+    <h1>Forensic Asset Search</h1>
+    <p style="max-width: 600px; margin: 0 auto 40px auto; color: #666;">Enter a Kin Pages Hash, Case ID, or C2PA Metadata Identifier to verify the forensic chain of authorship and Sovereign Status.</p>
+    
+    <div class="search-container">
+        <input type="text" id="searchID" class="search-input" placeholder="e.g. SK-2026-CASE-0001" oninput="checkLedger()">
+        <p style="font-size: 0.7rem; margin-top: 15px; color: var(--bureau-blue); font-weight: 700;">AUTHENTICATING VIA BUREAU RECORD 01 LEDGER...</p>
+    </div>
+</section>
+
+<div class="result-wrapper" id="resultWrapper">
+    <div class="cert-box">
+        <div class="status-stamp">Bureau Verified</div>
+        
+        <div class="data-label">Asset Title</div>
+        <div class="data-value" id="res-name">Sovereign LYRA V.2</div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+                <div class="data-label">Audit Tier</div>
+                <div class="data-value" style="font-size: 1rem;">Tier 3 - Sovereign</div>
+                
+                <div class="data-label">Human Agency Score</div>
+                <div class="data-value" style="font-size: 1rem;">54.2% (Manual)</div>
+            </div>
+            <div>
+                <div class="data-label">Registered Architect</div>
+                <div class="data-value" style="font-size: 1rem;">Nehemiah M. Brown</div>
+                
+                <div class="data-label">Kin Pages Hash</div>
+                <div class="data-value" style="font-size: 0.8rem; font-family: monospace;">8f3e9a721b664d90a1c2b1f88e99321f</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 30px; display: flex; gap: 20px;">
+            <a href="seal_metadata/certificates/SK-2026-CASE-0001.pdf" target="_blank" style="background: var(--bureau-blue); color: white; padding: 12px 25px; text-decoration: none; font-weight: 700; font-size: 0.8rem;">Download PDF Certificate</a>
+            <a href="mailto:support@VexillaAITS.com" style="background: transparent; color: var(--bureau-blue); border: 1px solid var(--bureau-blue); padding: 12px 25px; text-decoration: none; font-weight: 700; font-size: 0.8rem;">Request Forensic Dispute</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 AI-IPVB | FORENSIC SEARCH NODE: 192.168.1.PHL | MANAGED BY VEXILLAAITS.COM | <a href="compliance.html">FEDERAL COMPLIANCE</a>
+</footer>
+
+<script>
+    function checkLedger() {
+        const val = document.getElementById('searchID').value.trim().toUpperCase();
+        const wrapper = document.getElementById('resultWrapper');
+        
+        // Mock check: Show results if they type "SK-"
+        if(val.startsWith("SK-")) {
+            wrapper.classList.add('active');
+        } else {
+            wrapper.classList.remove('active');
+        }
+    }
+</script>
+
+</body>
+</html>
