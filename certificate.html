@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OFFICIAL RECORD | AI-IPVB Sovereign Certificate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* PRINT OPTIMIZATION */
+        @media print {
+            body { background: white !important; padding: 0 !important; }
+            .no-print { display: none !important; }
+            .cert-border { border: 15px solid #b8860b !important; margin: 0 !important; height: 98vh; }
+        }
+
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .cert-border {
+            background: white;
+            width: 850px;
+            padding: 60px;
+            border: 20px solid var(--bureau-gold);
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+            position: relative;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* WATERMARK */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8rem;
+            color: rgba(0,0,0,0.03);
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+            font-weight: 900;
+        }
+
+        .cert-header { border-bottom: 2px solid #000; padding-bottom: 20px; margin-bottom: 40px; position: relative; z-index: 1; }
+        .cert-header h2 { font-family: 'Libre Baskerville', serif; letter-spacing: 5px; color: var(--bureau-blue); margin: 0; }
+        .cert-header p { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; }
+
+        .cert-body { position: relative; z-index: 1; }
+        .cert-body h3 { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1.5rem; color: #444; margin-top: 40px; }
+        .asset-name { font-family: 'Libre Baskerville', serif; font-size: 3.2rem; color: var(--bureau-blue); margin: 20px 0; border-bottom: 1px solid var(--bureau-gold); display: inline-block; padding: 0 40px; }
+
+        .data-table {
+            margin: 40px auto;
+            width: 80%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            text-align: left;
+            gap: 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid #eee;
+            padding-top: 30px;
+        }
+
+        .seal-zone {
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .signature-line { border-top: 2px solid #000; width: 250px; text-align: center; padding-top: 10px; }
+        .signature-line span { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1.2rem; }
+
+        .gold-seal {
+            width: 150px;
+            height: 150px;
+            border: 4px double var(--bureau-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bureau-gold);
+            font-weight: 900;
+            font-size: 0.8rem;
+            text-align: center;
+            line-height: 1.2;
+            background: #fff;
+        }
+
+        .no-print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--bureau-blue);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<button class="no-print-btn no-print" onclick="window.print()">Print Official Certificate</button>
+
+<div class="cert-border">
+    <div class="watermark">VERIFIED SOVEREIGN</div>
+    
+    <div class="cert-header">
+        <h2>SOLOMON KIN, LLC</h2>
+        <p>AI Intellectual Property & Verification Bureau</p>
+    </div>
+
+    <div class="cert-body">
+        <p style="font-size: 0.9rem; letter-spacing: 1px;">This document serves as an official Forensic Certification that the asset</p>
+        <h1 class="asset-name" id="display-name">SOVEREIGN LYRA V.2</h1>
+        <p style="font-size: 0.9rem; letter-spacing: 1px;">has successfully passed the NMMMB Protocol Audit v2.6</p>
+
+        <h3>Tier 3 Sovereign Classification</h3>
+        
+        <div class="data-table">
+            <div><strong>CASE ID:</strong> <span id="display-id">SK-2026-CASE-0001</span></div>
+            <div><strong>AUDIT DATE:</strong> March 20, 2026</div>
+            <div><strong>HUMAN AGENCY:</strong> 54.2% Verified</div>
+            <div><strong>ARCHITECT:</strong> Nehemiah M. Brown</div>
+            <div style="grid-column: span 2;"><strong>LEDGER HASH:</strong> 8f3e9a721b664d90a1c2b1f88e99321f</div>
+        </div>
+    </div>
+
+    <div class="seal-zone">
+        <div class="signature-line">
+            <span>Nehemiah M. Brown</span><br>
+            <small>LEAD ARCHITECT, AI-IPVB</small>
+        </div>
+
+        <div class="gold-seal">
+            NMMMB<br>OFFICIAL SEAL<br>TIER 3<br>SOVEREIGN
+        </div>
+    </div>
+
+    <p style="margin-top: 40px; font-size: 0.6rem; color: #999; letter-spacing: 1px;">
+        VALIDATED VIA VEXILLAAITS.COM SECURE NODE | NODE ID: PHL-01-2026<br>
+        VERIFY ONLINE AT: skrs-ai.github.io/verification.html
+    </p>
+</div>
+
+<script>
+    // Logic to pull data from URL parameters if needed
+    const params = new URLSearchParams(window.location.search);
+    if(params.has('name')) document.getElementById('display-name').innerText = params.get('name');
+    if(params.has('id')) document.getElementById('display-id').innerText = params.get('id');
+</script>
+
+</body>
+</html>

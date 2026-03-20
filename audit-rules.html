@@ -2,105 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Audit Standards | AI-IPVB Technical Criteria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standards | AI-IPVB Audit Rules & Criteria</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/master-bureau.css">
     <style>
-        :root { --fed-blue: #003366; --gold: #b8860b; --table-bg: #fdfdfd; }
-        body { background: #ffffff; color: #1a1a1b; font-family: 'Montserrat', sans-serif; margin: 0; }
-        .rules-hero { padding: 80px 10%; background: #f1f4f8; border-bottom: 2px solid var(--fed-blue); }
-        .rule-section { padding: 60px 10%; border-bottom: 1px solid #eee; }
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --pure-white: #ffffff;
+            --off-white: #f8f9fa;
+            --border-std: #dee2e6;
+        }
+
+        body {
+            background-color: var(--pure-white);
+            color: #1a1a1b;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            border-bottom: 4px solid var(--bureau-blue);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-text { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+
+        /* CONTENT */
+        .rules-container { max-width: 900px; margin: 80px auto; padding: 0 20px; }
+        .rules-header { text-align: center; margin-bottom: 60px; }
+        .rules-header h1 { font-family: 'Libre Baskerville', serif; font-size: 2.8rem; color: var(--bureau-blue); margin: 0; }
         
-        table { width: 100%; border-collapse: collapse; margin-top: 30px; background: var(--table-bg); }
-        th { background: var(--fed-blue); color: white; padding: 15px; text-align: left; font-size: 0.8rem; text-transform: uppercase; }
-        td { border: 1px solid #dee2e6; padding: 15px; font-size: 0.9rem; vertical-align: top; }
+        .rule-card { border: 1px solid var(--border-std); padding: 40px; margin-bottom: 40px; background: white; }
+        .rule-card h2 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); margin-top: 0; border-bottom: 2px solid var(--bureau-gold); display: inline-block; padding-bottom: 5px; }
         
-        .metric-box { display: flex; gap: 20px; margin-top: 20px; }
-        .metric { flex: 1; border: 1px solid #c5a059; padding: 20px; background: #fffcf5; text-align: center; }
-        .metric h4 { margin: 0; color: var(--gold); font-size: 1.5rem; }
-        .metric span { font-size: 0.7rem; text-transform: uppercase; color: #666; font-weight: bold; }
+        /* DATA TABLE STYLE */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9rem; }
+        th { background: var(--off-white); text-align: left; padding: 15px; border-bottom: 2px solid var(--bureau-blue); color: var(--bureau-blue); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
+        td { padding: 15px; border-bottom: 1px solid #eee; vertical-align: top; }
+
+        .prohibited-zone { background: #fff5f5; border: 1px solid #feb2b2; padding: 30px; margin-top: 50px; }
+        .prohibited-zone h3 { color: #c53030; margin-top: 0; font-family: 'Libre Baskerville', serif; }
+
+        footer { text-align: center; padding: 60px; font-size: 0.75rem; color: #888; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
-<header class="bureau-header" style="background: #fff; border-bottom: 3px solid var(--fed-blue);">
-    </header>
+<header>
+    <a href="index.html" class="logo-text">AI-IPVB</a>
+    <nav style="font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);">
+        REGULATORY STANDARDS | VERSION 2.6
+    </nav>
+</header>
 
-<section class="rules-hero">
-    <h1 class="bureau-serif" style="font-size: 2.8rem;">Technical Audit Standards</h1>
-    <p style="max-width: 800px; color: #444;">The AI-IPVB utilizes a quantitative scoring system to differentiate between autonomous synthetic output and human-led collaborative IP. All submissions are graded against the NMMMB Standard v2.6.</p>
-</section>
-
-<section class="rule-section">
-    <h2 class="bureau-serif">1. The Three Tiers of Certification</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Classification</th>
-                <th>Manual Delta %</th>
-                <th>Iteration Count</th>
-                <th>Legal Standing</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Tier 1: Assisted</strong></td>
-                <td>< 20%</td>
-                <td>1 - 25</td>
-                <td>Public Domain / AI-Generated</td>
-            </tr>
-            <tr>
-                <td><strong>Tier 2: Collaborative</strong></td>
-                <td>20% - 50%</td>
-                <td>25 - 100</td>
-                <td>Limited Copyright / Shared Agency</td>
-            </tr>
-            <tr>
-                <td><strong>Tier 3: Sovereign</strong></td>
-                <td>> 50%</td>
-                <td>100+</td>
-                <td><strong>Full Proprietary Authorship</strong></td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-
-<section class="rule-section" style="background: #fafafa;">
-    <h2 class="bureau-serif">2. The 100+ Iteration Rule (Manifest Audit)</h2>
-    <p>To pass a Tier 3 Audit, the creator must provide a <strong>JSON Manifest</strong> documenting a minimum of 100 iterative interactions with the model. This proves <strong>"Human Directorship."</strong></p>
-    
-    <div class="metric-box">
-        <div class="metric">
-            <h4>100+</h4>
-            <span>Minimum Iterations</span>
-        </div>
-        <div class="metric">
-            <h4>>50%</h4>
-            <span>Manual Transformation</span>
-        </div>
-        <div class="metric">
-            <h4>KYC</h4>
-            <span>Identity Verified</span>
-        </div>
+<div class="rules-container">
+    <div class="rules-header">
+        <h1>Audit Standards</h1>
+        <p style="margin-top: 20px; color: #666;">The objective technical criteria utilized by Solomon Kin, LLC to evaluate and certify synthetic collaborative intellectual property.</p>
     </div>
-    
-    <div style="margin-top: 40px; border-left: 4px solid var(--fed-blue); padding-left: 20px; font-style: italic; color: #555;">
-        "Autonomous generation—where a single prompt produces a final result—is ineligible for Bureau Certification. Sovereignty requires a persistent 'Chain of Intent' where the human refines, rejects, and refactors the neural output."
+
+    <section class="rule-card">
+        <h2>I. The Tiered Thresholds</h2>
+        <p>Certification is granted based on the **Manual Transformation Delta**—the measurable difference between base-model output and final human-refined work.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tier Classification</th>
+                    <th>Manual Delta</th>
+                    <th>Audit Intensity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tier 1: Assisted</strong></td>
+                    <td>10% — 25%</td>
+                    <td>Standard Metadata Scan</td>
+                </tr>
+                <tr>
+                    <td><strong>Tier 2: Collaborative</strong></td>
+                    <td>25% — 50%</td>
+                    <td>Full Manifest Review</td>
+                </tr>
+                <tr>
+                    <td><strong>Tier 3: Sovereign</strong></td>
+                    <td><strong>50% — 100%</strong></td>
+                    <td><strong>Forensic Deep-Audit</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="rule-card">
+        <h2>II. The 100+ Iteration Rule</h2>
+        <p>To prevent "Autonomous Drift," the Bureau requires a documented **Manifest of Intent**. For Tier 3 Sovereign status, the creator must provide evidence of at least **100 iterative refinements** within the neural collaborative cycle.</p>
+        <ul style="line-height: 2; font-size: 0.9rem; color: #444;">
+            <li><strong>Proof of Directorship:</strong> Evidence that the machine followed human linguistic refinement.</li>
+            <li><strong>Recursive Refactoring:</strong> Documentation of rejection/revision cycles.</li>
+            <li><strong>Baseline Comparison:</strong> Analysis of the original "Seed" vs. the "Certified Final."</li>
+        </ul>
+    </section>
+
+    <div class="prohibited-zone">
+        <h3>III. Forensic Rejection (Non-Compliance)</h3>
+        <p style="font-size: 0.85rem; color: #666;">An asset will be summarily rejected and the audit fee forfeited if the following "Slop Patterns" are detected:</p>
+        <ul style="font-size: 0.85rem; color: #c53030; font-weight: 600;">
+            <li>Zero-Refinement Output (One-Prompt Generation).</li>
+            <li>Evidence of Model Hallucination masquerading as Intent.</li>
+            <li>Failure to link to a Ballot-Verified Architect Identity.</li>
+        </ul>
     </div>
-</section>
 
-<section class="rule-section">
-    <h2 class="bureau-serif">3. Forensic Disqualification (The "AI Slop" Clause)</h2>
-    <p>An asset will be summarily rejected if it fails any of the following technical checks:</p>
-    <ul style="line-height: 2;">
-        <li><strong>Neural Drift:</strong> Evidence of hallucinations that exceed the creator's documented intent.</li>
-        <li><strong>Data Plagiarism:</strong> Direct duplication of training set tokens without transformative manual refactoring.</li>
-        <li><strong>Anonymity:</strong> Failure to link the asset to a <strong>Ballot-Verified Identity</strong> (Philadelphia or Minneapolis hub).</li>
-    </ul>
-</section>
+    <div style="text-align: center; margin-top: 60px;">
+        <a href="onboarding.html" style="background: var(--bureau-blue); color: white; padding: 15px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Accept Standards & Register</a>
+    </div>
+</div>
 
-<footer class="bureau-footer">
-    </footer>
+<footer>
+    © 2026 AI-IPVB | MANAGED AND MARKETED BY VEXILLAAITS.COM | <a href="compliance.html" style="color: #888;">FEDERAL ALIGNMENT</a>
+</footer>
 
 </body>
 </html>
