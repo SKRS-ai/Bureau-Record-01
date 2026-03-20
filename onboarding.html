@@ -74,27 +74,20 @@
             <button class="tab-btn" onclick="showForm('login')">Bureau Login</button>
         </div>
 
-        <form id="registerForm">
-            <div class="form-group">
-                <label>Legal Full Name / Entity Name</label>
-                <input type="text" placeholder="e.g., Nehemiah M. Brown" required>
-            </div>
-            <div class="form-group">
-                <label>Professional Email Address</label>
-                <input type="email" placeholder="architect@domain.com" required>
-            </div>
-            <div class="form-group">
-                <label>Create Security Password</label>
-                <input type="password" placeholder="••••••••" required>
-            </div>
-            <div style="margin: 25px 0; font-size: 0.75rem;">
-                <input type="checkbox" id="terms" required>
-                <label for="terms" style="display: inline; text-transform: none; color: #444;">
-                    I agree to the <a href="terms.html" style="color: var(--bureau-blue);">Bureau Terms</a> and consent to forensic data mirroring.
-                </label>
-            </div>
-            <button type="submit" class="btn-submit">Initialize Architect Profile</button>
-        </form>
+       <form id="registerForm" action="/register-architect" method="POST">
+    <div class="form-group">
+        <label>Legal Full Name / Entity Name</label>
+        <input type="text" name="fullname" placeholder="e.g., Nehemiah M. Brown" required>
+    </div>
+    <div class="form-group">
+        <label>Professional Email Address</label>
+        <input type="email" name="email" placeholder="architect@domain.com" required>
+    </div>
+    <div class="form-group">
+        <label>Create Security Password</label>
+        <input type="password" name="password" placeholder="••••••••" required>
+    </div>
+    </form>
 
         <div class="form-footer">
             Enrollment is free. Forensic Audits (Tier 1-3) are purchased via the Dashboard after identity verification.
