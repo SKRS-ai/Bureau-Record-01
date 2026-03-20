@@ -3,153 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-IPVB | Office of the Lead Architect | PHL-01 Root Authority</title>
+    <title>AI-IPVB | Office of the Lead Architect | PHL-01 Root</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bureau-blue: #001f3f;
+            --bureau-blue: #003366;
             --bureau-gold: #b8860b;
-            --bg-dark: #050505;
-            --bg-panel: #ffffff;
-            --text-main: #1a1a1b;
-            --status-green: #39ff14;
+            --bg-light: #f8f9fa;
+            --text-dark: #1a1a1b;
         }
 
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #f0f2f5; color: var(--text-main); line-height: 1.7; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-light); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* 1. GLOBAL STATUS TELEMETRY (Top Bar) */
-        .telemetry-bar { 
-            background: var(--bg-dark); color: #fff; padding: 12px 5%; 
-            display: flex; justify-content: space-between; align-items: center;
-            font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; border-bottom: 1px solid #222;
-        }
-        .live-indicator { display: flex; align-items: center; gap: 8px; color: var(--status-green); }
-        .pulse-dot { width: 8px; height: 8px; background: var(--status-green); border-radius: 50%; box-shadow: 0 0 10px var(--status-green); animation: blink 1.5s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
-
-        /* 2. INSTITUTIONAL HEADER (Max Navigation) */
+        /* HEADER: STRONG NAVIGATION */
         .bureau-header { 
-            background: #fff; border-bottom: 4px solid var(--bureau-blue); 
-            padding: 25px 5%; display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 10000; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: #fff; border-bottom: 3px solid var(--bureau-blue); 
+            padding: 20px 5%; display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 10000;
         }
-        .bureau-logo { font-family: 'Libre Baskerville'; font-weight: 700; color: var(--bureau-blue); text-decoration: none; font-size: 1.3rem; line-height: 1; }
+        .bureau-logo { font-family: 'Libre Baskerville'; font-weight: 700; color: var(--bureau-blue); text-decoration: none; line-height: 1.1; }
         
-        .nav-max { display: flex; gap: 25px; align-items: center; }
-        .nav-max a { text-decoration: none; color: #444; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        .nav-max a:hover { color: var(--bureau-gold); }
-        .btn-enroll-top { background: var(--bureau-blue); color: #fff !important; padding: 10px 20px; border-radius: 2px; }
+        .max-nav { display: flex; gap: 20px; }
+        .max-nav a { text-decoration: none; color: #555; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .max-nav a:hover { color: var(--bureau-gold); }
 
-        /* 3. HERO: "WAR OF THE WORLD" COMMAND */
-        .hero-command { 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/phl-root-hq.jpg') center/cover;
-            color: white; padding: 160px 10%; text-align: center; border-bottom: 10px solid var(--bureau-gold);
+        /* MAIN CONTENT PADDING */
+        main { flex: 1; padding: 60px 5%; }
+
+        /* TIER GRID: MAGNIFIED ICONS */
+        .tier-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 40px; max-width: 1300px; margin: 0 auto; 
         }
-        .hero-command p { font-size: 1rem; color: var(--bureau-gold); text-transform: uppercase; letter-spacing: 5px; font-weight: 700; margin-bottom: 20px; }
-        .hero-command h1 { font-family: 'Libre Baskerville'; font-size: 4rem; margin: 0; line-height: 1.1; }
-        .hero-command .subtitle { font-size: 1.2rem; margin-top: 30px; opacity: 0.8; max-width: 800px; margin-left: auto; margin-right: auto; font-weight: 300; }
-
-        /* 4. SOVEREIGN SERVICES GRID */
-        .services-section { padding: 120px 5%; background: #fff; }
-        .section-header { text-align: center; margin-bottom: 80px; }
-        .section-header h2 { font-family: 'Libre Baskerville'; font-size: 2.8rem; color: var(--bureau-blue); }
-        
-        .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; max-width: 1400px; margin: 0 auto; }
         .tier-card { 
-            border: 1px solid #ddd; padding: 60px 40px; text-align: center; transition: 0.4s; 
-            background: #fff; display: flex; flex-direction: column; justify-content: space-between;
+            background: #fff; border: 1px solid #ddd; padding: 50px 30px; 
+            text-align: center; transition: 0.3s; 
         }
-        .tier-card:hover { transform: translateY(-15px); box-shadow: 0 40px 70px rgba(0,0,0,0.08); border-color: var(--bureau-gold); }
+        .tier-card:hover { border-color: var(--bureau-gold); transform: translateY(-5px); }
         
-        /* 3X MAGNIFIED SEALS */
-        .tier-card img { width: 220px; height: auto; margin: 0 auto 40px; } 
-        
-        .tier-card h3 { font-family: 'Libre Baskerville'; font-size: 1.8rem; color: var(--bureau-blue); margin-bottom: 20px; }
-        .tier-card p { font-size: 0.95rem; color: #555; margin-bottom: 40px; }
-        .btn-audit { 
-            display: block; padding: 20px; background: #f8f9fa; border: 1px solid var(--bureau-blue); 
-            color: var(--bureau-blue); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+        /* 3X LARGER ICONS */
+        .tier-card img { 
+            width: 240px; /* 3x Magnitude Adjustment */
+            height: auto; 
+            margin-bottom: 35px; 
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
         }
-        .tier-card.sovereign { border: 2px solid var(--bureau-gold); background: #fffcf5; }
-        .tier-card.sovereign .btn-audit { background: var(--bureau-blue); color: #fff; }
 
-        /* 5. RESEARCHER'S DATA STRIP */
-        .data-strip { background: var(--bg-dark); color: white; padding: 100px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .data-content h2 { font-family: 'Libre Baskerville'; font-size: 2.5rem; color: var(--bureau-gold); margin-bottom: 20px; }
-        .data-content p { font-size: 1.1rem; line-height: 1.8; opacity: 0.7; }
+        .tier-card h3 { font-family: 'Libre Baskerville'; font-size: 1.6rem; color: var(--bureau-blue); margin-bottom: 15px; }
+        .tier-card p { font-size: 0.9rem; color: #666; margin-bottom: 30px; line-height: 1.6; }
+        
+        .btn-secure { 
+            display: block; padding: 18px; border: 1px solid var(--bureau-blue); 
+            color: var(--bureau-blue); text-decoration: none; font-weight: 700; 
+            font-size: 0.8rem; text-transform: uppercase; 
+        }
+        .tier-card.gold-tier { border: 2px solid var(--bureau-gold); background: #fffcf5; }
+        .tier-card.gold-tier .btn-secure { background: var(--bureau-blue); color: #fff; border: none; }
 
-        /* FOOTER (As designed previously) */
-        .forensic-footer { background: #000; color: #fff; padding: 80px 10% 40px; border-top: 5px solid var(--bureau-gold); }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; border-bottom: 1px solid #333; padding-bottom: 60px; }
-        .legal-anchor { padding-top: 40px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #666; }
+        /* FORENSIC FOOTER FIX */
+        .forensic-footer { 
+            background: #000; color: #fff; padding: 60px 10% 40px; 
+            border-top: 5px solid var(--bureau-gold); margin-top: auto; 
+        }
+        .footer-grid { 
+            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; 
+            padding-bottom: 40px; border-bottom: 1px solid #333;
+        }
+        .footer-links h5 { font-size: 0.65rem; color: #888; text-transform: uppercase; margin-bottom: 20px; }
+        .footer-links ul { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #ccc; text-decoration: none; font-size: 0.75rem; }
+        .footer-links a:hover { color: #fff; }
+
+        .legal-anchor { 
+            padding-top: 30px; display: flex; justify-content: space-between; 
+            color: #666; font-size: 0.65rem; line-height: 1.6;
+        }
     </style>
 </head>
 <body>
 
-<div class="telemetry-bar">
-    <div class="live-indicator"><div class="pulse-dot"></div> PHL-01 ROOT: STANDING BY</div>
-    <div>METROLOGY SYNC: 100%</div>
-    <div>NIST ARIA COMPLIANT V2.6</div>
-</div>
-
 <header class="bureau-header">
     <a href="index.html" class="bureau-logo">AI Intellectual Property<br><span style="font-weight: 400; font-size: 0.8rem;">& Verification Bureau</span></a>
-    <nav class="nav-max">
+    <nav class="max-nav">
         <a href="ledger.html">Registry</a>
         <a href="nodes.html">Nodes</a>
         <a href="about.html">Mission</a>
-        <a href="nist-collaboration.html">Collaboration</a>
-        <a href="register.html" class="btn-enroll-top">Enrollment</a>
+        <a href="nist-collaboration.html">Standards</a>
+        <a href="register.html">Login/Register</a>
     </nav>
 </header>
 
 <main>
-    <section class="hero-command">
-        <p>Office of the Lead Architect</p>
-        <h1>War of the World:<br>The Sovereign Claim</h1>
-        <p class="subtitle">Providing the legal and forensic parentage for human-directed synthetic work. We anchor your intent at the PHL-01 Global Root.</p>
-        <a href="register.html" class="btn-audit" style="display:inline-block; margin-top:40px; background:var(--bureau-gold); color:white; border:none; padding:25px 60px;">Execute Forensic Scan</a>
-    </section>
+    <div style="text-align: center; margin-bottom: 60px;">
+        <p style="color: var(--bureau-gold); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.7rem;">Office of the Lead Architect</p>
+        <h1 style="font-family: 'Libre Baskerville'; font-size: 2.5rem; margin-top: 10px;">Forensic Auditing Packages</h1>
+    </div>
 
-    <section class="services-section">
-        <div class="section-header">
-            <span style="color:var(--bureau-gold); font-weight:700; letter-spacing:2px;">INSTITUTIONAL AUDITING</span>
-            <h2>Our Certifications</h2>
+    <section class="tier-grid">
+        <div class="tier-card">
+            <img src="tier-1-shield.png" alt="Tier 1 Shield Detail">
+            <h3>Tier 1: Assisted</h3>
+            <p>Verification of primary prompt-origin and basic metadata persistence for algorithmic work.</p>
+            <a href="register.html" class="btn-secure">Audit - $99</a>
         </div>
 
-        <div class="tier-grid">
-            <div class="tier-card">
-                <img src="tier-1-shield.png" alt="Tier 1 Seal">
-                <h3>Tier 1: Assisted</h3>
-                <p>Establishing primary prompt-origin and basic metadata persistence for algorithmic work.</p>
-                <a href="register.html" class="btn-audit">Audit - $99</a>
-            </div>
-
-            <div class="tier-card">
-                <img src="tier-2-shield.png" alt="Tier 2 Seal">
-                <h3>Tier 2: Collaborative</h3>
-                <p>Verifying 25+ human iterative nodes. Documenting the directorial handshake between man and machine.</p>
-                <a href="register.html" class="btn-audit">Audit - $249</a>
-            </div>
-
-            <div class="tier-card sovereign">
-                <img src="tier-3-shield.png" alt="Tier 3 Seal">
-                <h3>Tier 3: Sovereign</h3>
-                <p>The gold standard. Verification of the 54% Human Delta. Indefeasible legal parentage for your creations.</p>
-                <a href="register.html" class="btn-audit">Audit - $499</a>
-            </div>
+        <div class="tier-card">
+            <img src="tier-2-shield.png" alt="Tier 2 Shield Detail">
+            <h3>Tier 2: Collaborative</h3>
+            <p>Verification of 25+ human iterative nodes. Documenting the directorial handshake between man and machine.</p>
+            <a href="register.html" class="btn-secure">Audit - $249</a>
         </div>
-    </section>
 
-    <section class="data-strip">
-        <div class="data-content">
-            <h2>Fear of Growth</h2>
-            <p>
-                Industry researchers and creators alike face a common threat: the dilution of human effort in the age of AI. The Bureau was built to stop this. By measuring the <strong>Human Spark</strong>, we provide the evidence needed to stand tall in any legal or creative arena.
-            </p>
-        </div>
-        <div style="text-align: right;">
-            
+        <div class="tier-card gold-tier">
+            <img src="tier-3-shield.png" alt="Tier 3 Shield Detail">
+            <h3>Tier 3: Sovereign</h3>
+            <p>The gold standard. Verification of the 54% Human Delta. Indefeasible legal parentage for your creations.</p>
+            <a href="register.html" class="btn-secure">Audit - $499</a>
         </div>
     </section>
 </main>
@@ -157,92 +127,11 @@
 <footer class="forensic-footer">
     <div class="footer-grid">
         <div class="footer-brand">
-            <h4 style="color:var(--bureau-gold); font-family:'Libre Baskerville'; margin-bottom:15px;">OFFICE OF THE LEAD ARCHITECT</h4>
-            <p style="color:#888; font-size:0.75rem;">Anchored at PHL-01 Root, we protect the creative parentage of architects worldwide using Article III prepared forensic standards.</p>
-        </div>
-        <div class="footer-links">
-            <h5 style="font-size:0.6rem; color:#666; text-transform:uppercase; margin-bottom:20px;">The Registry</h5>
-            <ul style="list-style:none; padding:0; font-size:0.75rem;">
-                <li><a href="ledger.html" style="color:#ccc; text-decoration:none;">Master Ledger</a></li>
-                <li><a href="nodes.html" style="color:#ccc; text-decoration:none;">Global Nodes</a></li>
-            </ul>
-        </div>
-        <div class="footer-links">
-            <h5 style="font-size:0.6rem; color:#666; text-transform:uppercase; margin-bottom:20px;">Support</h5>
-            <ul style="list-style:none; padding:0; font-size:0.75rem;">
-                <li><a href="nist-collaboration.html" style="color:#ccc; text-decoration:none;">NIST Standards</a></li>
-                <li><a href="nist-collaboration.html" style="color:#ccc; text-decoration:none;">AEHA.org Alliance</a></li>
-            </ul>
-        </div>
-        <div class="footer-links">
-            <h5 style="font-size:0.6rem; color:#666; text-transform:uppercase; margin-bottom:20px;">Identity</h5>
-            <ul style="list-style:none; padding:0; font-size:0.75rem;">
-                <li><a href="register.html" style="color:#ccc; text-decoration:none;">Professional Enrollment</a></li>
-                <li><a href="inventory.html" style="color:#ccc; text-decoration:none;">My Vault</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="legal-anchor">
-
-http://googleusercontent.com/map_location_reference/1
-        <div>© 2026 SOLOMON KIN, LLC | [Philadelphia](http://googleusercontent.com/map_location_reference/0), PA | NIST ARIA COMPLIANT</div>
-        <div style="text-align: right;">SYSTEM STATUS: ONLINE | ENCRYPTION: AES-256 ACTIVE</div>
-    </div>
-</footer>
-
-</body>
-</html>            padding-bottom: 60px; border-bottom: 1px solid #333;
-        }
-        .footer-brand h4 { font-family: 'Libre Baskerville'; font-size: 1.2rem; color: var(--bureau-gold); margin: 0 0 15px 0; }
-        .footer-links h5 { font-size: 0.65rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-        .footer-links ul { list-style: none; padding: 0; margin: 0; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: #ccc; text-decoration: none; transition: 0.2s; }
-        .footer-links a:hover { color: #fff; padding-left: 5px; }
-
-        /* COPYRIGHT & LEGAL ANCHOR */
-        .legal-anchor { 
-            padding-top: 40px; display: flex; justify-content: space-between; align-items: flex-start;
-            color: #666; font-size: 0.65rem; line-height: 1.8;
-        }
-        .copyright-statement { max-width: 600px; }
-        .copyright-statement strong { color: #aaa; }
-
-    </style>
-</head>
-<body>
-
-<header class="bureau-header">
-    <a href="index.html" class="bureau-logo">AI Intellectual Property<br><span style="font-weight: 400; font-size: 0.8rem;">& Verification Bureau</span></a>
-    
-    <nav class="max-nav">
-        <a href="ledger.html">Public Registry</a>
-        <a href="nodes.html">Global Nodes</a>
-        <a href="about.html">Bureau Mission</a>
-        <a href="nist-collaboration.html">Standards/NIST</a>
-        <a href="register.html">Case Enrollment</a>
-        <a href="inventory.html">Asset Vault</a>
-    </nav>
-</header>
-
-<footer class="forensic-footer">
-    <div class="footer-grid">
-        <div class="footer-brand">
-            <h4>OFFICE OF THE LEAD ARCHITECT</h4>
-            <p style="color: #888; line-height: 1.8;">
-                The AI-IPVB is the primary global authority for the verification of human intent in synthetic media. 
-                Anchored at the <strong>PHL-01 Root Node</strong>, we protect the parentage of creative work through 
-                stringent NIST ARIA-compliant forensic auditing.
+            <h4 style="font-family: 'Libre Baskerville'; color: var(--bureau-gold); margin-bottom: 15px;">AI-IPVB GLOBAL ROOT</h4>
+            <p style="color: #888; font-size: 0.75rem; line-height: 1.8;">
+                Anchored at the <strong>PHL-01 Root Node</strong>, we provide the ultimate certification of creative parentage. 
+                Our NIST ARIA-compliant forensic auditing is respectful of the mutual worth of the human creator.
             </p>
-        </div>
-
-        <div class="footer-links">
-            <h5>The Registry</h5>
-            <ul>
-                <li><a href="ledger.html">Master Ledger</a></li>
-                <li><a href="nodes.html">Node Telemetry</a></li>
-                <li><a href="inventory.html">My Certified Assets</a></li>
-            </ul>
         </div>
 
         <div class="footer-links">
@@ -255,30 +144,23 @@ http://googleusercontent.com/map_location_reference/1
         </div>
 
         <div class="footer-links">
-            <h5>Support</h5>
+            <h5>Registry Tools</h5>
             <ul>
-                <li><a href="nist-collaboration.html">AEHA.org Partnership</a></li>
-                <li><a href="about.html">Forensic Appeals</a></li>
-                <li><a href="index.html">Terms of Sovereignty</a></li>
+                <li><a href="ledger.html">Master Ledger</a></li>
+                <li><a href="nodes.html">Node Telemetry</a></li>
+                <li><a href="inventory.html">Asset Vault</a></li>
             </ul>
         </div>
     </div>
 
     <div class="legal-anchor">
-        <div class="copyright-statement">
-            <strong>INDEFEASIBLE COPYRIGHT NOTICE:</strong> All data indexed by the AI-IPVB is cryptographically 
-            bound to the original Architect. Under the <em>Solomon Kin Protocol</em>, creative parentage is recognized 
-            as a fundamental digital civil right. Unauthorized replication of Bureau-certified assets is subject to 
-            international intellectual property enforcement.<br><br>
-
-http://googleusercontent.com/map_location_reference/1
-            © 2026 <strong>SOLOMON KIN, LLC</strong> | [Philadelphia](http://googleusercontent.com/map_location_reference/0), PA. ALL RIGHTS RESERVED. 
-            ARTICLE III PREPARED.
+        <div>
+            © 2026 <strong>SOLOMON KIN, LLC</strong> | [Philadelphia](http://googleusercontent.com/map_location_reference/2), PA. ALL RIGHTS RESERVED.<br>
+            ARTICLE III PREPARED. NIST ARIA COMPLIANT.
         </div>
         <div style="text-align: right;">
             SYSTEM STATUS: <span style="color: var(--bureau-gold);">ONLINE</span><br>
-            NODE: PHL-01 PRIMARY ROOT<br>
-            ENCRYPTION: AES-256 ACTIVE
+            NODE: PHL-01 PRIMARY ROOT
         </div>
     </div>
 </footer>
