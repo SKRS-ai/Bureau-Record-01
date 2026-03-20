@@ -5,67 +5,203 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-IPVB | AI Intellectual Property & Verification Bureau</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/master-bureau.css">
     <style>
         :root {
             --bureau-blue: #003366; /* Federal Navy */
-            --bureau-gold: #b8860b;
+            --bureau-gold: #b8860b; /* Metallic Authority */
             --pure-white: #ffffff;
-            --off-white: #fcfcfc;
-            --border-std: #e1e4e8;
-            --text-main: #1a1a1b;
+            --off-white: #f8f9fa;
+            --border-std: #dee2e6;
+            --text-dark: #1a1a1b;
         }
 
-        body { background: var(--pure-white); color: var(--text-main); font-family: 'Montserrat', sans-serif; margin: 0; }
+        body {
+            background-color: var(--pure-white);
+            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-        /* HIGH-WHITE NAVIGATION */
+        /* FEDERAL TOP BAR */
+        .gov-banner {
+            background: #f0f0f0;
+            padding: 5px 10%;
+            font-size: 0.65rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-std);
+        }
+
+        /* CLEAN WHITE NAVIGATION */
         header {
             background: var(--pure-white);
             border-bottom: 4px solid var(--bureau-blue);
-            padding: 15px 8%;
+            padding: 20px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky; top: 0; z-index: 1000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .logo-group { display: flex; align-items: center; gap: 15px; }
-        .logo-main { font-family: 'Libre Baskerville', serif; font-weight: 700; color: var(--bureau-blue); font-size: 1.6rem; letter-spacing: -1px; }
-        
-        nav a { text-decoration: none; color: var(--bureau-blue); margin-left: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-cta { background: var(--bureau-blue); color: white !important; padding: 8px 18px; border-radius: 2px; }
+        .logo-group { display: flex; align-items: center; gap: 20px; }
+        .logo-text {
+            font-family: 'Libre Baskerville', serif;
+            color: var(--bureau-blue);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
 
-        /* FEDERAL HERO SECTION */
-        .hero { padding: 120px 10%; background: var(--off-white); border-bottom: 1px solid var(--border-std); text-align: center; }
-        .hero h1 { font-family: 'Libre Baskerville', serif; font-size: 3.2rem; color: var(--bureau-blue); margin-bottom: 15px; }
-        .hero p { max-width: 850px; margin: 0 auto 35px auto; font-size: 1.15rem; color: #444; line-height: 1.7; }
+        .logo-sub {
+            border-left: 1px solid var(--border-std);
+            padding-left: 15px;
+            font-size: 0.65rem;
+            line-height: 1.2;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        /* CORE PILLARS */
-        .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 80px 10%; background: white; }
-        .pillar-item { padding: 30px; border: 1px solid var(--border-std); border-top: 5px solid var(--bureau-blue); transition: 0.3s; }
-        .pillar-item:hover { box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
-        .pillar-item h3 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); margin-top: 0; }
+        nav a {
+            text-decoration: none;
+            color: var(--bureau-blue);
+            margin-left: 25px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
 
-        /* SUPPORT BAR */
-        .support-strip { background: var(--bureau-blue); color: white; padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
-        .support-strip a { color: white; font-weight: 700; }
+        nav a:hover { color: var(--bureau-gold); }
 
-        /* GLOBAL FOOTER ARCHITECTURE */
-        footer { background: #f1f3f5; padding: 80px 10% 40px 10%; border-top: 1px solid var(--border-std); display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
-        footer h4 { color: var(--bureau-blue); text-transform: uppercase; font-size: 0.8rem; margin-bottom: 20px; letter-spacing: 2px; }
+        .btn-cta {
+            background: var(--bureau-blue);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 2px;
+            margin-left: 30px;
+        }
+
+        /* HERO: THE ARCHITECT'S VISION */
+        .hero {
+            padding: 120px 10% 80px 10%;
+            background: radial-gradient(circle at right, #fff, var(--off-white));
+            text-align: center;
+            border-bottom: 1px solid var(--border-std);
+        }
+
+        .hero-badge {
+            color: var(--bureau-gold);
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3.5rem;
+            color: var(--bureau-blue);
+            margin: 0 0 25px 0;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 1.2rem;
+            color: #444;
+            font-weight: 300;
+        }
+
+        /* THREE PILLARS SECTION */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 80px 10%;
+        }
+
+        .pillar-card {
+            padding: 40px;
+            border: 1px solid var(--border-std);
+            background: white;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--bureau-gold);
+        }
+
+        .pillar-card h3 {
+            font-family: 'Libre Baskerville', serif;
+            color: var(--bureau-blue);
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        /* GLOBAL FOOTER (CLEAN & DETAILED) */
+        footer {
+            background: var(--off-white);
+            border-top: 1px solid var(--border-std);
+            padding: 80px 10% 40px 10%;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        footer h4 {
+            font-size: 0.8rem;
+            color: var(--bureau-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
         footer ul { list-style: none; padding: 0; margin: 0; }
-        footer ul li { margin-bottom: 12px; }
-        footer ul li a { text-decoration: none; color: #555; font-size: 0.85rem; }
-        footer ul li a:hover { color: var(--bureau-gold); }
+        footer li { margin-bottom: 15px; }
+        footer li a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+
+        footer li a:hover { color: var(--bureau-gold); }
+
+        .support-info {
+            margin-top: 40px;
+            border-top: 1px solid var(--border-std);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #999;
+        }
     </style>
 </head>
 <body>
 
+<div class="gov-banner">
+    Official Registry & Information Repository | Solomon Kin, LLC | Nodes: PHL, MSP
+</div>
+
 <header>
     <div class="logo-group">
-        <div class="logo-main">AI-IPVB</div>
-        <div style="border-left: 1px solid #ccc; padding-left: 15px; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: #666;">
-            Bureau of Record<br>Solomon Kin, LLC
+        <a href="index.html" class="logo-text">AI-IPVB</a>
+        <div class="logo-sub">
+            Bureau of Record<br>Record Ledger 01
         </div>
     </div>
     <nav>
@@ -73,79 +209,75 @@
         <a href="library.html">Library (AIRTLR)</a>
         <a href="verification.html">Verification</a>
         <a href="login.html">Login</a>
-        <a href="market.html" class="nav-cta">Register & Cart</a>
+        <a href="onboarding.html" class="btn-cta">Register & Cart</a>
     </nav>
 </header>
 
-<div class="support-strip">
-    <span>SYSTEM STATUS: <strong style="color: #00ff00;">● OPERATIONAL</strong></span>
-    <span>TECHNICAL SUPPORT: <a href="https://VexillaAITS.com">VexillaAITS.com</a> | support@VexillaAITS.com</span>
-</div>
-
 <section class="hero">
-    <div style="color: var(--bureau-gold); font-weight: 700; letter-spacing: 3px; margin-bottom: 20px;">NMMMB PROTOCOL v2.6</div>
-    <h1>The National Registry of <br>Human-AI Collaborative IP</h1>
-    <p>Established to provide forensic quantification of human-agency in the synthetic era. The AI-IPVB serves as the primary repository for indefeasible proof of provenance and verified authorship certification.</p>
+    <span class="hero-badge">NMMMB PROTOCOL V.2.6</span>
+    <h1>The Forensic Authority <br>for Synthetic Assets</h1>
+    <p>Securing the "Human Spark" in the age of generative automation. We quantify human-led agency through high-rigor forensic auditing to ensure indefeasible proof of authorship.</p>
     <div style="display: flex; justify-content: center; gap: 20px;">
-        <a href="submit.html" class="nav-cta" style="padding: 15px 40px; font-size: 0.9rem;">Initiate Forensic Audit</a>
-        <a href="grants.html" style="padding: 15px 40px; border: 2px solid var(--bureau-blue); text-decoration: none; color: var(--bureau-blue); font-weight: 700; font-size: 0.9rem;">Public Interest & Grants</a>
+        <a href="onboarding.html" style="background: var(--bureau-blue); color: white; padding: 18px 40px; text-decoration: none; font-weight: 700; border-radius: 2px;">Begin Audit Intake</a>
+        <a href="compliance.html" style="background: transparent; color: var(--bureau-blue); border: 2px solid var(--bureau-blue); padding: 18px 40px; text-decoration: none; font-weight: 700; border-radius: 2px;">Federal Compliance</a>
     </div>
 </section>
 
-<section class="pillar-grid">
-    <div class="pillar-item">
-        <h3>Forensic Accuracy</h3>
-        <p>Utilizing NMMMB Multi-variant Auditing to determine 'Human Spark' thresholds for legal filing and proprietary status.</p>
+<section class="pillars">
+    <div class="pillar-card">
+        <h3>Verification</h3>
+        <p>Public-facing search engine for Kin Pages hashes and C2PA metadata. Validating the chain of intent for Article III legal standing.</p>
     </div>
-    <div class="pillar-item">
-        <h3>Public Transparency</h3>
-        <p>A machine-readable ledger (Bureau Record 01) accessible by NIST, USPTO, and federal regulatory bodies.</p>
+    <div class="pillar-card">
+        <h3>Research</h3>
+        <p>The AIRTLR archive serves as the intellectual foundation for AI forensic standards, providing whitepapers for NIST and the USPTO.</p>
     </div>
-    <div class="pillar-item">
-        <h3>Social Equity</h3>
-        <p>Securing the 'Thin Black and Brown Lines' of digital IP for marginalized creators in Philadelphia and Minneapolis.</p>
+    <div class="pillar-card">
+        <h3>Sovereignty</h3>
+        <p>Protecting the digital IP of creators in Philadelphia and Minneapolis through the 'Thin Black and Brown Lines' equity initiative.</p>
     </div>
 </section>
 
 <footer>
     <div>
-        <h4 class="logo-main" style="font-size: 1.2rem; margin-bottom: 10px;">AI-IPVB</h4>
-        <p style="font-size: 0.8rem; color: #666; line-height: 1.6;">
-            The AI Intellectual Property & Verification Bureau is a research and information entity of Solomon Kin, LLC. 
-            Philadelphia HQ | Minneapolis Tech Node.
+        <h2 style="font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); margin-top:0;">AI-IPVB</h2>
+        <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">
+            The AI Intellectual Property & Verification Bureau is a multidisciplinary research entity of Solomon Kin, LLC. 
+            Providing managed technical logistics and forensic IP auditing since 2025.
         </p>
     </div>
     <div>
         <h4>Regulatory</h4>
         <ul>
-            <li><a href="purpose.html">Methodology</a></li>
-            <li><a href="compliance.html">Federal Compliance</a></li>
+            <li><a href="compliance.html">Federal Standards</a></li>
+            <li><a href="purpose.html">NMMMB Protocol</a></li>
             <li><a href="ethics.html">Ethics Charter</a></li>
-            <li><a href="audit-rules.html">Audit Standards</a></li>
+            <li><a href="terms.html">Legal Terms</a></li>
         </ul>
     </div>
     <div>
-        <h4>Bureau Services</h4>
+        <h4>Registry</h4>
         <ul>
-            <li><a href="market.html">Subscriptions</a></li>
-            <li><a href="verification.html">Verification Search</a></li>
+            <li><a href="verification.html">Verification Portal</a></li>
+            <li><a href="library.html">AIRTLR Library</a></li>
             <li><a href="grants.html">Grant Opportunities</a></li>
-            <li><a href="library.html">AIRTLR Archive</a></li>
+            <li><a href="audit-rules.html">Audit Standards</a></li>
         </ul>
     </div>
     <div>
         <h4>Support</h4>
         <ul>
-            <li><a href="https://VexillaAITS.com">VexillaAITS.com</a></li>
-            <li><a href="support.html">Submit Support Ticket</a></li>
             <li><a href="identity.html">The Architect</a></li>
-            <li><a href="terms.html">Legal Terms</a></li>
+            <li><a href="onboarding.html">Registration</a></li>
+            <li><a href="https://VexillaAITS.com">VexillaAITS Node</a></li>
+            <li><a href="mailto:support@VexillaAITS.com">Technical Support</a></li>
         </ul>
     </div>
 </footer>
 
-<div style="background: #e9ecef; text-align: center; padding: 20px; font-size: 0.65rem; color: #888; letter-spacing: 1px;">
-    OFFICIAL GOVERNMENT SUBMISSION CHANNEL | MANAGED AND MARKETED BY VEXILLAAITS.COM | © 2026 SOLOMON KIN, LLC
+<div class="support-info" style="padding: 0 10% 40px 10%;">
+    <div>SYSTEM NODE: 192.168.1.PHL | STATUS: ACTIVE</div>
+    <div>MANAGED AND MARKETED BY VEXILLAAITS.COM | © 2026 SOLOMON KIN, LLC</div>
 </div>
 
 </body>
