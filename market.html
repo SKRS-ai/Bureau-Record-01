@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace | AI-IPVB Licensing & Subscriptions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --pure-white: #ffffff;
+            --off-white: #f8f9fa;
+            --border-std: #dee2e6;
+        }
+
+        body {
+            background-color: var(--pure-white);
+            color: #1a1a1b;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* HEADER ALIGNMENT */
+        header {
+            background: var(--pure-white);
+            border-bottom: 4px solid var(--bureau-blue);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-text { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+        nav a { text-decoration: none; color: var(--bureau-blue); margin-left: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+
+        /* MARKET HERO */
+        .market-hero { padding: 80px 10%; background: var(--off-white); border-bottom: 1px solid var(--border-std); text-align: center; }
+        .market-hero h1 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 2.5rem; margin-bottom: 15px; }
+        
+        /* SUBSCRIPTION TIERS */
+        .pricing-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+            padding: 60px 10%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .price-card { 
+            border: 1px solid var(--border-std); 
+            padding: 40px; 
+            text-align: center; 
+            background: white; 
+            transition: 0.3s;
+            position: relative;
+        }
+        .price-card:hover { border-color: var(--bureau-gold); transform: translateY(-5px); }
+        .price-card.featured { border: 2px solid var(--bureau-blue); }
+        .price-card.featured::after { 
+            content: "RECOMMENDED"; 
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: var(--bureau-blue); color: white; padding: 4px 12px; font-size: 0.6rem; font-weight: 700;
+        }
+
+        .price-val { font-size: 2.5rem; font-weight: 700; color: var(--bureau-blue); margin: 20px 0; }
+        .price-val span { font-size: 1rem; color: #999; }
+        
+        .feature-list { list-style: none; padding: 0; margin: 30px 0; font-size: 0.85rem; color: #666; text-align: left; }
+        .feature-list li { margin-bottom: 12px; padding-left: 25px; position: relative; }
+        .feature-list li::before { content: "✓"; position: absolute; left: 0; color: var(--bureau-gold); font-weight: 700; }
+
+        .btn-buy { 
+            display: block; width: 100%; padding: 15px; background: var(--bureau-blue); color: white; 
+            text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;
+        }
+
+        /* ASSET MARKETPLACE */
+        .asset-section { padding: 80px 10%; background: var(--off-white); }
+        .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .asset-item { background: white; border: 1px solid var(--border-std); overflow: hidden; }
+        .asset-thumb { width: 100%; height: 200px; background: #eee; display: flex; align-items: center; justify-content: center; color: #ccc; font-weight: 700; }
+        .asset-info { padding: 20px; }
+        .asset-info h4 { font-family: 'Libre Baskerville', serif; margin: 0 0 10px 0; color: var(--bureau-blue); }
+
+        footer { background: white; padding: 40px 10%; border-top: 1px solid var(--border-std); text-align: center; font-size: 0.75rem; color: #888; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-text">AI-IPVB</a>
+    <nav>
+        <a href="purpose.html">Methodology</a>
+        <a href="library.html">Library</a>
+        <a href="verification.html">Verification</a>
+        <a href="onboarding.html" style="color: var(--bureau-gold);">Registration</a>
+    </nav>
+</header>
+
+<section class="market-hero">
+    <h1>Bureau Services & Licensing</h1>
+    <p style="max-width: 700px; margin: 0 auto; color: #666;">Choose a forensic subscription for continuous auditing or acquire Sovereign-certified assets for commercial utilization.</p>
+</section>
+
+<div class="pricing-grid">
+    <div class="price-card">
+        <h3 class="bureau-serif">Single Audit</h3>
+        <div class="price-val">$499 <span>/ Asset</span></div>
+        <ul class="feature-list">
+            <li>NMMMB Tier 3 Forensic Scan</li>
+            <li>Digital Sovereign Certificate</li>
+            <li>Entry into AIRTLR Public Ledger</li>
+            <li>Standard Technical Support</li>
+        </ul>
+        <a href="onboarding.html" class="btn-buy">Initiate Single Case</a>
+    </div>
+
+    <div class="price-card featured">
+        <h3 class="bureau-serif">Professional Architect</h3>
+        <div class="price-val">$1,250 <span>/ Month</span></div>
+        <ul class="feature-list">
+            <li>Up to 5 Sovereign Audits / Month</li>
+            <li>Priority Forensic Processing</li>
+            <li>Extended Legal Manifest Storage</li>
+            <li>Managed Node via VexillaAITS</li>
+        </ul>
+        <a href="onboarding.html" class="btn-buy" style="background: var(--bureau-gold);">Enroll Now</a>
+    </div>
+
+    <div class="price-card">
+        <h3 class="bureau-serif">Enterprise Bureau</h3>
+        <div class="price-val">Contact <span>/ Node</span></div>
+        <ul class="feature-list">
+            <li>Unlimited Multi-Creator Audits</li>
+            <li>White-Label Verification Portal</li>
+            <li>Direct NIST/USPTO API Bridge</li>
+            <li>24/7 Forensic Dispute Response</li>
+        </ul>
+        <a href="mailto:support@VexillaAITS.com" class="btn-buy">Request Consultation</a>
+    </div>
+</div>
+
+<section class="asset-section">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+        <h2 class="bureau-serif" style="font-size: 2rem; color: var(--bureau-blue);">Sovereign Asset Marketplace</h2>
+        <a href="verification.html" style="font-size: 0.8rem; color: var(--bureau-blue); font-weight: 700;">Verify Asset History →</a>
+    </div>
+    
+    <div class="asset-grid">
+        <div class="asset-item">
+            <div class="asset-thumb">SK-CASE-0001</div>
+            <div class="asset-info">
+                <h4>Sovereign LYRA V.2</h4>
+                <div style="font-size: 0.7rem; color: var(--bureau-gold); font-weight: 700;">TIER 3 CERTIFIED</div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">Forensically verified digital asset with 54% manual transformation.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                    <strong style="color: var(--bureau-blue);">$2,500.00</strong>
+                    <a href="onboarding.html" style="font-size: 0.7rem; color: var(--bureau-blue); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--bureau-blue);">AQUIRE LICENSE</a>
+                </div>
+            </div>
+        </div>
+        </div>
+</section>
+
+<footer>
+    © 2026 AI-IPVB | MANAGED AND MARKETED BY VEXILLAAITS.COM | SECURE NODE: 192.168.1.PHL
+</footer>
+
+</body>
+</html>
