@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Ledger | AI-IPVB Forensic Registry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --success-green: #2e7d32;
+            --border-std: #dcdcdc;
+        }
+
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #fff; color: #1a1a1b; }
+
+        /* UNIVERSAL BUREAU HEADER */
+        .bureau-header { 
+            background: #fff; border-bottom: 2px solid var(--bureau-blue); 
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 10000;
+        }
+        .bureau-logo { font-family: 'Libre Baskerville'; font-weight: 700; color: var(--bureau-blue); text-decoration: none; line-height: 1; }
+        .nav-core a { text-decoration: none; color: #555; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-left: 20px; letter-spacing: 1px; }
+
+        /* SEARCH & FILTER BAR */
+        .ledger-controls { background: #f4f4f4; padding: 40px 10%; border-bottom: 1px solid var(--border-std); display: flex; gap: 20px; align-items: flex-end; }
+        .control-group { display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
+        .control-group label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: #666; }
+        .control-group input, .control-group select { padding: 12px; border: 1px solid #ccc; font-family: inherit; font-size: 0.85rem; }
+
+        /* THE LEDGER TABLE */
+        .ledger-container { padding: 60px 10%; }
+        .ledger-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .ledger-table th { text-align: left; padding: 15px; border-bottom: 2px solid var(--bureau-blue); text-transform: uppercase; font-size: 0.7rem; color: var(--bureau-blue); }
+        .ledger-table td { padding: 20px 15px; border-bottom: 1px solid #eee; }
+        .ledger-table tr:hover { background: #fafafa; }
+
+        /* STATUS BADGES */
+        .badge { padding: 4px 10px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; border-radius: 2px; }
+        .badge-sovereign { background: var(--bureau-gold); color: white; }
+        .badge-verified { background: var(--success-green); color: white; }
+        
+        .hash-link { font-family: monospace; color: var(--bureau-blue); text-decoration: none; font-weight: 600; }
+        
+        footer { background: #1a1a1b; color: #ccc; padding: 60px 10%; margin-top: 100px; }
+    </style>
+</head>
+<body>
+
+<header class="bureau-header">
+    <a href="index.html" class="bureau-logo">AI Intellectual Property<br><span style="font-weight: 400; font-size: 0.8rem;">& Verification Bureau</span></a>
+    <nav class="nav-core">
+        <a href="metrology.html">Metrology</a>
+        <a href="nist-alignment.html">Compliance</a>
+        <a href="dispute.html">Legal Node</a>
+        <a href="ledger.html" style="color: var(--bureau-gold);">Public Ledger</a>
+    </nav>
+</header>
+
+<section class="ledger-controls">
+    <div class="control-group">
+        <label>Search Certificate / Hash</label>
+        <input type="text" placeholder="Enter SK-MET-2026 hash...">
+    </div>
+    <div class="control-group" style="flex-grow: 0; min-width: 200px;">
+        <label>Node Origin</label>
+        <select>
+            <option>All Nodes</option>
+            <option>Philadelphia (PHL-01)</option>
+            <option>Minneapolis (MSP-04)</option>
+        </select>
+    </div>
+    <div class="control-group" style="flex-grow: 0; min-width: 200px;">
+        <label>Tier Status</label>
+        <select>
+            <option>All Tiers</option>
+            <option>Tier 3: Sovereign</option>
+            <option>Tier 2: Collaborative</option>
+        </select>
+    </div>
+    <button style="background: var(--bureau-blue); color: white; border: none; padding: 12px 30px; font-weight: 700; text-transform: uppercase; cursor: pointer;">Query Registry</button>
+</section>
+
+<main class="ledger-container">
+    <div style="margin-bottom: 40px;">
+        <h2 style="font-family: 'Libre Baskerville'; font-size: 2.2rem; color: var(--bureau-blue);">AIRTLR Public Ledger</h2>
+        <p style="color: #666;">Real-time index of verified neural assets and human-spark certifications.</p>
+    </div>
+
+    <table class="ledger-table">
+        <thead>
+            <tr>
+                <th>Registration Date</th>
+                <th>Asset Title / UID</th>
+                <th>Certification Tier</th>
+                <th>Node</th>
+                <th>Authorship Hash</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2026-03-18</td>
+                <td><strong>Neural Drift: Ep 01</strong></td>
+                <td><span class="badge badge-sovereign">Tier 3 Sovereign</span></td>
+                <td>PHL-01</td>
+                <td><a href="#" class="hash-link">SK-MET-2026-PHL-8F3E9</a></td>
+                <td><span class="badge badge-verified">Active</span></td>
+            </tr>
+            <tr>
+                <td>2026-03-17</td>
+                <td><strong>Lethal Ledger Master</strong></td>
+                <td><span class="badge badge-sovereign">Tier 3 Sovereign</span></td>
+                <td>MSP-04</td>
+                <td><a href="#" class="hash-link">SK-MET-2026-MSP-2D1B4</a></td>
+                <td><span class="badge badge-verified">Active</span></td>
+            </tr>
+            <tr>
+                <td>2026-03-15</td>
+                <td><strong>Sovereign Voice Beta</strong></td>
+                <td><span class="badge" style="background: #003366; color: white;">Tier 2 Collab</span></td>
+                <td>PHL-01</td>
+                <td><a href="#" class="hash-link">SK-MET-2026-PHL-99A01</a></td>
+                <td><span class="badge badge-verified">Active</span></td>
+            </tr>
+            </tbody>
+    </table>
+</main>
+
+<footer>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <span style="font-family: 'Libre Baskerville'; color: #fff; font-size: 1.2rem;">AI-IPVB Ledger</span>
+            <p style="font-size: 0.7rem; margin-top: 10px;">Managed by Solomon Kin, LLC. Authorized for Article III Evidence Preparation.</p>
+        </div>
+        <div style="text-align: right; font-size: 0.65rem; color: #888;">
+            © 2026 AI-IPVB | PHL-01 | MSP-04<br>
+            Lead Architect: Nehemiah M. Brown
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
