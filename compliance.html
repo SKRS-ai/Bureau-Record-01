@@ -2,75 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Compliance | AI-IPVB Federal Regulatory Alignment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance | AI-IPVB Federal Alignment</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/master-bureau.css">
     <style>
         :root {
-            --fed-navy: #003366;
-            --fed-gold: #b8860b;
-            --gray-900: #1a1a1b;
-            --gray-100: #f8f9fa;
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --pure-white: #ffffff;
+            --off-white: #f8f9fa;
+            --border-std: #dee2e6;
         }
-        body { background: #ffffff; color: var(--gray-900); font-family: 'Montserrat', sans-serif; margin: 0; }
-        .comp-header { padding: 80px 10%; background: var(--gray-100); border-bottom: 2px solid var(--fed-navy); text-align: center; }
-        .section-box { padding: 60px 10%; border-bottom: 1px solid #eee; }
-        .framework-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
-        .framework-card { border: 1px solid #ddd; padding: 30px; border-left: 5px solid var(--fed-gold); }
-        .jargon-block { font-family: 'Libre Baskerville', serif; font-size: 0.95rem; line-height: 1.8; color: #444; font-style: italic; background: #fffcf5; padding: 25px; border: 1px solid #f1e6c9; }
-        .status-badge { display: inline-block; padding: 5px 15px; background: #e6fffa; color: #234e52; border: 1px solid #81e6d9; font-size: 0.7rem; font-weight: 700; margin-bottom: 10px; }
+
+        body {
+            background-color: var(--pure-white);
+            color: #1a1a1b;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* FEDERAL HEADER */
+        header {
+            background: white;
+            border-bottom: 4px solid var(--bureau-blue);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-text { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+
+        /* COMPLIANCE LAYOUT */
+        .comp-container { max-width: 900px; margin: 80px auto; padding: 0 20px; }
+        
+        .comp-header { text-align: center; margin-bottom: 60px; }
+        .comp-header h1 { font-family: 'Libre Baskerville', serif; font-size: 2.8rem; color: var(--bureau-blue); margin: 0; }
+        .status-badge { 
+            display: inline-block; background: #e6fffa; color: #234e52; border: 1px solid #81e6d9; 
+            padding: 5px 15px; font-size: 0.7rem; font-weight: 700; margin-top: 15px; text-transform: uppercase;
+        }
+
+        .standard-section { margin-bottom: 60px; padding: 40px; border: 1px solid var(--border-std); background: var(--off-white); }
+        .standard-section h2 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); margin-top: 0; font-size: 1.5rem; }
+        
+        .jargon-list { list-style: none; padding: 0; margin-top: 20px; }
+        .jargon-list li { margin-bottom: 20px; padding-left: 20px; border-left: 3px solid var(--bureau-gold); }
+        .jargon-list strong { color: var(--bureau-blue); display: block; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+
+        footer { text-align: center; padding: 60px; font-size: 0.75rem; color: #888; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
-<header class="bureau-header" style="background: #fff; border-bottom: 3px solid var(--fed-navy);">
-    </header>
+<header>
+    <a href="index.html" class="logo-text">AI-IPVB</a>
+    <nav style="font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);">
+        FEDERAL NODE: PHL-01 | AUDIT COMPLIANCE
+    </nav>
+</header>
 
-<section class="comp-header">
-    <div class="status-badge">SYSTEM AUDIT: MARCH 2026 COMPLIANT</div>
-    <h1 class="bureau-serif" style="font-size: 2.8rem; color: var(--fed-navy);">Federal Regulatory Alignment</h1>
-    <p style="max-width: 800px; margin: 0 auto;">Documentation of the AI-IPVB’s adherence to NIST USAISI standards, C2PA provenance protocols, and the Executive Order on Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence.</p>
-</section>
-
-<section class="section-box">
-    <h2 class="bureau-serif">1. NIST-800 & USAISI Integration</h2>
-    <div class="jargon-block">
-        The AI-IPVB operates under a <strong>Tiered Verification Framework</strong> directly synchronized with the National Institute of Standards and Technology (NIST) AI Risk Management Framework (AI RMF 1.0). Our <strong>NMMMB Protocol</strong> serves as a Technical Evaluation and Validation (TEV) layer, providing the high-fidelity measurement of 'human-agency' required for Article III standing in intellectual property adjudication.
+<div class="comp-container">
+    <div class="comp-header">
+        <h1>Regulatory Compliance</h1>
+        <div class="status-badge">Audit Cycle 2026: Fully Compliant</div>
+        <p style="margin-top: 20px; color: #666;">Documentation of AI-IPVB’s alignment with national and international standards for AI measurement and provenance.</p>
     </div>
-    
-    <div class="framework-grid">
-        <div class="framework-card">
-            <h4>Data Sovereignty (NIST 800-53)</h4>
-            <p style="font-size: 0.85rem;">All Bureau Records are stored in encrypted, non-custodial environments, ensuring that the 'Human Origin' metadata remains immutable and accessible only by the verified author and federal oversight bodies.</p>
-        </div>
-        <div class="framework-card">
-            <h4>Algorithm Transparency</h4>
-            <p style="font-size: 0.85rem;">We provide full de-convolution of the neural manifest, allowing regulators to inspect the 'delta' between autonomous generation and human manual transformation.</p>
-        </div>
+
+    <section class="standard-section">
+        <h2>I. NIST AI Risk Management Framework</h2>
+        <p>The Bureau operates under the **NIST AI RMF 1.0** standards, ensuring that every NMMMB audit provides the "Measurement Science" required for trustworthy AI deployment.</p>
+        <ul class="jargon-list">
+            <li>
+                <strong>Quantifiable Validity:</strong>
+                Our >50% manual transformation metric aligns with federal requirements for "Substantial Human Control."
+            </li>
+            <li>
+                <strong>Accountability:</strong>
+                The AIRTLR Public Ledger provides the transparency logs required by the **March 2026 Executive Order on AI Safety**.
+            </li>
+        </ul>
+    </section>
+
+    <section class="standard-section">
+        <h2>II. C2PA Provenance Standards</h2>
+        <p>We utilize the **Coalition for Content Provenance and Authenticity (C2PA)** technical specifications to bind forensic metadata to digital assets.</p>
+        <ul class="jargon-list">
+            <li>
+                <strong>Cryptographic Binding:</strong>
+                Every Sovereign Certificate is hashed and mirrored on the C2PA manifest of the certified file.
+            </li>
+            <li>
+                <strong>Immutable History:</strong>
+                The 100+ prompt chain is cryptographically locked, preventing "Neural Drift" or unauthorized machine-spoofing.
+            </li>
+        </ul>
+    </section>
+
+    <section class="standard-section" style="background: #fffcf5; border-color: var(--bureau-gold);">
+        <h2>III. Regional Economic Hub Alignment</h2>
+        <p>As a **Managed Logistics Provider**, Solomon Kin, LLC ensures that the Bureau's operations support the specific economic growth mandates of our primary nodes:</p>
+        <ul class="jargon-list">
+            <li><strong>Philadelphia Hub:</strong> Protecting urban creative IP within the tri-state innovation corridor.</li>
+            <li><strong>Minneapolis Hub:</strong> Securing the 'Thin Black and Brown Lines' of IP sovereignty in the Midwest tech sector.</li>
+        </ul>
+    </section>
+
+    <div style="text-align: center; margin-top: 60px;">
+        <a href="onboarding.html" style="background: var(--bureau-blue); color: white; padding: 15px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Register for Compliance Audit</a>
     </div>
-</section>
+</div>
 
-<section class="section-box" style="background: var(--gray-100);">
-    <h2 class="bureau-serif">2. C2PA & Metadata Standards</h2>
-    <p>The Bureau utilizes the <strong>Coalition for Content Provenance and Authenticity (C2PA)</strong> open standard to 'watermark' human intent into the asset's metadata.</p>
-    
-    <ul style="line-height: 2;">
-        <li><strong>Cryptographic Binding:</strong> Every NMMMB Tier 3 asset is digitally signed at the hardware level.</li>
-        <li><strong>Immutable Manifests:</strong> The 100+ prompt-chain is hashed and stored within the <strong>AIRTLR Ledger</strong>.</li>
-        <li><strong>Tamper Evident:</strong> Any unauthorized modification of the certified asset results in an immediate 'Audit Breach' notification via the Verification Portal.</li>
-    </ul>
-</section>
-
-<section class="section-box">
-    <h2 class="bureau-serif">3. Executive Compliance: The "Human Spark" Clause</h2>
-    <div class="jargon-block" style="background: #f0f4f8; border-color: #d1d9e6;">
-        Pursuant to the March 2026 Executive Clarification on Generative AI, the AI-IPVB serves as a <strong>Safe Harbor</strong> for creators. By establishing a 50%+ manual transformation threshold, the Bureau provides the "Substantial Control" evidence required for USPTO filing and copyright protection.
-    </div>
-    <p style="margin-top: 20px; font-size: 0.85rem;">Solomon Kin, LLC acts as the <strong>Managed Logistics Provider</strong>, ensuring that all submissions from <strong>Philadelphia</strong> and <strong>Minneapolis</strong> nodes meet the national security requirements for identity verification (KYC-Creator).</p>
-</section>
-
-<footer class="bureau-footer">
-    </footer>
+<footer>
+    © 2026 AI-IPVB | BUREAU OF RECORD | MANAGED BY SOLOMON KIN, LLC | <a href="mailto:support@VexillaAITS.com" style="color: #888;">Technical Inquiries</a>
+</footer>
 
 </body>
 </html>
