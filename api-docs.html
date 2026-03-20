@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Docs | AI-IPVB Technical Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --code-bg: #1e1e1e; --bureau-blue: #003366; }
+        body { background: #fff; font-family: 'Montserrat', sans-serif; display: grid; grid-template-columns: 250px 1fr; margin: 0; min-height: 100vh; }
+        aside { background: #f4f4f4; border-right: 1px solid #ddd; padding: 40px 20px; font-size: 0.8rem; }
+        main { padding: 60px 10%; }
+        .endpoint { font-family: monospace; background: #eee; padding: 5px 10px; color: var(--bureau-blue); font-weight: 700; }
+        .code-block { background: var(--code-bg); color: #d4d4d4; padding: 20px; border-radius: 5px; font-family: monospace; font-size: 0.85rem; margin: 20px 0; }
+        .method { color: #569cd6; font-weight: 700; }
+    </style>
+</head>
+<body>
+<aside>
+    <strong style="color: var(--bureau-blue); text-transform: uppercase; letter-spacing: 1px;">API Reference</strong>
+    <nav style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px;">
+        <a href="#auth" style="text-decoration: none; color: #666;">Authentication</a>
+        <a href="#verify" style="text-decoration: none; color: #666;">Verify Hash</a>
+        <a href="#manifest" style="text-decoration: none; color: #666;">Submit Manifest</a>
+    </nav>
+</aside>
+
+<main>
+    <h1 style="color: var(--bureau-blue);">AI-IPVB Public API v1.0</h1>
+    <p>Programmatically verify Sovereign status and NMMMB compliance via our secure technical bridge.</p>
+
+    <h2 id="verify">Verify Kin Pages Hash</h2>
+    <p>Perform a forensic lookup on any asset registered in the AIRTLR.</p>
+    <span class="endpoint">GET /v1/verify/{kin_hash}</span>
+
+    <div class="code-block">
+<span class="method">curl</span> -X GET "https://api.VexillaAITS.com/v1/verify/8f3e9a721b66..." \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-H "Authorization: Bearer YOUR_BUREAU_ID"
+    </div>
+
+    <h3>Response Schema</h3>
+    <div class="code-block">
+{<br>
+&nbsp;&nbsp;"status": "SOVEREIGN",<br>
+&nbsp;&nbsp;"tier": 3,<br>
+&nbsp;&nbsp;"agency_score": 0.542,<br>
+&nbsp;&nbsp;"architect": "Nehemiah M. Brown"<br>
+}
+    </div>
+</main>
+</body>
+</html>
