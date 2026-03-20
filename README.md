@@ -1,6 +1,55 @@
 # Bureau-Record-01
 Bureau Record 01 is the primary, immutable repository for the AI Intellectual Property &amp; Verification Bureau (AI-IPVB), a division of Solomon Kin, LLC. This repository serves as the global "Source of Truth" for assets that have successfully navigated the NMMMB Forensic Protocol (Neural, Manifest, Manual, Mapping, Baseline).
 Bureau Record 01
+
+
+# AI-IPVB | AI Intellectual Property & Verification Bureau
+### Official Repository of Solomon Kin, LLC
+**Lead Architect:** Nehemiah M. Brown (Mustafa King Brown)  
+**Nodes:** PHL-01 (Philadelphia) | MSP-04 (Minneapolis)  
+**Status:** NIST AI RMF 1.0 Aligned | v2.6.0-Forensic
+
+---
+
+## 🏛️ Executive Mission
+The AI-IPVB is a distributed forensic infrastructure designed to protect the **Human Spark** in an era of autonomous synthetic media. By utilizing the **NMMMB Protocol**, we provide the quantitative metrology required to distinguish between "Neural Slop" and "Sovereign Authorship."
+
+## 🔬 The NMMMB Standard (v2.6)
+We evaluate assets based on the **Kin-Brown Transformation Coefficient ($C_k$)**. Our audit requires a minimum **54% Manual Delta** to achieve Tier 3 Sovereign Certification.
+
+- **Tier 1 (Assisted):** < 25% Human Delta | Public Domain Status.
+- **Tier 2 (Collaborative):** 26% - 53% Human Delta | Co-Authorship Status.
+- **Tier 3 (Sovereign):** 54% - 100% Human Delta | Full Copyright Authority.
+
+## 📂 Repository Architecture (The Federal Whiteboard)
+The ecosystem is comprised of 27 high-authority nodes:
+
+| Module | Filename | Purpose |
+| :--- | :--- | :--- |
+| **Core** | `index.html` | The Bureau Gateway |
+| **Science** | `metrology.html` | The math of the Human Spark |
+| **Audit** | `audit-portal.html` | Forensic data intake terminal |
+| **Ledger** | `ledger.html` | Public transparency portal |
+| **Equity** | `ethics.html` | The Thin Black & Brown Lines initiative |
+| **Agency** | `castaistars.html` | Neural Talent Management |
+
+## 🛠️ Technical Stack
+- **Framework:** Vanilla HTML5/CSS3 (The Federal Whiteboard Aesthetic)
+- **Metrology:** LaTeX integration via MathJax for $C_k$ calculations.
+- **Metadata:** C2PA / CAI manifest alignment.
+- **Distributed Nodes:** Regional syncing between Philadelphia and Minneapolis.
+
+## ⚖️ NIST & Federal Compliance
+This repository is architected to align with the **NIST ARIA (Assessing Risks and Impacts of AI)** pilot challenges. We are currently preparing the **CRADA** (Cooperative Research and Development Agreement) for formal **AISIC** membership.
+
+---
+
+## 📞 Bureau Contact
+For forensic inquiries, grant partnerships, or media briefings:
+**Email:** nehemiah.brown@Solomonkinrecords.com  
+**Managed By:** VexillaAITS.com Technical Node
+
+> "Equity in the age of automation is a forensic requirement."
 Repository Description:
 The Definitive Forensic Ledger of Human-AI Authorship.
 
