@@ -7,120 +7,164 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/master-bureau.css">
     <style>
-        .hero-section { 
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('img/bureau-bg.jpg'); 
-            background-size: cover; padding: 120px 10%; text-align: center; border-bottom: 1px solid var(--border-std);
-        }
-        .bureau-badge { 
-            display: inline-block; padding: 10px 25px; border: 2px solid var(--bureau-gold); 
-            color: var(--bureau-gold); font-weight: 900; font-size: 0.7rem; text-transform: uppercase; 
-            letter-spacing: 3px; margin-bottom: 30px; 
-        }
-        .mega-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
-        .feature-card { padding: 40px; border: 1px solid var(--border-std); background: #fff; transition: 0.3s; position: relative; }
-        .feature-card:hover { border-color: var(--bureau-gold); box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
-        .feature-card h3 { font-size: 1.2rem; margin-bottom: 15px; }
+        /* HERO & BRANDING */
+        .hero-command { background: #fff; padding: 100px 10% 60px 10%; border-bottom: 5px solid var(--bureau-blue); text-align: left; position: relative; }
+        .hero-command h1 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 20px; color: var(--bureau-blue); }
+        .hero-command p { font-size: 1.3rem; max-width: 850px; color: #444; margin-bottom: 40px; border-left: 4px solid var(--bureau-gold); padding-left: 25px; }
         
-        .alert-banner { background: var(--bureau-blue); color: white; padding: 15px; text-align: center; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; }
-        .stat-bar { background: var(--off-white); padding: 40px 10%; display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-std); }
+        /* THE TACTICAL GRID */
+        .tactical-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 40px 10%; background: var(--off-white); }
+        .module-card { background: white; border: 1px solid var(--border-std); padding: 25px; transition: 0.3s; position: relative; }
+        .module-card:hover { border-color: var(--bureau-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.05); transform: translateY(-3px); }
+        .module-card h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; color: var(--bureau-blue); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .module-card p { font-size: 0.8rem; line-height: 1.5; color: #666; margin-bottom: 20px; }
+        .module-link { font-size: 0.7rem; font-weight: 700; text-decoration: none; color: var(--bureau-gold); text-transform: uppercase; }
+
+        /* REGIONAL STATUS BAR */
+        .status-strip { background: var(--bureau-blue); color: white; padding: 15px 10%; display: flex; justify-content: space-between; font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; }
+        
+        /* ACTION ROW */
+        .action-row { background: white; padding: 60px 10%; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; align-items: center; }
+        .cta-box { background: var(--off-white); padding: 40px; border: 1px solid var(--bureau-gold); }
     </style>
 </head>
 <body>
 
-<div class="alert-banner">
-    NOTICE: NMMMB PROTOCOL V2.6 IS NOW THE ACTIVE METROLOGY STANDARD FOR ALL TIER 3 SOVEREIGN AUDITS.
+<div class="status-strip">
+    <span>NODE: PHL-01 (ACTIVE)</span>
+    <span>NODE: MSP-04 (ACTIVE)</span>
+    <span>METROLOGY: NMMMB v2.6</span>
+    <span>PROTOCOL: 2026 AI-IP ACT COMPLIANT</span>
 </div>
 
 <header>
     <a href="index.html" class="logo-main">AI-IPVB</a>
     <nav>
-        <div class="dropdown" style="display:inline-block; margin-right:20px;">
-            <a href="tiers.html" style="margin:0;">AUDIT TIERS ▼</a>
-        </div>
-        <a href="metrology.html">THE SCIENCE</a>
-        <a href="compliance.html">COMPLIANCE</a>
+        <a href="dashboard.html">MY COMMAND</a>
         <a href="ledger.html">THE LEDGER</a>
         <a href="onboarding.html" class="nav-cta">INITIATE CASE</a>
     </nav>
 </header>
 
-<section class="hero-section">
-    <div class="bureau-badge">Bureau of Forensic Authorship</div>
-    <h1 style="font-size: 4rem; max-width: 900px; margin: 0 auto 30px;">Protecting the Human Spark in the Synthetic Era.</h1>
-    <p style="font-size: 1.2rem; color: #555; max-width: 800px; margin: 0 auto;">
-        The **AI-IPVB** is the definitive national authority for the measurement and certification of human agency within AI-assisted workflows. Utilizing the **NMMMB Protocol**, we provide the forensic evidence required to secure <strong>Sovereign Authorship</strong> under the 2026 AI Intellectual Property Act.
+<section class="hero-command">
+    <span class="caps-sub" style="color: var(--bureau-gold); font-size: 0.8rem;">Solomon Kin, LLC | Bureau of Forensic Authorship</span>
+    <h1>Protecting the Human Spark.</h1>
+    <p>
+        The AI-IPVB provides the definitive <strong>Forensic Metrology</strong> required to secure Sovereign Authorship. In an era of autonomous synthetic media, we verify the intent, the labor, and the legal sovereignty of the Human Architect.
     </p>
-    <div style="margin-top: 50px;">
-        <a href="audit-portal.html" class="nav-cta" style="padding: 20px 50px; font-size: 1rem;">Execute Forensic Audit</a>
-        <a href="purpose.html" style="margin-left: 20px; color: var(--bureau-blue); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--bureau-gold);">Review Methodology</a>
+    <div style="display: flex; gap: 20px;">
+        <a href="audit-portal.html" class="nav-cta" style="padding: 15px 40px;">Execute Forensic Scan</a>
+        <a href="metrology.html" style="font-weight: 700; color: var(--bureau-blue); text-decoration: none; border: 1px solid var(--bureau-blue); padding: 15px 40px;">Review The Science</a>
     </div>
 </section>
 
-<div class="stat-bar">
-    <div><small>REGIONAL NODES:</small><br><strong>PHL-01 | MSP-04</strong></div>
-    <div><small>ACTIVE METROLOGY:</small><br><strong>NMMMB v2.6</strong></div>
-    <div><small>NIST ALIGNMENT:</small><br><strong>ARIA 0.1 PILOT</strong></div>
-    <div><small>LEGAL STANDING:</small><br><strong>ARTICLE III COMPLIANT</strong></div>
+<div class="tactical-grid">
+    <div class="module-card">
+        <h3>1. The Science</h3>
+        <p>Understand the 54% Delta and the math behind the Human Spark.</p>
+        <a href="metrology.html" class="module-link">Metrology Specs →</a>
+    </div>
+    <div class="module-card">
+        <h3>2. The Tiers</h3>
+        <p>Explainers for Tier 1 (Assisted), Tier 2 (Collaborative), and Tier 3 (Sovereign).</p>
+        <a href="tiers.html" class="module-link">Audit Tiers →</a>
+    </div>
+    <div class="module-card">
+        <h3>3. NIST Alignment</h3>
+        <p>Official compliance data for ARIA 0.1 and the AI RMF 1.0 Framework.</p>
+        <a href="nist-alignment.html" class="module-link">Federal Alignment →</a>
+    </div>
+    <div class="module-card">
+        <h3>4. Market Data</h3>
+        <p>Statistics on creator adoption and IP vulnerability in the US market.</p>
+        <a href="analytics.html" class="module-link">View Analytics →</a>
+    </div>
+
+    <div class="module-card">
+        <h3>5. Dispute Node</h3>
+        <p>Evidence packages for Article III legal challenges and copyright theft.</p>
+        <a href="dispute.html" class="module-link">Initiate Dispute →</a>
+    </div>
+    <div class="module-card">
+        <h3>6. Equity Hub</h3>
+        <p>The Thin Black & Brown Lines initiative for Philly and Minneapolis creators.</p>
+        <a href="equity-impact.html" class="module-link">Regional Impact →</a>
+    </div>
+    <div class="module-card">
+        <h3>7. Legal Archive</h3>
+        <p>Standard Terms of Forensic Service and Privacy Shield protocols.</p>
+        <a href="legal.html" class="module-link">Terms & Data Privacy →</a>
+    </div>
+    <div class="module-card">
+        <h3>8. Public Ledger</h3>
+        <p>Transparency portal for all certified AIRTLR transaction records.</p>
+        <a href="ledger.html" class="module-link">Search Ledger →</a>
+    </div>
+
+    <div class="module-card">
+        <h3>9. Lethal Ledger</h3>
+        <p>Forensic documentaries investigating neural displacement and deepfakes.</p>
+        <a href="lethal-ledger.html" class="module-link">Watch Cases →</a>
+    </div>
+    <div class="module-card">
+        <h3>10. AI Radio Pod</h3>
+        <p>Sovereign broadcasting experiments in synthetic audio and intent.</p>
+        <a href="airadiopod.html" class="module-link">Listen Live →</a>
+    </div>
+    <div class="module-card">
+        <h3>11. Cast Ai Stars</h3>
+        <p>The talent agency for NMMMB Tier 3 Certified Virtual Influencers.</p>
+        <a href="castaistars.html" class="module-link">Talent Roster →</a>
+    </div>
+    <div class="module-card">
+        <h3>12. Media Kit</h3>
+        <p>Official brand assets, headshots, and press briefings for Solomon Kin, LLC.</p>
+        <a href="press.html" class="module-link">Download Assets →</a>
+    </div>
+
+    <div class="module-card">
+        <h3>13. Node Map</h3>
+        <p>Visualizing the regional authority of our Philadelphia and Minneapolis hubs.</p>
+        <a href="nodes.html" class="module-link">Regional Network →</a>
+    </div>
+    <div class="module-card">
+        <h3>14. API Docs</h3>
+        <p>Technical interface for federal partners and enterprise marketplaces.</p>
+        <a href="api-docs.html" class="module-link">Bridge Documentation →</a>
+    </div>
+    <div class="module-card">
+        <h3>15. System Health</h3>
+        <p>Live NOC monitor showing network latency and NIST database sync.</p>
+        <a href="status.html" class="module-link">Live Status →</a>
+    </div>
+    <div class="module-card">
+        <h3>16. Interop Hub</h3>
+        <p>Standards for data portability across ISO, IEEE, and W3C nodes.</p>
+        <a href="interop.html" class="module-link">Data Standards →</a>
+    </div>
 </div>
 
-<section class="container-wide">
-    <h2 class="bureau-serif" style="text-align: center; font-size: 2.5rem;">Bureau Departments</h2>
-    
-    <div class="mega-grid">
-        <div class="feature-card">
-            <h3>Forensic Metrology</h3>
-            <p>Calculate your <strong>Kin-Brown Coefficient</strong>. We analyze recursive manifests and pixel-delta transformation to prove your human directorship.</p>
-            <a href="metrology.html" style="color: var(--bureau-gold); font-weight: 700; text-decoration: none;">View Science Specs →</a>
-        </div>
-
-        <div class="feature-card">
-            <h3>Dispute Resolution</h3>
-            <p>Defense against Neural Extraction. We provide the <strong>Forensic Evidence Package</strong> required for federal copyright litigation.</p>
-            <a href="dispute.html" style="color: var(--bureau-gold); font-weight: 700; text-decoration: none;">Initiate Challenge →</a>
-        </div>
-
-        <div class="feature-card">
-            <h3>Thin Black & Brown Lines</h3>
-            <p>Our equity initiative protecting the cultural sovereignty of marginalized creators in Philadelphia and Minneapolis.</p>
-            <a href="equity-impact.html" style="color: var(--bureau-gold); font-weight: 700; text-decoration: none;">Regional Impact Data →</a>
-        </div>
-
-        <div class="feature-card">
-            <h3>Cast Ai Stars</h3>
-            <p>The premier talent agency for Sovereign Neural Assets. Monetize your certified Tier 3 virtual influencers.</p>
-            <a href="castaistars.html" style="color: var(--bureau-gold); font-weight: 700; text-decoration: none;">Enter Agency Node →</a>
-        </div>
-
-        <div class="feature-card">
-            <h3>Lethal Ledger</h3>
-            <p>Documenting the intersection of AI risk and human intent through our forensic film and broadcast series.</p>
-            <a href="lethal-ledger.html" style="color: var(--bureau-gold); font-weight: 700; text-decoration: none;">Watch Case Files →</a>
-        </div>
-
-        <div class="feature-card" style="background: var(--off-white);">
-            <h3>Network Operations</h3>
-            <p>Real-time system health, regional node maps, and API documentation for federal and enterprise partners.</p>
-            <a href="status.html" style="color: var(--bureau-gold); font-weight: 700; text-decoration: none;">System Status →</a>
-        </div>
+<section class="action-row">
+    <div>
+        <h2 class="bureau-serif" style="font-size: 2.2rem;">For the Creator & The Counsel</h2>
+        <p style="font-size: 1rem; color: #555;">
+            Whether you are a <strong>Mustafa King Brown</strong> level architect looking to secure your legacy, or a legal firm requiring a <strong>Forensic Evidence Package</strong> to meet the 2026 AI IP Act's 'Burden of Proof', the Bureau is your primary node for Authorship Sovereignty.
+        </p>
     </div>
-</section>
-
-<section class="container-wide" style="background: var(--off-white); text-align: center;">
-    <h2 class="bureau-serif">The Authorship Mandate</h2>
-    <p style="max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">
-        "Under the 2026 AI IP Act, copyright is no longer a given—it is a forensic result. If you cannot prove your intent through data, you do not own the output. The AI-IPVB is your proof."
-    </p>
-    <a href="analytics.html" class="action-link" style="font-size: 1rem;">View Market & Legal Analytics</a>
+    <div class="cta-box">
+        <h3 style="margin-top:0;">Initiate Case File</h3>
+        <p style="font-size: 0.8rem;">Select your audit tier and submit your recursive manifest for immediate metrology scanning.</p>
+        <a href="onboarding.html" class="nav-cta" style="display:block; text-align:center;">Begin Forensic Intake</a>
+    </div>
 </section>
 
 <footer>
-    <div style="margin-bottom: 30px;">
-        <a href="prospectus.html" style="margin: 0 15px; color: #888; text-decoration: none;">Grant Prospectus</a> | 
-        <a href="interop.html" style="margin: 0 15px; color: #888; text-decoration: none;">Data Portability</a> | 
-        <a href="press.html" style="margin: 0 15px; color: #888; text-decoration: none;">Media Kit</a> | 
-        <a href="legal.html" style="margin: 0 15px; color: #888; text-decoration: none;">Privacy & Terms</a>
+    <div style="margin-bottom: 20px;">
+        <a href="prospectus.html" style="margin: 0 10px; color: #888; text-decoration: none;">Grant Prospectus</a> | 
+        <a href="ethics.html" style="margin: 0 10px; color: #888; text-decoration: none;">Ethical Charter</a> | 
+        <a href="purpose.html" style="margin: 0 10px; color: #888; text-decoration: none;">Methodology</a>
     </div>
-    © 2026 AI-IPVB | SOLOMON KIN, LLC | REGIONAL NODES: PHL-01 & MSP-04 | MANAGED BY VEXILLAAITS.COM
+    © 2026 AI-IPVB | SOLOMON KIN, LLC | NODES: PHL & MSP | MANAGED BY VEXILLAAITS.COM
 </footer>
 
 </body>
