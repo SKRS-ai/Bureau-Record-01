@@ -1,1 +1,29 @@
+:root {
+    --bureau-blue: #003366;
+    --bureau-gold: #b8860b;
+    --off-white: #f4f4f4;
+    --text-dark: #1a1a1b;
+    --border-std: #dcdcdc;
+}
 
+body { font-family: 'Montserrat', sans-serif; color: var(--text-dark); line-height: 1.6; margin: 0; }
+h1, h2, h3, .bureau-serif { font-family: 'Libre Baskerville', serif; }
+
+/* Global Navigation Enhancement */
+.universal-header { 
+    background: #fff; border-bottom: 2px solid var(--bureau-blue); 
+    padding: 10px 5%; display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 9999;
+}
+
+.nav-links a { 
+    text-decoration: none; color: var(--text-dark); font-size: 0.7rem; 
+    font-weight: 700; text-transform: uppercase; margin-right: 20px; 
+}
+
+.auth-block .btn-auth { 
+    border: 1px solid var(--bureau-blue); padding: 8px 15px; 
+    font-size: 0.65rem; font-weight: 700; text-decoration: none; color: var(--bureau-blue);
+}
+
+.auth-block .btn-register { background: var(--bureau-blue); color: white; }
