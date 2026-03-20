@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audit Standards | AI-IPVB Technical Criteria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/master-bureau.css">
+    <style>
+        :root { --fed-blue: #003366; --gold: #b8860b; --table-bg: #fdfdfd; }
+        body { background: #ffffff; color: #1a1a1b; font-family: 'Montserrat', sans-serif; margin: 0; }
+        .rules-hero { padding: 80px 10%; background: #f1f4f8; border-bottom: 2px solid var(--fed-blue); }
+        .rule-section { padding: 60px 10%; border-bottom: 1px solid #eee; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 30px; background: var(--table-bg); }
+        th { background: var(--fed-blue); color: white; padding: 15px; text-align: left; font-size: 0.8rem; text-transform: uppercase; }
+        td { border: 1px solid #dee2e6; padding: 15px; font-size: 0.9rem; vertical-align: top; }
+        
+        .metric-box { display: flex; gap: 20px; margin-top: 20px; }
+        .metric { flex: 1; border: 1px solid #c5a059; padding: 20px; background: #fffcf5; text-align: center; }
+        .metric h4 { margin: 0; color: var(--gold); font-size: 1.5rem; }
+        .metric span { font-size: 0.7rem; text-transform: uppercase; color: #666; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header class="bureau-header" style="background: #fff; border-bottom: 3px solid var(--fed-blue);">
+    </header>
+
+<section class="rules-hero">
+    <h1 class="bureau-serif" style="font-size: 2.8rem;">Technical Audit Standards</h1>
+    <p style="max-width: 800px; color: #444;">The AI-IPVB utilizes a quantitative scoring system to differentiate between autonomous synthetic output and human-led collaborative IP. All submissions are graded against the NMMMB Standard v2.6.</p>
+</section>
+
+<section class="rule-section">
+    <h2 class="bureau-serif">1. The Three Tiers of Certification</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Classification</th>
+                <th>Manual Delta %</th>
+                <th>Iteration Count</th>
+                <th>Legal Standing</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Tier 1: Assisted</strong></td>
+                <td>< 20%</td>
+                <td>1 - 25</td>
+                <td>Public Domain / AI-Generated</td>
+            </tr>
+            <tr>
+                <td><strong>Tier 2: Collaborative</strong></td>
+                <td>20% - 50%</td>
+                <td>25 - 100</td>
+                <td>Limited Copyright / Shared Agency</td>
+            </tr>
+            <tr>
+                <td><strong>Tier 3: Sovereign</strong></td>
+                <td>> 50%</td>
+                <td>100+</td>
+                <td><strong>Full Proprietary Authorship</strong></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="rule-section" style="background: #fafafa;">
+    <h2 class="bureau-serif">2. The 100+ Iteration Rule (Manifest Audit)</h2>
+    <p>To pass a Tier 3 Audit, the creator must provide a <strong>JSON Manifest</strong> documenting a minimum of 100 iterative interactions with the model. This proves <strong>"Human Directorship."</strong></p>
+    
+    <div class="metric-box">
+        <div class="metric">
+            <h4>100+</h4>
+            <span>Minimum Iterations</span>
+        </div>
+        <div class="metric">
+            <h4>>50%</h4>
+            <span>Manual Transformation</span>
+        </div>
+        <div class="metric">
+            <h4>KYC</h4>
+            <span>Identity Verified</span>
+        </div>
+    </div>
+    
+    <div style="margin-top: 40px; border-left: 4px solid var(--fed-blue); padding-left: 20px; font-style: italic; color: #555;">
+        "Autonomous generation—where a single prompt produces a final result—is ineligible for Bureau Certification. Sovereignty requires a persistent 'Chain of Intent' where the human refines, rejects, and refactors the neural output."
+    </div>
+</section>
+
+<section class="rule-section">
+    <h2 class="bureau-serif">3. Forensic Disqualification (The "AI Slop" Clause)</h2>
+    <p>An asset will be summarily rejected if it fails any of the following technical checks:</p>
+    <ul style="line-height: 2;">
+        <li><strong>Neural Drift:</strong> Evidence of hallucinations that exceed the creator's documented intent.</li>
+        <li><strong>Data Plagiarism:</strong> Direct duplication of training set tokens without transformative manual refactoring.</li>
+        <li><strong>Anonymity:</strong> Failure to link the asset to a <strong>Ballot-Verified Identity</strong> (Philadelphia or Minneapolis hub).</li>
+    </ul>
+</section>
+
+<footer class="bureau-footer">
+    </footer>
+
+</body>
+</html>
