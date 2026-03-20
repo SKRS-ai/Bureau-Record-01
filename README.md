@@ -83,6 +83,48 @@ Integrity: Unauthorized modification of any file within this repository invalida
 © 2026 Solomon Kin, LLC. All Rights Reserved.
 The frameworks, acronyms, and tiered verification systems contained in Bureau Record 01 are the proprietary Intellectual Property of Solomon Kin, LLC. Unauthorized replication of this forensic pipeline for commercial verification services is strictly prohibited under international trade secret laws.
 
+# AI-IPVB | AI Intellectual Property & Verification Bureau
+### Official Repository for the AIRTLR (AI Research and Technology Library Record)
+
+**Lead Architect:** Nehemiah M. Brown (Mustafa King Brown)  
+**Managed Node:** Solomon Kin, LLC  
+**Technical Infrastructure:** VexillaAITS.com  
+**Regional Nodes:** Philadelphia, PA | Minneapolis, MN  
+
+---
+
+## 🏛️ Mission Statement
+The **AI Intellectual Property & Verification Bureau (AI-IPVB)** is a forensic regulatory entity designed to mitigate the "Verification Gap" in synthetic media. By utilizing the **NMMMB Protocol**, we establish a cryptographic chain of intent, ensuring that the "Human Spark" remains the legally recognized entity in human-AI collaborative works.
+
+## 🧬 The NMMMB Protocol v2.6
+Every asset registered in this repository undergoes a five-stage forensic audit:
+1. **Neural Integrity (N):** Base-model licensing and non-infringement verification.
+2. **Manifest Audit (M):** Procedural auditing of 100+ iterative prompt-chains.
+3. **Manual Transformation (M):** Quantification of the >50% human refactoring threshold.
+4. **Mapping Provenance (M):** Cryptographic binding to Ballot-Verified Identity.
+5. **Baseline Certification (B):** Entry into the Sovereign Registry (AIRTLR).
+
+## 📂 Repository Architecture
+This repository contains the front-end infrastructure for the Bureau’s digital portal:
+
+* `index.html`: The Federal Whiteboard Authority Hub.
+* `purpose.html`: Technical Methodology & Jargon Framework.
+* `compliance.html`: NIST & Federal Regulatory Alignment.
+* `verification.html`: The Kin Pages Forensic Search Engine.
+* `onboarding.html`: Case Registration & Audit Intake (The Cart).
+* `dashboard.html`: Architect/User Asset Management Console.
+* `identity.html`: Leadership Credentials & Bio of the Lead Architect.
+
+## ⚖️ Legal Disclaimer
+The AI-IPVB operates as a **Non-Custodial Forensic Repository**. Certification constitutes a technical validation of human-agency and does not replace the statutory requirements of the U.S. Copyright Office. Solomon Kin, LLC acts as a Managed Logistics Provider for digital provenance.
+
+## 🛠️ Technical Support
+All technical disputes, node management, and forensic errors are managed by:
+**VexillaAITS Technical Services** 📧 [support@VexillaAITS.com](mailto:support@VexillaAITS.com)
+
+---
+© 2026 Solomon Kin, LLC. All Rights Reserved. Protecting the "Thin Black and Brown Lines" of Digital Sovereignty.
+
 Lead Architect: Nehemiah M. Brown (NMMMB)
 
 Parent Entity: Solomon Kin, LLC
