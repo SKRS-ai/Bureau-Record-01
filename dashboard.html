@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | AI-IPVB Asset Console</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --pure-white: #ffffff;
+            --off-white: #f8f9fa;
+            --border-std: #dee2e6;
+            --status-active: #28a745;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: #1a1a1b;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* SIDE NAVIGATION BAR */
+        aside {
+            background: var(--bureau-blue);
+            color: white;
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .side-logo { font-family: 'Libre Baskerville', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+        
+        .nav-item { 
+            text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; 
+            margin-bottom: 25px; display: block; transition: 0.2s;
+        }
+        .nav-item:hover, .nav-item.active { color: var(--bureau-gold); }
+
+        /* MAIN CONTENT AREA */
+        main { padding: 60px 8%; background: var(--pure-white); }
+        
+        .dash-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; border-bottom: 2px solid var(--bureau-blue); padding-bottom: 20px; }
+        .welcome-text h1 { font-family: 'Libre Baskerville', serif; font-size: 2.2rem; color: var(--bureau-blue); margin: 0; }
+        .welcome-text p { font-size: 0.85rem; color: #666; margin-top: 5px; }
+
+        /* ASSET CARDS */
+        .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .asset-card { border: 1px solid var(--border-std); padding: 25px; background: white; transition: 0.3s; }
+        .asset-card:hover { border-color: var(--bureau-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+        .tag-tier { font-size: 0.65rem; font-weight: 700; background: var(--off-white); color: var(--bureau-gold); padding: 5px 10px; border: 1px solid var(--bureau-gold); text-transform: uppercase; }
+        .asset-title { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.2rem; margin: 15px 0 5px 0; }
+        .asset-hash { font-family: monospace; font-size: 0.7rem; color: #999; word-break: break-all; margin-bottom: 20px; }
+
+        .status-indicator { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: var(--status-active); margin-bottom: 20px; }
+        .dot { width: 8px; height: 8px; background: var(--status-active); border-radius: 50%; }
+
+        .btn-action { 
+            display: inline-block; text-decoration: none; font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue); 
+            border: 1px solid var(--bureau-blue); padding: 8px 15px; margin-right: 10px; transition: 0.2s;
+        }
+        .btn-action:hover { background: var(--bureau-blue); color: white; }
+
+        /* SUPPORT WIDGET */
+        .support-box { margin-top: auto; background: rgba(255,255,255,0.05); padding: 20px; font-size: 0.7rem; border-left: 3px solid var(--bureau-gold); }
+
+    </style>
+</head>
+<body>
+
+<aside>
+    <div class="side-logo">AI-IPVB</div>
+    <nav>
+        <a href="dashboard.html" class="nav-item active">My Verified Assets</a>
+        <a href="submission.html" class="nav-item">New Forensic Audit</a>
+        <a href="library.html" class="nav-item">AIRTLR Archives</a>
+        <a href="verification.html" class="nav-item">Public Registry</a>
+    </nav>
+
+    <div class="support-box">
+        <strong style="color: var(--bureau-gold); display: block; margin-bottom: 5px;">VEXILLAAITS NODE</strong>
+        Managed Technical Support:<br>
+        <a href="mailto:support@VexillaAITS.com" style="color: white; text-decoration: none; opacity: 0.8;">support@VexillaAITS.com</a>
+    </div>
+
+    <a href="index.html" class="nav-item" style="margin-top: 40px; font-size: 0.7rem; opacity: 0.5;">✕ Terminate Session</a>
+</aside>
+
+<main>
+    <div class="dash-header">
+        <div class="welcome-text">
+            <h1 id="user-display">Architect Console</h1>
+            <p>ID: <span id="bureau-id">SK-USR-PENDING</span> | Local Node: PHL-01</p>
+        </div>
+        <div style="text-align: right;">
+            <a href="submission.html" style="background: var(--bureau-blue); color: white; padding: 12px 25px; text-decoration: none; font-weight: 700; font-size: 0.8rem;">+ Initiate New Audit</a>
+        </div>
+    </div>
+
+    <h2 class="bureau-serif" style="font-size: 1.4rem; margin-bottom: 30px;">Certified Sovereign Inventory</h2>
+
+    <div class="asset-grid">
+        <div class="asset-card">
+            <span class="tag-tier">Tier 3: Sovereign</span>
+            <h3 class="asset-title">Sovereign LYRA V.2</h3>
+            <div class="asset-hash">8f3e9a721b664d90a1c2b1f88e99321f</div>
+            
+            <div class="status-indicator">
+                <div class="dot"></div> AUDIT COMPLETE: CERTIFIED
+            </div>
+
+            <div style="display: flex;">
+                <a href="seal_metadata/certificates/SK-2026-CASE-0001.pdf" class="btn-action">Certificate PDF</a>
+                <a href="#" class="btn-action">View Manifest</a>
+            </div>
+        </div>
+
+        <div class="asset-card">
+            <span class="tag-tier" style="border-color: #666; color: #666;">Tier 2: Collaborative</span>
+            <h3 class="asset-title">Kin Canvas #04</h3>
+            <div class="asset-hash">1d4f2b3e5a7c9d1e2f4a6b8c0e2d4f6a</div>
+            
+            <div class="status-indicator">
+                <div class="dot"></div> AUDIT COMPLETE: CERTIFIED
+            </div>
+
+            <div style="display: flex;">
+                <a href="#" class="btn-action">Certificate PDF</a>
+                <a href="#" class="btn-action">View Manifest</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const email = localStorage.getItem('AIRTLR_USER_EMAIL') || "Architect";
+        document.getElementById('user-display').innerText = `Welcome, ${email.split('@')[0]}`;
+        document.getElementById('bureau-id').innerText = 'SK-USR-' + btoa(email).substring(0, 8).toUpperCase();
+    });
+</script>
+
+</body>
+</html>
