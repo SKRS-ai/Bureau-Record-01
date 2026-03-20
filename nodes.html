@@ -2,54 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nodes | AI-IPVB Distributed Authority</title>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --bureau-blue: #003366; --bureau-gold: #b8860b; --off-white: #f8f9fa; }
-        body { background: white; color: #1a1a1b; font-family: 'Montserrat', sans-serif; margin: 0; }
-        header { border-bottom: 4px solid var(--bureau-blue); padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; }
-        .node-container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
-        
-        .map-placeholder { 
-            width: 100%; height: 400px; background: var(--off-white); border: 1px solid #ddd; 
-            display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
-        }
-        .node-point { position: absolute; width: 15px; height: 15px; background: var(--bureau-gold); border-radius: 50%; box-shadow: 0 0 15px var(--bureau-gold); }
-        .node-label { position: absolute; font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue); text-transform: uppercase; margin-top: 25px; }
-
-        .node-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; }
-        .node-card { border: 1px solid #eee; padding: 30px; border-left: 5px solid var(--bureau-blue); }
-        .node-status { font-size: 0.6rem; font-weight: 900; color: #28a745; margin-bottom: 10px; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regional Nodes | AI-IPVB Infrastructure</title>
+    <link rel="stylesheet" href="css/master-bureau.css">
 </head>
 <body>
-<header>
-    <a href="index.html" style="font-family: 'Libre Baskerville'; color: var(--bureau-blue); text-decoration: none; font-weight: 700;">AI-IPVB</a>
-    <div style="font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);">NETWORK STATUS: SYNCHRONIZED</div>
+
+<header class="bureau-bar-universal" style="background:#fff; border-bottom:2px solid #003366; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:10000;">
+    <div class="identity-block" style="display:flex; align-items:center; gap:15px;">
+        <a href="index.html" style="font-family:'Libre Baskerville'; font-weight:700; font-size:1.1rem; color:#003366; text-decoration:none;">AI Intellectual Property<br><span style="font-weight:400; font-size:0.8rem;">& Verification Bureau</span></a>
+    </div>
+    <nav style="display:flex; gap:20px;">
+        <a href="metrology.html" style="text-decoration:none; color:#555; font-size:0.7rem; font-weight:700; text-transform:uppercase;">Metrology</a>
+        <a href="nist-alignment.html" style="text-decoration:none; color:#555; font-size:0.7rem; font-weight:700; text-transform:uppercase;">Compliance</a>
+        <a href="dispute.html" style="text-decoration:none; color:#555; font-size:0.7rem; font-weight:700; text-transform:uppercase;">Legal Forensics</a>
+        <a href="ledger.html" style="text-decoration:none; color:#555; font-size:0.7rem; font-weight:700; text-transform:uppercase;">Public Ledger</a>
+    </nav>
+    <div class="secure-access-block" style="display:flex; gap:15px; align-items:center;">
+        <a href="login.html" style="font-size:0.7rem; font-weight:700; text-transform:uppercase; text-decoration:none; padding:10px 20px; border:1px solid #003366; color:#003366;">Login</a>
+        <a href="onboarding.html" style="font-size:0.7rem; font-weight:700; text-transform:uppercase; text-decoration:none; padding:10px 20px; background:#003366; color:white;">Register</a>
+        <div style="font-size:0.8rem; font-weight:700; color:#555;">Cart <span style="color:#d32f2f;">(0)</span></div>
+    </div>
 </header>
 
-<div class="node-container">
-    <h1 style="font-family: 'Libre Baskerville'; color: var(--bureau-blue);">Distributed Regional Nodes</h1>
-    <p style="color: #666;">The AI-IPVB operates via dedicated forensic nodes to ensure jurisdictional compliance and local community equity.</p>
+<section class="container-wide" style="padding:100px 10%; background:#fafafa;">
+    <span class="caps-sub" style="color:#b8860b; font-weight:700; letter-spacing:2px; text-transform:uppercase; font-size:0.7rem;">Infrastructure Operations | Solomon Kin, LLC</span>
+    <h1 style="font-family:'Libre Baskerville'; font-size:3.5rem; color:#003366; margin-top:10px;">Regional Authority Nodes</h1>
+    <p style="font-size:1.2rem; color:#444; max-width:850px; border-left:4px solid #b8860b; padding-left:25px;">
+        The Bureau maintains distributed computing nodes in strategic urban corridors to ensure low-latency forensic processing and localized legal compliance.
+    </p>
 
-    <div class="map-placeholder">
-        <div class="node-point" style="top: 45%; left: 85%;"></div> <span class="node-label" style="top: 45%; left: 82%;">PHL-01</span>
-        <div class="node-point" style="top: 35%; left: 65%;"></div> <span class="node-label" style="top: 35%; left: 62%;">MSP-04</span>
-        <span style="color: #ccc; font-size: 5rem; font-weight: 900; opacity: 0.1;">NORTH AMERICA</span>
+    
+
+    <div class="node-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:60px;">
+        <div class="node-card" style="background:white; border:1px solid #ddd; padding:40px;">
+            <h4 style="color:#b8860b; font-size:0.7rem; text-transform:uppercase; margin-bottom:10px;">Primary Node: PHL-01</h4>
+            <h3 style="font-family:'Libre Baskerville'; font-size:1.8rem; margin-top:0;">Philadelphia, PA</h3>
+            <p style="font-size:0.9rem; color:#666;">Serving the Atlantic Northeast corridor. Specializing in Cultural Heritage Protection and Music Industry Forensic Audits.</p>
+            <div style="background:#f4f4f4; padding:15px; margin-top:20px; font-family:monospace; font-size:0.7rem;">
+                STATUS: ONLINE <br> LATENCY: 12ms <br> IP_RANGE: 192.168.PHL.01
+            </div>
+            <a href="equity-impact.html" style="display:inline-block; margin-top:20px; color:#003366; font-weight:700; text-decoration:none; font-size:0.8rem;">View Philly Equity Data →</a>
+        </div>
+
+        <div class="node-card" style="background:white; border:1px solid #ddd; padding:40px;">
+            <h4 style="color:#b8860b; font-size:0.7rem; text-transform:uppercase; margin-bottom:10px;">Regional Node: MSP-04</h4>
+            <h3 style="font-family:'Libre Baskerville'; font-size:1.8rem; margin-top:0;">Minneapolis, MN</h3>
+            <p style="font-size:0.9rem; color:#666;">Serving the Midwest Innovation corridor. Specializing in Neural Asset Management and AI Filmmaking Compliance.</p>
+            <div style="background:#f4f4f4; padding:15px; margin-top:20px; font-family:monospace; font-size:0.7rem;">
+                STATUS: ONLINE <br> LATENCY: 38ms <br> IP_RANGE: 192.168.MSP.04
+            </div>
+            <a href="equity-impact.html" style="display:inline-block; margin-top:20px; color:#003366; font-weight:700; text-decoration:none; font-size:0.8rem;">View Midwest Impact Data →</a>
+        </div>
     </div>
 
-    <div class="node-grid">
-        <div class="node-card">
-            <div class="node-status">● ACTIVE / ENCRYPTED</div>
-            <h3 style="margin: 0; font-family: 'Libre Baskerville';">Node PHL-01 (Philadelphia)</h3>
-            <p style="font-size: 0.85rem; color: #555;">Primary Registry Node. Manages NMMMB Tier 3 certifications and Article III legal liaison for the East Coast corridor.</p>
+    <div class="inter-node-connection" style="margin-top:60px; padding:40px; border:1px dashed #003366; text-align:center; background:#eef2ff;">
+        <h3 style="font-family:'Libre Baskerville'; color:#003366;">Encrypted Inter-Node Handshake</h3>
+        <p style="font-size:0.9rem; color:#555;">Data submitted in PHL is instantly mirrored in the MSP vault via a 256-bit AES tunnel, ensuring zero data loss and total authorship redundancy.</p>
+        <a href="status.html" style="font-weight:700; color:#b8860b; text-decoration:none;">View Live Network Health →</a>
+    </div>
+</section>
+
+<footer style="background:#1a1a1b; color:#ccc; padding:80px 10%;">
+    <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:50px; margin-bottom:60px;">
+        <div>
+            <span style="font-family:'Libre Baskerville'; color:#fff; font-size:1.5rem;">AI-IPVB</span>
+            <p style="font-size:0.75rem; line-height:1.8; margin-top:20px;">Managed by Solomon Kin, LLC. Authorized for Article III Forensic Evidence preparation.</p>
         </div>
-        <div class="node-card">
-            <div class="node-status">● ACTIVE / ENCRYPTED</div>
-            <h3 style="margin: 0; font-family: 'Libre Baskerville';">Node MSP-04 (Minneapolis)</h3>
-            <p style="font-size: 0.85rem; color: #555;">Secondary Research Node. Central hub for the 'Thin Black and Brown Lines' equity initiative and Midwest forensic auditing.</p>
+        <div>
+            <h5 style="color:#b8860b; text-transform:uppercase; font-size:0.7rem; margin-bottom:20px;">Divisions</h5>
+            <ul style="list-style:none; padding:0; font-size:0.8rem;">
+                <li><a href="metrology.html" style="color:#aaa; text-decoration:none;">Metrology Lab</a></li>
+                <li><a href="dispute.html" style="color:#aaa; text-decoration:none;">Legal Forensics</a></li>
+                <li><a href="castaistars.html" style="color:#aaa; text-decoration:none;">Talent Agency</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5 style="color:#b8860b; text-transform:uppercase; font-size:0.7rem; margin-bottom:20px;">Governance</h5>
+            <ul style="list-style:none; padding:0; font-size:0.8rem;">
+                <li><a href="nist-alignment.html" style="color:#aaa; text-decoration:none;">NIST Compliance</a></li>
+                <li><a href="prospectus.html" style="color:#aaa; text-decoration:none;">Prospectus</a></li>
+                <li><a href="legal.html" style="color:#aaa; text-decoration:none;">Terms/Privacy</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5 style="color:#b8860b; text-transform:uppercase; font-size:0.7rem; margin-bottom:20px;">Regional</h5>
+            <ul style="list-style:none; padding:0; font-size:0.8rem;">
+                <li style="color:#aaa;">Philadelphia</li>
+                <li style="color:#aaa;">Minneapolis</li>
+                <li><a href="status.html" style="color:#aaa; text-decoration:none;">Network Status</a></li>
+            </ul>
         </div>
     </div>
-</div>
+    <div style="border-top:1px solid #333; padding-top:30px; display:flex; justify-content:space-between; font-size:0.65rem; color:#888;">
+        <span>© 2026 AI-IPVB | SOLOMON KIN, LLC | NODES: PHL & MSP</span>
+        <span>Lead Architect: Nehemiah M. Brown | VexillaAITS.com</span>
+    </div>
+</footer>
+
 </body>
 </html>
