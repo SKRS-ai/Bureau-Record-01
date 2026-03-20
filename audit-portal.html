@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audit Portal | Secure Forensic Intake</title>
+    <link rel="stylesheet" href="css/master-bureau.css">
+    <style>
+        .step-indicator { display: flex; justify-content: space-between; margin-bottom: 50px; border-bottom: 1px solid var(--border-std); padding-bottom: 20px; }
+        .step { font-size: 0.7rem; font-weight: 700; color: #ccc; text-transform: uppercase; }
+        .step.active { color: var(--bureau-blue); border-bottom: 2px solid var(--bureau-blue); padding-bottom: 18px; }
+        
+        .upload-zone { 
+            border: 2px dashed var(--border-std); padding: 60px; text-align: center; background: var(--off-white); 
+            transition: 0.3s; cursor: pointer; margin-bottom: 30px;
+        }
+        .upload-zone:hover { border-color: var(--bureau-gold); background: #fffdf5; }
+        
+        .manifest-preview { background: #1e1e1e; color: #00ff00; font-family: 'Courier New', monospace; padding: 20px; font-size: 0.8rem; height: 150px; overflow-y: scroll; border-radius: 4px; display: none; }
+        
+        .sensor-readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; }
+        .sensor-card { padding: 15px; border: 1px solid var(--border-std); font-size: 0.75rem; text-align: center; }
+        .sensor-val { font-weight: 900; color: var(--bureau-blue); display: block; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-main">AI-IPVB</a>
+    <div style="font-size: 0.7rem; font-weight: 700; color: var(--bureau-gold);">SECURE CONNECTION: 256-BIT ENCRYPTED</div>
+</header>
+
+<section class="container-wide" style="max-width: 900px;">
+    <div class="step-indicator">
+        <div class="step active">01. Evidence Upload</div>
+        <div class="step">02. Metrology Scan</div>
+        <div class="step">03. Ledger Injection</div>
+        <div class="step">04. Certification</div>
+    </div>
+
+    <h1 style="font-family: 'Libre Baskerville';">Initiate Forensic Analysis</h1>
+    <p style="color: #666; margin-bottom: 40px;">Please provide the raw recursive data for the asset. Our sensors will calculate the <strong>Kin-Brown Coefficient</strong> in real-time.</p>
+
+    <div class="whiteboard-box">
+        <h3 style="margin-top:0;">1. Primary Asset (Final Render)</h3>
+        <div class="upload-zone" id="asset-upload">
+            <p>Drag & Drop High-Res Asset (PNG/TIFF/MP4)</p>
+            <span class="caps-sub" style="font-size: 0.6rem;">C2PA Metadata Preferred</span>
+        </div>
+    </div>
+
+    <div class="whiteboard-box">
+        <h3 style="margin-top:0;">2. Recursive Manifest (The 100+ Prompt Chain)</h3>
+        <p style="font-size: 0.85rem; color: #666;">Upload your JSON or CSV interaction log. This data is used to measure <strong>Semantic Entropy</strong>.</p>
+        <div class="upload-zone" id="manifest-upload" style="padding: 30px;">
+            <p>Upload .JSON Manifest</p>
+        </div>
+        <div id="preview" class="manifest-preview">
+            [SYS_LOG]: ANALYZING RECURSIVE DEPTH...<br>
+            [ITERATION_01]: PROMPT_INIT...<br>
+            [ITERATION_45]: MANUAL_REFRACTORING_DETECTED...<br>
+            [ITERATION_89]: ENTROPY_GRADIENT_OPTIMIZED...
+        </div>
+    </div>
+
+    <div class="sensor-readout">
+        <div class="sensor-card">
+            <span class="sensor-val" id="pixel-delta">-- %</span>
+            MANUAL PIXEL DELTA
+        </div>
+        <div class="sensor-card">
+            <span class="sensor-val" id="entropy-score">--</span>
+            SEMANTIC ENTROPY
+        </div>
+        <div class="sensor-card">
+            <span class="sensor-val" id="agency-status">PENDING</span>
+            AGENCY CLASSIFICATION
+        </div>
+    </div>
+
+    <div style="margin-top: 50px; text-align: center;">
+        <button class="nav-cta" style="border:none; padding: 20px 60px; font-size: 1rem; cursor: pointer;" onclick="document.getElementById('preview').style.display='block';">Execute Metrology Scan</button>
+    </div>
+</section>
+
+<footer>
+    © 2026 AI-IPVB | SOLOMON KIN, LLC | FORENSIC INTAKE NODE: PHL-01
+</footer>
+
+</body>
+</html>
