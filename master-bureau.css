@@ -1,0 +1,170 @@
+/* AI-IPVB MASTER BUREAU STYLESHEET v2.6
+    Aesthetic: Federal Whiteboard / Forensic Authority
+    Primary Nodes: Philadelphia (PHL) | Minneapolis (MSP)
+*/
+
+:root {
+    /* Official Bureau Palette */
+    --bureau-blue: #003366;    /* Federal Navy */
+    --bureau-gold: #b8860b;    /* Dark Goldenrod - Authority Accent */
+    --pure-white: #ffffff;
+    --off-white: #f8f9fa;      /* Clinical Grey-White */
+    --border-std: #dee2e6;     /* Standard Technical Border */
+    --text-dark: #1a1a1b;
+    --text-muted: #666666;
+    --security-green: #2d5a27; /* NIST/Compliance Green */
+    --error-red: #8b0000;      /* Rejection/Security Red */
+}
+
+/* 1. Global Resets */
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--pure-white);
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 2. Typography Hierarchy */
+h1, h2, h3, .bureau-serif {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    color: var(--bureau-blue);
+}
+
+p {
+    font-size: 1rem;
+    color: #444;
+    font-weight: 400;
+}
+
+.caps-sub {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--bureau-gold);
+}
+
+/* 3. Federal Header System */
+header {
+    background: var(--pure-white);
+    border-bottom: 4px solid var(--bureau-blue);
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-main {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.6rem;
+    color: var(--bureau-blue);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--bureau-blue);
+    margin-left: 25px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.2s ease-in-out;
+}
+
+nav a:hover {
+    color: var(--bureau-gold);
+}
+
+.nav-cta {
+    background: var(--bureau-blue);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 2px;
+}
+
+/* 4. Layout & Containers */
+.container-wide {
+    padding: 80px 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.whiteboard-box {
+    background: var(--pure-white);
+    border: 1px solid var(--border-std);
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+/* 5. Components: Tables & Data */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: var(--off-white);
+}
+
+th {
+    background: var(--bureau-blue);
+    color: white;
+    text-align: left;
+    padding: 15px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-std);
+    font-size: 0.9rem;
+}
+
+/* 6. Forensic Accents */
+.status-pill {
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.pill-active { background: #e6fffa; color: var(--security-green); border-color: var(--security-green); }
+.pill-error { background: #fff5f5; color: var(--error-red); border-color: var(--error-red); }
+
+/* 7. Footer */
+footer {
+    background: var(--off-white);
+    border-top: 1px solid var(--border-std);
+    padding: 60px 10% 30px 10%;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.footer-node {
+    font-family: monospace;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+/* 8. Print Rules (For Certificates) */
+@media print {
+    .no-print { display: none !important; }
+    body { background: white; }
+    .cert-border { border: 15px solid var(--bureau-gold) !important; }
+}
