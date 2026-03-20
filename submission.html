@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Audit | AI-IPVB Forensic Intake</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --pure-white: #ffffff;
+            --off-white: #f8f9fa;
+            --border-std: #dee2e6;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: #1a1a1b;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            border-bottom: 4px solid var(--bureau-blue);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-text { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+
+        .submission-container {
+            max-width: 900px;
+            margin: 60px auto;
+            background: white;
+            border: 1px solid var(--border-std);
+            padding: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .step { font-size: 0.7rem; font-weight: 700; color: #ccc; text-transform: uppercase; letter-spacing: 1px; }
+        .step.active { color: var(--bureau-blue); border-bottom: 2px solid var(--bureau-blue); padding-bottom: 18px; }
+
+        .form-section { margin-bottom: 40px; }
+        .form-section h3 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); margin-bottom: 20px; border-left: 4px solid var(--bureau-gold); padding-left: 15px; }
+
+        label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--bureau-blue); text-transform: uppercase; margin-bottom: 8px; }
+        input[type="text"], textarea, select {
+            width: 100%; padding: 15px; border: 1px solid var(--border-std); background: #fdfdfd; box-sizing: border-box; font-family: 'Montserrat', sans-serif; margin-bottom: 20px;
+        }
+
+        .upload-zone {
+            border: 2px dashed var(--border-std);
+            padding: 40px;
+            text-align: center;
+            background: var(--off-white);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .upload-zone:hover { border-color: var(--bureau-gold); background: #fff; }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--bureau-blue);
+            color: white;
+            padding: 20px;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            letter-spacing: 2px;
+            font-size: 1rem;
+        }
+
+        .warning-footer {
+            margin-top: 30px;
+            font-size: 0.65rem;
+            color: #999;
+            text-align: center;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-text">AI-IPVB</a>
+    <div style="font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);">SECURE UPLOAD CHANNEL: 192.168.1.PHL</div>
+</header>
+
+<div class="submission-container">
+    <div class="step-indicator">
+        <div class="step active">1. Asset Manifest</div>
+        <div class="step">2. Forensic Evidence</div>
+        <div class="step">3. Identity Link</div>
+    </div>
+
+    <form id="submissionForm">
+        <div class="form-section">
+            <h3>I. Primary Asset Identification</h3>
+            <label>Project Title / Masterwork Name</label>
+            <input type="text" required placeholder="e.g. Sovereign LYRA V.3">
+            
+            <label>NMMMB Target Classification</label>
+            <select required>
+                <option value="tier3">Tier 3: Sovereign (>50% Manual Transformation)</option>
+                <option value="tier2">Tier 2: Collaborative (20-50% Manual Transformation)</option>
+                <option value="tier1">Tier 1: Assisted (<20% Manual Transformation)</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <h3>II. Neural Manifest (100+ Prompt Chain)</h3>
+            <label>Chain of Intent Description</label>
+            <textarea rows="4" placeholder="Briefly describe the manual refactoring and iterative refinement logic used in this project..."></textarea>
+            
+            <label>Upload Manifest JSON / CSV (Required for Tier 3)</label>
+            <div class="upload-zone" onclick="alert('Bureau File Browser Initiated...')">
+                <strong>DRAG & DROP MANIFEST DATA</strong><br>
+                <small>Format: .JSON, .CSV, or .TXT (Maximum 50MB)</small>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>III. Proof of Sovereignty</h3>
+            <label>Asset URI / IPFS Hash (Optional)</label>
+            <input type="text" placeholder="ipfs://...">
+            
+            <label>Ballot-Verified Architect Email</label>
+            <input type="email" id="confirm-email" readonly style="background: #eee;">
+        </div>
+
+        <button type="submit" class="btn-submit">Initialize Forensic Scan</button>
+        
+        <div class="warning-footer">
+            LEGAL NOTICE: By submitting this manifest, you certify that the 'Human Spark' threshold has been met under penalty of de-registration. 
+            All forensic data is processed via the VexillaAITS.com Technical Bridge.
+        </div>
+    </form>
+</div>
+
+<footer style="text-align: center; padding: 40px; font-size: 0.7rem; color: #999;">
+    © 2026 AI-IPVB | BUREAU OF RECORD | MANAGED BY SOLOMON KIN, LLC
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const email = localStorage.getItem('AIRTLR_USER_EMAIL') || "Unauthorized@Access.log";
+        document.getElementById('confirm-email').value = email;
+    });
+
+    document.getElementById('submissionForm').onsubmit = function(e) {
+        e.preventDefault();
+        alert("BUREAU NOTICE: Manifest Received. NMMMB Forensic Scanning Initiated. Check your Dashboard for live tracking.");
+        window.location.href = 'dashboard.html';
+    };
+</script>
+
+</body>
+</html>
