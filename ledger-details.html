@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sovereign Receipt: SK-PHL-8F3E9 | AI-IPVB Registry</title>
+    <title>Sovereign Receipt: SK-PHL-XXXXX | AI-IPVB Registry</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -27,7 +27,7 @@
         
         /* WATERMARK */
         .receipt-container::before {
-            content: "SOVEREIGN"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg);
+            content: "SAMPLE"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg);
             font-size: 8rem; color: rgba(184, 134, 11, 0.03); font-weight: 900; pointer-events: none; z-index: 0;
         }
 
@@ -37,15 +37,12 @@
 
         .receipt-body { padding: 60px; z-index: 1; position: relative; }
 
-        /* DATA GRID */
         .data-row { display: grid; grid-template-columns: 200px 1fr; padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
         .label { font-size: 0.65rem; font-weight: 700; color: #999; text-transform: uppercase; }
         .value { font-size: 1rem; color: var(--bureau-blue); font-weight: 600; }
         .hash-font { font-family: monospace; word-break: break-all; color: #555; }
 
-        /* METROLOGY SEAL */
         .seal-box { margin-top: 40px; border: 1px solid var(--bureau-gold); padding: 30px; display: flex; align-items: center; gap: 30px; background: #fffcf5; }
-        .seal-img { width: 120px; }
         .seal-text h3 { font-family: 'Libre Baskerville'; color: var(--bureau-gold); margin: 0 0 10px 0; font-size: 1.1rem; }
         .seal-text p { font-size: 0.8rem; margin: 0; color: #555; }
 
@@ -69,19 +66,19 @@
     <div class="receipt-body">
         <div class="data-row">
             <div class="label">Registration ID</div>
-            <div class="value">SK-PHL-2026-8F3E9</div>
+            <div class="value">SK-PHL-202X-XXXXX</div>
         </div>
         <div class="data-row">
             <div class="label">Date of Origin</div>
-            <div class="value">March 20, 2026 | 10:42:01 UTC</div>
+            <div class="value">JANUARY 01, 202X | 00:00:00 UTC</div>
         </div>
         <div class="data-row">
             <div class="label">Lead Architect</div>
-            <div class="value">Mustafa King Brown (Nehemiah M. Brown)</div>
+            <div class="value">JOHN DOE (SAMPLE RECORD)</div>
         </div>
         <div class="data-row">
             <div class="label">Asset Title</div>
-            <div class="value">"Neural Drift: The Sovereign Character"</div>
+            <div class="value">"ASSET TITLE PLACEHOLDER"</div>
         </div>
         <div class="data-row">
             <div class="label">Certification Tier</div>
@@ -89,36 +86,32 @@
         </div>
         <div class="data-row">
             <div class="label">Human Delta ($C_k$)</div>
-            <div class="value">89.4% (Mustafa Gradient Verified)</div>
+            <div class="value">00.0% (SAMPLE DATA)</div>
         </div>
         <div class="data-row" style="border-bottom: none;">
             <div class="label">Cryptographic Hash</div>
-            <div class="value hash-font">0x8f3e9b1d2c4a5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z</div>
+            <div class="value hash-font">0x00000000000000000000000000000000000000000000000000000000</div>
         </div>
 
         <div class="seal-box">
-            <img src="img/tier-3-shield.png" alt="Sovereign Seal" class="seal-img">
+            <div style="background: var(--bureau-gold); width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900;">Σ</div>
             <div class="seal-text">
-                <h3>Sovereign Status: VALIDATED</h3>
+                <h3>Office of the Lead Architect | PHL-01 Root</h3>
                 <p>
-                    This asset has surpassed the 54% Transformation Threshold required for Article III Standing. 
-                    The AI-IPVB Bureau certifies that the human intent overrides the algorithmic randomness in this work.
+                    This document serves as a template for validated authorship. Final forensic certificates are cryptographically bound to the individual's legal identity upon $C_k$ verification.
                 </p>
             </div>
         </div>
-
-        <p style="font-size: 0.65rem; color: #999; margin-top: 30px; font-style: italic; text-align: center;">
-            This document serves as a permanent, non-fungible entry in the AIRTLR Public Ledger. 
-            Mirror nodes: PHL-01 (Primary), MSP-04 (Secondary), FRA-09 (EMEA), TYO-12 (APAC).
-        </p>
 
         <a href="ledger.html" class="btn-verify">Return to Public Registry</a>
     </div>
 </main>
 
 <footer>
-    © 2026 AI-IPVB | SOLOMON KIN, LLC | Philadelphia Authority Node<br>
-    Standardizing the Human Spark Worldwide. Lead Architect: Nehemiah M. Brown.
+    OFFICE OF THE LEAD ARCHITECT | PHL-01 ROOT AUTHORITY<br>
+
+http://googleusercontent.com/map_location_reference/1
+    © 2026 SOLOMON KIN, LLC | [Philadelphia](http://googleusercontent.com/map_location_reference/0), PA | NIST ARIA COMPLIANT
 </footer>
 
 </body>
