@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Intake Vault | AI-IPVB Forensic Processing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --vault-bg: #1a1a1b;
+            --terminal-green: #00ff41;
+        }
+
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #f4f7f9; color: #333; }
+
+        /* UNIVERSAL BUREAU HEADER */
+        .bureau-header { 
+            background: #fff; border-bottom: 2px solid var(--bureau-blue); 
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+        }
+        .bureau-logo { font-family: 'Libre Baskerville'; font-weight: 700; font-size: 1.1rem; color: var(--bureau-blue); text-decoration: none; }
+
+        /* VAULT INTERFACE */
+        .vault-interface { max-width: 1000px; margin: 40px auto; background: #fff; border: 1px solid #ddd; display: grid; grid-template-columns: 1fr 350px; }
+
+        /* LEFT: UPLOAD ZONE */
+        .upload-zone { padding: 60px; border-right: 1px solid #eee; }
+        .drop-area { 
+            border: 2px dashed var(--bureau-blue); padding: 80px 40px; text-align: center; 
+            background: #fafafa; transition: 0.3s; cursor: pointer;
+        }
+        .drop-area:hover { background: #eef2ff; border-color: var(--bureau-gold); }
+        .drop-area h3 { font-family: 'Libre Baskerville'; color: var(--bureau-blue); margin-bottom: 10px; }
+        
+        /* PROGRESS MONITORING */
+        .scan-monitor { margin-top: 40px; display: none; } /* Hidden until upload starts */
+        .progress-bar-container { height: 10px; background: #eee; border-radius: 5px; overflow: hidden; margin: 20px 0; }
+        .progress-fill { width: 0%; height: 100%; background: var(--bureau-gold); transition: 0.5s; }
+        
+        /* RIGHT: TERMINAL LOGS */
+        .terminal-panel { background: var(--vault-bg); color: var(--terminal-green); padding: 30px; font-family: monospace; font-size: 0.75rem; overflow-y: auto; height: 500px; }
+        .log-entry { margin-bottom: 8px; line-height: 1.4; }
+        .log-entry span { color: #888; }
+
+        /* BUTTONS */
+        .btn-finalize { 
+            display: none; width: 100%; padding: 15px; background: var(--bureau-blue); 
+            color: white; border: none; font-weight: 700; text-transform: uppercase; cursor: pointer;
+        }
+
+        footer { background: #1a1a1b; color: #ccc; padding: 40px 10%; font-size: 0.7rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+<header class="bureau-header">
+    <a href="index.html" class="bureau-logo">AI Intellectual Property<br><span style="font-weight: 400; font-size: 0.8rem;">& Verification Bureau</span></a>
+    <div style="font-size: 0.7rem; font-weight: 700;">ENCRYPTION: 256-BIT AES | NODE: PHL-01</div>
+</header>
+
+<main class="vault-interface">
+    <div class="upload-zone">
+        <div style="margin-bottom: 30px;">
+            <span style="color: var(--bureau-gold); font-weight: 700; font-size: 0.65rem; text-transform: uppercase;">Intake Protocol: Tier 3 Sovereign</span>
+            <h2 style="font-family: 'Libre Baskerville'; margin: 5px 0;">Forensic Asset Intake</h2>
+        </div>
+
+        <div class="drop-area" id="dropArea" onclick="simulateUpload()">
+            <img src="img/vault-icon.png" alt="Vault Icon" style="width: 50px; opacity: 0.3; margin-bottom: 15px;">
+            <h3>Drop Forensic Package Here</h3>
+            <p style="font-size: 0.8rem; color: #666;">Accepted: .ZIP, .MOV, .PNG (Include Mustafa Gradient Log)</p>
+        </div>
+
+        <div class="scan-monitor" id="scanMonitor">
+            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700;">
+                <span id="scanStatus">Initializing NMMMB v2.6...</span>
+                <span id="percentLabel">0%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p style="font-size: 0.7rem; color: #888;">Do not close this window. Asset is being mirrored to MSP-04 for redundancy.</p>
+        </div>
+
+        <button class="btn-finalize" id="finalizeBtn" onclick="window.location.href='ledger.html'">Commit to Public Ledger</button>
+    </div>
+
+    <div class="terminal-panel" id="terminal">
+        <div class="log-entry"><span>[2026-03-20 09:42]</span> Initializing Secure Tunnel...</div>
+        <div class="log-entry"><span>[2026-03-20 09:42]</span> Handshake with PHL-01 Node: OK</div>
+        <div class="log-entry"><span>[2026-03-20 09:42]</span> Awaiting Architect Input...</div>
+    </div>
+</main>
+
+<footer>
+    © 2026 AI-IPVB | SOLOMON KIN, LLC | Article III Complaint Evidence Prep<br>
+    Lead Architect: Nehemiah M. Brown | Bureau Standard: NMMMB-2026
+</footer>
+
+<script>
+    function addLog(text) {
+        const term = document.getElementById('terminal');
+        const entry = document.createElement('div');
+        entry.className = 'log-entry';
+        const time = new Date().toLocaleTimeString();
+        entry.innerHTML = `<span>[${time}]</span> ${text}`;
+        term.appendChild(entry);
+        term.scrollTop = term.scrollHeight;
+    }
+
+    function simulateUpload() {
+        const dropArea = document.getElementById('dropArea');
+        const monitor = document.getElementById('scanMonitor');
+        const fill = document.getElementById('progressFill');
+        const label = document.getElementById('percentLabel');
+        const status = document.getElementById('scanStatus');
+        const finalize = document.getElementById('finalizeBtn');
+
+        dropArea.style.display = 'none';
+        monitor.style.display = 'block';
+        
+        let progress = 0;
+        const stages = [
+            "Extracting C2PA Metadata...",
+            "Mapping Neural Trace Patterns...",
+            "Calculating Kin-Brown Coefficient ($C_k$)...",
+            "Verifying Mustafa Gradient Depth...",
+            "Mirroring Data to MSP-04 Node...",
+            "Finalizing Sovereign Hash..."
+        ];
+
+        const interval = setInterval(() => {
+            progress += 2;
+            fill.style.width = progress + '%';
+            label.innerText = progress + '%';
+
+            if (progress % 16 === 0) {
+                const stageText = stages[Math.floor(progress / 17)];
+                if(stageText) {
+                    status.innerText = stageText;
+                    addLog(stageText);
+                }
+            }
+
+            if (progress >= 100) {
+                clearInterval(interval);
+                status.innerText = "SCAN COMPLETE: $C_k$ 89.4%";
+                status.style.color = "#b8860b";
+                addLog("CRITICAL: Sovereign Threshold Met (54% Delta Exceeded)");
+                addLog("Generating Certificate: SK-PHL-8F3E9-2026");
+                finalize.style.display = 'block';
+            }
+        }, 100);
+    }
+</script>
+
+</body>
+</html>
