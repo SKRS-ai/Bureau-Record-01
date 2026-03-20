@@ -3,184 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Tier 1 Audit | AI-IPVB Secure Terminal</title>
+    <title>TIER 1 ENROLLMENT | AI-IPVB Secure Terminal</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bureau-blue: #003366;
+            --bureau-blue: #001f3f;
             --bureau-gold: #b8860b;
-            --bureau-silver: #a9a9a9;
-            --bg-off: #f4f7f9;
-            --border-std: #dee2e6;
+            --bg-dark: #050505;
+            --text-light: #e5e7eb;
+            --audit-glow: 0 0 80px rgba(255, 255, 255, 0.4);
         }
 
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-off); color: #1a1a1b; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
 
-        /* UNIVERSAL BUREAU HEADER */
-        .bureau-header { 
-            background: #fff; border-bottom: 2px solid var(--bureau-blue); 
-            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 10000;
+        /* 1. TOP SECURE BAR */
+        .secure-header { 
+            background: #111; padding: 15px 5%; border-bottom: 2px solid var(--bureau-gold);
+            display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
         }
-        .bureau-logo { font-family: 'Libre Baskerville'; font-weight: 700; font-size: 1.1rem; color: var(--bureau-blue); text-decoration: none; }
 
-        /* PURCHASE LAYOUT */
-        .purchase-wrapper { max-width: 1200px; margin: 60px auto; display: grid; grid-template-columns: 1fr 450px; gap: 40px; padding: 0 5%; }
+        /* 2. THE SEAL SHOWCASE (LARGER THAN USUAL) */
+        .seal-exhibition {
+            text-align: center; padding: 80px 5%;
+            background: radial-gradient(circle at center, #112 0%, #050505 70%);
+        }
+        .seal-exhibition img {
+            width: 550px; /* Increased size for prominence */
+            height: auto;
+            border-radius: 50%;
+            box-shadow: var(--audit-glow);
+            filter: drop-shadow(0 0 20px rgba(184, 134, 11, 0.3));
+            margin-bottom: 30px;
+            transition: 0.8s ease-in-out;
+        }
+        .seal-exhibition img:hover { transform: scale(1.05); box-shadow: 0 0 100px rgba(255, 255, 255, 0.6); }
 
-        /* LEFT: FORENSIC JUSTIFICATION */
-        .forensic-specs { background: #fff; padding: 50px; border: 1px solid var(--border-std); }
-        <style>
-    /* ... existing bureau styles ... */
+        .tier-title { font-family: 'Libre Baskerville'; font-size: 3rem; color: var(--bureau-gold); margin: 0; }
+        .tier-subtitle { text-transform: uppercase; letter-spacing: 8px; font-size: 0.9rem; opacity: 0.7; }
 
-    .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        /* 3. THE AUDIT BREAKDOWN */
+        .content-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+            max-width: 1200px; margin: 0 auto 100px; padding: 0 5%;
+        }
 
-    /* THE FIX: Magnify the Shields (3x Larger) */
-    .tier-card img { 
-        display: block; width: auto; 
-        max-width: 180px; /* Jumps from ~60px to 180px (3x larger) */
-        height: auto; 
-        margin: 0 auto 30px auto; /* Centered, with healthy bottom margin */
-    }
+        .briefing-box {
+            background: rgba(255,255,255,0.03); border: 1px solid #333; padding: 40px;
+            border-top: 4px solid var(--bureau-blue);
+        }
+        .briefing-box h3 { font-family: 'Libre Baskerville'; color: var(--bureau-gold); border-bottom: 1px solid #333; padding-bottom: 15px; margin-top: 0; }
 
-    /* ... other tier-card styles remain same ... */
-    .tier-card { border: 1px solid #ddd; padding: 40px; text-align: center; }
-    .tier-card h3 { font-family: 'Libre Baskerville'; font-size: 1.5rem; }
-</style>
+        .benefit-list { list-style: none; padding: 0; }
+        .benefit-list li { margin-bottom: 20px; padding-left: 30px; position: relative; font-size: 0.95rem; }
+        .benefit-list li::before { content: "✓"; position: absolute; left: 0; color: var(--bureau-gold); font-weight: bold; }
 
-<section class="tier-grid">
-    <div class="tier-card">
-        <img src="tier-1-shield.png" alt="Tier 1 Shield">
-        <h3>Tier 1: Assisted</h3>
-        <p>Verification of prompt-origin. Basic C2PA metadata alignment.</p>
-        <a href="audit-portal.html" class="btn-secure" style="display: block;">Audit - $99</a>
-    </div>
-    <div class="tier-card">
-        <img src="tier-2-shield.png" alt="Tier 2 Shield">
-        <h3>Tier 2: Collaborative</h3>
-        <p>Verification of 25+ human iterative nodes. Professional standard.</p>
-        <a href="audit-portal.html" class="btn-secure" style="display: block;">Audit - $249</a>
-    </div>
-    <div class="tier-card" style="border-color: var(--bureau-gold);">
-        <img src="tier-3-shield.png" alt="Tier 3 Shield">
-        <h3>Tier 3: Sovereign</h3>
-        <p>Verification of the 54% Human Delta. Indefeasible legal protection.</p>
-        <a href="audit-portal.html" class="btn-secure" style="display: block; background: var(--bureau-gold); color: white; border: none;">Audit - $499</a>
-    </div>
-</section>
-        .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
-        .spec-item h5 { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--bureau-gold); margin-bottom: 10px; }
-        .spec-item p { font-size: 0.85rem; color: #555; line-height: 1.5; }
+        /* 4. PRICING & EXECUTION */
+        .execute-terminal {
+            text-align: center; padding: 60px; background: #001f3f; border-top: 5px solid var(--bureau-gold);
+        }
+        .price-tag { font-family: 'Libre Baskerville'; font-size: 4rem; margin-bottom: 10px; }
+        .execute-btn {
+            background: var(--bureau-gold); color: white; padding: 25px 80px;
+            text-decoration: none; font-weight: 700; font-size: 1.2rem;
+            text-transform: uppercase; letter-spacing: 4px; display: inline-block;
+            transition: 0.3s; box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        .execute-btn:hover { background: #fff; color: #000; transform: translateY(-5px); }
 
-        /* RIGHT: SECURE TERMINAL */
-        .secure-terminal { background: #fff; border: 1px solid var(--bureau-blue); position: sticky; top: 120px; height: fit-content; }
-        .terminal-header { background: var(--bureau-blue); color: #fff; padding: 20px; text-align: center; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; }
-        .terminal-body { padding: 40px; }
-        
-        .price-display { text-align: center; margin-bottom: 30px; }
-        .price-display .amount { font-size: 3.5rem; font-weight: 300; color: var(--bureau-blue); }
-        .price-display .currency { font-size: 1rem; color: #999; vertical-align: super; }
-
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; color: #666; margin-bottom: 8px; }
-        .form-group input { width: 100%; padding: 12px; border: 1px solid #ccc; font-family: inherit; box-sizing: border-box; }
-
-        .btn-execute { width: 100%; padding: 20px; background: var(--bureau-blue); color: #fff; border: none; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
-        .btn-execute:hover { background: var(--bureau-gold); }
-
-        .security-footer { margin-top: 30px; font-size: 0.65rem; color: #888; text-align: center; display: flex; flex-direction: column; gap: 10px; }
-
-        footer { background: #1a1a1b; color: #ccc; padding: 40px 10%; font-size: 0.7rem; text-align: center; }
+        .footer-legal { padding: 40px 5%; text-align: center; font-size: 0.65rem; color: #444; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
-<header class="bureau-header">
-    <a href="index.html" class="bureau-logo">AI Intellectual Property<br><span style="font-weight: 400; font-size: 0.8rem;">& Verification Bureau</span></a>
-    <div style="font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);">NODE: PHL-01 | SECURE PORTAL</div>
-</header>
+    <div class="secure-header">
+        <div>ENCRYPTION: AES-256 ACTIVE</div>
+        <div>TERMINAL 01-A: ASSISTED ENROLLMENT</div>
+        <div>PHL-01 ROOT AUTHORITY</div>
+    </div>
 
-<main class="purchase-wrapper">
-    <section class="forensic-specs">
-        <div class="tier-header">
-            <img src="img/tier-1-shield.png" alt="Tier 1 Shield">
-            <div>
-                <h2>Tier 1: Assisted Audit</h2>
-                <p style="font-size: 0.9rem; color: #666;">Verification of Prompt-Origin & Metadata Sovereignty</p>
-            </div>
-        </div>
-
-        <p style="font-size: 1.1rem; line-height: 1.7; color: #444;">
-            Tier 1 is the entry-level Bureau standard for high-volume AI creators. By purchasing this audit, you are requesting a 
-            <strong>Neural Trace Mapping</strong> of your asset to establish a legal "Date of Origin" within the AI-IPVB Global Registry.
-        </p>
-
-        <div class="spec-grid">
-            <div class="spec-item">
-                <h5>Forensic Deliverable</h5>
-                <p>One (1) Digitally Signed SK-MET-2026 Certificate with an embedded C2PA provenance hash for your AI character or asset.</p>
-            </div>
-            <div class="spec-item">
-                <h5>NIST Alignment</h5>
-                <p>All data processed under Tier 1 is categorized as "Assisted Synthetic Media" according to current NIST ARIA pilot standards.</p>
-            </div>
-            <div class="spec-item">
-                <h5>Public Ledger</h5>
-                <p>Your asset title and unique Authorship Hash will be indexed on the AIRTLR Public Ledger for 24-hour verification by third parties.</p>
-            </div>
-            <div class="spec-item">
-                <h5>Legal Utility</h5>
-                <p>Establishes your "First-to-Audit" status, providing evidence against unauthorized scraping and "Neural Drift" clones.</p>
-            </div>
-        </div>
-
-        <div style="margin-top: 50px; padding: 30px; border: 1px dashed var(--bureau-gold); font-size: 0.8rem;">
-            <strong>Note to Architect:</strong> Tier 1 is optimized for **AI Characters** and **Social Content**. If you require full statutory copyright protection for cinematic or commercial works, please consider upgrading to <a href="purchase-t3.html" style="color: var(--bureau-gold);">Tier 3: Sovereign</a>.
-        </div>
+    <section class="seal-exhibition">
+        <img src="tier-1-shield.jpg" alt="Tier 1 Assisted Audit Seal">
+        <h1 class="tier-title">Tier 1: Assisted</h1>
+        <p class="tier-subtitle">Conceptual Foundation & Prompt Origin</p>
     </section>
 
-    <aside class="secure-terminal">
-        <div class="terminal-header">ENCRYPTED PURCHASE TERMINAL</div>
-        <div class="terminal-body">
-            <div class="price-display">
-                <span class="currency">$</span><span class="amount">99.00</span><span class="currency">USD</span>
-            </div>
-
-            <form action="confirmation.html" method="GET">
-                <div class="form-group">
-                    <label>Full Name on Card</label>
-                    <input type="text" placeholder="Nehemiah M. Brown" required>
-                </div>
-                <div class="form-group">
-                    <label>Payment Method (PCI Compliant)</label>
-                    <input type="text" placeholder="Card Number •••• •••• •••• ••••" required>
-                </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="form-group">
-                        <label>Expiry</label>
-                        <input type="text" placeholder="MM/YY" required>
-                    </div>
-                    <div class="form-group">
-                        <label>CVC</label>
-                        <input type="text" placeholder="***" required>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-execute">Authorize Forensic Audit</button>
-            </form>
-
-            <div class="security-footer">
-                <span><img src="https://img.icons8.com/material-outlined/24/003366/lock--v1.png" style="width: 12px; vertical-align: middle;"> 256-BIT SSL ENCRYPTION ACTIVE</span>
-                <span>PCI-DSS COMPLIANT GATEWAY</span>
-                <span>NODE PHL-01 TRANSACTION VERIFIED</span>
-            </div>
+    <main class="content-grid">
+        <div class="briefing-box">
+            <h3>Package Deliverables</h3>
+            <ul class="benefit-list">
+                <li><strong>Digital Forensic Seal:</strong> A high-resolution, cryptographically signed PNG/SVG seal for public display on your portfolio or social media.</li>
+                <li><strong>Prompt-Origin Anchoring:</strong> We ingest and verify your initial seed prompts, timestamping them at the PHL-01 Root to prevent "Prompt Injection" claims.</li>
+                <li><strong>Metadata Persistence:</strong> We embed the Bureau’s tracking code into your asset’s EXIF data, ensuring your authorship travels with the file.</li>
+                <li><strong>Registry Placement:</strong> Your asset is listed in the AI-IPVB Public Ledger as a "Verified Human-Initiated Concept."</li>
+            </ul>
         </div>
-    </aside>
-</main>
 
-<footer>
-    © 2026 AI-IPVB | SOLOMON KIN, LLC | Philadelphia Authority Node<br>
-    Standardizing the Human Spark Worldwide. Lead Architect: Mustafa King Brown.
-</footer>
+        <div class="briefing-box">
+            <h3>Strategic Benefits</h3>
+            <ul class="benefit-list">
+                <li><strong>Anti-Scraping Shield:</strong> Large Language Models (LLMs) and Image Scrapers are legally notified of the Bureau's anchor, discouraging unauthorized training usage.</li>
+                <li><strong>Commercial "First-Claim":</strong> Establishes a verifiable date and time of creation, essential for resolving "who did it first" disputes in digital marketplaces.</li>
+                <li><strong>Client Confidence:</strong> Prove to your buyers that your work isn't just a "one-click" generation, but an anchored professional asset.</li>
+                <li><strong>Tier-Up Eligibility:</strong> This audit provides the foundation required to upgrade to Tier 2 (Collaborative) or Tier 3 (Sovereign) at a discounted rate.</li>
+            </ul>
+        </div>
+    </main>
+
+    <section class="execute-terminal">
+        <div style="font-size: 0.8rem; letter-spacing: 3px; opacity: 0.7;">TOTAL INVESTMENT FOR PRIMARY ANCHORING</div>
+        <div class="price-tag">$199.00</div>
+        <p style="margin-bottom: 40px; opacity: 0.8;">One-time audit fee. Lifetime Registry Maintenance included.</p>
+        <a href="#" class="execute-btn">Execute Enrollment</a>
+    </section>
+
+    <footer class="footer-legal">
+        SOLOMON KIN, LLC | AI-IPVB | BUREAU SECURE TERMINAL v4.2<br>
+        ALL AUDITS ARE FINAL ONCE ANCHORED AT PHL-01 ROOT.
+    </footer>
 
 </body>
 </html>
