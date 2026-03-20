@@ -29,10 +29,44 @@
 
         /* LEFT: FORENSIC JUSTIFICATION */
         .forensic-specs { background: #fff; padding: 50px; border: 1px solid var(--border-std); }
-        .tier-header { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        .tier-header img { width: 80px; }
-        .tier-header h2 { font-family: 'Libre Baskerville'; color: var(--bureau-blue); margin: 0; font-size: 2rem; }
+        <style>
+    /* ... existing bureau styles ... */
 
+    .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+
+    /* THE FIX: Magnify the Shields (3x Larger) */
+    .tier-card img { 
+        display: block; width: auto; 
+        max-width: 180px; /* Jumps from ~60px to 180px (3x larger) */
+        height: auto; 
+        margin: 0 auto 30px auto; /* Centered, with healthy bottom margin */
+    }
+
+    /* ... other tier-card styles remain same ... */
+    .tier-card { border: 1px solid #ddd; padding: 40px; text-align: center; }
+    .tier-card h3 { font-family: 'Libre Baskerville'; font-size: 1.5rem; }
+</style>
+
+<section class="tier-grid">
+    <div class="tier-card">
+        <img src="tier-1-shield.png" alt="Tier 1 Shield">
+        <h3>Tier 1: Assisted</h3>
+        <p>Verification of prompt-origin. Basic C2PA metadata alignment.</p>
+        <a href="audit-portal.html" class="btn-secure" style="display: block;">Audit - $99</a>
+    </div>
+    <div class="tier-card">
+        <img src="tier-2-shield.png" alt="Tier 2 Shield">
+        <h3>Tier 2: Collaborative</h3>
+        <p>Verification of 25+ human iterative nodes. Professional standard.</p>
+        <a href="audit-portal.html" class="btn-secure" style="display: block;">Audit - $249</a>
+    </div>
+    <div class="tier-card" style="border-color: var(--bureau-gold);">
+        <img src="tier-3-shield.png" alt="Tier 3 Shield">
+        <h3>Tier 3: Sovereign</h3>
+        <p>Verification of the 54% Human Delta. Indefeasible legal protection.</p>
+        <a href="audit-portal.html" class="btn-secure" style="display: block; background: var(--bureau-gold); color: white; border: none;">Audit - $499</a>
+    </div>
+</section>
         .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
         .spec-item h5 { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--bureau-gold); margin-bottom: 10px; }
         .spec-item p { font-size: 0.85rem; color: #555; line-height: 1.5; }
