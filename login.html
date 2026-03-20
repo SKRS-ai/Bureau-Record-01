@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity Gateway | AI-IPVB Secure Access</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --pure-white: #ffffff;
+            --off-white: #f8f9fa;
+            --border-std: #dee2e6;
+            --security-red: #d9534f;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: #1a1a1b;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER ALIGNMENT */
+        header {
+            background: var(--pure-white);
+            border-bottom: 4px solid var(--bureau-blue);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+
+        /* AUTH BOX */
+        .auth-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .auth-card {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            border: 1px solid var(--border-std);
+            padding: 50px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .auth-card::before {
+            content: "SECURE ACCESS POINT";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--bureau-blue);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 8px 0;
+            letter-spacing: 2px;
+        }
+
+        .auth-header { text-align: center; margin-bottom: 35px; margin-top: 15px; }
+        .auth-header h2 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); margin: 0; font-size: 1.8rem; }
+        .auth-header p { font-size: 0.8rem; color: #666; margin-top: 10px; }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue); text-transform: uppercase; margin-bottom: 8px; }
+        
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-std);
+            background: #fdfdfd;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        input:focus { outline: none; border-color: var(--bureau-gold); background: #fff; }
+
+        .btn-login {
+            width: 100%;
+            background: var(--bureau-blue);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-login:hover { background: #002244; }
+
+        .auth-footer { margin-top: 25px; text-align: center; font-size: 0.75rem; color: #888; border-top: 1px solid #eee; padding-top: 20px; }
+        .auth-footer a { color: var(--bureau-blue); text-decoration: none; font-weight: 700; }
+
+        footer { background: var(--pure-white); padding: 20px 10%; border-top: 1px solid var(--border-std); text-align: center; font-size: 0.7rem; color: #999; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-text">AI-IPVB</a>
+    <nav style="font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);">
+        SUPPORT: <a href="mailto:support@VexillaAITS.com" style="color: var(--bureau-blue); text-decoration: none;">VEXILLAAITS.COM</a>
+    </nav>
+</header>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h2>Identity Gateway</h2>
+            <p>Enter your credentials to access the AIRTLR Repository or Employee Dashboard.</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Bureau Email / ID</label>
+                <input type="email" id="email" required placeholder="e.g. architect@solomonkin.llc">
+            </div>
+
+            <div class="input-group">
+                <label>Secure Password</label>
+                <input type="password" id="pass" required placeholder="••••••••">
+            </div>
+
+            <button type="submit" class="btn-login">Authorize Access</button>
+        </form>
+
+        <div class="auth-footer">
+            Need a Bureau ID? <a href="onboarding.html">Register & Initiate Audit</a><br><br>
+            <a href="onboarding.html" style="font-size: 0.65rem; color: var(--bureau-gold);">FORGOT BUREAU PASSWORD?</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 AI-IPVB | MANAGED AND MARKETED BY VEXILLAAITS.COM | SECURE NODE: PHL-01
+</footer>
+
+<script>
+    document.getElementById('loginForm').onsubmit = function(e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        
+        // SECURE SESSION INITIALIZATION
+        localStorage.setItem('AIRTLR_SESSION_TOKEN', 'SK-SESSION-' + btoa(email));
+        localStorage.setItem('AIRTLR_USER_EMAIL', email);
+        
+        // REDIRECT TO DASHBOARD
+        window.location.href = 'dashboard.html';
+    };
+</script>
+
+</body>
+</html>
