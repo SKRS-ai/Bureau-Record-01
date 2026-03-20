@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library | AIRTLR Research Archive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --pure-white: #ffffff;
+            --off-white: #fcfcfc;
+            --border-std: #dee2e6;
+        }
+
+        body {
+            background-color: var(--pure-white);
+            color: #1a1a1b;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* FEDERAL NAVIGATION */
+        header {
+            background: var(--pure-white);
+            border-bottom: 4px solid var(--bureau-blue);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+        nav a { text-decoration: none; color: var(--bureau-blue); margin-left: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+
+        /* LIBRARY LAYOUT */
+        .hero-library { padding: 60px 10%; background: var(--off-white); border-bottom: 1px solid var(--border-std); }
+        .hero-library h1 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 2.5rem; margin: 0; }
+        
+        .archive-container { display: grid; grid-template-columns: 250px 1fr; gap: 50px; padding: 60px 10%; }
+        
+        /* SIDEBAR FILTERS */
+        .sidebar h4 { color: var(--bureau-blue); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; border-bottom: 1px solid var(--bureau-gold); padding-bottom: 10px; }
+        .filter-list { list-style: none; padding: 0; font-size: 0.85rem; }
+        .filter-list li { margin-bottom: 12px; }
+        .filter-list input { margin-right: 10px; }
+
+        /* DOCUMENT CARDS */
+        .doc-card { 
+            display: flex; 
+            gap: 20px; 
+            padding: 30px; 
+            border: 1px solid var(--border-std); 
+            margin-bottom: 25px; 
+            background: white;
+            transition: 0.2s;
+        }
+        .doc-card:hover { border-color: var(--bureau-gold); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        .doc-icon { 
+            width: 50px; height: 60px; 
+            background: var(--bureau-blue); 
+            color: white; 
+            display: flex; align-items: center; justify-content: center; 
+            font-weight: 700; font-size: 0.7rem; flex-shrink: 0;
+        }
+
+        .doc-meta { font-size: 0.7rem; text-transform: uppercase; color: var(--bureau-gold); font-weight: 700; margin-bottom: 5px; display: block; }
+        .doc-title { font-family: 'Libre Baskerville', serif; font-size: 1.25rem; color: var(--bureau-blue); margin: 0 0 10px 0; }
+        .doc-excerpt { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
+
+        .btn-download { 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            color: var(--bureau-blue); 
+            text-decoration: none; 
+            border-bottom: 2px solid var(--bureau-blue);
+            padding-bottom: 2px;
+        }
+
+        footer { background: var(--off-white); padding: 40px 10%; border-top: 1px solid var(--border-std); text-align: center; font-size: 0.75rem; color: #888; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-text">AI-IPVB</a>
+    <nav>
+        <a href="purpose.html">Methodology</a>
+        <a href="library.html" style="color: var(--bureau-gold);">Library</a>
+        <a href="verification.html">Verification</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<section class="hero-library">
+    <h1>Research & Technology Archive</h1>
+    <p style="max-width: 700px; color: #666; margin-top: 15px;">The official repository for AI forensic standards, whitepapers, and the AIRTLR Public Record. These documents establish the technical precedent for NMMMB Tiered Certification.</p>
+</section>
+
+<div class="archive-container">
+    <aside class="sidebar">
+        <h4>Filter Archive</h4>
+        <ul class="filter-list">
+            <li><input type="checkbox" checked> Whitepapers</li>
+            <li><input type="checkbox" checked> Legal Precedents</li>
+            <li><input type="checkbox"> Technical API Docs</li>
+            <li><input type="checkbox"> Regional Case Files</li>
+        </ul>
+        
+        <h4 style="margin-top: 40px;">Core Resources</h4>
+        <p style="font-size: 0.75rem; color: #666;">Access the founding documents of Solomon Kin, LLC and the NMMMB Protocol.</p>
+    </aside>
+
+    <main>
+        <div class="doc-card">
+            <div class="doc-icon">PDF</div>
+            <div class="doc-body">
+                <span class="doc-meta">FOUNDATIONAL | MARCH 2026</span>
+                <h3 class="doc-title">The AI-IPVB Bible: Forensic Authorship Standards</h3>
+                <p class="doc-excerpt">The complete governing framework for the NMMMB protocol. Detailed breakdown of the 100+ prompt-count requirement and manual transformation thresholds for Tier 3 Sovereignty.</p>
+                <a href="#" class="btn-download">Download Primary Source [4.2 MB]</a>
+            </div>
+        </div>
+
+        <div class="doc-card">
+            <div class="doc-icon">DOC</div>
+            <div class="doc-body">
+                <span class="doc-meta">TECHNICAL | NIST ALIGNMENT</span>
+                <h3 class="doc-title">De-Convolution of Neural Manifests</h3>
+                <p class="doc-excerpt">A technical whitepaper detailing the measurement science used to isolate human intervention from autonomous model output in complex collaborative workflows.</p>
+                <a href="#" class="btn-download">Access Whitepaper Data</a>
+            </div>
+        </div>
+
+        <div class="doc-card">
+            <div class="doc-icon">CASE</div>
+            <div class="doc-body">
+                <span class="doc-meta">LEGAL | PHL-MSP NODES</span>
+                <h3 class="doc-title">The Thin Black and Brown Lines: Equity in Synthetic IP</h3>
+                <p class="doc-excerpt">An analysis of the socio-economic impacts of the Bureau’s equity initiatives in urban innovation hubs, specifically Philadelphia and Minneapolis.</p>
+                <a href="#" class="btn-download">View Impact Study</a>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer>
+    AIRTLR ARCHIVE | SECURE NODE: 192.168.1.PHL | MANAGED BY VEXILLAAITS.COM | © 2026 SOLOMON KIN, LLC
+</footer>
+
+</body>
+</html>
