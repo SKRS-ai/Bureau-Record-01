@@ -3,179 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onboarding | AI-IPVB Case Registration</title>
+    <title>Institutional Access | AI-IPVB Secure Gateway</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bureau-blue: #003366;
             --bureau-gold: #b8860b;
-            --off-white: #f8f9fa;
-            --border-std: #dee2e6;
+            --bg-off: #f8f9fa;
+            --border-std: #dcdcdc;
         }
 
-        body {
-            background-color: var(--off-white);
-            color: #1a1a1b;
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-        }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-off); color: #1a1a1b; display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* HEADER */
-        header {
-            background: white;
-            border-bottom: 4px solid var(--bureau-blue);
-            padding: 15px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* UNIVERSAL NAVIGATION */
+        .bureau-header { 
+            background: #fff; border-bottom: 2px solid var(--bureau-blue); 
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
         }
-        .logo-text { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+        .bureau-logo { font-family: 'Libre Baskerville'; font-weight: 700; font-size: 1.1rem; color: var(--bureau-blue); text-decoration: none; }
 
-        /* ONBOARDING LAYOUT */
-        .onboard-grid {
-            max-width: 1100px;
-            margin: 50px auto;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            background: white;
-            border: 1px solid var(--border-std);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
+        /* GATEWAY CONTAINER */
+        .gateway-container { flex-grow: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: #fff; max-width: 1200px; margin: 60px auto; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid var(--border-std); }
 
-        /* LEFT: THE SERVICE SELECTION (CART) */
-        .selection-pane {
-            background: var(--bureau-blue);
-            color: white;
-            padding: 50px;
-        }
-        .selection-pane h2 { font-family: 'Libre Baskerville', serif; margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px; }
-        
-        .tier-option {
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 20px;
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .tier-option:hover, .tier-option.selected {
-            background: rgba(255,255,255,0.1);
-            border-color: var(--bureau-gold);
-        }
-        .tier-price { color: var(--bureau-gold); font-weight: 700; font-size: 1.2rem; margin-top: 10px; display: block; }
+        /* LEFT SIDE: THE PLEDGE / IDENTITY */
+        .gateway-info { background: var(--bureau-blue); color: #fff; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
+        .gateway-info h2 { font-family: 'Libre Baskerville'; font-size: 2.2rem; margin-bottom: 20px; }
+        .gateway-info p { font-size: 0.9rem; line-height: 1.8; color: #cbd5e0; margin-bottom: 30px; }
+        .compliance-tag { border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); font-weight: 700; }
 
-        /* RIGHT: THE IDENTITY INTAKE (REGISTRATION) */
-        .intake-pane { padding: 50px; }
-        .intake-pane h2 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); margin-top: 0; }
-        
+        /* RIGHT SIDE: THE FORMS */
+        .gateway-forms { padding: 60px; background: #fff; }
+        .tab-controls { display: flex; gap: 30px; border-bottom: 1px solid #eee; margin-bottom: 40px; }
+        .tab-btn { background: none; border: none; font-family: inherit; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #999; cursor: pointer; padding-bottom: 10px; }
+        .tab-btn.active { color: var(--bureau-blue); border-bottom: 3px solid var(--bureau-blue); }
+
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue); text-transform: uppercase; margin-bottom: 5px; }
-        input[type="text"], input[type="email"], input[type="password"] {
-            width: 100%; padding: 12px; border: 1px solid var(--border-std); box-sizing: border-box; font-family: 'Montserrat', sans-serif;
-        }
+        .form-group label { display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: #666; margin-bottom: 8px; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid var(--border-std); font-family: inherit; font-size: 0.9rem; box-sizing: border-box; }
+        
+        .btn-submit { width: 100%; padding: 15px; background: var(--bureau-blue); color: #fff; border: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .btn-submit:hover { background: var(--bureau-gold); }
 
-        .btn-finalize {
-            width: 100%;
-            background: var(--bureau-blue);
-            color: white;
-            padding: 18px;
-            border: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            letter-spacing: 1px;
-            margin-top: 20px;
-        }
+        .form-footer { margin-top: 30px; font-size: 0.7rem; color: #888; text-align: center; line-height: 1.5; }
+
+        footer { background: #1a1a1b; color: #ccc; padding: 40px 10%; font-size: 0.7rem; text-align: center; }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="index.html" class="logo-text">AI-IPVB</a>
-    <div style="font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);">CASE REGISTRY NODE: 192.168.1.PHL</div>
+<header class="bureau-header">
+    <a href="index.html" class="bureau-logo">AI Intellectual Property<br><span style="font-weight: 400; font-size: 0.8rem;">& Verification Bureau</span></a>
 </header>
 
-<div class="onboard-grid">
-    <div class="selection-pane">
-        <h2>1. Audit Selection</h2>
-        <p style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 30px;">Select the required forensic threshold for your asset certification.</p>
-        
-        <div class="tier-option" onclick="updatePrice('Tier 1: Assisted', '$49')">
-            <span style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase;">Basic Verification</span>
-            <div style="font-weight: 700; margin-top: 5px;">Tier 1: Assisted</div>
-            <span class="tier-price">$49.00 / Case</span>
-        </div>
-
-        <div class="tier-option" onclick="updatePrice('Tier 2: Collaborative', '$149')">
-            <span style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase;">Standard Agency</span>
-            <div style="font-weight: 700; margin-top: 5px;">Tier 2: Collaborative</div>
-            <span class="tier-price">$149.00 / Case</span>
-        </div>
-
-        <div class="tier-option selected" onclick="updatePrice('Tier 3: Sovereign', '$499')">
-            <span style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase;">Highest Forensic</span>
-            <div style="font-weight: 700; margin-top: 5px;">Tier 3: Sovereign</div>
-            <span class="tier-price">$499.00 / Case</span>
-        </div>
-
-        <div style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.8rem; text-transform: uppercase;">Registration Total:</span>
-                <span id="final-price" style="font-size: 2rem; font-weight: 700;">$499.00</span>
-            </div>
+<main class="gateway-container">
+    <div class="gateway-info">
+        <span style="font-size: 0.7rem; color: var(--bureau-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Institutional Access</span>
+        <h2>Secure Architect Enrollment</h2>
+        <p>
+            By enrolling in the AI-IPVB registry, you are establishing your legal identity as a Lead Architect under the 2026 AI IP Act. 
+            All forensic data submitted to our PHL and MSP nodes is encrypted and mirrored across our distributed ledger.
+        </p>
+        <div class="compliance-tag">
+            NIST ARIA COMPLIANT | 256-BIT AES | ARTICLE III READY
         </div>
     </div>
 
-    <div class="intake-pane">
-        <h2>2. Identity Verification</h2>
-        <p style="font-size: 0.85rem; color: #666; margin-bottom: 30px;">This data will be cryptographically bound to your NMMMB Forensic Manifest.</p>
-        
-        <form id="onboardForm">
+    <div class="gateway-forms">
+        <div class="tab-controls">
+            <button class="tab-btn active" onclick="showForm('register')">Register Identity</button>
+            <button class="tab-btn" onclick="showForm('login')">Bureau Login</button>
+        </div>
+
+        <form id="registerForm">
             <div class="form-group">
-                <label>Legal Full Name (Per Government ID)</label>
-                <input type="text" required placeholder="Nehemiah M. Brown">
+                <label>Legal Full Name / Entity Name</label>
+                <input type="text" placeholder="e.g., Nehemiah M. Brown" required>
             </div>
             <div class="form-group">
-                <label>Bureau Email ID</label>
-                <input type="email" id="email" required placeholder="architect@example.com">
+                <label>Professional Email Address</label>
+                <input type="email" placeholder="architect@domain.com" required>
             </div>
             <div class="form-group">
-                <label>Secure Password</label>
-                <input type="password" required placeholder="••••••••">
+                <label>Create Security Password</label>
+                <input type="password" placeholder="••••••••" required>
             </div>
-            <div class="form-group">
-                <label>Ballot Address (PHL / MSP Node)</label>
-                <input type="text" required placeholder="123 Innovation Dr, Philadelphia, PA">
+            <div style="margin: 25px 0; font-size: 0.75rem;">
+                <input type="checkbox" id="terms" required>
+                <label for="terms" style="display: inline; text-transform: none; color: #444;">
+                    I agree to the <a href="terms.html" style="color: var(--bureau-blue);">Bureau Terms</a> and consent to forensic data mirroring.
+                </label>
             </div>
-            
-            <button type="submit" class="btn-finalize">Finalize Registration & Process Audit</button>
-            <p style="font-size: 0.6rem; color: #999; text-align: center; margin-top: 15px;">
-                Payments managed via VexillaAITS.com Secure Technical Bridge. 
-                By clicking, you authorize the Bureau to initiate the NMMMB Forensic Scan.
-            </p>
+            <button type="submit" class="btn-submit">Initialize Architect Profile</button>
         </form>
-    </div>
-</div>
 
-<footer style="text-align: center; padding: 40px; font-size: 0.7rem; color: #999;">
-    © 2026 AI-IPVB | MANAGED AND MARKETED BY VEXILLAAITS.COM | SECURE NODE: PHL-01
+        <div class="form-footer">
+            Enrollment is free. Forensic Audits (Tier 1-3) are purchased via the Dashboard after identity verification.
+        </div>
+    </div>
+</main>
+
+<footer>
+    © 2026 AI-IPVB | SOLOMON KIN, LLC | Philadelphia (PHL-01) | Minneapolis (MSP-04)<br>
+    Standardizing the Human Spark. Lead Architect: Mustafa King Brown.
 </footer>
 
 <script>
-    function updatePrice(name, price) {
-        document.getElementById('final-price').innerText = price;
-        const options = document.querySelectorAll('.tier-option');
-        options.forEach(opt => opt.classList.remove('selected'));
-        event.currentTarget.classList.add('selected');
-    }
+    function showForm(type) {
+        // This is a placeholder for your JS logic to toggle between login and register
+        const btn = document.querySelectorAll('.tab-btn');
+        btn.forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        const submitBtn = document.querySelector('.btn-submit');
+        const nameField = document.querySelector('.form-group:first-child');
+        const termsField = document.querySelector('div[style*="margin: 25px 0"]');
 
-    document.getElementById('onboardForm').onsubmit = function(e) {
-        e.preventDefault();
-        const email = document.getElementById('email').value;
-        localStorage.setItem('AIRTLR_SESSION_TOKEN', 'SK-LIVE-' + btoa(email));
-        localStorage.setItem('AIRTLR_USER_EMAIL', email);
-        window.location.href = 'dashboard.html';
-    };
+        if(type === 'login') {
+            submitBtn.innerText = "Authorize Access";
+            nameField.style.display = "none";
+            termsField.style.display = "none";
+        } else {
+            submitBtn.innerText = "Initialize Architect Profile";
+            nameField.style.display = "block";
+            termsField.style.display = "block";
+        }
+    }
 </script>
 
 </body>
