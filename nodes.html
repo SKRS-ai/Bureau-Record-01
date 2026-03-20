@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nodes | AI-IPVB Distributed Authority</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bureau-blue: #003366; --bureau-gold: #b8860b; --off-white: #f8f9fa; }
+        body { background: white; color: #1a1a1b; font-family: 'Montserrat', sans-serif; margin: 0; }
+        header { border-bottom: 4px solid var(--bureau-blue); padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; }
+        .node-container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+        
+        .map-placeholder { 
+            width: 100%; height: 400px; background: var(--off-white); border: 1px solid #ddd; 
+            display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+        }
+        .node-point { position: absolute; width: 15px; height: 15px; background: var(--bureau-gold); border-radius: 50%; box-shadow: 0 0 15px var(--bureau-gold); }
+        .node-label { position: absolute; font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue); text-transform: uppercase; margin-top: 25px; }
+
+        .node-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; }
+        .node-card { border: 1px solid #eee; padding: 30px; border-left: 5px solid var(--bureau-blue); }
+        .node-status { font-size: 0.6rem; font-weight: 900; color: #28a745; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+<header>
+    <a href="index.html" style="font-family: 'Libre Baskerville'; color: var(--bureau-blue); text-decoration: none; font-weight: 700;">AI-IPVB</a>
+    <div style="font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);">NETWORK STATUS: SYNCHRONIZED</div>
+</header>
+
+<div class="node-container">
+    <h1 style="font-family: 'Libre Baskerville'; color: var(--bureau-blue);">Distributed Regional Nodes</h1>
+    <p style="color: #666;">The AI-IPVB operates via dedicated forensic nodes to ensure jurisdictional compliance and local community equity.</p>
+
+    <div class="map-placeholder">
+        <div class="node-point" style="top: 45%; left: 85%;"></div> <span class="node-label" style="top: 45%; left: 82%;">PHL-01</span>
+        <div class="node-point" style="top: 35%; left: 65%;"></div> <span class="node-label" style="top: 35%; left: 62%;">MSP-04</span>
+        <span style="color: #ccc; font-size: 5rem; font-weight: 900; opacity: 0.1;">NORTH AMERICA</span>
+    </div>
+
+    <div class="node-grid">
+        <div class="node-card">
+            <div class="node-status">● ACTIVE / ENCRYPTED</div>
+            <h3 style="margin: 0; font-family: 'Libre Baskerville';">Node PHL-01 (Philadelphia)</h3>
+            <p style="font-size: 0.85rem; color: #555;">Primary Registry Node. Manages NMMMB Tier 3 certifications and Article III legal liaison for the East Coast corridor.</p>
+        </div>
+        <div class="node-card">
+            <div class="node-status">● ACTIVE / ENCRYPTED</div>
+            <h3 style="margin: 0; font-family: 'Libre Baskerville';">Node MSP-04 (Minneapolis)</h3>
+            <p style="font-size: 0.85rem; color: #555;">Secondary Research Node. Central hub for the 'Thin Black and Brown Lines' equity initiative and Midwest forensic auditing.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
