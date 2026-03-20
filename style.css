@@ -1,0 +1,88 @@
+/* AI-IPVB DIGITAL SIGNATURE ANIMATION */
+
+:root {
+    --neural-blue: #00d4ff;
+    --bureau-gold: #c5a059;
+    --deep-navy: #0a192f;
+}
+
+.signature-container {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    background: rgba(17, 34, 64, 0.5);
+    overflow: hidden;
+}
+
+.nmmmb-text {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: var(--text-gray);
+    position: relative;
+    z-index: 2;
+    /* Initial Neural Glow */
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    animation: neuralPulse 3s infinite ease-in-out;
+}
+
+/* 1. The "Neural" Pulse Effect (The "N" in NMMMB) */
+@keyframes neuralPulse {
+    0%, 100% { text-shadow: 0 0 10px rgba(0, 212, 255, 0.3); }
+    50% { text-shadow: 0 0 25px rgba(0, 212, 255, 0.8); color: #fff; }
+}
+
+/* 2. The "Forensic Scan" Line (The Audit in Progress) */
+.signature-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: var(--bureau-gold);
+    box-shadow: 0 0 15px var(--bureau-gold);
+    animation: forensicScan 4s infinite linear;
+}
+
+@keyframes forensicScan {
+    0% { left: -100%; top: 10%; }
+    50% { left: 100%; top: 50%; }
+    100% { left: -100%; top: 90%; }
+}
+
+/* 3. The "Baseline Lock" (The "B" in NMMMB) */
+.signature-container.locked .nmmmb-text {
+    animation: none;
+    color: var(--bureau-gold);
+    text-shadow: 0 0 15px rgba(197, 160, 89, 0.6);
+    transition: all 0.5s ease-in;
+}
+
+.signature-container.locked::before {
+    content: 'CERTIFIED AUTHORSHIP';
+    position: absolute;
+    bottom: -5px;
+    right: 5px;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--bureau-gold);
+    font-weight: bold;
+}
+
+/* Floating Particle Effect for "Bureau Record 01" Data Vibe */
+.data-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--neural-blue);
+    opacity: 0.5;
+    animation: floatUp 2s infinite linear;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(20px); opacity: 1; }
+    to { transform: translateY(-40px); opacity: 0; }
+}
