@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remediation | AI-IPVB Audit Rejection Notice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --pure-white: #ffffff;
+            --off-white: #fcfcfc;
+            --error-red: #8b0000;
+            --border-std: #dee2e6;
+        }
+
+        body {
+            background-color: var(--pure-white);
+            color: #1a1a1b;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* FEDERAL HEADER */
+        header {
+            background: white;
+            border-bottom: 4px solid var(--bureau-blue);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-text { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+
+        /* REJECTION LAYOUT */
+        .rejection-container { max-width: 850px; margin: 60px auto; padding: 0 20px; }
+        
+        .rejection-header { 
+            border: 2px solid var(--error-red); 
+            padding: 40px; 
+            background: #fffafa; 
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .rejection-header h1 { font-family: 'Libre Baskerville', serif; color: var(--error-red); margin: 0; font-size: 2.2rem; }
+        .rejection-header p { font-weight: 700; color: #444; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
+
+        .remediation-section { margin-bottom: 60px; }
+        .remediation-section h2 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); border-bottom: 1px solid var(--border-std); padding-bottom: 10px; }
+
+        .reason-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+        .reason-card { border: 1px solid var(--border-std); padding: 25px; background: var(--off-white); }
+        .reason-card strong { color: var(--error-red); display: block; margin-bottom: 10px; font-size: 0.8rem; text-transform: uppercase; }
+
+        .action-steps { background: var(--bureau-blue); color: white; padding: 40px; margin-top: 40px; }
+        .action-steps h3 { font-family: 'Libre Baskerville', serif; color: var(--bureau-gold); margin-top: 0; }
+
+        footer { text-align: center; padding: 60px; font-size: 0.75rem; color: #888; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-text">AI-IPVB</a>
+    <nav style="font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);">
+        AUDIT STATUS: NON-COMPLIANT | CASE ID: SK-2026-VOID
+    </nav>
+</header>
+
+<div class="rejection-container">
+    <div class="rejection-header">
+        <h1>Forensic Audit Rejection</h1>
+        <p>Technical Remediation Required for Sovereign Certification</p>
+    </div>
+
+    <section class="remediation-section">
+        <h2>Primary Rejection Catalysts</h2>
+        <p>The submitted asset failed the **NMMMB Protocol v2.6** scan for the following technical discrepancies:</p>
+        
+        <div class="reason-grid">
+            <div class="reason-card">
+                <strong>Insufficient Manual Delta</strong>
+                <p style="font-size: 0.85rem; color: #666;">The forensic scan detected >80% autonomous generation. The 'Human Spark' threshold for Tier 3 Sovereignty was not met.</p>
+            </div>
+            <div class="reason-card">
+                <strong>Neural Manifest Gap</strong>
+                <p style="font-size: 0.85rem; color: #666;">The submitted 100+ prompt-chain failed the linguistic complexity check. Evidence of "Single-Prompt Prompting" detected.</p>
+            </div>
+            <div class="reason-card">
+                <strong>Provenance Discontinuity</strong>
+                <p style="font-size: 0.85rem; color: #666;">The asset's C2PA metadata contains unauthorized training set tokens that have not been transformatively refactored.</p>
+            </div>
+            <div class="reason-card">
+                <strong>Identity Misalignment</strong>
+                <p style="font-size: 0.85rem; color: #666;">Failed to verify the Ballot-Identity for the Philadelphia or Minneapolis regional node of record.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="action-steps">
+        <h3>III. Technical Remediation Roadmap</h3>
+        <p style="font-size: 0.9rem;">To appeal this rejection or resubmit, the Lead Architect (Nehemiah M. Brown) requires the following corrective actions:</p>
+        <ul style="font-size: 0.85rem; line-height: 2;">
+            <li>Increase Manual Transformation to exceed 54% threshold.</li>
+            <li>Document recursive refinement cycles (Rejected iterations).</li>
+            <li>Re-bind the C2PA manifest via the VexillaAITS.com Secure Node.</li>
+            <li>Verify regional node residency (Philadelphia or Minneapolis).</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px;">
+        <a href="support.html" style="background: var(--bureau-blue); color: white; padding: 15px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Open Forensic Dispute Ticket</a>
+    </div>
+</div>
+
+<footer>
+    © 2026 AI-IPVB | SOLOMON KIN, LLC | MANAGED BY VEXILLAAITS.COM | <a href="mailto:support@VexillaAITS.com" style="color: #888;">Technical Assistance</a>
+</footer>
+
+</body>
+</html>
