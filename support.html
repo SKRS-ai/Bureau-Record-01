@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | AI-IPVB Technical Dispute Node</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #003366;
+            --bureau-gold: #b8860b;
+            --off-white: #f8f9fa;
+            --border-std: #dee2e6;
+            --security-red: #8b0000;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: #1a1a1b;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            border-bottom: 4px solid var(--bureau-blue);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-text { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+
+        /* SUPPORT LAYOUT */
+        .support-container { max-width: 850px; margin: 60px auto; background: white; border: 1px solid var(--border-std); padding: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .support-header { border-bottom: 2px solid var(--bureau-blue); padding-bottom: 20px; margin-bottom: 40px; }
+        .support-header h1 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); margin: 0; font-size: 2.2rem; }
+
+        .ticket-info { display: flex; gap: 20px; margin-bottom: 40px; }
+        .info-card { flex: 1; padding: 20px; border: 1px solid var(--border-std); background: var(--off-white); text-align: center; }
+        .info-card strong { display: block; color: var(--bureau-blue); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 5px; }
+        .info-card span { font-size: 0.9rem; font-weight: 700; color: var(--bureau-gold); }
+
+        /* FORM */
+        .form-group { margin-bottom: 25px; }
+        label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--bureau-blue); text-transform: uppercase; margin-bottom: 8px; }
+        input[type="text"], input[type="email"], select, textarea {
+            width: 100%; padding: 15px; border: 1px solid var(--border-std); box-sizing: border-box; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;
+        }
+        
+        .btn-ticket { width: 100%; background: var(--bureau-blue); color: white; padding: 20px; border: none; font-weight: 700; text-transform: uppercase; cursor: pointer; letter-spacing: 2px; }
+
+        footer { text-align: center; padding: 40px; font-size: 0.7rem; color: #999; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-text">AI-IPVB</a>
+    <div style="font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);">MANAGED NODE: VEXILLAAITS.COM</div>
+</header>
+
+<div class="support-container">
+    <div class="support-header">
+        <h1>Forensic Support Node</h1>
+        <p style="color: #666; margin-top: 10px;">Managed Technical Logistics & Dispute Resolution Portal.</p>
+    </div>
+
+    <div class="ticket-info">
+        <div class="info-card">
+            <strong>Average Response</strong>
+            <span>4-6 Business Hours</span>
+        </div>
+        <div class="info-card">
+            <strong>Support Email</strong>
+            <span>support@VexillaAITS.com</span>
+        </div>
+        <div class="info-card" style="border-color: var(--security-red);">
+            <strong>Urgency Level</strong>
+            <span style="color: var(--security-red);">PHL/MSP Tier 1</span>
+        </div>
+    </div>
+
+    <form id="ticketForm">
+        <div class="form-group">
+            <label>Bureau Case ID (Optional)</label>
+            <input type="text" placeholder="e.g. SK-2026-CASE-0001">
+        </div>
+
+        <div class="form-group">
+            <label>Technical Inquiry Category</label>
+            <select required>
+                <option value="audit">NMMMB Audit Failure / Neural Drift</option>
+                <option value="dispute">Forensic IP Dispute (Article III)</option>
+                <option value="identity">Ballot-Identity Verification Error</option>
+                <option value="billing">Managed Node Billing (VexillaAITS)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Brief Description of Forensic Issue</label>
+            <textarea rows="5" required placeholder="Describe the technical error or manifest discrepancy..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-ticket">Generate Support Ticket</button>
+    </form>
+
+    <div style="margin-top: 40px; padding: 25px; background: #fffcf5; border: 1px solid #f1e6c9; font-size: 0.75rem; line-height: 1.6;">
+        <strong style="color: var(--bureau-blue); display: block; margin-bottom: 5px;">BUREAU NOTICE:</strong>
+        By submitting this ticket, you acknowledge that technical logs will be analyzed by Solomon Kin, LLC engineers. For legal disputes, your forensic manifest will be preserved as evidence under the Terms of Sovereignty.
+    </div>
+</div>
+
+<footer>
+    © 2026 AI-IPVB | MANAGED AND MARKETED BY VEXILLAAITS.COM | SECURE NODE: PHL-01
+</footer>
+
+<script>
+    document.getElementById('ticketForm').onsubmit = function(e) {
+        e.preventDefault();
+        alert("BUREAU NOTICE: Ticket Generated. A VexillaAITS Technical Specialist will contact you shortly.");
+        window.location.href = 'dashboard.html';
+    };
+</script>
+
+</body>
+</html>
