@@ -7,15 +7,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/master-bureau.css">
     <style>
-        /* ————————————————————————————————————————————————————
-           BUREAU UNIVERSAL HEADER (LOCKED TO ALL PAGES)
-        ———————————————————————————————————————————————————— */
-        .bureau-bar-universal { 
-            background: #fff; border-bottom: 2px solid var(--bureau-blue); 
-            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 10000; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        
+        <header class="bureau-universal-header">
+    <div class="header-left">
+        <a href="index.html" class="bureau-logo-plain">AI-IPVB | SOLOMON KIN, LLC</a>
+    </div>
+    <nav class="header-center">
+        <a href="metrology.html">Metrology</a>
+        <a href="nist-alignment.html">NIST Compliance</a>
+        <a href="dispute.html">Legal Node</a>
+        <a href="ledger.html">Registry</a>
+    </nav>
+    <div class="header-right">
+        <div class="auth-group">
+            <a href="login.html" class="btn-ghost">Member Login</a>
+            <a href="register.html" class="btn-solid">Register Case</a>
+        </div>
+        <a href="cart.html" class="cart-node">
+            <span>Case Cart</span>
+            <div class="cart-badge">3</div>
+        </a>
+    </div>
+</header>
         /* Left: Institutional Identity */
         .identity-block { display: flex; align-items: center; gap: 15px; }
         .bureau-plain-text { font-family: 'Libre Baskerville'; font-weight: 700; font-size: 1.1rem; color: var(--bureau-blue); text-decoration: none; line-height: 1; }
