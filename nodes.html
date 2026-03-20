@@ -12,8 +12,38 @@
             --neon-green: #39ff14;
             --bg-dark: #0a0a0b;
         }
-skrs-ai.github.io/Bureau-Record-01/nodes.html
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-dark); color: #fff; }
+<style>
+    .map-wrapper { position: relative; width: 100%; height: 500px; background: #050505; border: 1px solid #222; }
+    
+    /* THE NODES: Absolute Positioning based on Global Coordinates */
+    .node-marker { 
+        position: absolute; width: 12px; height: 12px; background: var(--bureau-gold); 
+        border-radius: 50%; box-shadow: 0 0 15px var(--bureau-gold); cursor: pointer; z-index: 20;
+    }
+    .node-label { 
+        position: absolute; top: -20px; left: 50%; transform: translateX(-50%); 
+        font-size: 0.6rem; color: #fff; text-transform: uppercase; white-space: nowrap; font-weight: 700;
+    }
+
+    /* SPECIFIC COORDINATES */
+    .pos-phl { left: 24%; top: 38%; } /* Philadelphia Root */
+    .pos-msp { left: 20%; top: 35%; } /* Minneapolis Relay */
+    .pos-fra { left: 48%; top: 32%; } /* Frankfurt Gateway */
+    .pos-tyo { left: 82%; top: 40%; } /* Tokyo Gateway */
+
+    /* THE CONNECTION LINES (The 'Global Mesh') */
+    .mesh-line { 
+        position: absolute; background: rgba(184, 134, 11, 0.2); height: 1px; 
+        transform-origin: left center; z-index: 15;
+    }
+</style>
+
+<div class="map-wrapper">
+    <div class="node-marker pos-phl"><span class="node-label">PHL-01 ROOT</span></div>
+    <div class="node-marker pos-msp"><span class="node-label">MSP-04 RELAY</span></div>
+    <div class="node-marker pos-fra"><span class="node-label">FRA-09 EMEA</span></div>
+    <div class="node-marker pos-tyo"><span class="node-label">TYO-12 APAC</span></div>
+    </div>        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-dark); color: #fff; }
 
         /* HEADER */
         .node-header { 
