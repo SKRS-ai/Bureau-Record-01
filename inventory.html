@@ -5,121 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE VAULT | USA KINsense 1.0vRoot | AI-IPVB</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         :root { --bureau-blue: #001f3f; --bureau-gold: #b8860b; --bg: #0a0a0b; --card: #141416; }
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg); color: #fff; display: flex; overflow-x: hidden; min-height: 100vh; }
-
-        /* TELEMETRY */
-        .telemetry { position: fixed; top: 0; width: 100%; background: #000; padding: 12px 5%; display: flex; justify-content: space-between; font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; color: var(--bureau-gold); border-bottom: 1px solid #222; z-index: 1000; box-sizing: border-box;}
-        
-        .main-vault { flex: 1; padding: 100px 5% 50px; transition: 0.5s ease; }
-        .vault-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #222; padding-bottom: 30px; margin-bottom: 40px; }
-        .vault-header h1 { font-family: 'Libre Baskerville'; font-size: 2.8rem; margin: 0; }
-
-        .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 30px; }
-        .asset-card { background: var(--card); border: 1px solid #222; padding: 25px; position: relative; }
-        .asset-preview { width: 100%; height: 220px; background: #000; margin-bottom: 20px; border: 1px solid #333; overflow: hidden; }
-        .asset-preview img, .asset-preview video { width: 100%; height: 100%; object-fit: cover; }
-
-        .btn-execute { background: var(--bureau-gold); color: #000; width: 100%; padding: 15px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; letter-spacing: 2px; font-size: 0.7rem; }
-        .btn-logout { background: transparent; border: 1px solid #444; color: #666; cursor: pointer; padding: 5px 15px; font-size: 0.6rem; }
-        
-        /* SIDE PANEL */
-        .side-panel { width: 0; position: fixed; right: 0; top: 0; height: 100%; background: #000; border-left: 2px solid var(--bureau-gold); overflow-x: hidden; transition: 0.5s; z-index: 2000; padding-top: 100px; }
-        .panel-content { padding: 40px; width: 400px; }
-        input, select, textarea { width: 100%; background: #111; border: 1px solid #333; color: #fff; padding: 12px; margin-bottom: 20px; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg); color: #fff; display: flex; flex-direction: column; min-height: 100vh; }
+        .telemetry { background: #000; padding: 12px 5%; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--bureau-gold); border-bottom: 1px solid #222; }
+        .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; padding: 50px 5%; }
+        .asset-card { background: var(--card); border: 1px solid #222; padding: 25px; }
+        .btn-execute { background: var(--bureau-gold); color: #000; width: 100%; padding: 15px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; font-size: 0.7rem; }
     </style>
-
-    <script>
-        // SOVEREIGN GUARD: CHECK SESSION ON LOAD
-        (function() {
-            const token = localStorage.getItem('SovereignToken');
-            if (!token) {
-                window.location.href = 'login.html'; // Kick to login if no token
-            }
-        })();
-
-        function terminateSession() {
-            if(confirm("TERMINATE SESSION: De-anchor from 1.0vRoot?")) {
-                localStorage.removeItem('SovereignToken');
-                localStorage.removeItem('ArchitectName');
-                window.location.href = 'login.html';
-            }
-        }
-    </script>
 </head>
 <body>
 
     <div class="telemetry">
         <div>NODE ID: USA KINsense 1.0vRoot</div>
-        <div>SESSION: <span style="color:#39ff14;">SECURE</span></div>
-        <div>
-            ARCHITECT: <span id="architect-display">MUSTAFA KING BROWN</span>
-            <button class="btn-logout" onclick="terminateSession()" style="margin-left:20px;">DE-ANCHOR</button>
-        </div>
+        <div>SESSION: <span id="session-status" style="color:#39ff14;">ACTIVE</span></div>
+        <div id="architect-name">LOADING ARCHITECT...</div>
     </div>
 
-    <main class="main-vault" id="main-vault">
-        <header class="vault-header">
-            <div>
-                <h1>The Sovereign Vault</h1>
-                <p style="color:var(--bureau-gold); letter-spacing:5px; font-size:0.7rem;">PRIVATE ASSET METROLOGY</p>
-            </div>
-            <label for="file-input" style="background:var(--bureau-blue); color:#fff; padding:15px 30px; border:1px solid var(--bureau-gold); cursor:pointer; font-weight:700; font-size:0.7rem;">INGEST ASSET</label>
-            <input type="file" id="file-input" style="display:none;" onchange="openSubmission(event)">
-        </header>
-
-        <div class="asset-grid" id="asset-container">
-            <div class="asset-card">
-                <div class="asset-preview"><div style="background:linear-gradient(45deg,#111,#222); width:100%; height:100%;"></div></div>
-                <h3 style="font-family:'Libre Baskerville'; margin:0;">Genesis Asset: Profile_Mustafa</h3>
-                <p style="font-size:0.7rem; color:#39ff14; margin:10px 0;">● SOVEREIGN REGISTRY ACTIVE</p>
-                <button class="btn-execute" onclick="alert('Viewing Forensic Record...')">View Record</button>
-             </div>
-        </div>
-    </main>
-
-    <div id="side-panel" class="side-panel">
-        <div class="panel-content">
-            <h2 style="font-family:'Libre Baskerville'; color:var(--bureau-gold);">Audit Statement</h2>
-            <div id="preview-box" style="width:100%; height:150px; background:#111; border:1px solid #333; margin-bottom:20px;"></div>
-            <form>
-                <input type="text" id="asset-name" placeholder="Asset Name">
-                <select id="tier-select"><option>Tier 3: Sovereign</option><option>Tier 1: Assisted</option></select>
-                <button type="button" class="btn-execute" onclick="anchorAsset()">Anchor to 1.0vRoot</button>
-                <button type="button" onclick="closePanel()" style="background:none; border:none; color:#666; width:100%; margin-top:10px; cursor:pointer;">Cancel</button>
-            </form>
-        </div>
-    </div>
+    <main class="asset-grid" id="asset-container">
+        </main>
 
     <script>
-        function openSubmission(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('preview-box').innerHTML = file.type.includes('video') ? `<video src="${e.target.result}" autoplay muted loop style="width:100%; height:100%; object-fit:cover;"></video>` : `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
-                document.getElementById('asset-name').value = file.name;
-                document.getElementById('side-panel').style.width = "450px";
-                document.getElementById('main-vault').style.marginRight = "450px";
-            };
-            reader.readAsDataURL(file);
+        // --- 1. PLUG IN YOUR CREDENTIALS HERE ---
+        const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
+        const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // --- 2. AUTH GUARD ---
+        async function checkUser() {
+            const { data: { user } } = await supabase.auth.getUser();
+            if (!user) {
+                window.location.href = 'login.html';
+            } else {
+                document.getElementById('architect-name').innerText = user.email.toUpperCase();
+                loadAssets(user.id);
+            }
         }
 
-        function closePanel() {
-            document.getElementById('side-panel').style.width = "0";
-            document.getElementById('main-vault').style.marginRight = "0";
-        }
-
-        function anchorAsset() {
-            const name = document.getElementById('asset-name').value;
+        // --- 3. LOAD PERSISTENT ASSETS ---
+        async function loadAssets(userId) {
             const container = document.getElementById('asset-container');
-            const card = document.createElement('div');
-            card.className = 'asset-card';
-            card.innerHTML = `<div class="asset-preview">${document.getElementById('preview-box').innerHTML}</div><h3 style="font-family:'Libre Baskerville'; margin:0;">${name}</h3><p style="font-size:0.7rem; color:var(--bureau-gold); margin:10px 0;">ANCHORED TO 1.0vRoot</p><button class="btn-execute">Execute Audit</button>`;
-            container.prepend(card);
-            closePanel();
+            
+            const { data: assets, error } = await supabase
+                .from('assets') // Your table name in Supabase
+                .select('*')
+                .eq('user_id', userId);
+
+            if (error) console.error(error);
+            
+            if (assets) {
+                assets.forEach(asset => {
+                    const card = document.createElement('div');
+                    card.className = 'asset-card';
+                    card.innerHTML = `
+                        <h3 style="font-family:'Libre Baskerville';">${asset.name}</h3>
+                        <p style="font-size:0.7rem; color:var(--bureau-gold);">$C_k$ DELTA: ${asset.ck_score}%</p>
+                        <button class="btn-execute" onclick="deList('${asset.id}')">De-list from 1.0vRoot</button>
+                    `;
+                    container.appendChild(card);
+                });
+            }
         }
+
+        async function deList(assetId) {
+            const { error } = await supabase.from('assets').delete().eq('id', assetId);
+            if (!error) location.reload();
+        }
+
+        checkUser();
     </script>
 </body>
 </html>
