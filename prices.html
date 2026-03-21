@@ -1,75 +1,220 @@
-<section class="audit-infrastructure" style="padding: 100px 10%; background: #fff;">
-    <div style="text-align:center; margin-bottom: 80px;">
-        <h2 style="font-family:'Libre Baskerville'; font-size: 2.8rem; color: var(--bureau-blue);">Forensic Infrastructure</h2>
-        <p style="color:var(--bureau-gold); letter-spacing: 4px; font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">One-Time Institutional Audits & Permanent Anchoring</p>
-        <p style="max-width: 700px; margin: 20px auto; font-size: 0.9rem; color: #666;">
-            A subscription maintains the vault, but an <strong>Audit</strong> creates the legal "Wall of Proof." These are specialized forensic deep-dives into your creative metadata to satisfy Article III evidentiary standards.
-        </p>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSTITUTIONAL TIERS | USA KINsense 1.0vRoot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #001f3f;
+            --bureau-gold: #b8860b;
+            --gov-gray: #f4f4f4;
+            --text-dark: #1a1a1a;
+            --border-frame: 15px;
+        }
 
-    <div class="audit-grid" style="display: grid; grid-template-columns: 1fr; gap: 30px; max-width: 1000px; margin: 0 auto;">
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: #ffffff; 
+            color: var(--text-dark); 
+            margin: 0; 
+            padding: var(--border-frame);
+            line-height: 1.8;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: var(--border-frame) solid var(--gov-gray);
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid var(--bureau-blue);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: var(--border-frame);
+            z-index: 1000;
+        }
+
+        .logo { font-family: 'Libre Baskerville'; color: var(--bureau-blue); font-weight: 700; font-size: 1rem; text-transform: uppercase; }
+        nav a { text-decoration: none; color: var(--bureau-blue); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; margin-left: 20px; }
+
+        .section-header { text-align: center; padding: 80px 10% 40px; }
+        .section-header h2 { font-family: 'Libre Baskerville'; font-size: 2.5rem; color: var(--bureau-blue); margin: 0; }
+        .section-header p { color: var(--bureau-gold); letter-spacing: 3px; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; }
+
+        /* TRACK A: MONTHLY */
+        .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto 100px; padding: 0 20px; }
+        .tier-card { border: 1px solid #eee; padding: 40px; background: #fff; transition: 0.3s; position: relative; }
+        .tier-card:hover { border-color: var(--bureau-gold); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+        .tier-card h3 { font-family: 'Libre Baskerville'; color: var(--bureau-blue); margin: 0; }
+        .price { font-size: 2rem; font-weight: 700; margin: 15px 0; }
+        .price span { font-size: 0.9rem; color: #999; }
+        .feature-list { list-style: none; padding: 0; font-size: 0.8rem; color: #555; }
+        .feature-list li { margin-bottom: 10px; border-bottom: 1px solid #f9f9f9; padding-bottom: 5px; }
+
+        /* TRACK B: FORENSIC ROWS */
+        .forensic-container { max-width: 1000px; margin: 0 auto 100px; padding: 0 20px; }
+        .forensic-row { 
+            display: grid; grid-template-columns: 1fr 200px; 
+            border: 1px solid #eee; margin-bottom: 20px; padding: 30px; 
+            align-items: center; background: #fff;
+        }
+        .forensic-row:hover { background: var(--gov-gray); border-left: 5px solid var(--bureau-blue); }
+        .btn-order { background: var(--bureau-blue); color: #fff; padding: 12px; text-decoration: none; text-align: center; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; display: block; }
         
-        <div class="audit-row" style="display: grid; grid-template-columns: 1fr 200px; border: 1px solid #eee; padding: 40px; align-items: center;">
-            <div>
-                <h3 style="font-family:'Libre Baskerville'; color: var(--bureau-blue); margin: 0;">Tier 1: Assisted Audit</h3>
-                <p style="font-size: 0.85rem; color: #444; margin: 15px 0;"><strong>Foundational Origin Protection:</strong> Ideal for conceptual architects. Establishes the basic prompt-origin and ensures your metadata persists beyond the AI model's temporary cache.</p>
-                <span style="font-size: 0.7rem; color: var(--bureau-gold); font-weight: 700; text-transform: uppercase;">Includes: Entry-Level Metadata Persistence + Pillar One Timestamp</span>
-            </div>
-            <div style="text-align: right;">
-                <div style="font-size: 1.8rem; font-weight: 700;">$199</div>
-                <a href="#" style="font-size: 0.6rem; color: var(--bureau-blue); text-decoration: none; font-weight: 800; border: 1px solid var(--bureau-blue); padding: 10px 15px; display: inline-block; margin-top: 10px;">ORDER AUDIT</a>
-            </div>
-        </div>
+        .elite-row { border: 2px solid #000; background: #fff !important; }
+        .transfer-row { border: 1px dashed var(--bureau-gold); }
 
-        <div class="audit-row" style="display: grid; grid-template-columns: 1fr 200px; border: 1px solid #eee; border-left: 5px solid var(--bureau-blue); padding: 40px; align-items: center; background: var(--gov-gray);">
-            <div>
-                <h3 style="font-family:'Libre Baskerville'; color: var(--bureau-blue); margin: 0;">Tier 2: Collaborative Audit</h3>
-                <p style="font-size: 0.85rem; color: #444; margin: 15px 0;"><strong>The Directorial Handshake:</strong> Verification of 25+ human iterative nodes. This audit proves the labor was not a "single click," but a sophisticated back-and-forth between the Architect and the Machine.</p>
-                <span style="font-size: 0.7rem; color: var(--bureau-blue); font-weight: 700; text-transform: uppercase;">Includes: Iteration Node Mapping + Directorial Verification Report</span>
-            </div>
-            <div style="text-align: right;">
-                <div style="font-size: 1.8rem; font-weight: 700;">$949</div>
-                <a href="#" style="font-size: 0.6rem; color: #fff; background: var(--bureau-blue); text-decoration: none; font-weight: 800; padding: 10px 15px; display: inline-block; margin-top: 10px;">ORDER AUDIT</a>
-            </div>
-        </div>
+        footer { background: var(--gov-gray); padding: 60px 5%; text-align: center; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body>
 
-        <div class="audit-row" style="display: grid; grid-template-columns: 1fr 200px; border: 1px solid var(--bureau-gold); padding: 40px; align-items: center;">
-            <div>
-                <h3 style="font-family:'Libre Baskerville'; color: var(--bureau-blue); margin: 0;">Tier 3: Sovereign Audit</h3>
-                <p style="font-size: 0.85rem; color: #444; margin: 15px 0;"><strong>Indefeasible Legal Parentage:</strong> Certification of the 54%+ Human Delta ($C_k$). This is the mathematical proof required for definitive copyright defense. It proves the Architect's mind was the dominant force.</p>
-                <span style="font-size: 0.7rem; color: var(--bureau-gold); font-weight: 700; text-transform: uppercase;">Includes: 54% Human Delta Certification + $C_k$ Metrology Seal</span>
-            </div>
-            <div style="text-align: right;">
-                <div style="font-size: 1.8rem; font-weight: 700; color: var(--bureau-gold);">$1,499</div>
-                <a href="#" style="font-size: 0.6rem; color: #000; background: var(--bureau-gold); text-decoration: none; font-weight: 800; padding: 10px 15px; display: inline-block; margin-top: 10px;">ORDER AUDIT</a>
-            </div>
-        </div>
+    <header>
+        <div class="logo">Bureau of AI-IP Verification</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="ledger.html">Registry</a>
+            <a href="prices.html" style="color:var(--bureau-gold)">Tiers</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
 
-        <div class="audit-row" style="display: grid; grid-template-columns: 1fr 200px; border: 2px solid #000; padding: 40px; align-items: center; background: #fff; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 10px; right: -35px; background: red; color: #fff; font-size: 0.5rem; padding: 5px 40px; transform: rotate(45deg); font-weight: 900;">TRIAL READY</div>
-            <div>
-                <h3 style="font-family:'Libre Baskerville'; color: #000; margin: 0;">Article III Elite</h3>
-                <p style="font-size: 0.85rem; color: #444; margin: 15px 0;"><strong>The Apex Defense:</strong> Trial-ready evidence compilation. Includes a physical notarized Ledger of Authorship and expert testimony standby for high-stakes litigation against major studios or AI aggregators.</p>
-                <span style="font-size: 0.7rem; color: #000; font-weight: 700; text-transform: uppercase;">Includes: Physical Notarized Ledger + Expert Testimony Standby</span>
-            </div>
-            <div style="text-align: right;">
-                <div style="font-size: 1.8rem; font-weight: 700;">$2,499</div>
-                <a href="#" style="font-size: 0.6rem; color: #fff; background: #000; text-decoration: none; font-weight: 800; padding: 10px 15px; display: inline-block; margin-top: 10px;">ORDER APEX</a>
-            </div>
+    <div class="section-header">
+        <p>The Sovereign Shield</p>
+        <h2>Monthly Enrollment</h2>
+        <div style="max-width: 600px; margin: 20px auto; font-size: 0.85rem; color: #666;">
+            Active identity anchoring and vaulting. Enrollment ensures your creative handshake is logged in real-time, providing <strong>First Claim Priority</strong> even if your service pauses.
         </div>
-
-        <div class="audit-row" style="display: grid; grid-template-columns: 1fr 200px; border: 3px double var(--bureau-gold); padding: 50px; align-items: center; background: linear-gradient(45deg, #fff, var(--gov-gray));">
-            <div>
-                <h3 style="font-family:'Libre Baskerville'; color: var(--bureau-blue); margin: 0; font-size: 1.8rem;">Kinetic Legacy</h3>
-                <p style="font-size: 1rem; color: #333; font-weight: 600; margin: 15px 0;">The Digital Soul Protectorate.</p>
-                <p style="font-size: 0.85rem; color: #555;">For life-long creators. Post-mortem protection for your entire AI-aided estate. We secure your digital DNA and creative lineage for your heirs, ensuring your legacy is never absorbed into the public domain machine.</p>
-            </div>
-            <div style="text-align: right;">
-                <div style="font-size: 1.8rem; font-weight: 700; color: var(--bureau-gold);">$5,499</div>
-                <p style="font-size: 0.5rem; text-transform: uppercase; margin: 5px 0;">Life-Time Sovereignty</p>
-                <a href="#" style="font-size: 0.6rem; color: #fff; background: var(--bureau-blue); text-decoration: none; font-weight: 800; padding: 15px 20px; display: inline-block; margin-top: 10px;">ESTABLISH LEGACY</a>
-            </div>
-        </div>
-
     </div>
-</section>
+
+    <div class="tier-grid">
+        <div class="tier-card">
+            <h3>Visual Architect</h3>
+            <div class="price">$49 <span>/mo</span></div>
+            <ul class="feature-list">
+                <li>Anchor 50 Assets Monthly</li>
+                <li><strong>50% First Claim Priority</strong></li>
+                <li>Secure Institutional Vault</li>
+                <li>Public Ledger Registry</li>
+            </ul>
+            <a href="register.html" class="btn-order">Enroll Now</a>
+        </div>
+
+        <div class="tier-card" style="border-top: 5px solid var(--bureau-gold);">
+            <div style="font-size: 0.5rem; color: var(--bureau-gold); font-weight: 900; letter-spacing: 2px;">MOST MANDATED</div>
+            <h3>Sovereign Producer</h3>
+            <div class="price">$129 <span>/mo</span></div>
+            <ul class="feature-list">
+                <li>Anchor 250 Assets Monthly</li>
+                <li><strong>60% First Claim + Delta Logs</strong></li>
+                <li>Human-AI Handshake History</li>
+                <li>Priority Node Redundancy</li>
+            </ul>
+            <a href="register.html" class="btn-order" style="background:var(--bureau-gold); color:#000;">Enroll Now</a>
+        </div>
+
+        <div class="tier-card">
+            <h3>Institutional Node</h3>
+            <div class="price">$499 <span>/mo</span></div>
+            <ul class="feature-list">
+                <li>Unlimited Asset Ingestion</li>
+                <li><strong>75% First Claim + Hibernation</strong></li>
+                <li>White-Label Agency Portal</li>
+                <li>Executive Jurisdictional Support</li>
+            </ul>
+            <a href="contact.html" class="btn-order">Application Required</a>
+        </div>
+    </div>
+
+    <div class="section-header">
+        <p>The Sovereign Deed</p>
+        <h2>Forensic Infrastructure</h2>
+        <div style="max-width: 600px; margin: 20px auto; font-size: 0.85rem; color: #666;">
+            Permanent legal anchors for high-value masterpieces. No monthly fees required to maintain once the Forensic Event is completed.
+        </div>
+    </div>
+
+    <div class="forensic-container">
+        <div class="forensic-row">
+            <div>
+                <h4 style="margin:0; font-family:'Libre Baskerville';">Assisted Audit (The Receipt)</h4>
+                <p style="font-size:0.75rem; color:#666; margin:5px 0;">Foundational prompt-origin & metadata persistence. Permanent entry in the 1.0v Ledger.</p>
+            </div>
+            <div style="text-align:right;">
+                <div style="font-weight:700;">$299</div>
+                <a href="#" class="btn-order" style="margin-top:10px;">ORDER</a>
+            </div>
+        </div>
+
+        <div class="forensic-row">
+            <div>
+                <h4 style="margin:0; font-family:'Libre Baskerville';">Collaborative Audit (Director's Proof)</h4>
+                <p style="font-size:0.75rem; color:#666; margin:5px 0;">Verifying 25+ human iterative directorial nodes. Proof of labor & intent.</p>
+            </div>
+            <div style="text-align:right;">
+                <div style="font-weight:700;">$1,249</div>
+                <a href="#" class="btn-order" style="margin-top:10px;">ORDER</a>
+            </div>
+        </div>
+
+        <div class="forensic-row">
+            <div>
+                <h4 style="margin:0; font-family:'Libre Baskerville';">Sovereign Audit ($C_k$ Seal)</h4>
+                <p style="font-size:0.75rem; color:#666; margin:5px 0;">Definitive Copyright Evidence. 54%+ Human Delta Certification.</p>
+            </div>
+            <div style="text-align:right;">
+                <div style="font-weight:700; color:var(--bureau-gold);">$1,949</div>
+                <a href="#" class="btn-order" style="background:var(--bureau-gold); color:#000; margin-top:10px;">ORDER</a>
+            </div>
+        </div>
+
+        <div class="forensic-row elite-row">
+            <div>
+                <h4 style="margin:0; font-family:'Libre Baskerville'; text-transform:uppercase;">Article III Elite (Trial Weapon)</h4>
+                <p style="font-size:0.75rem; color:#000; margin:5px 0; font-weight:600;">Physical Notarized Ledger + Expert Testimony Standby for Litigation.</p>
+            </div>
+            <div style="text-align:right;">
+                <div style="font-weight:900;">$3,499</div>
+                <a href="#" class="btn-order" style="background:#000; color:#fff; margin-top:10px;">ORDER APEX</a>
+            </div>
+        </div>
+
+        <div class="forensic-row transfer-row">
+            <div>
+                <h4 style="margin:0; font-family:'Libre Baskerville'; color:var(--bureau-gold);">Sovereign Rights Transfer</h4>
+                <p style="font-size:0.75rem; color:#666; margin:5px 0;">Legal Deed Assignment from Architect to Buyer/Collector. Permanent Ledger update.</p>
+            </div>
+            <div style="text-align:right;">
+                <div style="font-weight:700; color:var(--bureau-gold);">$349</div>
+                <a href="#" class="btn-order" style="background:transparent; border:1px solid var(--bureau-gold); color:var(--bureau-gold); margin-top:10px;">EXECUTE</a>
+            </div>
+        </div>
+
+        <div class="forensic-row" style="border: 3px double var(--bureau-gold); padding:50px;">
+            <div>
+                <h4 style="margin:0; font-family:'Libre Baskerville'; font-size:1.4rem;">Kinetic Legacy</h4>
+                <p style="font-size:0.85rem; color:#555; margin:10px 0;">Post-mortem protection for your digital estate. Secures the bloodline of your magic.</p>
+            </div>
+            <div style="text-align:right;">
+                <div style="font-weight:700; font-size:1.5rem;">$7,499</div>
+                <a href="#" class="btn-order" style="margin-top:10px;">SECURE LEGACY</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 USA KINsense 1.0vRoot | Solomon Kin Protocol | Article III Ready</p>
+    </footer>
+
+</body>
+</html>
