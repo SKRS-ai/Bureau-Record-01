@@ -13,13 +13,11 @@
             --text-dark: #1a1a1b;
             --status-green: #39ff14;
             --legal-accent: #e5e7eb;
-            /* INSTITUTIONAL WHITE GLOW */
             --audit-glow: 0 0 60px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.6);
         }
 
         body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-light); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
 
-        /* 1. TOP TELEMETRY STRIP */
         .telemetry-strip { 
             background: #000; color: #fff; padding: 12px 5%; 
             display: flex; justify-content: space-between; align-items: center;
@@ -28,7 +26,6 @@
         .live-dot { color: var(--status-green); animation: pulse 2s infinite; margin-right: 8px; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-        /* 2. INSTITUTIONAL HEADER (GLASSMORPHISM) */
         .bureau-header { 
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
             border-bottom: 4px solid var(--bureau-blue); 
@@ -45,7 +42,6 @@
         .btn-auth.fill { background: var(--bureau-blue); color: #fff; border: none; }
         .btn-auth.fill:hover { background: var(--bureau-gold); }
 
-        /* 3. HERO: PHL-01 ANCHOR */
         .hero { 
             background: linear-gradient(rgba(0,31,63,0.95), rgba(0,31,63,0.85)), url('img/phl-root-hq.jpg') center/cover;
             color: white; padding: 140px 10%; text-align: center; border-bottom: 10px solid var(--bureau-gold);
@@ -54,13 +50,11 @@
         .hero p { font-size: 1.1rem; color: var(--bureau-gold); text-transform: uppercase; letter-spacing: 5px; font-weight: 700; margin-bottom: 10px; }
         .hero-desc { max-width: 900px; margin: 30px auto; font-size: 1.2rem; line-height: 1.8; opacity: 0.9; font-weight: 300; }
 
-        /* 4. LEGAL INTRO */
         .legal-intro { padding: 100px 15%; background: #fff; text-align: center; border-bottom: 1px solid var(--legal-accent); }
         .legal-intro h2 { font-family: 'Libre Baskerville'; font-size: 2.5rem; color: var(--bureau-blue); margin-bottom: 30px; }
         .legal-intro p { font-size: 1.1rem; color: #444; max-width: 950px; margin: 0 auto 40px; line-height: 2; }
         .highlight-box { border-left: 6px solid var(--bureau-gold); background: #f9f9f9; padding: 40px; text-align: left; margin: 40px auto; max-width: 900px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
 
-        /* 5. THE 5-TIER FORENSIC GRID (WITH ACTIVATED GLOW) */
         .tier-section { padding: 120px 5%; max-width: 1800px; margin: 0 auto; text-align: center; }
         .tier-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 25px; margin-top: 100px; align-items: stretch; }
         
@@ -71,7 +65,6 @@
         }
         .tier-card:hover { transform: translateY(-15px); border-color: var(--bureau-gold); box-shadow: 0 50px 100px rgba(0,0,0,0.1); }
 
-        /* 500px SEAL IMAGES + WHITE GLOW HOVER */
         .tier-card img { 
             width: 100%; max-width: 500px; height: auto; 
             margin-bottom: 40px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2));
@@ -90,98 +83,15 @@
         .sovereign { background: #fffcf5; border: 3px solid var(--bureau-gold); }
         .apex { background: #fafafa; border: 2px solid #333; }
         .legacy { background: #fbfbfb; border: 2px solid var(--bureau-blue); }
-<footer class="forensic-footer" style="background: #000; color: #fff; padding: 100px 10% 40px; border-top: 5px solid var(--bureau-gold); margin-top: auto;">
-    <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1.5fr 1fr 1fr; gap: 60px; border-bottom: 1px solid #222; padding-bottom: 80px;">
-        
-        <div class="footer-col">
-            <h4 style="font-family:'Libre Baskerville'; color:var(--bureau-gold); margin:0 0 20px 0; font-size: 1.4rem;">OFFICE OF THE LEAD ARCHITECT</h4>
-            <p style="color:#666; line-height:2; font-size: 0.8rem; padding-right: 40px;">
-                Anchored at the <strong>USA KINsense 1.0vRoot</strong>. We provide the forensic metrology required to certify human parentage in the synthetic era. We standardize the Human Spark.
-            </p>
-        </div>
 
-        <div class="footer-col" style="background: #050505; border: 1px solid #111; padding: 30px; position: relative;">
-            <div style="font-size: 0.6rem; color: var(--bureau-gold); letter-spacing: 3px; margin-bottom: 20px; font-weight: 700;">● ROOT ACCESS TERMINAL</div>
-            <form onsubmit="executeRootBypass(event)">
-                <input type="email" id="footer-id" placeholder="ARCHITECT ID" required 
-                       style="width: 100%; background: #000; border: 1px solid #222; color: #fff; padding: 12px; margin-bottom: 10px; font-size: 0.7rem; font-family: 'Montserrat';">
-                <input type="password" id="footer-key" placeholder="SECURITY KEY" required 
-                       style="width: 100%; background: #000; border: 1px solid #222; color: #fff; padding: 12px; margin-bottom: 15px; font-size: 0.7rem; font-family: 'Montserrat';">
-                <button type="submit" style="width: 100%; background: var(--bureau-gold); color: #000; border: none; padding: 12px; font-weight: 800; font-size: 0.7rem; cursor: pointer; text-transform: uppercase; letter-spacing: 2px;">Initialize Session</button>
-            </form>
-            <div id="bypass-status" style="margin-top: 15px; font-size: 0.6rem; color: #444; text-align: center; font-family: monospace;">STATUS: READY_FOR_INGEST</div>
-        </div>
-
-        <div class="footer-col">
-            <h5 style="font-size: 0.65rem; color: #444; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;">Infrastructure</h5>
-            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.75rem;">
-                <li style="margin-bottom: 12px;"><a href="ledger.html" style="color: #888; text-decoration: none;">Public Ledger</a></li>
-                <li style="margin-bottom: 12px;"><a href="library.html" style="color: #888; text-decoration: none;">AIRTLR Nodes</a></li>
-                <li style="margin-bottom: 12px;"><a href="nodes.html" style="color: #888; text-decoration: none;">Global Mesh</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h5 style="font-size: 0.65rem; color: #444; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;">Governance</h5>
-            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.75rem;">
-                <li style="margin-bottom: 12px;"><a href="nist.html" style="color: #888; text-decoration: none;">NIST AI-100-1</a></li>
-                <li style="margin-bottom: 12px;"><a href="legal.html" style="color: #888; text-decoration: none;">Solomon Kin Protocol</a></li>
-                <li style="margin-bottom: 12px;"><a href="about.html" style="color: #888; text-decoration: none;">Bureau Mission</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="legal-anchor" style="padding-top: 50px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #333; line-height: 2;">
-        <div style="max-width: 800px;">
-            <strong>SOLOMON KIN, LLC | INDEFEASIBLE COPYRIGHT NOTICE:</strong><br>
-            All creative parentage verified by the AI-IPVB is cryptographically anchored at the USA KINsense 1.0vRoot. Unauthorized replication of Bureau-certified assets is subject to international enforcement. © 2026.
-        </div>
-        <div style="text-align: right; letter-spacing: 1px;">
-            SYSTEM: ONLINE | ENCRYPTION: AES-256<br>
-            ROOT: USA KINsense 1.0v | PHL-01_MSTR
-        </div>
-    </div>
-</footer>
-
-<script>
-    // FOOTER BYPASS LOGIC (Hardened)
-    function executeRootBypass(event) {
-        event.preventDefault();
-        const id = document.getElementById('footer-id').value;
-        const key = document.getElementById('footer-key').value;
-        const status = document.getElementById('bypass-status');
-
-        // MASTER LOCKDOWN VALUES
-        const MASTER_ID = "brneo059@gmail.com";
-        const MASTER_KEY = "USA-KIN-2026";
-
-        status.innerText = "AUTHENTICATING...";
-        status.style.color = "var(--bureau-gold)";
-
-        setTimeout(() => {
-            if (id === MASTER_ID && key === MASTER_KEY) {
-                localStorage.setItem('SovereignToken', 'USA-KIN-9921-ACTIVE');
-                localStorage.setItem('ArchitectName', 'MUSTAFA KING BROWN');
-                status.innerText = "ACCESS_GRANTED";
-                status.style.color = "#39ff14";
-                window.location.href = 'inventory.html';
-            } else {
-                status.innerText = "ERROR: INVALID_KEY";
-                status.style.color = "#ff4444";
-                document.getElementById('footer-key').value = "";
-            }
-        }, 1200);
-    }
-</script>
-        /* 6. COMPREHENSIVE FOOTER */
         .forensic-footer { background: #000; color: #fff; padding: 100px 10% 40px; border-top: 5px solid var(--bureau-gold); margin-top: auto; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; border-bottom: 1px solid #333; padding-bottom: 80px; }
-        .footer-col h5 { font-size: 0.65rem; color: #666; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
-        .footer-col ul { list-style: none; padding: 0; margin: 0; }
-        .footer-col li { margin-bottom: 15px; font-size: 0.75rem; }
-        .footer-col a { color: #aaa; text-decoration: none; transition: 0.3s; }
-        .footer-col a:hover { color: var(--bureau-gold); padding-left: 5px; }
-        .legal-anchor { padding-top: 50px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #555; line-height: 2; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1.5fr 1fr 1fr; gap: 60px; border-bottom: 1px solid #222; padding-bottom: 80px; }
+        .footer-col h5 { font-size: 0.65rem; color: #444; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; font-size: 0.75rem; }
+        .footer-col li { margin-bottom: 12px; }
+        .footer-col a { color: #888; text-decoration: none; transition: 0.3s; }
+        .footer-col a:hover { color: var(--bureau-gold); }
+        .legal-anchor { padding-top: 50px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #333; line-height: 2; }
     </style>
 </head>
 <body>
@@ -225,152 +135,81 @@
             <strong>THE BUREAU SOLUTION:</strong> We verify the 54%+ Human Delta ($C_k$) required to transform synthetic output into a <em>Sovereign Intellectual Asset</em>.
         </div>
     </section>
-<section class="global-metrics" style="background: #000; color: #fff; padding: 100px 10%; border-bottom: 5px solid var(--bureau-gold);">
-    <div style="text-align: center; margin-bottom: 60px;">
-        <h2 style="font-family: 'Libre Baskerville'; font-size: 2.5rem; color: var(--bureau-gold); margin: 0;">Root Node Metrology</h2>
-        <p style="text-transform: uppercase; letter-spacing: 5px; font-size: 0.75rem; color: #666; margin-top: 15px;">Live Network Statistics | USA KINsense 1.0v</p>
-    </div>
 
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center;">
-        <div style="border: 1px solid #222; padding: 40px; background: #050505;">
-            <div id="count-assets" style="font-family: 'Libre Baskerville'; font-size: 3rem; color: #fff; font-weight: 700;">12,482</div>
-            <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Assets Anchored</div>
+    <section class="global-metrics" style="background: #000; color: #fff; padding: 100px 10%; border-bottom: 5px solid var(--bureau-gold);">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2 style="font-family: 'Libre Baskerville'; font-size: 2.5rem; color: var(--bureau-gold); margin: 0;">Root Node Metrology</h2>
+            <p style="text-transform: uppercase; letter-spacing: 5px; font-size: 0.75rem; color: #666; margin-top: 15px;">Live Network Statistics | USA KINsense 1.0v</p>
         </div>
 
-        <div style="border: 1px solid #222; padding: 40px; background: #050505;">
-            <div style="font-family: 'Libre Baskerville'; font-size: 3rem; color: #fff; font-weight: 700;">94.2%</div>
-            <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Avg. $C_k$ Accuracy</div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center;">
+            <div style="border: 1px solid #222; padding: 40px; background: #050505;">
+                <div id="count-assets" style="font-family: 'Libre Baskerville'; font-size: 3rem; color: #fff; font-weight: 700;">12,482</div>
+                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Assets Anchored</div>
+            </div>
+            <div style="border: 1px solid #222; padding: 40px; background: #050505;">
+                <div style="font-family: 'Libre Baskerville'; font-size: 3rem; color: #fff; font-weight: 700;">94.2%</div>
+                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Avg. $C_k$ Accuracy</div>
+            </div>
+            <div style="border: 1px solid #222; padding: 40px; background: #050505;">
+                <div style="font-family: 'Libre Baskerville'; font-size: 3rem; color: #fff; font-weight: 700;">842</div>
+                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Enrolled Architects</div>
+            </div>
+            <div style="border: 1px solid #222; padding: 40px; background: #050505;">
+                <div id="count-enforcement" style="font-family: 'Libre Baskerville'; font-size: 3rem; color: var(--status-green); font-weight: 700;">100%</div>
+                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Enforcement Up-time</div>
+            </div>
+        </div>
+        <div style="margin-top: 60px; text-align: center; font-size: 0.8rem; color: #444; font-family: monospace;">
+            CURRENT NETWORK STATUS: <span style="color: var(--status-green);">OPTIMAL</span> | LAST ROOT ANCHOR: 0.04s AGO | NODE: USA-KIN-1.0v-PHL
+        </div>
+    </section>
+
+    <section class="monthly-enrollment-track" style="padding: 100px 5%; background: #ffffff; position: relative; border-bottom: 1px solid #eee;">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2 style="font-family: 'Libre Baskerville'; color: #001f3f; font-size: 2.5rem; margin: 0;">Monthly Enrollment</h2>
+            <p style="color: #b8860b; letter-spacing: 4px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; margin-top: 10px;">
+                The Sovereign Shield: Continuous Identity & Asset Protection
+            </p>
         </div>
 
-        <div style="border: 1px solid #222; padding: 40px; background: #050505;">
-            <div style="font-family: 'Libre Baskerville'; font-size: 3rem; color: #fff; font-weight: 700;">842</div>
-            <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Enrolled Architects</div>
-        </div>
+        <div class="enrollment-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto;">
+            
+            <div class="enrollment-card" style="flex: 1; min-width: 300px; max-width: 380px; border: 1px solid #eee; padding: 45px; background: #fff;">
+                <h3 style="font-family: 'Libre Baskerville'; color: #001f3f; margin-bottom: 10px;">Visual Architect</h3>
+                <div style="font-size: 2.2rem; font-weight: 700; margin-bottom: 20px;">$49 <span style="font-size: 0.9rem; color: #999;">/mo</span></div>
+                <ul style="list-style: none; padding: 0; font-size: 0.8rem; line-height: 2.2; color: #444; margin-bottom: 30px;">
+                    <li style="border-bottom: 1px solid #f0f0f0;">✓ 50% First Claim Priority</li>
+                    <li style="border-bottom: 1px solid #f0f0f0;">✓ Secure Institutional Vault</li>
+                    <li style="border-bottom: 1px solid #f0f0f0;">✓ Global Ledger Registry</li>
+                </ul>
+                <a href="register.html" style="display: block; text-align: center; background: #001f3f; color: #fff; padding: 15px; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem;">Enroll Now</a>
+            </div>
 
-        <div style="border: 1px solid #222; padding: 40px; background: #050505;">
-            <div id="count-enforcement" style="font-family: 'Libre Baskerville'; font-size: 3rem; color: var(--status-green); font-weight: 700;">100%</div>
-            <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Enforcement Up-time</div>
-        </div>
-    </div>
+            <div class="enrollment-card" style="flex: 1; min-width: 300px; max-width: 380px; border: 2px solid #b8860b; padding: 45px; background: #fff; transform: scale(1.05); z-index: 2; box-shadow: 0 20px 40px rgba(0,0,0,0.05);">
+                <h3 style="font-family: 'Libre Baskerville'; color: #001f3f; margin-bottom: 10px;">Sovereign Producer</h3>
+                <div style="font-size: 2.2rem; font-weight: 700; margin-bottom: 20px;">$129 <span style="font-size: 0.9rem; color: #999;">/mo</span></div>
+                <ul style="list-style: none; padding: 0; font-size: 0.8rem; line-height: 2.2; color: #444; margin-bottom: 30px;">
+                    <li style="border-bottom: 1px solid #f0f0f0;">✓ 60% First Claim + Delta Logs</li>
+                    <li style="border-bottom: 1px solid #f0f0f0;">✓ Directorial Handshake History</li>
+                    <li style="border-bottom: 1px solid #f0f0f0;">✓ Priority Node Redundancy</li>
+                </ul>
+                <a href="register.html" style="display: block; text-align: center; background: #b8860b; color: #000; padding: 15px; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem;">Enroll Now</a>
+            </div>
 
-    <div style="margin-top: 60px; text-align: center; font-size: 0.8rem; color: #444; font-family: monospace;">
-        CURRENT NETWORK STATUS: <span style="color: var(--status-green);">OPTIMAL</span> | LAST ROOT ANCHOR: 0.04s AGO | NODE: USA-KIN-1.0v-PHL
-    </div>
-</section>
-
-<script>
-    // SIMULATED LIVE METROLOGY (Increments the count to feel "Live")
-    function simulateNetworkTraffic() {
-        const assetCounter = document.getElementById('count-assets');
-        let currentCount = 12482;
-        
-        setInterval(() => {
-            if (Math.random() > 0.7) {
-                currentCount += Math.floor(Math.random() * 3);
-                assetCounter.innerText = currentCount.toLocaleString();
-            }
-        }, 3000);
-    }
-    simulateNetworkTraffic();
-<section class="monthly-enrollment-track" style="padding: 80px 5%; background: #ffffff; position: relative;">
-    <div style="text-align: center; margin-bottom: 60px;">
-        <h2 style="font-family: 'Libre Baskerville'; color: #001f3f; font-size: 2.5rem; margin: 0;">Monthly Enrollment</h2>
-        <p style="color: #b8860b; letter-spacing: 4px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; margin-top: 10px;">
-            The Sovereign Shield: Continuous Identity & Asset Protection
-        </p>
-        <div style="max-width: 700px; margin: 20px auto; font-size: 0.9rem; color: #555; line-height: 1.6;">
-            Establish an active heartbeat within the 1.0vRoot. Enrollment ensures every creation is "Born Protected" with <strong>First Claim Priority</strong>, anchoring your creative DNA to the Solomon Kin Protocol in real-time.
+            <div class="enrollment-card" style="flex: 1; min-width: 300px; max-width: 380px; border: 1px solid #eee; padding: 45px; background: #fff;">
+                <h3 style="font-family: 'Libre Baskerville'; color: #001f3f; margin-bottom: 10px;">Institutional Node</h3>
+                <div style="font-size: 2.2rem; font-weight: 700; margin-bottom: 20px;">$499 <span style="font-size: 0.9rem; color: #999;">/mo</span></div>
+                <ul style="list-style: none; padding: 0; font-size: 0.8rem; line-height: 2.2; color: #444; margin-bottom: 30px;">
+                    <li style="border-bottom: 1px solid #f0f0f0;">✓ 75% First Claim + Hibernation</li>
+                    <li style="border-bottom: 1px solid #f0f0f0;">✓ Agency White-Label Portal</li>
+                    <li style="border-bottom: 1px solid #f0f0f0;">✓ Bulk Asset Ingestion</li>
+                </ul>
+                <a href="contact.html" style="display: block; text-align: center; border: 1px solid #001f3f; color: #001f3f; padding: 15px; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem;">Apply Now</a>
+            </div>
         </div>
-    </div>
-<section id="sovereign-enrollment-sector" style="display: block !important; visibility: visible !important; opacity: 1 !important; padding: 100px 5%; background: #ffffff; position: relative; z-index: 10;">
-    <div style="text-align: center; margin-bottom: 60px;">
-        <h2 style="font-family: 'Libre Baskerville', serif; color: #001f3f; font-size: 2.5rem; margin: 0;">Monthly Enrollment</h2>
-        <p style="color: #b8860b; letter-spacing: 4px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; margin-top: 10px;">The Sovereign Shield: Continuous Identity Protection</p>
-    </div>
+    </section>
 
-    <div class="enrollment-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto;">
-        
-        <div class="enrollment-card" style="flex: 1; min-width: 300px; max-width: 380px; border: 1px solid #eee; padding: 40px; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
-            <h3 style="font-family: 'Libre Baskerville'; color: #001f3f;">Visual Architect</h3>
-            <div style="font-size: 2rem; font-weight: 700; margin: 15px 0;">$49 <span style="font-size: 0.8rem; color: #999;">/mo</span></div>
-            <ul style="list-style: none; padding: 0; font-size: 0.8rem; color: #555; line-height: 2;">
-                <li>✓ 50% First Claim Priority</li>
-                <li>✓ Secure Institutional Vault</li>
-                <li>✓ Global Ledger Registry</li>
-            </ul>
-            <a href="register.html" style="display: block; margin-top: 25px; text-align: center; background: #001f3f; color: #fff; padding: 15px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.7rem;">Enroll Now</a>
-        </div>
-
-        <div class="enrollment-card" style="flex: 1; min-width: 300px; max-width: 380px; border: 2px solid #b8860b; padding: 40px; background: #fff; transform: scale(1.05); z-index: 2;">
-            <h3 style="font-family: 'Libre Baskerville'; color: #001f3f;">Sovereign Producer</h3>
-            <div style="font-size: 2rem; font-weight: 700; margin: 15px 0;">$129 <span style="font-size: 0.8rem; color: #999;">/mo</span></div>
-            <ul style="list-style: none; padding: 0; font-size: 0.8rem; color: #555; line-height: 2;">
-                <li>✓ 60% First Claim + Delta Logs</li>
-                <li>✓ Directorial Handshake History</li>
-                <li>✓ Priority Node Redundancy</li>
-            </ul>
-            <a href="register.html" style="display: block; margin-top: 25px; text-align: center; background: #b8860b; color: #000; padding: 15px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.7rem;">Enroll Now</a>
-        </div>
-
-        <div class="enrollment-card" style="flex: 1; min-width: 300px; max-width: 380px; border: 1px solid #eee; padding: 40px; background: #fff;">
-            <h3 style="font-family: 'Libre Baskerville'; color: #001f3f;">Institutional Node</h3>
-            <div style="font-size: 2rem; font-weight: 700; margin: 15px 0;">$499 <span style="font-size: 0.8rem; color: #999;">/mo</span></div>
-            <ul style="list-style: none; padding: 0; font-size: 0.8rem; color: #555; line-height: 2;">
-                <li>✓ 75% First Claim + Hibernation</li>
-                <li>✓ Agency White-Label Portal</li>
-                <li>✓ Bulk Asset Ingestion</li>
-            </ul>
-            <a href="contact.html" style="display: block; margin-top: 25px; text-align: center; border: 1px solid #001f3f; color: #001f3f; padding: 15px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.7rem;">Apply Now</a>
-        </div>
-
-    </div>
-</section>
-    <div class="enrollment-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;">
-        
-        <div class="enrollment-card" style="border: 1px solid #eee; padding: 45px; transition: 0.3s; background: #fff;">
-            <h3 style="font-family: 'Libre Baskerville'; color: #001f3f; margin-bottom: 10px;">Visual Architect</h3>
-            <div style="font-size: 2.2rem; font-weight: 700; margin-bottom: 20px;">$49 <span style="font-size: 0.9rem; color: #999; font-weight: 400;">/mo</span></div>
-            <p style="font-size: 0.8rem; color: #666; margin-bottom: 25px;">Ideal for the solo creator requiring persistent registry for up to 50 assets monthly.</p>
-            <ul style="list-style: none; padding: 0; font-size: 0.8rem; line-height: 2.2; color: #444; margin-bottom: 30px;">
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ <strong>50% First Claim Priority</strong></li>
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ Secure Institutional Vault Access</li>
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ Global Ledger Registry Entry</li>
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ Real-Time Metadata Anchoring</li>
-            </ul>
-            <a href="register.html" style="display: block; text-align: center; background: #001f3f; color: #fff; padding: 15px; text-decoration: none; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;">Enroll Now</a>
-        </div>
-
-        <div class="enrollment-card" style="border: 2px solid #b8860b; padding: 45px; transition: 0.3s; background: #fff; position: relative; transform: scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.05);">
-            <div style="position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: #b8860b; color: #000; font-size: 0.6rem; font-weight: 900; padding: 5px 20px; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap;">Most Mandated</div>
-            <h3 style="font-family: 'Libre Baskerville'; color: #001f3f; margin-bottom: 10px;">Sovereign Producer</h3>
-            <div style="font-size: 2.2rem; font-weight: 700; margin-bottom: 20px;">$129 <span style="font-size: 0.9rem; color: #999; font-weight: 400;">/mo</span></div>
-            <p style="font-size: 0.8rem; color: #666; margin-bottom: 25px;">For high-volume directors. Anchors up to 250 assets with full forensic delta-logic tracking.</p>
-            <ul style="list-style: none; padding: 0; font-size: 0.8rem; line-height: 2.2; color: #444; margin-bottom: 30px;">
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ <strong>60% First Claim + Delta Logs</strong></li>
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ Forensic Directorial Handshake History</li>
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ Priority Jurisdictional Redundancy</li>
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ Advanced $C_k$ Predictive Modeling</li>
-            </ul>
-            <a href="register.html" style="display: block; text-align: center; background: #b8860b; color: #000; padding: 15px; text-decoration: none; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;">Enroll Now</a>
-        </div>
-
-        <div class="enrollment-card" style="border: 1px solid #eee; padding: 45px; transition: 0.3s; background: #fff;">
-            <h3 style="font-family: 'Libre Baskerville'; color: #001f3f; margin-bottom: 10px;">Institutional Node</h3>
-            <div style="font-size: 2.2rem; font-weight: 700; margin-bottom: 20px;">$499 <span style="font-size: 0.9rem; color: #999; font-weight: 400;">/mo</span></div>
-            <p style="font-size: 0.8rem; color: #666; margin-bottom: 25px;">Agency-level infrastructure. Manage sub-architects with multi-node jurisdictional support.</p>
-            <ul style="list-style: none; padding: 0; font-size: 0.8rem; line-height: 2.2; color: #444; margin-bottom: 30px;">
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ <strong>75% First Claim + Node Hibernation</strong></li>
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ White-Label Dashboard for Agencies</li>
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ Bulk Asset Forensic Ingestion</li>
-                <li style="border-bottom: 1px solid #f0f0f0;">✓ Article III Defense Consultation</li>
-            </ul>
-            <a href="contact.html" style="display: block; text-align: center; background: transparent; border: 1px solid #001f3f; color: #001f3f; padding: 15px; text-decoration: none; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;">Application Required</a>
-        </div>
-    </div>
-</section>
-<hr style="border: 0; border-top: 1px solid #eee; margin: 40px 10%;">
-    
-</script>
     <section class="tier-section">
         <div style="color:var(--bureau-gold); font-weight:700; letter-spacing:3px; text-transform:uppercase; font-size:0.75rem;">Forensic Infrastructure</div>
         <h2 style="font-family:'Libre Baskerville'; font-size:3rem; margin-top:10px;">Institutional Audit Tiers</h2>
@@ -380,35 +219,35 @@
                 <img src="tier-1-shield.png" alt="Assisted Tier Seal">
                 <h3>Tier 1: Assisted</h3>
                 <p>Establishing foundational prompt-origin and metadata persistence. Entry-level protection for conceptual architects.</p>
-                <a href="purchase-t1.html" class="btn-secure">Audit - $199</a>
+                <a href="purchase-t1.html" class="btn-secure">Audit - $299</a>
             </div>
 
             <div class="tier-card">
                 <img src="tier-2-shield.png" alt="Collaborative Tier Seal">
                 <h3>Tier 2: Collaborative</h3>
                 <p>Verifying 25+ human iterative nodes. The professional standard for proving the human-AI directorial handshake.</p>
-                <a href="purchase-t2.html" class="btn-secure">Audit - $949</a>
+                <a href="purchase-t2.html" class="btn-secure">Audit - $1,249</a>
             </div>
 
             <div class="tier-card sovereign">
                 <img src="tier-3-shield.png" alt="Sovereign Tier Seal">
                 <h3>Tier 3: Sovereign</h3>
                 <p>Indefeasible Legal Parentage. Certification of the 54%+ Human Delta ($C_k$) for definitive copyright defense.</p>
-                <a href="purchase-t3.html" class="btn-secure" style="background:var(--bureau-blue); color:white; border:none;">Audit - $1,499</a>
+                <a href="purchase-t3.html" class="btn-secure" style="background:var(--bureau-blue); color:white; border:none;">Audit - $1,949</a>
             </div>
 
             <div class="tier-card apex">
                 <img src="tier-4-elite.png" alt="Article III Elite Seal">
                 <h3>Article III Elite</h3>
                 <p>Trial-Ready Evidence. Physical notarized Ledger of Authorship and expert testimony standby for high-stakes litigation.</p>
-                <a href="purchase-t4.html" class="btn-secure" style="background:#333; color:white; border:none;">Apex - $2,499</a>
+                <a href="purchase-t4.html" class="btn-secure" style="background:#333; color:white; border:none;">Apex - $3,499</a>
             </div>
 
             <div class="tier-card legacy">
                 <img src="tier-5-legacy.png" alt="Kinetic Legacy Seal">
                 <h3>Kinetic Legacy</h3>
                 <p>For life-long creators. Post-mortem protection for your entire AI-aided estate, securing your digital soul for heirs.</p>
-                <a href="purchase-t5.html" class="btn-secure" style="background:var(--bureau-gold); color:white; border:none;">Legacy - $5,499</a>
+                <a href="purchase-t5.html" class="btn-secure" style="background:var(--bureau-gold); color:white; border:none;">Legacy - $7,499</a>
             </div>
         </div>
     </section>
@@ -416,18 +255,28 @@
 
 <footer class="forensic-footer">
     <div class="footer-grid">
-        <div class="footer-col" style="grid-column: span 2;">
+        <div class="footer-col">
             <h4 style="font-family:'Libre Baskerville'; color:var(--bureau-gold); margin:0 0 20px 0; font-size: 1.4rem;">OFFICE OF THE LEAD ARCHITECT</h4>
-            <p style="color:#666; line-height:2; padding-right:60px; font-size: 0.8rem;">
-                Anchored at the <strong>PHL-01 Root Node</strong> in Philadelphia, PA. We provide institutional forensic auditing to certify the parentage of creative work.
+            <p style="color:#666; line-height:2; font-size: 0.8rem; padding-right: 40px;">
+                Anchored at the <strong>USA KINsense 1.0vRoot</strong>. We provide the forensic metrology required to certify human parentage in the synthetic era. We standardize the Human Spark.
             </p>
         </div>
-        
+
+        <div class="footer-col" style="background: #050505; border: 1px solid #111; padding: 30px; position: relative;">
+            <div style="font-size: 0.6rem; color: var(--bureau-gold); letter-spacing: 3px; margin-bottom: 20px; font-weight: 700;">● ROOT ACCESS TERMINAL</div>
+            <form onsubmit="executeRootBypass(event)">
+                <input type="email" id="footer-id" placeholder="ARCHITECT ID" required style="width: 100%; background: #000; border: 1px solid #222; color: #fff; padding: 12px; margin-bottom: 10px; font-size: 0.7rem; font-family: 'Montserrat';">
+                <input type="password" id="footer-key" placeholder="SECURITY KEY" required style="width: 100%; background: #000; border: 1px solid #222; color: #fff; padding: 12px; margin-bottom: 15px; font-size: 0.7rem; font-family: 'Montserrat';">
+                <button type="submit" style="width: 100%; background: var(--bureau-gold); color: #000; border: none; padding: 12px; font-weight: 800; font-size: 0.7rem; cursor: pointer; text-transform: uppercase; letter-spacing: 2px;">Initialize Session</button>
+            </form>
+            <div id="bypass-status" style="margin-top: 15px; font-size: 0.6rem; color: #444; text-align: center; font-family: monospace;">STATUS: READY_FOR_INGEST</div>
+        </div>
+
         <div class="footer-col">
-            <h5>Registry</h5>
+            <h5>Infrastructure</h5>
             <ul>
                 <li><a href="ledger.html">Public Ledger</a></li>
-                <li><a href="nodes.html">Global Nodes</a></li>
+                <li><a href="nodes.html">Global Mesh</a></li>
                 <li><a href="inventory.html">Asset Vault</a></li>
             </ul>
         </div>
@@ -435,32 +284,58 @@
         <div class="footer-col">
             <h5>Governance</h5>
             <ul>
-                <li><a href="nist-collaboration.html">NIST Standards</a></li>
+                <li><a href="legal.html">Solomon Kin Protocol</a></li>
                 <li><a href="about.html">Bureau Mission</a></li>
-                <li><a href="nist-collaboration.html">AEHA Alliance</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h5>Terminals</h5>
-            <ul>
-                <li><a href="register.html">Enrollment</a></li>
-                <li><a href="login.html">Authorized Login</a></li>
-                <li><a href="purchase-t5.html">Legacy Protection</a></li>
             </ul>
         </div>
     </div>
 
     <div class="legal-anchor">
-        <div style="max-width:800px;">
+        <div style="max-width: 800px;">
             <strong>SOLOMON KIN, LLC | INDEFEASIBLE COPYRIGHT NOTICE:</strong><br>
-            Parentage verified by the AI-IPVB is cryptographically anchored at KINsense v1.0 USA PHL-01. Unauthorized replication is subject to enforcement. © 2026.
+            All creative parentage verified by the AI-IPVB is cryptographically anchored at the USA KINsense 1.0vRoot. © 2026.
         </div>
-        <div style="text-align:right;">
-            SYSTEM STATUS: ONLINE | ROOT: KINsense v1.0 USA PHL-01
+        <div style="text-align: right; letter-spacing: 1px;">
+            SYSTEM: ONLINE | ROOT: USA KINsense 1.0v
         </div>
     </div>
 </footer>
 
+<script>
+    function executeRootBypass(event) {
+        event.preventDefault();
+        const id = document.getElementById('footer-id').value;
+        const key = document.getElementById('footer-key').value;
+        const status = document.getElementById('bypass-status');
+        const MASTER_ID = "brneo059@gmail.com";
+        const MASTER_KEY = "USA-KIN-2026";
+
+        status.innerText = "AUTHENTICATING...";
+        status.style.color = "var(--bureau-gold)";
+
+        setTimeout(() => {
+            if (id === MASTER_ID && key === MASTER_KEY) {
+                status.innerText = "ACCESS_GRANTED";
+                status.style.color = "#39ff14";
+                window.location.href = 'inventory.html';
+            } else {
+                status.innerText = "ERROR: INVALID_KEY";
+                status.style.color = "#ff4444";
+            }
+        }, 1200);
+    }
+
+    function simulateNetworkTraffic() {
+        const assetCounter = document.getElementById('count-assets');
+        let currentCount = 12482;
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                currentCount += Math.floor(Math.random() * 3);
+                assetCounter.innerText = currentCount.toLocaleString();
+            }
+        }, 3000);
+    }
+    simulateNetworkTraffic();
+</script>
 </body>
 </html>
