@@ -103,7 +103,54 @@
     </style>
 </head>
 <body>
+<section class="global-metrics" style="background: #000; color: #fff; padding: 100px 10%; border-bottom: 5px solid var(--bureau-gold);">
+    <div style="text-align: center; margin-bottom: 60px;">
+        <h2 style="font-family: 'Libre Baskerville'; font-size: 2.5rem; color: var(--bureau-gold); margin: 0;">Root Node Metrology</h2>
+        <p style="text-transform: uppercase; letter-spacing: 5px; font-size: 0.75rem; color: #666; margin-top: 15px;">Live Network Statistics | USA KINsense 1.0v</p>
+    </div>
 
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center;">
+        <div style="border: 1px solid #222; padding: 40px; background: #050505;">
+            <div id="count-assets" style="font-family: 'Libre Baskerville'; font-size: 3rem; color: #fff; font-weight: 700;">12,482</div>
+            <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Assets Anchored</div>
+        </div>
+
+        <div style="border: 1px solid #222; padding: 40px; background: #050505;">
+            <div style="font-family: 'Libre Baskerville'; font-size: 3rem; color: #fff; font-weight: 700;">94.2%</div>
+            <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Avg. $C_k$ Accuracy</div>
+        </div>
+
+        <div style="border: 1px solid #222; padding: 40px; background: #050505;">
+            <div style="font-family: 'Libre Baskerville'; font-size: 3rem; color: #fff; font-weight: 700;">842</div>
+            <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Enrolled Architects</div>
+        </div>
+
+        <div style="border: 1px solid #222; padding: 40px; background: #050505;">
+            <div id="count-enforcement" style="font-family: 'Libre Baskerville'; font-size: 3rem; color: var(--status-green); font-weight: 700;">100%</div>
+            <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-top: 10px;">Enforcement Up-time</div>
+        </div>
+    </div>
+
+    <div style="margin-top: 60px; text-align: center; font-size: 0.8rem; color: #444; font-family: monospace;">
+        CURRENT NETWORK STATUS: <span style="color: var(--status-green);">OPTIMAL</span> | LAST ROOT ANCHOR: 0.04s AGO | NODE: USA-KIN-1.0v-PHL
+    </div>
+</section>
+
+<script>
+    // SIMULATED LIVE METROLOGY (Increments the count to feel "Live")
+    function simulateNetworkTraffic() {
+        const assetCounter = document.getElementById('count-assets');
+        let currentCount = 12482;
+        
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                currentCount += Math.floor(Math.random() * 3);
+                assetCounter.innerText = currentCount.toLocaleString();
+            }
+        }, 3000);
+    }
+    simulateNetworkTraffic();
+</script>
 <div class="telemetry-strip">
     <div><span class="live-dot">●</span> NODE: GLOBAL - USA - PHL-1.0 PRIMARY ROOT ACTIVE</div>
     <div>METROLOGY SYNC: 100% | NIST ARIA COMPLIANT V2.6</div>
