@@ -90,7 +90,89 @@
         .sovereign { background: #fffcf5; border: 3px solid var(--bureau-gold); }
         .apex { background: #fafafa; border: 2px solid #333; }
         .legacy { background: #fbfbfb; border: 2px solid var(--bureau-blue); }
+<footer class="forensic-footer" style="background: #000; color: #fff; padding: 100px 10% 40px; border-top: 5px solid var(--bureau-gold); margin-top: auto;">
+    <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1.5fr 1fr 1fr; gap: 60px; border-bottom: 1px solid #222; padding-bottom: 80px;">
+        
+        <div class="footer-col">
+            <h4 style="font-family:'Libre Baskerville'; color:var(--bureau-gold); margin:0 0 20px 0; font-size: 1.4rem;">OFFICE OF THE LEAD ARCHITECT</h4>
+            <p style="color:#666; line-height:2; font-size: 0.8rem; padding-right: 40px;">
+                Anchored at the <strong>USA KINsense 1.0vRoot</strong>. We provide the forensic metrology required to certify human parentage in the synthetic era. We standardize the Human Spark.
+            </p>
+        </div>
 
+        <div class="footer-col" style="background: #050505; border: 1px solid #111; padding: 30px; position: relative;">
+            <div style="font-size: 0.6rem; color: var(--bureau-gold); letter-spacing: 3px; margin-bottom: 20px; font-weight: 700;">● ROOT ACCESS TERMINAL</div>
+            <form onsubmit="executeRootBypass(event)">
+                <input type="email" id="footer-id" placeholder="ARCHITECT ID" required 
+                       style="width: 100%; background: #000; border: 1px solid #222; color: #fff; padding: 12px; margin-bottom: 10px; font-size: 0.7rem; font-family: 'Montserrat';">
+                <input type="password" id="footer-key" placeholder="SECURITY KEY" required 
+                       style="width: 100%; background: #000; border: 1px solid #222; color: #fff; padding: 12px; margin-bottom: 15px; font-size: 0.7rem; font-family: 'Montserrat';">
+                <button type="submit" style="width: 100%; background: var(--bureau-gold); color: #000; border: none; padding: 12px; font-weight: 800; font-size: 0.7rem; cursor: pointer; text-transform: uppercase; letter-spacing: 2px;">Initialize Session</button>
+            </form>
+            <div id="bypass-status" style="margin-top: 15px; font-size: 0.6rem; color: #444; text-align: center; font-family: monospace;">STATUS: READY_FOR_INGEST</div>
+        </div>
+
+        <div class="footer-col">
+            <h5 style="font-size: 0.65rem; color: #444; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;">Infrastructure</h5>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.75rem;">
+                <li style="margin-bottom: 12px;"><a href="ledger.html" style="color: #888; text-decoration: none;">Public Ledger</a></li>
+                <li style="margin-bottom: 12px;"><a href="library.html" style="color: #888; text-decoration: none;">AIRTLR Nodes</a></li>
+                <li style="margin-bottom: 12px;"><a href="nodes.html" style="color: #888; text-decoration: none;">Global Mesh</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h5 style="font-size: 0.65rem; color: #444; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;">Governance</h5>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.75rem;">
+                <li style="margin-bottom: 12px;"><a href="nist.html" style="color: #888; text-decoration: none;">NIST AI-100-1</a></li>
+                <li style="margin-bottom: 12px;"><a href="legal.html" style="color: #888; text-decoration: none;">Solomon Kin Protocol</a></li>
+                <li style="margin-bottom: 12px;"><a href="about.html" style="color: #888; text-decoration: none;">Bureau Mission</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="legal-anchor" style="padding-top: 50px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #333; line-height: 2;">
+        <div style="max-width: 800px;">
+            <strong>SOLOMON KIN, LLC | INDEFEASIBLE COPYRIGHT NOTICE:</strong><br>
+            All creative parentage verified by the AI-IPVB is cryptographically anchored at the USA KINsense 1.0vRoot. Unauthorized replication of Bureau-certified assets is subject to international enforcement. © 2026.
+        </div>
+        <div style="text-align: right; letter-spacing: 1px;">
+            SYSTEM: ONLINE | ENCRYPTION: AES-256<br>
+            ROOT: USA KINsense 1.0v | PHL-01_MSTR
+        </div>
+    </div>
+</footer>
+
+<script>
+    // FOOTER BYPASS LOGIC (Hardened)
+    function executeRootBypass(event) {
+        event.preventDefault();
+        const id = document.getElementById('footer-id').value;
+        const key = document.getElementById('footer-key').value;
+        const status = document.getElementById('bypass-status');
+
+        // MASTER LOCKDOWN VALUES
+        const MASTER_ID = "brneo059@gmail.com";
+        const MASTER_KEY = "USA-KIN-2026";
+
+        status.innerText = "AUTHENTICATING...";
+        status.style.color = "var(--bureau-gold)";
+
+        setTimeout(() => {
+            if (id === MASTER_ID && key === MASTER_KEY) {
+                localStorage.setItem('SovereignToken', 'USA-KIN-9921-ACTIVE');
+                localStorage.setItem('ArchitectName', 'MUSTAFA KING BROWN');
+                status.innerText = "ACCESS_GRANTED";
+                status.style.color = "#39ff14";
+                window.location.href = 'inventory.html';
+            } else {
+                status.innerText = "ERROR: INVALID_KEY";
+                status.style.color = "#ff4444";
+                document.getElementById('footer-key').value = "";
+            }
+        }, 1200);
+    }
+</script>
         /* 6. COMPREHENSIVE FOOTER */
         .forensic-footer { background: #000; color: #fff; padding: 100px 10% 40px; border-top: 5px solid var(--bureau-gold); margin-top: auto; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; border-bottom: 1px solid #333; padding-bottom: 80px; }
