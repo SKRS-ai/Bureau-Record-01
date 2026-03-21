@@ -3,77 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE VAULT | USA KINsense 1.0vRoot | AI-IPVB</title>
+    <title>PRIVATE VAULT | USA KINsense 1.0vRoot</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        :root { --bureau-blue: #001f3f; --bureau-gold: #b8860b; --bg: #0a0a0b; --card: #141416; }
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg); color: #fff; display: flex; flex-direction: column; min-height: 100vh; }
-        .telemetry { background: #000; padding: 12px 5%; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--bureau-gold); border-bottom: 1px solid #222; }
-        .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; padding: 50px 5%; }
-        .asset-card { background: var(--card); border: 1px solid #222; padding: 25px; }
-        .btn-execute { background: var(--bureau-gold); color: #000; width: 100%; padding: 15px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; font-size: 0.7rem; }
+        :root {
+            --bureau-blue: #001f3f;
+            --bureau-gold: #b8860b;
+            --gov-gray: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --border-frame: 15px;
+        }
+
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: #ffffff; 
+            color: var(--text-dark); 
+            margin: 0; 
+            padding: var(--border-frame);
+            min-height: 100vh;
+            display: none; /* Hidden by default until Auth confirms */
+        }
+
+        /* INSTITUTIONAL FRAME */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: var(--border-frame) solid var(--gov-gray);
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* PRIVATE VAULT HEADER */
+        header {
+            background: #fff;
+            border-bottom: 2px solid var(--bureau-blue);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vault-id { font-family: 'Libre Baskerville'; color: var(--bureau-blue); font-size: 0.8rem; font-weight: 700; }
+        .architect-id { font-size: 0.7rem; color: var(--bureau-gold); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* VAULT CONTROLS */
+        .vault-hero { background: var(--gov-gray); padding: 40px 5%; border-bottom: 1px solid #ddd; }
+        .vault-hero h1 { font-family: 'Libre Baskerville'; font-size: 1.8rem; margin: 0; color: var(--bureau-blue); }
+        
+        .action-bar { display: flex; gap: 20px; margin-top: 30px; }
+        .btn-action { 
+            padding: 12px 25px; border: 1px solid var(--bureau-blue); 
+            background: transparent; color: var(--bureau-blue); 
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase; cursor: pointer;
+        }
+        .btn-primary { background: var(--bureau-blue); color: #fff; }
+
+        /* ASSET GRID */
+        .asset-grid { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .asset-card { border: 1px solid #eee; padding: 25px; background: #fff; transition: 0.3s; }
+        .asset-card:hover { border-color: var(--bureau-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .asset-card h3 { font-family: 'Libre Baskerville'; font-size: 1.1rem; margin-top: 0; color: var(--bureau-blue); }
+        .ck-meter { font-size: 0.6rem; color: #999; margin-bottom: 10px; display: block; }
+
+        footer { text-align: center; padding: 60px 0; font-size: 0.6rem; color: #999; }
     </style>
 </head>
 <body>
 
-    <div class="telemetry">
-        <div>NODE ID: USA KINsense 1.0vRoot</div>
-        <div>SESSION: <span id="session-status" style="color:#39ff14;">ACTIVE</span></div>
-        <div id="architect-name">LOADING ARCHITECT...</div>
-    </div>
+    <header>
+        <div class="vault-id">SECURE ASSET VAULT // USA-KIN-1.0v</div>
+        <div class="architect-id" id="architect-display">AUTHENTICATING...</div>
+        <button onclick="signOut()" style="background:none; border:none; color:red; cursor:pointer; font-size:0.6rem; font-weight:700;">TERMINATE SESSION</button>
+    </header>
+
+    <section class="vault-hero">
+        <h1>Your Sovereign Assets</h1>
+        <p style="font-size: 0.8rem; color: #666; max-width: 600px;">This environment is encrypted. All files listed here are anchored to your Pillar One identity and protected by the Solomon Kin Protocol.</p>
+        
+        <div class="action-bar">
+            <button class="btn-action btn-primary">+ Anchor New Asset</button>
+            <button class="btn-action">Metrology Reports</button>
+            <button class="btn-action" onclick="window.location.href='index.html'">Exit to Public Site</button>
+        </div>
+    </section>
 
     <main class="asset-grid" id="asset-container">
         </main>
 
-    <script>
-        // --- 1. PLUG IN YOUR CREDENTIALS HERE ---
-        const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
-        const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    <footer>
+        © 2026 USA KINsense 1.0vRoot | Private Institutional Access Only
+    </footer>
 
-        // --- 2. AUTH GUARD ---
-        async function checkUser() {
-            const { data: { user } } = await supabase.auth.getUser();
+    <script>
+        const SUPABASE_URL = 'https://uddnjukvtpypjrwlzoby.supabase.co'; 
+        const SUPABASE_KEY = 'PASTE_YOUR_LONG_EYJ_KEY_HERE'; 
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        async function checkAccess() {
+            const { data: { user } } = await _supabase.auth.getUser();
+            
             if (!user) {
+                // SECURITY REDIRECT: Kick unauthorized users to login
                 window.location.href = 'login.html';
             } else {
-                document.getElementById('architect-name').innerText = user.email.toUpperCase();
-                loadAssets(user.id);
+                document.body.style.display = 'block';
+                document.getElementById('architect-display').innerText = "ARCHITECT: " + user.email.toUpperCase();
+                loadPrivateAssets(user.id);
             }
         }
 
-        // --- 3. LOAD PERSISTENT ASSETS ---
-        async function loadAssets(userId) {
-            const container = document.getElementById('asset-container');
-            
-            const { data: assets, error } = await supabase
-                .from('assets') // Your table name in Supabase
+        async function loadPrivateAssets(userId) {
+            const { data: assets, error } = await _supabase
+                .from('assets')
                 .select('*')
                 .eq('user_id', userId);
 
-            if (error) console.error(error);
-            
             if (assets) {
+                const container = document.getElementById('asset-container');
                 assets.forEach(asset => {
                     const card = document.createElement('div');
                     card.className = 'asset-card';
                     card.innerHTML = `
-                        <h3 style="font-family:'Libre Baskerville';">${asset.name}</h3>
-                        <p style="font-size:0.7rem; color:var(--bureau-gold);">$C_k$ DELTA: ${asset.ck_score}%</p>
-                        <button class="btn-execute" onclick="deList('${asset.id}')">De-list from 1.0vRoot</button>
+                        <span class="ck-meter">$C_k$ METROLOGY: ${asset.ck_score}%</span>
+                        <h3>${asset.name}</h3>
+                        <p style="font-size:0.7rem; color:#666;">Status: ${asset.is_public ? 'PUBLIC LEDGER' : 'PRIVATE VAULT'}</p>
                     `;
                     container.appendChild(card);
                 });
             }
         }
 
-        async function deList(assetId) {
-            const { error } = await supabase.from('assets').delete().eq('id', assetId);
-            if (!error) location.reload();
+        async function signOut() {
+            await _supabase.auth.signOut();
+            window.location.href = 'login.html';
         }
 
-        checkUser();
+        checkAccess();
     </script>
 </body>
 </html>
