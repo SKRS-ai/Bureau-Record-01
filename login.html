@@ -17,22 +17,33 @@
     </style>
 </head>
 <body>
-
-    <div class="login-box">
-        <h1>Architect Login</h1>
-        <p style="font-size: 0.7rem; letter-spacing: 3px; color: #444; margin-bottom: 40px;">SECURE GATEWAY v1.0v</p>
+<script>
+    function executeSecureLogin(event) {
+        event.preventDefault();
         
-        <form onsubmit="executeSecureLogin(event)">
-            <label>Architect ID (Email)</label>
-            <input type="email" id="architect-email" required placeholder="name@kin-sense.io">
-            
-            <label>Security Key (Passcode)</label>
-            <input type="password" id="security-key" required placeholder="••••••••">
-            
-            <button type="submit" class="btn-execute">Initialize Session</button>
-        </form>
-    </div>
+        const email = document.getElementById('architect-email').value;
+        const key = document.getElementById('security-key').value;
 
+        // MASTER CREDENTIALS LOCKDOWN
+        // Only these exact values will grant access to the 1.0vRoot
+        const MASTER_ID = "mustafa@kin-sense.io"; 
+        const MASTER_KEY = "USA-KIN-2026"; 
+
+        if(email === MASTER_ID && key === MASTER_KEY) {
+            // SUCCESS: Issue the Sovereign Token
+            localStorage.setItem('SovereignToken', 'USA-KIN-9921-ACTIVE');
+            localStorage.setItem('ArchitectName', 'MUSTAFA KING BROWN');
+            
+            alert("BIOMETRIC MATCH CONFIRMED. Accessing 1.0vRoot...");
+            window.location.href = 'inventory.html';
+        } else {
+            // FAILURE: Deny Access
+            alert("ACCESS DENIED: Credentials do not match Bureau records for Node 1.0v.");
+            // Optional: Clear fields on failure
+            document.getElementById('security-key').value = "";
+        }
+    }
+</script>
     <script>
         function executeSecureLogin(event) {
             event.preventDefault();
