@@ -3,166 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE VAULT | Architect Dashboard | AI-IPVB Secure Node</title>
+    <title>THE VAULT | USA KINsense 1.0v Root | AI-IPVB</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bureau-blue: #001f3f;
             --bureau-gold: #b8860b;
-            --tactical-slate: #121214;
-            --card-bg: #1a1a1c;
+            --tactical-slate: #0a0a0b;
+            --card-bg: #141416;
             --status-green: #39ff14;
-            --text-muted: #888;
-            --audit-glow: 0 0 30px rgba(255, 255, 255, 0.1);
+            --text-muted: #666;
         }
 
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--tactical-slate); color: #fff; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--tactical-slate); color: #fff; display: flex; overflow-x: hidden; min-height: 100vh; }
 
-        /* 1. TELEMETRY BAR */
-        .vault-telemetry {
-            background: #000; padding: 15px 5%; border-bottom: 1px solid #333;
-            display: flex; justify-content: space-between; align-items: center;
-            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; color: var(--bureau-gold);
+        /* 1. TELEMETRY STRIP (TOP FIXED) */
+        .telemetry {
+            position: fixed; top: 0; width: 100%; background: #000; padding: 12px 5%;
+            display: flex; justify-content: space-between; font-size: 0.65rem; 
+            font-weight: 700; letter-spacing: 2px; color: var(--bureau-gold); border-bottom: 1px solid #222; z-index: 1000;
         }
 
-        /* 2. VAULT HEADER */
-        .vault-header { padding: 60px 5% 40px; border-bottom: 2px solid #222; display: flex; justify-content: space-between; align-items: flex-end; }
-        .vault-header h1 { font-family: 'Libre Baskerville'; font-size: 2.5rem; margin: 0; }
+        /* 2. MAIN CONTENT AREA */
+        .main-vault { flex: 1; padding: 100px 5% 50px; transition: 0.5s ease; }
+        .vault-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #222; padding-bottom: 30px; margin-bottom: 40px; }
+        .vault-header h1 { font-family: 'Libre Baskerville'; font-size: 2.8rem; margin: 0; }
+
+        /* 3. ASSET GRID */
+        .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 30px; }
+        .asset-card { background: var(--card-bg); border: 1px solid #222; padding: 25px; position: relative; transition: 0.3s; }
+        .asset-card:hover { border-color: var(--bureau-gold); box-shadow: 0 0 30px rgba(184, 134, 11, 0.1); }
         
-        /* 3. UPLOAD ZONE CONTROLLER */
-        .upload-trigger {
-            background: var(--bureau-blue); color: #fff; padding: 15px 30px; border: 1px solid var(--bureau-gold);
-            cursor: pointer; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;
-            transition: 0.3s;
+        .asset-preview { width: 100%; height: 220px; background: #000; margin-bottom: 20px; border: 1px solid #333; overflow: hidden; }
+        .asset-preview video, .asset-preview img { width: 100%; height: 100%; object-fit: cover; }
+
+        .ck-badge { position: absolute; top: 35px; right: 35px; background: rgba(0,0,0,0.8); border: 1px solid var(--bureau-gold); padding: 8px; font-size: 0.6rem; text-align: center; }
+        .ck-badge span { display: block; font-size: 1rem; color: var(--bureau-gold); }
+
+        /* 4. SUBMISSION SIDE PANEL */
+        .side-panel {
+            width: 0; position: fixed; right: 0; top: 0; height: 100%; background: #000;
+            border-left: 2px solid var(--bureau-gold); overflow-x: hidden; transition: 0.5s; z-index: 2000;
+            padding-top: 100px; box-shadow: -20px 0 50px rgba(0,0,0,0.5);
         }
-        .upload-trigger:hover { background: var(--bureau-gold); color: #000; }
-        #file-ingest { display: none; }
+        .panel-content { padding: 40px; width: 400px; }
+        .panel-content h2 { font-family: 'Libre Baskerville'; color: var(--bureau-gold); margin-bottom: 30px; }
+        
+        input, select, textarea { 
+            width: 100%; background: #111; border: 1px solid #333; color: #fff; 
+            padding: 12px; margin-bottom: 20px; font-family: 'Montserrat'; font-size: 0.8rem;
+        }
+        label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); display: block; margin-bottom: 8px; }
 
-        /* 4. ASSET GRID */
-        .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 40px; padding: 50px 5% 100px; }
-        .asset-card { background: var(--card-bg); border: 1px solid #333; padding: 30px; transition: 0.4s; position: relative; }
-        .asset-card:hover { border-color: var(--bureau-gold); box-shadow: var(--audit-glow); }
+        .btn-execute { background: var(--bureau-gold); color: #000; width: 100%; padding: 18px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; letter-spacing: 2px; }
+        .btn-execute:hover { background: #fff; }
 
-        .asset-preview { width: 100%; height: 250px; background: #000; margin-bottom: 25px; border: 1px solid #222; overflow: hidden; }
-        .asset-preview img, .asset-preview video { width: 100%; height: 100%; object-fit: cover; }
+        /* 5. UPLOAD TRIGGER */
+        .ingest-btn { background: var(--bureau-blue); color: #fff; padding: 15px 40px; border: 1px solid var(--bureau-gold); cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        #file-input { display: none; }
 
-        /* GAUGE & Tiers */
-        .ck-gauge { position: absolute; top: 45px; right: 45px; background: rgba(0,0,0,0.85); padding: 10px; border: 1px solid var(--bureau-gold); text-align: center; font-size: 0.6rem; z-index: 5; }
-        .ck-gauge span { display: block; font-size: 1.1rem; color: var(--bureau-gold); }
-        .tier-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; color: var(--bureau-gold); border: 1px solid var(--bureau-gold); display: inline-block; padding: 4px 10px; }
-
-        /* ACTIONS */
-        .asset-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-        .btn-v { padding: 12px; text-align: center; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; text-decoration: none; border: 1px solid #333; color: #fff; cursor: pointer; }
-        .btn-v.primary { background: var(--bureau-blue); border-color: var(--bureau-blue); }
-        .btn-v.danger { border-color: #441111; color: #ff4444; }
-        .btn-v.danger:hover { background: #441111; }
-
-        /* 5. UPLOAD MODAL/NOTICE */
-        .ingest-notice { background: #000; border: 1px solid var(--bureau-gold); padding: 20px; font-size: 0.75rem; color: #ccc; margin: 0 5%; }
+        .status-dot { width: 8px; height: 8px; background: var(--status-green); border-radius: 50%; display: inline-block; margin-right: 10px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <div class="vault-telemetry">
-        <div>NODE ID: USA-KINsense1.0vPHL-ARCHITECT-MASTER</div>
-        <div>SESSION: SECURE | ENCRYPTION: AES-256</div>
+    <div class="telemetry">
+        <div>NODE ID: USA KINsense 1.0vRoot</div>
+        <div>METROLOGY SYNC: 100% | AES-256 ACTIVE</div>
         <div>ARCHITECT: MUSTAFA KING BROWN</div>
     </div>
 
-    <header class="vault-header">
-        <div>
-            <h1>The Sovereign Vault</h1>
-            <p style="color:var(--text-muted); text-transform:uppercase; letter-spacing:4px; font-size:0.7rem; margin-top:10px;">Private Asset Metrology Terminal</p>
-        </div>
-        <label for="file-ingest" class="upload-trigger">Ingest New Asset</label>
-        <input type="file" id="file-ingest" accept="image/*,video/*" onchange="handleIngest(event)">
-    </header>
-
-    <div class="ingest-notice">
-        <strong>FORENSIC INGEST REQUIREMENTS:</strong><br>
-        Accepted Formats: <strong>Photo:</strong> JPG, PNG, WEBP, TIFF (Master) | <strong>Video:</strong> MP4, MOV, MKV (H.265 Recommended).<br>
-        <em>All uploads are automatically scanned for Mustafa Gradient ($C_k$) Delta before display.</em>
-    </div>
-
-    <main class="asset-grid" id="asset-container">
-        <div class="asset-card" id="asset-01">
-            <div class="ck-gauge">GRADIENT<span>92.1%</span></div>
-            <div class="asset-preview">
-                <video autoplay muted loop><source src="your-video.mp4" type="video/mp4"></video>
+    <main class="main-vault" id="main-vault">
+        <header class="vault-header">
+            <div>
+                <h1>The Sovereign Vault</h1>
+                <p style="color:var(--bureau-gold); opacity:0.8;">Private Asset Ingest & Metrology</p>
             </div>
-            <div class="tier-tag">Sovereign Tier</div>
-            <h3 style="margin:0; font-family:'Libre Baskerville';">Master Profile: Mustafa King Brown</h3>
-            <p style="font-size:0.7rem; color:var(--status-green); margin:10px 0;">● PUBLIC REGISTRY ACTIVE</p>
-            <div class="asset-actions">
-                <a href="ledger.html" class="btn-v primary">View Record</a>
-                <button class="btn-v danger" onclick="removeAsset('asset-01')">De-list</button>
-            </div>
-        </div>
+            <label for="file-input" class="ingest-btn">Ingest New Asset</label>
+            <input type="file" id="file-input" accept="image/*,video/*" onchange="openSubmission(event)">
+        </header>
 
-        <div class="asset-card" id="asset-02">
-            <div class="ck-gauge">GRADIENT<span>68.4%</span></div>
-            <div class="asset-preview"><div style="background:#111; width:100%; height:100%;"></div></div>
-            <div class="tier-tag">Sovereign Tier</div>
-            <h3 style="margin:0; font-family:'Libre Baskerville';">Lethal Ledger Doc-Asset 01</h3>
-            <p style="font-size:0.7rem; color:var(--text-muted); margin:10px 0;">ANCHORED AT PHL-01</p>
-            <div class="asset-actions">
-                <a href="library.html" class="btn-v primary">Research</a>
-                <button class="btn-v danger" onclick="removeAsset('asset-02')">De-list</button>
+        <div class="asset-grid" id="asset-container">
+            <div class="asset-card">
+                <div class="ck-badge">GRADIENT<span>92.1%</span></div>
+                <div class="asset-preview">
+                    <video autoplay muted loop><source src="assets/mustafa-profile.mp4" type="video/mp4"></video>
+                </div>
+                <h3 style="font-family:'Libre Baskerville'; margin:0;">Master Profile: Mustafa King Brown</h3>
+                <p style="font-size:0.7rem; color:var(--status-green); margin:10px 0;"><span class="status-dot"></span> SOVEREIGN REGISTRY ACTIVE</p>
+                <div style="display:flex; gap:10px; margin-top:20px;">
+                    <button class="btn-execute" style="font-size:0.6rem; padding:10px;">View Record</button>
+                    <button class="btn-execute" style="background:transparent; border:1px solid #444; color:#fff; font-size:0.6rem; padding:10px;" onclick="deList(this)">De-list</button>
+                </div>
             </div>
         </div>
     </main>
 
+    <div id="side-panel" class="side-panel">
+        <div class="panel-content">
+            <h2>Forensic Audit Statement</h2>
+            <div id="preview-box" style="width:100%; height:150px; background:#000; margin-bottom:20px; border:1px solid #333;"></div>
+            
+            <form id="audit-form">
+                <label>Asset Designation</label>
+                <input type="text" id="asset-name" placeholder="Project Name">
+
+                <label>Methodology Tier</label>
+                <select id="tier-select">
+                    <option value="T1">Tier 1: Assisted</option>
+                    <option value="T2">Tier 2: Collaborative</option>
+                    <option value="T3">Tier 3: Sovereign</option>
+                </select>
+
+                <label>Human Delta Statement ($C_k$)</label>
+                <textarea rows="4" placeholder="Describe the directorial nodes and iterative steps taken..."></textarea>
+
+                <button type="button" class="btn-execute" onclick="anchorAsset()">Anchor to 1.0vRoot</button>
+                <button type="button" style="background:none; border:none; color:#666; margin-top:20px; cursor:pointer;" onclick="closePanel()">Cancel Ingest</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // FUNCTIONAL INGEST LOGIC
-        function handleIngest(event) {
+        let pendingFile = null;
+
+        // 1. OPEN SIDE PANEL ON INGEST
+        function openSubmission(event) {
             const file = event.target.files[0];
             if (!file) return;
+            pendingFile = file;
 
+            // Prepare Preview
             const reader = new FileReader();
             reader.onload = function(e) {
-                const container = document.getElementById('asset-container');
-                const newId = 'asset-' + Date.now();
+                const previewBox = document.getElementById('preview-box');
+                previewBox.innerHTML = file.type.includes('video') 
+                    ? `<video autoplay muted loop src="${e.target.result}" style="width:100%; height:100%; object-fit:cover;"></video>` 
+                    : `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
                 
-                const card = document.createElement('div');
-                card.className = 'asset-card';
-                card.id = newId;
-
-                // Determine if Image or Video for preview
-                let mediaTag = `<img src="${e.target.result}">`;
-                if(file.type.includes('video')) {
-                    mediaTag = `<video autoplay muted loop src="${e.target.result}"></video>`;
-                }
-
-                card.innerHTML = `
-                    <div class="ck-gauge">GRADIENT<span>NEW</span></div>
-                    <div class="asset-preview">${mediaTag}</div>
-                    <div class="tier-tag" style="border-color:#444; color:#666;">Pending Audit</div>
-                    <h3 style="margin:0; font-family:'Libre Baskerville';">${file.name}</h3>
-                    <p style="font-size:0.7rem; color:var(--bureau-gold); margin:10px 0;">INGESTION COMPLETE - ANALYZING $C_k$</p>
-                    <div class="asset-actions">
-                        <a href="purchase-t1.html" class="btn-v primary">Start Audit</a>
-                        <button class="btn-v danger" onclick="removeAsset('${newId}')">De-list</button>
-                    </div>
-                `;
-                container.prepend(card);
-                alert("Institutional Ingest Successful. Metrology scan in progress.");
+                document.getElementById('asset-name').value = file.name;
+                document.getElementById('side-panel').style.width = "450px";
+                document.getElementById('main-vault').style.marginRight = "450px";
             };
             reader.readAsDataURL(file);
         }
 
-        // FUNCTIONAL REMOVE LOGIC
-        function removeAsset(id) {
-            if(confirm("DE-LIST PROTOCOL: Are you sure you want to remove this asset from your live dashboard? (Forensic logs remain at PHL-01)")) {
-                document.getElementById(id).style.opacity = '0';
-                setTimeout(() => { document.getElementById(id).remove(); }, 400);
+        // 2. CLOSE PANEL
+        function closePanel() {
+            document.getElementById('side-panel').style.width = "0";
+            document.getElementById('main-vault').style.marginRight = "0";
+            document.getElementById('file-input').value = "";
+        }
+
+        // 3. ANCHOR ASSET (SIMULATE PERSISTENCE)
+        function anchorAsset() {
+            const name = document.getElementById('asset-name').value;
+            const tier = document.getElementById('tier-select').value;
+            const previewHtml = document.getElementById('preview-box').innerHTML;
+
+            const container = document.getElementById('asset-container');
+            const newCard = document.createElement('div');
+            newCard.className = 'asset-card';
+            newCard.innerHTML = `
+                <div class="ck-badge" style="border-color:#444; color:#666;">PENDING<span>AUDIT</span></div>
+                <div class="asset-preview">${previewHtml}</div>
+                <h3 style="font-family:'Libre Baskerville'; margin:0;">${name}</h3>
+                <p style="font-size:0.7rem; color:var(--bureau-gold); margin:10px 0;">ANCHORED TO USA KINsense 1.0vRoot</p>
+                <div style="display:flex; gap:10px; margin-top:20px;">
+                    <button class="btn-execute" style="font-size:0.6rem; padding:10px;">Execute Audit</button>
+                    <button class="btn-execute" style="background:transparent; border:1px solid #444; color:#fff; font-size:0.6rem; padding:10px;" onclick="deList(this)">De-list</button>
+                </div>
+            `;
+            container.prepend(newCard);
+            
+            alert("SECURE ANCHOR SUCCESSFUL: Asset data moved to USA KINsense 1.0vRoot. Forensic verification scheduled.");
+            closePanel();
+        }
+
+        // 4. DE-LIST (VISUAL ONLY)
+        function deList(btn) {
+            if(confirm("Confirm De-listing? Metadata will remain in the 1.0vRoot Ledger.")) {
+                btn.closest('.asset-card').remove();
             }
         }
     </script>
-
-    <footer style="margin-top:auto; padding:50px; text-align:center; border-top:1px solid #222; font-size:0.65rem; color:#444; letter-spacing:2px;">
-        SOLOMON KIN, LLC | ARCHITECT VAULT | KinOS_v7.4.2
-    </footer>
 
 </body>
 </html>
