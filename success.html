@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONFIRMED | USA KINsense 1.0vRoot | Pillar One Success</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #001f3f;
+            --bureau-gold: #b8860b;
+            --bg-dark: #050505;
+            --status-green: #39ff14;
+        }
+
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg-dark); color: #fff; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
+
+        .success-box { 
+            background: #0a0a0c; border: 1px solid #222; padding: 80px; 
+            max-width: 600px; box-shadow: 0 40px 80px rgba(0,0,0,0.9);
+            border-top: 5px solid var(--status-green);
+        }
+
+        .success-box h1 { font-family: 'Libre Baskerville'; color: var(--bureau-gold); font-size: 2.5rem; margin: 0 0 20px; }
+        .success-box p { font-size: 0.9rem; color: #888; line-height: 1.8; margin-bottom: 40px; }
+
+        /* THE 3-PLY STATUS DISPLAY */
+        .status-plies { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 40px; }
+        .ply { background: #000; padding: 20px; border: 1px solid #222; }
+        .ply span { display: block; font-size: 0.6rem; color: #444; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
+        .ply div { font-weight: 700; color: #fff; font-size: 0.8rem; }
+
+        .btn-enter { 
+            background: var(--bureau-gold); color: #000; padding: 20px 50px; 
+            border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; 
+            letter-spacing: 3px; font-size: 0.9rem; transition: 0.4s; text-decoration: none;
+            display: inline-block;
+        }
+        .btn-enter:hover { background: #fff; box-shadow: 0 0 30px rgba(184, 134, 11, 0.3); }
+    </style>
+</head>
+<body>
+
+    <div class="success-box">
+        <div style="font-size: 3rem; color: var(--status-green); margin-bottom: 20px;">✓</div>
+        <h1>Identity Anchored</h1>
+        <p>
+            Congratulations, Architect. Your Pillar One credentials have been successfully ingested by the <strong>USA KINsense 1.0vRoot</strong>. Your creative parentage is now protected under the Solomon Kin Protocol.
+        </p>
+
+        <div class="status-plies">
+            <div class="ply">
+                <span>Node</span>
+                <div>1.0v-PHL</div>
+            </div>
+            <div class="ply">
+                <span>Protocol</span>
+                <div>SK-v7.4</div>
+            </div>
+            <div class="ply">
+                <span>Security</span>
+                <div>AES-256</div>
+            </div>
+        </div>
+
+        <a href="login.html" class="btn-enter">Enter the Vault</a>
+        
+        <p style="margin-top: 40px; font-size: 0.6rem; color: #333; letter-spacing: 1px;">
+            SESSION ID: <span id="session-id">LOADING...</span>
+        </p>
+    </div>
+
+    <script>
+        // Generate a fake session ID for high-level effect
+        document.getElementById('session-id').innerText = 'SES-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+    </script>
+
+</body>
+</html>
