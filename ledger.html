@@ -3,200 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public Ledger | Office of the Lead Architect | AI-IPVB</title>
+    <title>PUBLIC REGISTRY | AI-IPVB Global Search</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bureau-blue: #003366;
+            --bureau-blue: #001f3f;
             --bureau-gold: #b8860b;
-            --success-green: #2e7d32;
-            --border-std: #dcdcdc;
-            --bg-off: #f8f9fa;
+            --bg-light: #f4f4f4;
+            --text-dark: #1a1a1b;
         }
 
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #fff; color: #1a1a1b; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-light); color: var(--text-dark); }
 
-        /* HEADER */
-        .bureau-header { 
-            background: #fff; border-bottom: 2px solid var(--bureau-blue); 
-            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 10000;
+        /* 1. REGISTRY HEADER */
+        .registry-hero {
+            background: var(--bureau-blue); color: #fff; padding: 80px 10%; text-align: center;
+            border-bottom: 5px solid var(--bureau-gold);
         }
-        .bureau-logo { font-family: 'Libre Baskerville'; font-weight: 700; color: var(--bureau-blue); text-decoration: none; line-height: 1; }
+        .registry-hero h1 { font-family: 'Libre Baskerville'; font-size: 3rem; margin: 0; }
+        .registry-hero p { text-transform: uppercase; letter-spacing: 5px; font-size: 0.8rem; opacity: 0.7; margin-top: 15px; }
 
-        /* STATS TICKER */
-        .stats-ticker { background: var(--bureau-blue); color: #fff; padding: 12px 10%; display: flex; justify-content: space-between; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .stat-highlight { color: var(--bureau-gold); }
+        /* 2. THE SEARCH INTERFACE */
+        .search-container {
+            max-width: 900px; margin: -40px auto 60px; background: #fff; padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-radius: 2px; display: flex; gap: 15px;
+        }
+        .search-input {
+            flex: 1; padding: 20px; border: 1px solid #ddd; font-family: 'Montserrat'; font-size: 1rem;
+        }
+        .search-btn {
+            background: var(--bureau-gold); color: #000; border: none; padding: 0 40px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s;
+        }
+        .search-btn:hover { background: var(--bureau-blue); color: #fff; }
 
-        /* QUERY CONTROLS */
-        .ledger-controls { background: var(--bg-off); padding: 30px 10%; border-bottom: 1px solid var(--border-std); display: grid; grid-template-columns: 2fr 1fr 1fr 150px; gap: 20px; align-items: flex-end; }
-        .control-group { display: flex; flex-direction: column; gap: 8px; }
-        .control-group label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; color: #666; }
-        .control-group input, .control-group select { padding: 12px; border: 1px solid #ccc; font-family: inherit; font-size: 0.8rem; border-radius: 0; }
-        
-        .btn-query { background: var(--bureau-blue); color: white; border: none; padding: 13px; font-weight: 700; text-transform: uppercase; cursor: pointer; font-size: 0.7rem; transition: 0.3s; }
-        .btn-query:hover { background: var(--bureau-gold); }
+        /* 3. RESULTS MESH */
+        .results-mesh { max-width: 1200px; margin: 0 auto 100px; padding: 0 5%; }
+        .result-item {
+            display: grid; grid-template-columns: 150px 1fr 200px;
+            background: #fff; border: 1px solid #eee; margin-bottom: 20px; padding: 30px;
+            align-items: center; transition: 0.3s;
+        }
+        .result-item:hover { border-color: var(--bureau-gold); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 
-        /* TABLE STYLING */
-        .ledger-container { padding: 50px 10%; }
-        .table-scroll { max-height: 700px; overflow-y: auto; border: 1px solid #eee; margin-top: 20px; }
-        .ledger-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; background: #fff; }
-        .ledger-table th { position: sticky; top: 0; background: #fdfdfd; text-align: left; padding: 15px; border-bottom: 2px solid var(--bureau-blue); text-transform: uppercase; font-size: 0.6rem; color: var(--bureau-blue); z-index: 10; }
-        .ledger-table td { padding: 15px; border-bottom: 1px solid #eee; }
-        .ledger-table tr:hover { background: #f9f9f9; }
+        .result-seal { width: 100px; height: 100px; border-radius: 50%; background: #f9f9f9; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; }
+        .result-info h3 { font-family: 'Libre Baskerville'; margin: 0 0 5px; font-size: 1.4rem; }
+        .result-info p { margin: 0; font-size: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* BADGES */
-        .badge { padding: 4px 8px; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; border-radius: 2px; color: #fff; display: inline-block; }
-        .badge-t3 { background: var(--bureau-gold); }
-        .badge-t2 { background: var(--bureau-blue); }
-        .badge-t1 { background: #7a7a7a; }
-        .status-active { color: var(--success-green); font-weight: 700; display: flex; align-items: center; gap: 5px; }
+        .status-badge {
+            text-align: right; font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);
+        }
+        .status-badge span { display: block; font-size: 1.1rem; color: var(--bureau-gold); font-family: 'Libre Baskerville'; margin-top: 5px; }
 
-        footer { background: #1a1a1b; color: #ccc; padding: 40px 10%; font-size: 0.7rem; text-align: center; }
+        .footer-registry { padding: 60px; text-align: center; font-size: 0.7rem; color: #999; border-top: 1px solid #ddd; }
     </style>
 </head>
 <body>
 
-<header class="bureau-header">
-    <a href="index.html" class="bureau-logo">AI Intellectual Property<br><span style="font-weight: 400; font-size: 0.8rem;">& Verification Bureau</span></a>
-    <div style="font-size: 0.65rem; font-weight: 700; color: #666;">OFFICE OF THE LEAD ARCHITECT | PHL-01 ROOT</div>
-</header>
+    <header class="registry-hero">
+        <h1>Global Asset Registry</h1>
+        <p>Public Verification Node | USA KINsense 1.0v</p>
+    </header>
 
-<div class="stats-ticker">
-    <div>REGISTRY STATUS: <span class="stat-highlight">ONLINE</span></div>
-    <div>TOTAL VERIFIED: <span class="stat-highlight">12,482</span></div>
-    <div>AVG $C_k$ DELTA: <span class="stat-highlight">71.4%</span></div>
-    <div>NODES: <span class="stat-highlight">PHL, MSP, FRA, TYO</span></div>
-</div>
+    <div class="search-container">
+        <input type="text" class="search-input" id="search-query" placeholder="Enter Architect Name, Node ID, or Asset Hash...">
+        <button class="search-btn" onclick="executeSearch()">Verify</button>
+    </div>
 
-<section class="ledger-controls">
-    <div class="control-group">
-        <label>Search Asset or Hash ID</label>
-        <input type="text" id="searchInput" placeholder="Enter Asset Title or SK-MET ID...">
-    </div>
-    <div class="control-group">
-        <label>Node Origin</label>
-        <select id="nodeSelect">
-            <option value="All">All Global Nodes</option>
-            <option value="PHL-01">Philadelphia (PHL-01 Root)</option>
-            <option value="MSP-04">Minneapolis (MSP-04)</option>
-            <option value="FRA-09">Frankfurt (FRA-09)</option>
-            <option value="TYO-12">Tokyo (TYO-12)</option>
-        </select>
-    </div>
-    <div class="control-group">
-        <label>Certification Level</label>
-        <select id="tierSelect">
-            <option value="all">All Tiers</option>
-            <option value="3">Tier 3: Sovereign</option>
-            <option value="2">Tier 2: Collaborative</option>
-            <option value="1">Tier 1: Assisted</option>
-        </select>
-    </div>
-    <button class="btn-query" id="runQuery">Run Query</button>
-</section>
-
-<main class="ledger-container">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-        <div>
-            <h2 style="font-family: 'Libre Baskerville'; font-size: 2.2rem; color: var(--bureau-blue); margin: 0;">AIRTLR Public Ledger</h2>
-            <p style="color: #666; font-size: 0.8rem; margin-top: 5px;">Institutional Record of Synthetic Media Authorship & Intent.</p>
+    <main class="results-mesh" id="results-mesh">
+        <div class="result-item">
+            <div class="result-seal">
+                <img src="tier-3-shield.png" alt="Sovereign Seal" style="width:70px;">
+            </div>
+            <div class="result-info">
+                <h3>Master Profile: Mustafa King Brown</h3>
+                <p>Architect: Mustafa King Brown | Node: USA KINsense 1.0v</p>
+                <p style="margin-top:10px; color:var(--bureau-gold);">Status: SOVEREIGN ASSET CERTIFIED</p>
+            </div>
+            <div class="status-badge">
+                MUSTAFA GRADIENT
+                <span>92.1% $C_k$</span>
+            </div>
         </div>
-        <div style="font-size: 0.6rem; color: #999; text-align: right; line-height: 1.4;">
-            ARTICLE III COMPLIANT DATA<br>
-            LAST SYNC: <span id="syncTime"></span>
+
+        <div id="no-results" style="display:none; text-align:center; padding:50px; color:#999;">
+            <p>NO PUBLIC RECORD FOUND FOR THIS QUERY. REQUEST FORENSIC AUDIT?</p>
         </div>
-    </div>
+    </main>
 
-    <div class="table-scroll">
-        <table class="ledger-table">
-            <thead>
-                <tr>
-                    <th>Registration Date</th>
-                    <th>Asset Identification</th>
-                    <th>Certification Tier</th>
-                    <th>Node</th>
-                    <th>Forensic Hash</th>
-                    <th>$C_k$ Score</th>
-                    <th>Authority</th>
-                </tr>
-            </thead>
-            <tbody id="ledgerBody">
-                </tbody>
-        </table>
-    </div>
-</main>
+    <script>
+        function executeSearch() {
+            const query = document.getElementById('search-query').value.toLowerCase();
+            const mesh = document.getElementById('results-mesh');
+            const masterProfile = mesh.firstElementChild;
+            const noResults = document.getElementById('no-results');
 
-<footer>
-    OFFICE OF THE LEAD ARCHITECT | PHL-01 ROOT AUTHORITY<br>
-    © 2026 SOLOMON KIN, LLC | Philadelphia, PA | NIST ARIA COMPLIANT
-</footer>
-
-<script>
-    // THE GLOBAL QUERY ENGINE & SOCIAL PROOF GENERATOR
-    const ledgerBody = document.getElementById('ledgerBody');
-    const syncTime = document.getElementById('syncTime');
-    let registryData = [];
-
-    // 1. GENERATE 260 INSTITUTIONAL DECOY RECORDS
-    function generateRegistry(count) {
-        const nodes = ["PHL-01", "MSP-04", "FRA-09", "TYO-12"];
-        const prefixes = ["Neural", "Lethal", "Sovereign", "Cyber", "Mustafa", "Kin", "Forensic", "Architect", "Vector", "Logic"];
-        const suffixes = ["Asset", "Gradient", "Pilot", "Master", "Node", "Vault", "Draft", "Core", "Sequence", "Matrix"];
-
-        for (let i = 0; i < count; i++) {
-            const tierNum = Math.random() > 0.4 ? 3 : (Math.random() > 0.5 ? 2 : 1);
-            const node = nodes[Math.floor(Math.random() * 4)];
-            const date = new Date(2025, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28)).toISOString().split('T')[0];
-            
-            registryData.push({
-                date: date,
-                title: `${prefixes[Math.floor(Math.random() * 10)]}_${suffixes[Math.floor(Math.random() * 10)]}_${1000 + i}`,
-                tier: tierNum,
-                node: node,
-                hash: `SK-MET-${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
-                ck: tierNum === 3 ? (54 + (Math.random() * 40)).toFixed(1) : (10 + (Math.random() * 44)).toFixed(1)
-            });
+            // SIMULATED SEARCH LOGIC
+            if (query.includes("mustafa") || query.includes("kinsense") || query.includes("1.0v")) {
+                masterProfile.style.display = "grid";
+                noResults.style.display = "none";
+            } else {
+                masterProfile.style.display = "none";
+                noResults.style.display = "block";
+            }
         }
-        renderTable(registryData);
-    }
+    </script>
 
-    // 2. RENDER ENGINE
-    function renderTable(data) {
-        const html = data.map(item => `
-            <tr>
-                <td>${item.date}</td>
-                <td><strong>${item.title}</strong></td>
-                <td><span class="badge badge-t${item.tier}">${item.tier === 3 ? 'T3 Sovereign' : (item.tier === 2 ? 'T2 Collab' : 'T1 Assisted')}</span></td>
-                <td>${item.node}</td>
-                <td style="font-family: monospace; color: #666;">${item.hash}</td>
-                <td><strong>${item.ck}%</strong></td>
-                <td><span class="status-active">● VERIFIED</span></td>
-            </tr>
-        `).join('');
-        ledgerBody.innerHTML = html;
-        syncTime.innerText = new Date().toLocaleTimeString() + " UTC";
-    }
-
-    // 3. QUERY FILTER LOGIC
-    document.getElementById('runQuery').addEventListener('click', () => {
-        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-        const selectedNode = document.getElementById('nodeSelect').value;
-        const selectedTier = document.getElementById('tierSelect').value;
-
-        const filtered = registryData.filter(item => {
-            const matchesSearch = item.title.toLowerCase().includes(searchTerm) || item.hash.toLowerCase().includes(searchTerm);
-            const matchesNode = selectedNode === "All" || item.node === selectedNode;
-            const matchesTier = selectedTier === "all" || item.tier == selectedTier;
-            return matchesSearch && matchesNode && matchesTier;
-        });
-
-        renderTable(filtered);
-    });
-
-    // INITIALIZE GLOBAL ROOT
-    generateRegistry(260);
-</script>
+    <footer class="footer-registry">
+        AI-IPVB | SOLOMON KIN, LLC | REGISTRY TERMINAL v2.1<br>
+        DATA ANCHORED AT USA KINsense 1.0vRoot
+    </footer>
 
 </body>
 </html>
