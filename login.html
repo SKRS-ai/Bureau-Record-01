@@ -5,62 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SECURE GATEWAY | AI-IPVB 1.0vRoot</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         :root { --bureau-blue: #001f3f; --bureau-gold: #b8860b; --bg: #050505; }
         body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: #fff; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .login-box { background: #0a0a0c; border: 1px solid #222; padding: 60px; width: 400px; text-align: center; box-shadow: 0 0 50px rgba(0,0,0,0.8); }
-        .login-box h1 { font-family: 'Libre Baskerville'; color: var(--bureau-gold); font-size: 1.8rem; margin-bottom: 10px; }
+        .login-box { background: #0a0a0c; border: 1px solid #222; padding: 60px; width: 400px; text-align: center; }
+        .login-box h1 { font-family: 'Libre Baskerville'; color: var(--bureau-gold); font-size: 1.8rem; }
         input { width: 100%; padding: 15px; margin: 10px 0 20px; background: #000; border: 1px solid #333; color: #fff; box-sizing: border-box; }
-        .btn-execute { background: var(--bureau-gold); color: #000; width: 100%; padding: 18px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; letter-spacing: 2px; transition: 0.3s; }
-        .btn-execute:hover { background: #fff; }
+        .btn-execute { background: var(--bureau-gold); color: #000; width: 100%; padding: 18px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; letter-spacing: 2px; }
         label { display: block; text-align: left; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); }
     </style>
 </head>
 <body>
-<script>
-    function executeSecureLogin(event) {
-        event.preventDefault();
+
+    <div class="login-box">
+        <h1>Architect Login</h1>
+        <p style="font-size: 0.7rem; letter-spacing: 3px; color: #444; margin-bottom: 40px;">SUPABASE_NODE_v1.0v</p>
         
-        const email = document.getElementById('architect-email').value;
-        const key = document.getElementById('security-key').value;
-
-        // MASTER CREDENTIALS LOCKDOWN
-        // Only these exact values will grant access to the 1.0vRoot
-        const MASTER_ID = "mustafa@kin-sense.io"; 
-        const MASTER_KEY = "USA-KIN-2026"; 
-
-        if(email === MASTER_ID && key === MASTER_KEY) {
-            // SUCCESS: Issue the Sovereign Token
-            localStorage.setItem('SovereignToken', 'USA-KIN-9921-ACTIVE');
-            localStorage.setItem('ArchitectName', 'MUSTAFA KING BROWN');
+        <form id="login-form">
+            <label>Architect ID (Email)</label>
+            <input type="email" id="email" required placeholder="name@kin-sense.io">
             
-            alert("BIOMETRIC MATCH CONFIRMED. Accessing 1.0vRoot...");
-            window.location.href = 'inventory.html';
-        } else {
-            // FAILURE: Deny Access
-            alert("ACCESS DENIED: Credentials do not match Bureau records for Node 1.0v.");
-            // Optional: Clear fields on failure
-            document.getElementById('security-key').value = "";
-        }
-    }
-</script>
-    <script>
-        function executeSecureLogin(event) {
-            event.preventDefault();
-            const email = document.getElementById('architect-email').value;
-            const key = document.getElementById('security-key').value;
+            <label>Security Key</label>
+            <input type="password" id="password" required placeholder="••••••••">
+            
+            <button type="submit" class="btn-execute">Initialize Session</button>
+        </form>
+    </div>
 
-            // SIMULATED AUTH: Accept any valid-looking data, but issue a token
-            if(email && key.length >= 6) {
-                localStorage.setItem('SovereignToken', 'USA-KIN-9921-ACTIVE');
-                localStorage.setItem('ArchitectName', email.split('@')[0].toUpperCase());
-                
+    <script>
+        // --- 1. PLUG IN YOUR CREDENTIALS HERE ---
+        const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
+        const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        const loginForm = document.getElementById('login-form');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // --- 2. EXECUTE SUPABASE AUTH ---
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email: email,
+                password: password,
+            });
+
+            if (error) {
+                alert("ACCESS DENIED: " + error.message);
+            } else {
                 alert("BIOMETRIC MATCH CONFIRMED. Accessing 1.0vRoot...");
                 window.location.href = 'inventory.html';
-            } else {
-                alert("ACCESS DENIED: Credentials do not match Bureau records.");
             }
-        }
+        });
     </script>
 </body>
 </html>
