@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMBERS SUPPORT | USA KINsense 1.0vRoot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #001f3f;
+            --bureau-gold: #b8860b;
+            --gov-gray: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --border-frame: 15px;
+        }
+
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: #ffffff; 
+            color: var(--text-dark); 
+            margin: 0; 
+            padding: var(--border-frame);
+            min-height: 100vh;
+        }
+
+        /* GLOBAL SOVEREIGN BORDER */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: var(--border-frame) solid var(--gov-gray);
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* PERSISTENT NAVIGATION */
+        header {
+            background: #fff;
+            border-bottom: 2px solid var(--bureau-blue);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: var(--border-frame);
+            z-index: 1000;
+        }
+
+        .logo { font-family: 'Libre Baskerville'; color: var(--bureau-blue); font-weight: 700; font-size: 1.1rem; text-transform: uppercase; }
+        nav a { text-decoration: none; color: var(--bureau-blue); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-left: 25px; }
+
+        /* SUPPORT HERO */
+        .support-hero { background: var(--gov-gray); padding: 80px 10%; text-align: center; border-bottom: 1px solid #ddd; }
+        h1 { font-family: 'Libre Baskerville'; color: var(--bureau-blue); font-size: 2.5rem; margin: 0; }
+        .support-subtitle { color: var(--bureau-gold); letter-spacing: 4px; text-transform: uppercase; font-size: 0.7rem; font-weight: 700; margin-top: 10px; }
+
+        /* SUPPORT GRID */
+        .support-container { max-width: 1100px; margin: 60px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; padding: 0 20px; }
+        
+        .support-card { background: #fff; border: 1px solid #eee; padding: 40px; }
+        .support-card h3 { font-family: 'Libre Baskerville'; color: var(--bureau-blue); margin-top: 0; }
+        .support-card p { font-size: 0.85rem; color: #666; line-height: 1.6; }
+
+        /* PRIORITY FORM */
+        form { margin-top: 30px; text-align: left; }
+        label { display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+        input, textarea, select { 
+            width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; 
+            background: var(--gov-gray); font-family: 'Montserrat'; box-sizing: border-box; 
+        }
+        .btn-submit { 
+            width: 100%; padding: 20px; background: var(--bureau-blue); color: #fff; 
+            border: none; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; 
+        }
+
+        /* FAQ/INTEL SECTION */
+        .intel-section { background: var(--bureau-blue); color: #fff; padding: 60px; margin-top: 40px; }
+        .intel-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 0; }
+        .intel-item h4 { margin: 0; color: var(--bureau-gold); font-size: 0.8rem; text-transform: uppercase; }
+        .intel-item p { font-size: 0.75rem; margin-top: 10px; opacity: 0.8; }
+
+        footer { background: var(--gov-gray); padding: 60px 5%; text-align: center; border-top: 1px solid #ddd; font-size: 0.65rem; color: #999; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Bureau of AI-IP Verification</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="ledger.html">Registry</a>
+            <a href="prices.html">Tiers</a>
+            <a href="inventory.html">Vault</a>
+        </nav>
+    </header>
+
+    <section class="support-hero">
+        <h1>Architect Priority Support</h1>
+        <p class="support-subtitle">Direct Institutional Assistance</p>
+    </section>
+
+    <main class="support-container">
+        <div class="support-card">
+            <h3>Infrastructure Inquiry</h3>
+            <p>Use this terminal to report issues with metadata anchoring, vault encryption, or $C_k$ metrology errors. Your ticket is routed through the PHL-01 Root Node.</p>
+            
+            <form id="support-form">
+                <label>Architect Tier</label>
+                <select required>
+                    <option>Visual Architect ($49/mo)</option>
+                    <option>Sovereign Producer ($129/mo)</option>
+                    <option>Institutional Node ($499/mo)</option>
+                    <option>Audit Client (One-Time)</option>
+                </select>
+
+                <label>Issue Classification</label>
+                <select required>
+                    <option>Vault Access Conflict</option>
+                    <option>Registry Discrepancy</option>
+                    <option>Transfer of Rights Request</option>
+                    <option>Legal/Article III Consultation</option>
+                </select>
+
+                <label>Detailed Brief</label>
+                <textarea rows="5" placeholder="Describe the jurisdictional or technical conflict..." required></textarea>
+
+                <button type="submit" class="btn-submit">Submit Priority Ticket</button>
+            </form>
+        </div>
+
+        <div class="support-card" style="border-left: 5px solid var(--bureau-gold);">
+            <h3>Sovereign Knowledge Base</h3>
+            <p>Quick answers for the most mandated creative protocols.</p>
+            
+            <div class="intel-item">
+                <h4>What is "First Claim Priority"?</h4>
+                <p>It is the Bureau's commitment to your identity. Even if enrollment lapses, we hold your timeline memory to prevent second-comers from stealing your magic.</p>
+            </div>
+
+            <div class="intel-item">
+                <h4>Lost Security Key?</h4>
+                <p>Security keys are hashed via AES-256. If lost, you must undergo a jurisdictional identity verification at the PHL-01 Root Node.</p>
+            </div>
+
+            <div class="intel-item">
+                <h4>Direct Metrologist Line</h4>
+                <p style="color: var(--bureau-blue); font-weight: 700;">support@bureau-record.io</p>
+                <p>Expected Response: <span style="color: green;">Under 4 Hours</span> for Sovereign/Institutional tiers.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 USA KINsense 1.0vRoot | Solomon Kin Protocol | All Sessions Encrypted</p>
+    </footer>
+
+</body>
+</html>
