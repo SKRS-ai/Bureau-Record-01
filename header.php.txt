@@ -1,0 +1,9 @@
+<nav class="bureau-nav">
+    <div class="nav-logo">AI-IPVB | 1.0vRoot</div>
+    <ul class="nav-links">
+        <li><a href="index.html">The Mission</a></li>
+        <li><a href="ledger.html">Public Registry</a></li>
+        <li><a href="library.html">Library-Record</a></li>
+        <li class="vault-link"><a href="inventory.html" style="color:var(--bureau-gold);">Access Vault</a></li>
+    </ul>
+</nav>
