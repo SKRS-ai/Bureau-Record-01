@@ -14,7 +14,37 @@
         }
 
         body { font-family: 'Montserrat', sans-serif; background: var(--bg-dark); color: var(--text-light); display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 40px 0; }
+async function handleRegistration(event) {
+    event.preventDefault();
+    
+    // 1. COLLECT DATA
+    const email = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-key').value;
+    const newsletter = document.getElementById('newsletter-opt-in').checked;
 
+    // 2. INITIALIZE PILLAR ONE (Supabase Ingest)
+    const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+            data: { 
+                welcome_sent: true,
+                newsletter_subscriber: newsletter,
+                node: "USA KINsense 1.0v"
+            },
+            // This is where you tell Supabase where to send them AFTER they click the email
+            emailRedirectTo: 'https://skrs-ai.github.io/Bureau-Record-01/login.html'
+        }
+    });
+
+    if (error) {
+        alert("ENROLLMENT BLOCK: " + error.message);
+    } else {
+        // 3. SUCCESS REDIRECT
+        alert("CONGRATULATIONS ARCHITECT. Your identity is being anchored. Please check your inbox for 1.0vRoot credentials.");
+        window.location.href = 'login.html'; 
+    }
+}
         /* 1. REGISTRATION CONTAINER */
         .enrollment-box { 
             background: #0a0a0c; border: 1px solid #222; padding: 60px; 
