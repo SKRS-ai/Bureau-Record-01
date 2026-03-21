@@ -1,90 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architect Enrollment | PHL-01 Root | AI-IPVB</title>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bureau-blue: #003366;
-            --bureau-gold: #b8860b;
-            --bg-off: #f4f7f9;
-        }
-
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-off); color: #1a1a1b; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-
-        /* ENROLLMENT CONTAINER */
-        .enroll-container { width: 100%; max-width: 500px; background: #fff; border: 1px solid #ddd; box-shadow: 0 40px 80px rgba(0,0,0,0.05); }
-        
-        .enroll-header { background: #1a1a1b; color: #fff; padding: 40px; text-align: center; border-bottom: 4px solid var(--bureau-gold); }
-        .enroll-header h1 { font-family: 'Libre Baskerville'; font-size: 1.4rem; margin: 0; letter-spacing: 1px; }
-        .enroll-header p { font-size: 0.65rem; color: var(--bureau-gold); text-transform: uppercase; margin-top: 10px; font-weight: 700; }
-
-        .enroll-body { padding: 40px; }
-        
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: #666; margin-bottom: 8px; }
-        .form-group input, .form-group select { width: 100%; padding: 14px; border: 1px solid #ccc; font-family: inherit; box-sizing: border-box; background: #fafafa; }
-        .form-group input:focus { border-color: var(--bureau-blue); outline: none; background: #fff; }
-
-        .btn-register { width: 100%; padding: 18px; background: var(--bureau-blue); color: #fff; border: none; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: 0.3s; font-size: 0.8rem; letter-spacing: 1px; }
-        .btn-register:hover { background: var(--bureau-gold); }
-
-        .security-note { margin-top: 30px; font-size: 0.65rem; color: #999; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
-        .security-note strong { color: var(--bureau-blue); }
-
-        footer-small { padding: 20px; text-align: center; font-size: 0.6rem; color: #aaa; background: #fff; width: 100%; position: absolute; bottom: 0; }
-    </style>
-</head>
-<body>
-
-<main class="enroll-container">
-    <div class="enroll-header">
-        <h1>ARCHITECT ENROLLMENT</h1>
-        <p>Office of the Lead Architect | PHL-01 Root</p>
-    </div>
-
-    <div class="enroll-body">
-        <form action="dashboard.html" method="POST">
-            <div class="form-group">
-                <label>Legal Full Name / Entity ID</label>
-                <input type="text" name="fullname" placeholder="Verification required" required>
-            </div>
-
-            <div class="form-group">
-                <label>Bureau Email Address</label>
-                <input type="email" name="email" placeholder="architect@domain.com" required>
-            </div>
-
-            <div class="form-group">
-                <label>Node Assignment (Ballot Address)</label>
-                <select name="node">
-                    <option value="PHL-01">Philadelphia (PHL-01 Root)</option>
-                    <option value="MSP-04">Minneapolis (MSP-04 Relay)</option>
-                    <option value="FRA-09">Frankfurt (FRA-09 EMEA)</option>
-                    <option value="TYO-12">Tokyo (TYO-12 APAC)</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Establish Security Password</label>
-                <input type="password" name="password" placeholder="••••••••" required>
-            </div>
-
-            <button type="submit" class="btn-register">Initialize Case Registration</button>
-        </form>
-
-        <div class="security-note">
-            By initializing registration, you consent to the <strong>Mustafa Gradient Metrology</strong> standards. 
-            All submissions are indexed into the AIRTLR Public Ledger.
-        </div>
-    </div>
-</main>
-
-<footer-small>
-    © 2026 SOLOMON KIN, LLC | NIST ARIA COMPLIANT | SECURE PORT PHL-01
-</footer-small>
-
-</body>
-</html>
+async function handleSignUp(email, password) {
+  const { data, error } = await supabase.auth.signUp({
+    email: email,
+    password: password,
+    options: {
+      data: {
+        origin_node: 'PHL-01',
+        role: 'Architect'
+      }
+    }
+  });
+  
+  if (error) console.error("Enrollment Error:", error.message);
+  else alert("Welcome, Architect. Check email for root verification.");
+}
