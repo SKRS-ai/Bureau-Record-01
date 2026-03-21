@@ -17,7 +17,28 @@
     </style>
 </head>
 <body>
+<script>
+    async function executeSecureLogin(event) {
+        event.preventDefault();
+        
+        const email = document.getElementById('architect-email').value;
+        const password = document.getElementById('security-key').value;
 
+        // 3. ATTEMPT SIGN-IN
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password,
+        });
+
+        if (error) {
+            alert("ACCESS DENIED: " + error.message);
+        } else {
+            // SUCCESS: Supabase handles the token automatically
+            alert("BIOMETRIC MATCH CONFIRMED. Accessing 1.0vRoot...");
+            window.location.href = 'inventory.html';
+        }
+    }
+</script>
     <div class="login-box">
         <h1>Architect Login</h1>
         <p style="font-size: 0.7rem; letter-spacing: 3px; color: #444; margin-bottom: 40px;">SUPABASE_NODE_v1.0v</p>
