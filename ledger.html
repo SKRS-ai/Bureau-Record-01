@@ -9,109 +9,143 @@
         :root {
             --bureau-blue: #001f3f;
             --bureau-gold: #b8860b;
-            --bg-light: #f4f4f4;
+            --bg-light: #f8f9fa;
             --text-dark: #1a1a1b;
+            --border: #e2e8f0;
         }
 
         body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-light); color: var(--text-dark); }
 
-        /* 1. REGISTRY HEADER */
+        /* 1. REGISTRY HERO */
         .registry-hero {
-            background: var(--bureau-blue); color: #fff; padding: 80px 10%; text-align: center;
-            border-bottom: 5px solid var(--bureau-gold);
+            background: var(--bureau-blue); color: #fff; padding: 100px 10% 80px; text-align: center;
+            border-bottom: 6px solid var(--bureau-gold);
         }
-        .registry-hero h1 { font-family: 'Libre Baskerville'; font-size: 3rem; margin: 0; }
-        .registry-hero p { text-transform: uppercase; letter-spacing: 5px; font-size: 0.8rem; opacity: 0.7; margin-top: 15px; }
+        .registry-hero h1 { font-family: 'Libre Baskerville'; font-size: 3.2rem; margin: 0; }
+        .registry-hero p { text-transform: uppercase; letter-spacing: 6px; font-size: 0.85rem; opacity: 0.8; margin-top: 20px; }
 
-        /* 2. THE SEARCH INTERFACE */
+        /* 2. SEARCH INTERFACE */
         .search-container {
-            max-width: 900px; margin: -40px auto 60px; background: #fff; padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-radius: 2px; display: flex; gap: 15px;
+            max-width: 1000px; margin: -50px auto 80px; background: #fff; padding: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08); border: 1px solid var(--border); display: flex; gap: 15px;
         }
-        .search-input {
-            flex: 1; padding: 20px; border: 1px solid #ddd; font-family: 'Montserrat'; font-size: 1rem;
-        }
-        .search-btn {
-            background: var(--bureau-gold); color: #000; border: none; padding: 0 40px;
-            font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s;
-        }
-        .search-btn:hover { background: var(--bureau-blue); color: #fff; }
+        .search-input { flex: 1; padding: 22px; border: 1px solid var(--border); font-family: 'Montserrat'; font-size: 1rem; outline: none; transition: 0.3s; }
+        .search-input:focus { border-color: var(--bureau-gold); }
+        .search-btn { background: var(--bureau-gold); color: #000; border: none; padding: 0 50px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; }
 
-        /* 3. RESULTS MESH */
+        /* 3. RECENTLY ENROLLED SECTION (NEW) */
+        .recent-section { max-width: 1200px; margin: 0 auto 60px; padding: 0 5%; }
+        .section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; color: var(--bureau-gold); font-weight: 700; margin-bottom: 25px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+        
+        .architect-scroll { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; }
+        .arch-pill { 
+            background: #fff; border: 1px solid var(--border); padding: 15px 25px; 
+            min-width: 200px; display: flex; align-items: center; gap: 15px; flex-shrink: 0;
+            transition: 0.3s; cursor: pointer;
+        }
+        .arch-pill:hover { border-color: var(--bureau-gold); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .arch-avatar { width: 40px; height: 40px; background: var(--bureau-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.8rem; font-weight: 700; }
+        .arch-pill span { font-size: 0.8rem; font-weight: 600; }
+
+        /* 4. RESULTS MESH */
         .results-mesh { max-width: 1200px; margin: 0 auto 100px; padding: 0 5%; }
         .result-item {
-            display: grid; grid-template-columns: 150px 1fr 200px;
-            background: #fff; border: 1px solid #eee; margin-bottom: 20px; padding: 30px;
-            align-items: center; transition: 0.3s;
+            display: grid; grid-template-columns: 120px 1fr 200px;
+            background: #fff; border: 1px solid var(--border); margin-bottom: 20px; padding: 35px;
+            align-items: center; transition: 0.4s;
         }
-        .result-item:hover { border-color: var(--bureau-gold); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-
-        .result-seal { width: 100px; height: 100px; border-radius: 50%; background: #f9f9f9; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; }
-        .result-info h3 { font-family: 'Libre Baskerville'; margin: 0 0 5px; font-size: 1.4rem; }
+        .result-item:hover { border-color: var(--bureau-gold); transform: scale(1.01); }
+        
+        .result-info h3 { font-family: 'Libre Baskerville'; margin: 0 0 8px; font-size: 1.6rem; color: var(--bureau-blue); }
         .result-info p { margin: 0; font-size: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 1px; }
 
-        .status-badge {
-            text-align: right; font-size: 0.7rem; font-weight: 700; color: var(--bureau-blue);
-        }
-        .status-badge span { display: block; font-size: 1.1rem; color: var(--bureau-gold); font-family: 'Libre Baskerville'; margin-top: 5px; }
+        .status-badge { text-align: right; }
+        .status-badge .label { font-size: 0.65rem; font-weight: 700; color: #999; text-transform: uppercase; }
+        .status-badge .value { display: block; font-size: 1.2rem; color: var(--bureau-gold); font-family: 'Libre Baskerville'; margin-top: 5px; font-weight: 700; }
 
-        .footer-registry { padding: 60px; text-align: center; font-size: 0.7rem; color: #999; border-top: 1px solid #ddd; }
+        .footer-registry { padding: 80px 5%; text-align: center; font-size: 0.75rem; color: #aaa; border-top: 1px solid #eee; background: #fff; }
     </style>
 </head>
 <body>
 
     <header class="registry-hero">
         <h1>Global Asset Registry</h1>
-        <p>Public Verification Node | USA KINsense 1.0v</p>
+        <p>Verified Creative Parentage | USA KINsense 1.0vRoot</p>
     </header>
 
     <div class="search-container">
-        <input type="text" class="search-input" id="search-query" placeholder="Enter Architect Name, Node ID, or Asset Hash...">
-        <button class="search-btn" onclick="executeSearch()">Verify</button>
+        <input type="text" class="search-input" id="search-query" placeholder="Enter Architect, Node ID, or Asset Hash...">
+        <button class="search-btn" onclick="executeSearch()">Verify Asset</button>
     </div>
 
+    <section class="recent-section">
+        <div class="section-label">Recently Enrolled Architects</div>
+        <div class="architect-scroll">
+            <div class="arch-pill" onclick="searchFor('Mustafa')">
+                <div class="arch-avatar">MK</div>
+                <span>Mustafa King Brown</span>
+            </div>
+            <div class="arch-pill">
+                <div class="arch-avatar" style="background:#555;">JD</div>
+                <span>Julian Drax</span>
+            </div>
+            <div class="arch-pill">
+                <div class="arch-avatar" style="background:#444;">SL</div>
+                <span>Sovereign Lex</span>
+            </div>
+            <div class="arch-pill">
+                <div class="arch-avatar" style="background:#b8860b; color:#000;">AA</div>
+                <span>Alpha Architect</span>
+            </div>
+        </div>
+    </section>
+
     <main class="results-mesh" id="results-mesh">
-        <div class="result-item">
+        <div class="result-item" id="master-profile-result">
             <div class="result-seal">
-                <img src="tier-3-shield.png" alt="Sovereign Seal" style="width:70px;">
+                <img src="tier-3-shield.png" alt="Sovereign" style="width:80px; opacity:0.9;">
             </div>
             <div class="result-info">
                 <h3>Master Profile: Mustafa King Brown</h3>
                 <p>Architect: Mustafa King Brown | Node: USA KINsense 1.0v</p>
-                <p style="margin-top:10px; color:var(--bureau-gold);">Status: SOVEREIGN ASSET CERTIFIED</p>
+                <div style="margin-top:15px; font-size:0.75rem; color:var(--bureau-gold); font-weight:700;">● SOVEREIGN STATUS CONFIRMED</div>
             </div>
             <div class="status-badge">
-                MUSTAFA GRADIENT
-                <span>92.1% $C_k$</span>
+                <div class="label">Mustafa Gradient</div>
+                <div class="value">92.1% $C_k$</div>
             </div>
         </div>
 
-        <div id="no-results" style="display:none; text-align:center; padding:50px; color:#999;">
-            <p>NO PUBLIC RECORD FOUND FOR THIS QUERY. REQUEST FORENSIC AUDIT?</p>
+        <div id="no-results" style="display:none; text-align:center; padding:100px; color:#aaa; border:2px dashed #eee;">
+            <h2 style="font-family:'Libre Baskerville';">No Record Found</h2>
+            <p style="letter-spacing:2px; font-size:0.8rem;">THE SEARCHED ENTITY HAS NOT YET BEEN ANCHORED TO THE 1.0vRoot.</p>
         </div>
     </main>
 
     <script>
         function executeSearch() {
             const query = document.getElementById('search-query').value.toLowerCase();
-            const mesh = document.getElementById('results-mesh');
-            const masterProfile = mesh.firstElementChild;
-            const noResults = document.getElementById('no-results');
+            const result = document.getElementById('master-profile-result');
+            const noRes = document.getElementById('no-results');
 
-            // SIMULATED SEARCH LOGIC
-            if (query.includes("mustafa") || query.includes("kinsense") || query.includes("1.0v")) {
-                masterProfile.style.display = "grid";
-                noResults.style.display = "none";
+            if (query.includes("mustafa") || query.includes("1.0v") || query.includes("master")) {
+                result.style.display = "grid";
+                noRes.style.display = "none";
             } else {
-                masterProfile.style.display = "none";
-                noResults.style.display = "block";
+                result.style.display = "none";
+                noRes.style.display = "block";
             }
+        }
+
+        function searchFor(name) {
+            document.getElementById('search-query').value = name;
+            executeSearch();
         }
     </script>
 
     <footer class="footer-registry">
-        AI-IPVB | SOLOMON KIN, LLC | REGISTRY TERMINAL v2.1<br>
-        DATA ANCHORED AT USA KINsense 1.0vRoot
+        SOLOMON KIN, LLC | AI-IPVB | 1.0vROOT REGISTRY TERMINAL<br>
+        <div style="margin-top:15px; opacity:0.5;">CRYPTO-ANCHORED AT USA KINsense 1.0v | ALL RIGHTS RESERVED © 2026</div>
     </footer>
 
 </body>
