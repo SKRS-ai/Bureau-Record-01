@@ -1,3 +1,22 @@
+<script>
+    // THE SOVEREIGN GUARD
+    (function() {
+        const token = localStorage.getItem('SovereignToken');
+        if (!token) {
+            alert("SECURITY BREACH: Unauthorized Access Detected. Redirecting to Secure Gateway.");
+            window.location.href = 'login.html';
+        }
+    })();
+
+    // LOGOUT FUNCTION
+    function terminateSession() {
+        if(confirm("TERMINATE SESSION: Are you sure you want to de-anchor from the 1.0vRoot?")) {
+            localStorage.removeItem('SovereignToken');
+            localStorage.removeItem('ArchitectName');
+            window.location.href = 'login.html';
+        }
+    }
+</script>
 <div class="asset-card" id="mustafa-profile-card">
     <div class="ck-badge">GRADIENT<span>92.1%</span></div>
     <div class="asset-preview">
