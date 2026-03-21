@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institutional Node | PHL-01 Enterprise Authority | AI-IPVB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #001f3f;
+            --bureau-gold: #b8860b;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --neon-green: #39ff14;
+        }
+
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #020202; color: white; overflow-x: hidden; }
+
+        /* DYNAMIC BACKGROUND: THE "MONEY & CREATION" MESH */
+        .parallax-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; z-index: -1; opacity: 0.4;
+        }
+
+        /* FLOATING ASSET OVERLAYS (SIMULATED) */
+        .asset-stream {
+            position: absolute; width: 100%; height: 100%; pointer-events: none;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1;
+        }
+
+        /* ENTERPRISE HERO */
+        .hero-specs {
+            padding: 160px 10% 100px; text-align: center;
+            border-bottom: 1px solid rgba(184,134,11,0.3);
+            background: radial-gradient(circle at center, rgba(0,31,63,0.5) 0%, transparent 70%);
+        }
+        .hero-specs h1 { font-family: 'Libre Baskerville'; font-size: 4.5rem; margin: 0; letter-spacing: -2px; }
+        .hero-specs .price-tag { font-size: 1.5rem; color: var(--bureau-gold); font-weight: 700; margin-top: 10px; letter-spacing: 4px; }
+
+        /* THE "SUB-BUREAU" PITCH */
+        .node-container { 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px; 
+            padding: 100px 10%; align-items: center;
+        }
+        .node-text h2 { font-family: 'Libre Baskerville'; font-size: 2.8rem; color: var(--bureau-gold); margin-bottom: 30px; }
+        .node-text p { font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 25px; }
+
+        /* THE SPEC GRID */
+        .specs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 10% 100px; }
+        .spec-card { 
+            background: var(--glass-bg); backdrop-filter: blur(20px); 
+            border: 1px solid rgba(255,255,255,0.1); padding: 40px; 
+            transition: 0.4s; position: relative; overflow: hidden;
+        }
+        .spec-card:hover { border-color: var(--bureau-gold); transform: translateY(-10px); background: rgba(255, 255, 255, 0.05); }
+        .spec-card h3 { font-family: 'Libre Baskerville'; color: var(--bureau-gold); margin-bottom: 15px; }
+        .spec-card .status { color: var(--neon-green); font-size: 0.6rem; font-weight: 700; letter-spacing: 2px; position: absolute; top: 20px; right: 20px; }
+
+        /* APPLICATION TERMINAL */
+        .application-section { padding: 100px 10%; background: #050505; display: flex; justify-content: center; }
+        .app-card { 
+            width: 100%; max-width: 1100px; display: grid; grid-template-columns: 1fr 1.5fr; 
+            background: #000; border: 1px solid #222; box-shadow: 0 50px 100px rgba(0,0,0,0.5); 
+        }
+        .app-sidebar { background: var(--bureau-blue); padding: 60px; border-right: 1px solid var(--bureau-gold); }
+        .app-form { padding: 60px; background: rgba(255,255,255,0.01); }
+        
+        input, select, textarea { 
+            width: 100%; padding: 18px; margin-bottom: 25px; background: #0a0a0a; 
+            border: 1px solid #333; color: white; font-family: 'Montserrat'; box-sizing: border-box; 
+        }
+        input:focus { border-color: var(--bureau-gold); outline: none; }
+        
+        .btn-apply { 
+            background: var(--bureau-gold); color: white; border: none; padding: 25px; 
+            font-weight: 700; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; width: 100%; 
+            transition: 0.3s;
+        }
+        .btn-apply:hover { background: #fff; color: #000; transform: scale(1.02); }
+
+        .telemetry { font-family: monospace; font-size: 0.7rem; color: #555; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <div class="parallax-bg"></div>
+    <div class="asset-stream"></div>
+
+    <nav style="padding: 30px 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <a href="index.html" style="color:white; text-decoration:none; font-family:'Libre Baskerville'; font-size: 1.2rem;">AI-IPVB <span style="color:var(--bureau-gold);">PHL-01</span></a>
+        <div style="font-size: 0.7rem; letter-spacing: 2px; font-weight: 700; color: #888;">NODE LICENSING TERMINAL</div>
+    </nav>
+
+    <section class="hero-specs">
+        <p>Apex B2B Infrastructure</p>
+        <h1>Institutional Node</h1>
+        <div class="price-tag">$499 / MONTHLY</div>
+    </section>
+
+    <section class="node-container">
+        <div class="node-text">
+            <h2>The Bureau-In-A-Box.</h2>
+
+http://googleusercontent.com/map_location_reference/1
+            <p>The **Institutional Node** is a high-authority licensing agreement designed for Notaries, IT Certification Firms, and Digital Production Houses. This tier grants your business the direct legal infrastructure to certify and notarize AI-aided assets as an authorized extension of the [Philadelphia](http://googleusercontent.com/map_location_reference/0) (PHL-01) Root.</p>
+            <p>You are no longer just a creator; you are a **Certified Authority**. By integrating our $C_k$ Delta forensic protocols into your existing client services, you provide a level of commercial protection that standard legal firms cannot match.</p>
+        </div>
+        <div class="node-visual" style="text-align: right;">
+            <img src="tier-3-shield.png" style="width: 80%; filter: drop-shadow(0 0 50px rgba(184,134,11,0.4));" alt="Institutional Shield">
+        </div>
+    </section>
+
+    <section class="specs-grid">
+        <div class="spec-card">
+            <div class="status">ACTIVE</div>
+            <h3>75% First Claim + Hibernation</h3>
+            <p>Your clients receive the absolute highest priority in the global $C_k$ registry. Before any model can "scrape," your claim is anchored and hibernated in the PHL-01 Vault.</p>
+        </div>
+        <div class="spec-card">
+            <div class="status">ACTIVE</div>
+            <h3>Agency White-Label Portal</h3>
+            <p>Full access to our "Sub-Bureau" UI. Issue Bureau-standard certifications under your company branding, backed by our institutional forensic authority.</p>
+        </div>
+        <div class="spec-card">
+            <div class="status">ACTIVE</div>
+            <h3>Bulk Asset Ingestion</h3>
+            <p>A high-capacity forensic pipeline. Process up to 250 unique assets per month for your clients with automated hash-generation and vaulting.</p>
+        </div>
+    </section>
+
+    <div class="application-section">
+        <div class="app-card">
+            <div class="app-sidebar">
+                <h3 style="font-family:'Libre Baskerville'; font-size: 2rem; margin-bottom: 20px;">Sub-Node Enrollment</h3>
+                <p style="font-size: 0.85rem; line-height: 2; color: #ccc;">
+                    Direct access to the **Office of the Lead Architect**. This tier is selective. We verify your business credentials to ensure the integrity of the AI-IPVB standard remains indefeasible.
+                </p>
+                <div class="telemetry">
+                    NODE: PHL-01 ROOT<br>
+                    LATENCY: < 10ms<br>
+                    PROTOCOL: INSTITUTIONAL V.2
+                </div>
+            </div>
+            <div class="app-form">
+                <form id="applyNode">
+                    <label style="font-size: 0.6rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">Entity Name / Legal Title</label>
+                    <input type="text" placeholder="e.g. Keystone IT Certification" required>
+                    
+                    <label style="font-size: 0.6rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">Primary Service Industry</label>
+                    <select required>
+                        <option value="">Select Service...</option>
+                        <option value="notary">Notary / Legal Services</option>
+                        <option value="it">IT Certification / Training</option>
+                        <option value="studio">Production Studio / Agency</option>
+                        <option value="consulting">IP Consulting</option>
+                    </select>
+
+                    <label style="font-size: 0.6rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">Estimated Monthly Volume</label>
+                    <input type="number" placeholder="Number of clients/assets" required>
+
+                    <label style="font-size: 0.6rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">Strategic Intent</label>
+                    <textarea rows="4" placeholder="How will your business utilize Bureau Certification to enhance client IP value?"></textarea>
+
+                    <button type="submit" class="btn-apply">Execute Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 100px 10% 50px; text-align: center; border-top: 1px solid #111;">
+        <div style="font-family:'Libre Baskerville'; font-size: 1.5rem; color: var(--bureau-gold); margin-bottom: 20px;">OFFICE OF THE LEAD ARCHITECT</div>
+        <p style="font-size: 0.7rem; color: #444; letter-spacing: 2px;">© 2026 AI-IPVB | PHL-01 ROOT AUTHORITY | INDEFEASIBLE COMMERCIAL ARM</p>
+    </footer>
+
+</body>
+</html>
