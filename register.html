@@ -1,12 +1,12 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-    // --- OFFICIAL NODE CREDENTIALS ---
-    // Replace the text below with your ACTUAL keys from the API tab
-    const SUPABASE_URL = 'https://uddnjukvtpypjrwlzoby.supabase.co'; 
-    const SUPABASE_KEY = 'PASTE_THE_LONG_EYJ_KEY_HERE'; 
+    // --- OFFICIAL 1.0vROOT CONFIGURATION ---
+const SUPABASE_URL = 'https://uddnjukvtpypjrwlzoby.supabase.co'; 
+const SUPABASE_KEY = '411d9f38-b348-453c-9c1c-2270c4131e9e'
 
-    const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+// This line initializes the connection
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
     async function handleRegistration(event) {
         event.preventDefault();
