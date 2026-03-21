@@ -3,132 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sovereign Enterprise Suite | PHL-01 Root Authority</title>
+    <title>General Intake Portal | PHL-01 Root | AI-IPVB</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bureau-blue: #001f3f; --bureau-gold: #b8860b; --bg-light: #ffffff; --text-dark: #1a1a1b; }
+        :root {
+            --bureau-blue: #001f3f;
+            --bureau-gold: #b8860b;
+            --bg-light: #fdfdfd;
+            --text-dark: #1a1a1b;
+            --border-color: #e5e7eb;
+        }
+
         body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
 
-        /* HERO AREA */
-        .enterprise-hero { 
-            background: linear-gradient(rgba(0,31,63,0.98), rgba(0,31,63,0.9)), url('img/bureau-vault.jpg') center/cover;
-            color: white; padding: 120px 10%; text-align: center; border-bottom: 8px solid var(--bureau-gold);
+        /* MANIFESTO HEADER */
+        .manifesto-banner {
+            background: var(--bureau-blue);
+            color: white;
+            padding: 80px 10%;
+            text-align: center;
+            border-bottom: 5px solid var(--bureau-gold);
         }
-        .enterprise-hero h1 { font-family: 'Libre Baskerville'; font-size: 3.5rem; margin-bottom: 20px; }
-        .enterprise-hero p { font-size: 1.2rem; color: var(--bureau-gold); text-transform: uppercase; letter-spacing: 4px; font-weight: 700; }
+        .manifesto-banner h1 { font-family: 'Libre Baskerville'; font-size: 2.5rem; margin-bottom: 20px; }
+        .manifesto-banner p { 
+            font-size: 1.1rem; color: var(--bureau-gold); 
+            text-transform: uppercase; letter-spacing: 4px; font-weight: 700; max-width: 800px; margin: 0 auto;
+        }
 
-        /* THE PITCH SECTION */
-        .pitch-container { padding: 100px 15%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .pitch-text h2 { font-family: 'Libre Baskerville'; font-size: 2.5rem; color: var(--bureau-blue); margin-bottom: 25px; }
-        .pitch-text p { font-size: 1.1rem; color: #444; margin-bottom: 20px; }
+        /* CONTACT CONTAINER */
+        .intake-container { max-width: 1000px; margin: -50px auto 100px; background: white; padding: 60px; box-shadow: 0 50px 100px rgba(0,0,0,0.05); border: 1px solid var(--border-color); }
         
-        /* FEATURE BOXES */
-        .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 80px 10%; background: #f9f9f9; }
-        .benefit-card { background: white; padding: 40px; border-left: 5px solid var(--bureau-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .benefit-card h4 { font-family: 'Libre Baskerville'; color: var(--bureau-blue); font-size: 1.3rem; margin-top: 0; }
-        .benefit-card p { font-size: 0.9rem; color: #666; }
+        .section-title { font-family: 'Libre Baskerville'; font-size: 1.5rem; color: var(--bureau-blue); border-bottom: 2px solid var(--bureau-gold); display: inline-block; margin-bottom: 40px; }
 
-        /* THE ENTERPRISE FORM */
-        .form-section { padding: 100px 10%; background: white; display: flex; justify-content: center; }
-        .contact-card { width: 100%; max-width: 900px; display: grid; grid-template-columns: 1fr 1.2fr; background: white; border: 1px solid #eee; box-shadow: 0 50px 100px rgba(0,0,0,0.05); }
-        .contact-info { background: var(--bureau-blue); color: white; padding: 60px; }
-        .contact-form { padding: 60px; }
-        
-        input, select, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; font-family: 'Montserrat'; box-sizing: border-box; }
-        .btn-submit { background: var(--bureau-gold); color: white; border: none; padding: 20px 40px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; width: 100%; }
+        /* FORM STYLING */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .full-width { grid-column: span 2; }
 
-        .shield-icon { width: 120px; margin-bottom: 20px; }
+        label { font-size: 0.65rem; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 10px; }
+        input, select, textarea { 
+            width: 100%; padding: 15px; border: 1px solid var(--border-color); 
+            background: #f9f9f9; font-family: 'Montserrat'; font-size: 0.9rem; box-sizing: border-box; 
+        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--bureau-blue); background: #fff; }
+
+        .btn-submit { 
+            background: var(--bureau-blue); color: white; border: none; padding: 25px 50px; 
+            font-weight: 700; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-submit:hover { background: var(--bureau-gold); transform: translateY(-3px); }
+
+        .form-note { font-size: 0.75rem; color: #888; margin-top: 20px; font-style: italic; }
     </style>
 </head>
 <body>
 
-    <section class="enterprise-hero">
-        <p>Institutional Licensing</p>
-        <h1>The Sovereign Suite</h1>
-        <div style="max-width: 800px; margin: 0 auto; opacity: 0.9;">
-            Transition from a Creator to an Authority. The Sovereign Tier allows Enterprise partners to utilize Bureau forensic protocols to verify, notarize, and protect third-party AI assets under the PHL-01 Root.
+    <section class="manifesto-banner">
+        <h1>In Defense of the Architect</h1>
+        <p>The machine generates. The creator commands. The Bureau protects.</p>
+        <div style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8; font-weight: 300;">
+            At the AI-IPVB, our primary directive is the preservation of human parentage in the synthetic era. <br>Whether you are a solo creator or a high-stakes asset owner, your sovereignty is our priority.
         </div>
     </section>
 
-    <section class="pitch-container">
-        <div class="pitch-text">
-            <h2>Your Business, Our Authority.</h2>
-            <p>The **Sovereign Suite ($1,499)** is designed for the high-level architect who manages multiple creators, or the legal professional looking to add "AI Intellectual Property Verification" to their service menu.</p>
-            <p>By enrolling in this tier, you aren't just buying a scan; you are acquiring a **Sub-Node License**. You gain the power to issue Bureau-standard $C_k$ Delta scores, providing your clients with the same indefeasible legal protection we provide you.</p>
-            <ul style="font-size: 0.9rem; color: #444;">
-                <li>● **White-Label Potential:** Issue certificates under your own agency brand.</li>
-                <li>● **Direct Vault Access:** Manage up to 50 unique client assets.</li>
-                <li>● **Article III Readiness:** Every asset processed is trial-ready.</li>
-            </ul>
-        </div>
-        <div class="pitch-visual">
-            <img src="tier-3-shield.png" style="width: 100%; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.2));" alt="Sovereign Shield">
-        </div>
-    </section>
-
-    <section class="benefits-grid">
-        <div class="benefit-card">
-            <h4>For Notaries & Legal Firms</h4>
-            <p>Modernize your practice. Offer "AI Parentage Notarization." We provide the forensic back-end; you provide the local legal stamp. It's the new gold standard for digital estate planning.</p>
-        </div>
-        <div class="benefit-card">
-            <h4>For Production Studios</h4>
-            <p>Ensure every AI-generated character, background, or script fragment in your film is 100% owned by your studio. Eliminate "Public Domain" contamination before it hits the box office.</p>
-        </div>
-        <div class="benefit-card">
-            <h4>For Digital Talent Agencies</h4>
-            <p>Protect your AI influencers. The Sovereign Suite allows you to prove the human "soul" behind the digital face, preventing platforms from training clones of your top earners.</p>
-        </div>
-        <div class="benefit-card">
-            <h4>For Software Enterprises</h4>
-            <p>Integrate our API into your creative tools. Let your users know that work created in your environment is "Bureau-Checked" for human-authorship compliance ($C_k$ 54%+).</p>
-        </div>
-    </section>
-
-    <div class="form-section">
-        <div class="contact-card">
-            <div class="contact-info">
-                <h3 style="font-family:'Libre Baskerville'; font-size: 1.8rem; margin-bottom: 20px;">Secure Enrollment</h3>
-                <p style="font-size: 0.8rem; opacity: 0.8; line-height: 2;">
-
-http://googleusercontent.com/map_location_reference/1
-                    The Sovereign Tier requires a brief verification of your intent. Once submitted, a Bureau Lead Architect will review your application for Sub-Node status at the [Philadelphia](http://googleusercontent.com/map_location_reference/0) (PHL-01) Root.
-                </p>
-                <div style="margin-top: 40px;">
-                    <small>LOCATION: PHL-01 ROOT</small><br>
-                    <small>STATUS: ACCEPTING ENTERPRISE PARTNERS</small>
+    <main class="intake-container">
+        <h2 class="section-title">Official Inquiry Form</h2>
+        
+        <form id="bureauIntake">
+            <div class="form-grid">
+                <div>
+                    <label>Legal First Name</label>
+                    <input type="text" id="fname" required placeholder="Mustafa">
+                </div>
+                <div>
+                    <label>Legal Last Name</label>
+                    <input type="text" id="lname" required placeholder="Brown">
+                </div>
+                <div class="full-width">
+                    <label>Authorized Contact Email</label>
+                    <input type="email" id="email" required placeholder="architect@domain.com">
                 </div>
             </div>
-            <div class="contact-form">
-                <form id="sovereignForm">
-                    <label>Full Legal Name / Entity Name</label>
-                    <input type="text" placeholder="e.g. Solomon Kin Records LLC" required>
-                    
-                    <label>Professional Industry</label>
-                    <select required>
-                        <option value="">Select Industry...</option>
-                        <option value="legal">Legal / Notary Services</option>
-                        <option value="film">Film & Video Production</option>
-                        <option value="agency">Talent / Influencer Agency</option>
-                        <option value="tech">Software & AI Development</option>
-                        <option value="other">Other High-Stakes Creative</option>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+
+            <div class="form-grid">
+                <div class="full-width">
+                    <label>Classification of Inquiry (Select One)</label>
+                    <select id="classification" required>
+                        <option value="">-- Select Purpose of Contact --</option>
+                        <option value="creator">Creator: Individual AI-IP Registration Query</option>
+                        <option value="owner">Owner: Corporate Content / IP Asset Protection</option>
+                        <option value="legal">Legal/Notary: Institutional Node Partnership</option>
+                        <option value="dispute">Dispute: Unauthorized Replication/Model Training Claim</option>
+                        <option value="verification">Verification: Check Audit Status of Existing Asset</option>
+                        <option value="other">General: Strategic Bureau Communication</option>
                     </select>
+                </div>
 
-                    <label>Number of Assets to Protect Monthly</label>
-                    <input type="number" placeholder="50" required>
-
-                    <label>Briefly Describe your AI Infrastructure</label>
-                    <textarea rows="4" placeholder="How are you currently using AI in your commercial workflow?"></textarea>
-
-                    <button type="submit" class="btn-submit">Request Sovereign Enrollment</button>
-                </form>
+                <div>
+                    <label>Associated Business/Alias (Optional)</label>
+                    <input type="text" id="business" placeholder="Solomon Kin Records LLC">
+                </div>
+                <div>
+                    <label>Preferred Contact Method</label>
+                    <select id="method">
+                        <option value="email">Secure Email</option>
+                        <option value="phone">Direct Tele-Communication</option>
+                        <option value="portal">Bureau Vault Message</option>
+                    </select>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <footer style="background: #000; color: #444; text-align: center; padding: 40px; font-size: 0.7rem; letter-spacing: 1px;">
-        OFFICE OF THE LEAD ARCHITECT | PHL-01 ROOT AUTHORITY | © 2026
+            <div class="form-grid">
+                <div class="full-width">
+                    <label>Detailed Disclosure of Intent / Narrative of Asset</label>
+                    <textarea id="disclosure" rows="6" required placeholder="Please provide a comprehensive explanation of your inquiry or the specific AI asset requiring Bureau attention..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="full-width">
+                    <label>Asset Hash / Project ID (If applicable)</label>
+                    <input type="text" id="hashid" placeholder="SK-PHL-XXXX-XXXX">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Submit to PHL-01 Root</button>
+            
+            <p class="form-note">
+                Notice: All communications are logged and encrypted at the Philadelphia PHL-01 Node. <br>Response times vary based on the forensic priority of the inquiry.
+            </p>
+        </form>
+    </main>
+
+    <footer style="text-align: center; padding: 50px 0; color: #888; font-size: 0.7rem; letter-spacing: 2px;">
+        OFFICE OF THE LEAD ARCHITECT | AI-IPVB | © 2026 PHL-01 ROOT
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Supabase Logic for Form Submission
+        const SUPABASE_URL = 'https://your-project-url.supabase.co';
+        const SUPABASE_KEY = 'your-anon-key';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        document.getElementById('bureauIntake').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                first_name: document.getElementById('fname').value,
+                last_name: document.getElementById('lname').value,
+                email: document.getElementById('email').value,
+                classification: document.getElementById('classification').value,
+                business: document.getElementById('business').value,
+                intent_disclosure: document.getElementById('disclosure').value,
+                asset_hash: document.getElementById('hashid').value,
+                status: 'unread'
+            };
+
+            const { data, error } = await supabase
+                .from('inquiries')
+                .insert([formData]);
+
+            if (error) {
+                alert("TRANSMISSION ERROR: " + error.message);
+            } else {
+                alert("TRANSMISSION SUCCESSFUL: Your inquiry has been anchored at PHL-01.");
+                document.getElementById('bureauIntake').reset();
+            }
+        });
+    </script>
 </body>
 </html>
