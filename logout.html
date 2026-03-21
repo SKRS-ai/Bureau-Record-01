@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De-authorizing Session | AI-IPVB PHL-01</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #001f3f;
+            --bureau-gold: #b8860b;
+            --bg-dark: #050505;
+        }
+
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            background: var(--bg-dark); 
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            text-align: center;
+        }
+
+        .logout-container {
+            max-width: 500px;
+            padding: 60px;
+            border: 1px solid #222;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+        }
+
+        .bureau-logo {
+            font-family: 'Libre Baskerville';
+            color: var(--bureau-gold);
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-decoration: none;
+            display: block;
+        }
+
+        h1 { font-family: 'Libre Baskerville'; font-size: 1.8rem; margin-bottom: 10px; }
+        p { color: #888; font-size: 0.85rem; letter-spacing: 1px; line-height: 1.6; }
+
+        /* LOADING SPINNER (FORENSIC SYMBOL) */
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #111;
+            border-top: 3px solid var(--bureau-gold);
+            border-radius: 50%;
+            margin: 30px auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .status-text {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #444;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logout-container">
+        <a href="index.html" class="bureau-logo">AI-IPVB</a>
+        <h1>Session Closing</h1>
+        <p>Securing Forensic Vault and<br>de-authorizing Architect credentials...</p>
+        
+        <div class="loader"></div>
+        <div class="status-text" id="status">Syncing with PHL-01 Root...</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // REPLACE WITH YOUR ACTUAL KEYS
+        const SUPABASE_URL = 'https://your-project-url.supabase.co';
+        const SUPABASE_KEY = 'your-anon-key';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        async function executeLogout() {
+            try {
+                // 1. End Supabase Session
+                const { error } = await supabase.auth.signOut();
+                
+                if (error) throw error;
+
+                document.getElementById('status').innerText = "VAULT SECURED. REDIRECTING...";
+
+                // 2. Clear local session markers if any
+                localStorage.clear();
+                sessionStorage.clear();
+
+                // 3. Short delay for professional "institutional" feel
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 2500);
+
+            } catch (err) {
+                console.error("Logout Error:", err.message);
+                document.getElementById('status').style.color = "#ff4d4d";
+                document.getElementById('status').innerText = "ENCRYPTION ERROR. RETRYING...";
+                
+                // Force redirect regardless of error after 4 seconds
+                setTimeout(() => { window.location.href = "index.html"; }, 4000);
+            }
+        }
+
+        // Execute immediately on load
+        window.onload = executeLogout;
+    </script>
+
+</body>
+</html>
