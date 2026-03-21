@@ -98,26 +98,36 @@
         </div>
     </div>
 
-    <script>
-        function handleRegistration(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('reg-name').value;
-            const email = document.getElementById('reg-email').value;
-            const key = document.getElementById('reg-key').value;
-            const node = document.getElementById('reg-node').value;
+   <script>
+    // 1. YOUR SUPABASE CREDENTIALS
+    const SUPABASE_URL = 'YOUR_PROJECT_URL';
+    const SUPABASE_KEY = 'YOUR_ANON_KEY';
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-            // PILLAR ONE DATA INGESTION (Simulated)
-            // In a live environment, this is where you call your Supabase 'signUp' function
-            console.log("PILLAR ONE DATA INGESTED:", { name, email, node });
+    async function handleRegistration(event) {
+        event.preventDefault();
+        
+        const email = document.getElementById('reg-email').value;
+        const password = document.getElementById('reg-key').value;
+        const fullName = document.getElementById('reg-name').value;
 
-            // SIMULATED SUCCESS
-            alert("IDENTITY VERIFIED. Architect " + name + " has been anchored to Node " + node + ". You may now access your Sovereign Vault.");
-            
-            // Immediately redirect to login so they can verify their new credentials
+        // 2. CREATE THE USER IN SUPABASE AUTH
+        const { data, error } = await supabase.auth.signUp({
+            email: email,
+            password: password,
+            options: {
+                data: { display_name: fullName } // Stores the name in the user metadata
+            }
+        });
+
+        if (error) {
+            alert("ENROLLMENT ERROR: " + error.message);
+        } else {
+            alert("IDENTITY ANCHORED. Check your email for a confirmation link (if enabled) or proceed to login.");
             window.location.href = 'login.html';
         }
-    </script>
+    }
+</script>
 
 </body>
 </html>
