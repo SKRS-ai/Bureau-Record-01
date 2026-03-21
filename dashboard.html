@@ -3,7 +3,14 @@
     <script>
     function executeSecureLogin(event) {
         event.preventDefault(); // Stop page from just refreshing
-        
+        <div class="vault-telemetry">
+    <div>NODE ID: USA KINsense 1.0vRoot</div>
+    <div>SESSION: <span style="color:var(--status-green);">ENCRYPTED</span></div>
+    <div>
+        ARCHITECT: <span id="display-name">MUSTAFA KING BROWN</span>
+        <button onclick="terminateSession()" style="margin-left:20px; background:none; border:1px solid #444; color:#666; cursor:pointer; font-size:0.6rem; padding:5px 10px;">DE-ANCHOR</button>
+    </div>
+</div>
         const email = document.getElementById('architect-email').value;
         const key = document.getElementById('security-key').value;
 
