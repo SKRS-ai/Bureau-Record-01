@@ -3,153 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library | AIRTLR Research Archive</title>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>AIRTLR | AI Research & Technology Library-Record | Pillar Two Authority</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bureau-blue: #003366;
+            --bureau-blue: #001f3f;
             --bureau-gold: #b8860b;
-            --pure-white: #ffffff;
-            --off-white: #fcfcfc;
-            --border-std: #dee2e6;
+            --library-slate: #1c1c1e;
+            --text-light: #fdfdfd;
+            --glow-white: 0 0 40px rgba(255, 255, 255, 0.3);
         }
 
-        body {
-            background-color: var(--pure-white);
-            color: #1a1a1b;
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            line-height: 1.6;
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #050505; color: var(--text-light); line-height: 1.8; }
+
+        /* 1. TOP STATUS STRIP */
+        .status-strip { 
+            background: #000; padding: 10px 5%; border-bottom: 1px solid #222;
+            display: flex; justify-content: space-between; font-size: 0.65rem; letter-spacing: 2px;
+            color: var(--bureau-gold); font-weight: 700;
         }
 
-        /* FEDERAL NAVIGATION */
-        header {
-            background: var(--pure-white);
-            border-bottom: 4px solid var(--bureau-blue);
-            padding: 15px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* 2. THE LIBRARY HEADER (PILLAR TWO FOCUS) */
+        .lib-header { 
+            padding: 100px 10%; text-align: center;
+            background: radial-gradient(circle at top, #001f3f 0%, #050505 80%);
+            border-bottom: 3px solid var(--bureau-gold);
+        }
+        .lib-header h1 { font-family: 'Libre Baskerville'; font-size: 4.5rem; margin-bottom: 15px; }
+        .lib-header .pillar-tag { 
+            text-transform: uppercase; letter-spacing: 10px; font-size: 1rem; 
+            color: var(--bureau-gold); border: 1px solid var(--bureau-gold); 
+            display: inline-block; padding: 10px 30px; margin-bottom: 30px;
         }
 
-        .logo-text { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 1.4rem; font-weight: 700; text-decoration: none; }
-        nav a { text-decoration: none; color: var(--bureau-blue); margin-left: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
-
-        /* LIBRARY LAYOUT */
-        .hero-library { padding: 60px 10%; background: var(--off-white); border-bottom: 1px solid var(--border-std); }
-        .hero-library h1 { font-family: 'Libre Baskerville', serif; color: var(--bureau-blue); font-size: 2.5rem; margin: 0; }
-        
-        .archive-container { display: grid; grid-template-columns: 250px 1fr; gap: 50px; padding: 60px 10%; }
-        
-        /* SIDEBAR FILTERS */
-        .sidebar h4 { color: var(--bureau-blue); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; border-bottom: 1px solid var(--bureau-gold); padding-bottom: 10px; }
-        .filter-list { list-style: none; padding: 0; font-size: 0.85rem; }
-        .filter-list li { margin-bottom: 12px; }
-        .filter-list input { margin-right: 10px; }
-
-        /* DOCUMENT CARDS */
-        .doc-card { 
-            display: flex; 
-            gap: 20px; 
-            padding: 30px; 
-            border: 1px solid var(--border-std); 
-            margin-bottom: 25px; 
-            background: white;
-            transition: 0.2s;
+        /* 3. THE METHODOLOGY GRID */
+        .methodology-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+            max-width: 1300px; margin: -50px auto 100px; padding: 0 5%;
         }
-        .doc-card:hover { border-color: var(--bureau-gold); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        
-        .doc-icon { 
-            width: 50px; height: 60px; 
-            background: var(--bureau-blue); 
-            color: white; 
-            display: flex; align-items: center; justify-content: center; 
-            font-weight: 700; font-size: 0.7rem; flex-shrink: 0;
+        .method-card {
+            background: #111; border: 1px solid #333; padding: 50px;
+            border-top: 5px solid var(--bureau-blue);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
+        .method-card h3 { font-family: 'Libre Baskerville'; color: var(--bureau-gold); font-size: 1.8rem; margin-top: 0; }
+        .method-card p { font-size: 0.95rem; color: #aaa; }
 
-        .doc-meta { font-size: 0.7rem; text-transform: uppercase; color: var(--bureau-gold); font-weight: 700; margin-bottom: 5px; display: block; }
-        .doc-title { font-family: 'Libre Baskerville', serif; font-size: 1.25rem; color: var(--bureau-blue); margin: 0 0 10px 0; }
-        .doc-excerpt { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
+        /* 4. THE LIBRARY RECORD DIRECTORY (THE HEART OF THE RESEARCH) */
+        .record-directory { padding: 100px 10%; }
+        .directory-header { text-align: center; margin-bottom: 80px; }
+        .directory-header h2 { font-family: 'Libre Baskerville'; font-size: 2.8rem; }
 
-        .btn-download { 
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            color: var(--bureau-blue); 
-            text-decoration: none; 
-            border-bottom: 2px solid var(--bureau-blue);
-            padding-bottom: 2px;
+        .record-row {
+            display: grid; grid-template-columns: 120px 1fr 200px;
+            background: rgba(255,255,255,0.02); margin-bottom: 15px; padding: 25px;
+            border: 1px solid #222; align-items: center; transition: 0.3s;
         }
+        .record-row:hover { background: rgba(255,255,255,0.05); border-color: var(--bureau-gold); box-shadow: var(--glow-white); }
+        .record-code { font-family: 'monospace'; color: var(--bureau-gold); font-weight: 700; }
+        .record-info h4 { margin: 0; font-size: 1.2rem; color: #fff; }
+        .record-info span { font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+        .record-btn { 
+            background: transparent; border: 1px solid var(--bureau-blue); color: var(--bureau-blue);
+            padding: 10px 20px; text-transform: uppercase; font-size: 0.7rem; font-weight: 700;
+            text-decoration: none; text-align: center; transition: 0.3s;
+        }
+        .record-btn:hover { background: var(--bureau-blue); color: #fff; }
 
-        footer { background: var(--off-white); padding: 40px 10%; border-top: 1px solid var(--border-std); text-align: center; font-size: 0.75rem; color: #888; }
+        /* 5. PILLAR TWO BRIEFING */
+        .pillar-briefing { 
+            background: #000; padding: 100px 15%; text-align: center;
+            border-top: 2px solid #222;
+        }
+        .briefing-inner { max-width: 900px; margin: 0 auto; }
+        .briefing-inner h2 { font-family: 'Libre Baskerville'; color: var(--bureau-gold); font-size: 2.4rem; }
+        .briefing-inner p { font-size: 1.1rem; color: #888; line-height: 2; }
+
+        .footer-secure { padding: 60px; text-align: center; font-size: 0.7rem; color: #333; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="index.html" class="logo-text">AI-IPVB</a>
-    <nav>
-        <a href="purpose.html">Methodology</a>
-        <a href="library.html" style="color: var(--bureau-gold);">Library</a>
-        <a href="verification.html">Verification</a>
-        <a href="login.html">Login</a>
-    </nav>
-</header>
+    <div class="status-strip">
+        <div>PILLAR TWO: METHODOLOGY & VERIFICATION</div>
+        <div>LIBRARY-RECORD SECURE SYNC: ACTIVE</div>
+        <div>PHL-01 ROOT ACCESS ONLY</div>
+    </div>
 
-<section class="hero-library">
-    <h1>Research & Technology Archive</h1>
-    <p style="max-width: 700px; color: #666; margin-top: 15px;">The official repository for AI forensic standards, whitepapers, and the AIRTLR Public Record. These documents establish the technical precedent for NMMMB Tiered Certification.</p>
-</section>
+    <header class="lib-header">
+        <div class="pillar-tag">Pillar Two Infrastructure</div>
+        <h1>AIRTLR Master Library</h1>
+        <p style="letter-spacing: 5px; opacity: 0.7;">AI Research & Technology Library-Record</p>
+    </section>
 
-<div class="archive-container">
-    <aside class="sidebar">
-        <h4>Filter Archive</h4>
-        <ul class="filter-list">
-            <li><input type="checkbox" checked> Whitepapers</li>
-            <li><input type="checkbox" checked> Legal Precedents</li>
-            <li><input type="checkbox"> Technical API Docs</li>
-            <li><input type="checkbox"> Regional Case Files</li>
-        </ul>
-        
-        <h4 style="margin-top: 40px;">Core Resources</h4>
-        <p style="font-size: 0.75rem; color: #666;">Access the founding documents of Solomon Kin, LLC and the NMMMB Protocol.</p>
-    </aside>
+    <div class="methodology-grid">
+        <div class="method-card">
+            <h3>Forensic Archiving</h3>
+            <p>We do not just store data; we archive the <strong>Genesis Logic</strong>. Every entry in the AIRTLR is a forensic snapshot of the methodology used to prompt, sculpt, and finalize an AI asset. This is where the Mustafa Gradient ($C_k$) is calculated and permanently recorded.</p>
+        </div>
+        <div class="method-card">
+            <h3>Verification Chain</h3>
+            <p>Pillar Two bridges the gap between raw creation and legal sovereignty. By referencing the Library-Record, an architect can provide the "Research Audit Trail" required to dismiss copyright infringement claims and prove human-directed intent.</p>
+        </div>
+    </div>
 
-    <main>
-        <div class="doc-card">
-            <div class="doc-icon">PDF</div>
-            <div class="doc-body">
-                <span class="doc-meta">FOUNDATIONAL | MARCH 2026</span>
-                <h3 class="doc-title">The AI-IPVB Bible: Forensic Authorship Standards</h3>
-                <p class="doc-excerpt">The complete governing framework for the NMMMB protocol. Detailed breakdown of the 100+ prompt-count requirement and manual transformation thresholds for Tier 3 Sovereignty.</p>
-                <a href="#" class="btn-download">Download Primary Source [4.2 MB]</a>
-            </div>
+    <section class="record-directory">
+        <div class="directory-header">
+            <h2>Current Research Vaults</h2>
+            <p style="color: #666; letter-spacing: 2px;">SECURE ACCESS TO PHL-01 DATA NODES</p>
         </div>
 
-        <div class="doc-card">
-            <div class="doc-icon">DOC</div>
-            <div class="doc-body">
-                <span class="doc-meta">TECHNICAL | NIST ALIGNMENT</span>
-                <h3 class="doc-title">De-Convolution of Neural Manifests</h3>
-                <p class="doc-excerpt">A technical whitepaper detailing the measurement science used to isolate human intervention from autonomous model output in complex collaborative workflows.</p>
-                <a href="#" class="btn-download">Access Whitepaper Data</a>
+        <div class="record-row">
+            <div class="record-code">LV-100</div>
+            <div class="record-info">
+                <h4>NIST AI-100-1 Compliance Logs</h4>
+                <span>Metrology | Risk Management | Verification Standards</span>
             </div>
+            <a href="#" class="record-btn">Access Vault</a>
         </div>
 
-        <div class="doc-card">
-            <div class="doc-icon">CASE</div>
-            <div class="doc-body">
-                <span class="doc-meta">LEGAL | PHL-MSP NODES</span>
-                <h3 class="doc-title">The Thin Black and Brown Lines: Equity in Synthetic IP</h3>
-                <p class="doc-excerpt">An analysis of the socio-economic impacts of the Bureau’s equity initiatives in urban innovation hubs, specifically Philadelphia and Minneapolis.</p>
-                <a href="#" class="btn-download">View Impact Study</a>
+        <div class="record-row">
+            <div class="record-code">SK-MET</div>
+            <div class="record-info">
+                <h4>Mustafa Gradient Metrology Data</h4>
+                <span>Human Delta ($C_k$) Research | Kinetic Methodology</span>
             </div>
+            <a href="#" class="record-btn">Access Vault</a>
         </div>
-    </main>
-</div>
 
-<footer>
-    AIRTLR ARCHIVE | SECURE NODE: 192.168.1.PHL | MANAGED BY VEXILLAAITS.COM | © 2026 SOLOMON KIN, LLC
-</footer>
+        <div class="record-row">
+            <div class="record-code">IP-VB</div>
+            <div class="record-info">
+                <h4>Sovereign Case Law Archive</h4>
+                <span>Article III Evidence | IP Precedent | Forensic Records</span>
+            </div>
+            <a href="#" class="record-btn">Access Vault</a>
+        </div>
+
+        <div class="record-row">
+            <div class="record-code">GL-ETH</div>
+            <div class="record-info">
+                <h4>Global AI Ethics & Authorship Standards</h4>
+                <span>AEHA.org Alliance | Institutional Governance</span>
+            </div>
+            <a href="#" class="record-btn">Access Vault</a>
+        </div>
+    </section>
+
+    <section class="pillar-briefing">
+        <div class="briefing-inner">
+            <h2>The Library-Record Mandate</h2>
+            <p>
+                In the Bureau's system design, Pillar Two (Methodology) is the engine of proof. Without the **Library-Record**, a creation is merely a "generation." With it, it becomes an "Authored Asset." The AIRTLR ensures that the technical nuances of your AI-human collaboration are never lost to the machine’s black box.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer-secure">
+        SOLOMON KIN, LLC | AIRTLR PILLAR TWO REPOSITORY | v6.1.0<br>
+        ALL RECORDS ARE SUBJECT TO AUTOMATED FORENSIC RE-VALIDATION.
+    </footer>
 
 </body>
 </html>
