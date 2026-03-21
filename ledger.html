@@ -3,121 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUBLIC LEDGER | USA KINsense 1.0vRoot | AI-IPVB</title>
+    <title>PUBLIC REGISTRY | USA KINsense 1.0vRoot</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bureau-blue: #001f3f;
             --bureau-gold: #b8860b;
-            --bg: #050505;
-            --border-width: 15px; /* THE INSTITUTIONAL BORDER */
+            --government-gray: #f4f4f4;
+            --text-dark: #1a1a1a;
+            --border-outer: 15px;
         }
 
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background: var(--bg); 
-            color: #fff; 
+            background: #ffffff; 
+            color: var(--text-dark); 
             margin: 0; 
-            padding: var(--border-width); /* Creates space for the border */
+            padding: var(--border-outer);
             min-height: 100vh;
         }
 
-        /* THE SOVEREIGN BORDER */
+        /* THE INSTITUTIONAL BORDER */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            border: var(--border-width) solid #0a0a0c;
+            border: var(--border-outer) solid var(--government-gray);
             pointer-events: none;
             z-index: 9999;
         }
 
-        /* PERSISTENT HEADER */
+        /* GLOBAL NAVIGATION BAR */
         header {
-            background: #000;
-            border-bottom: 1px solid #222;
-            padding: 20px 5%;
+            background: #fff;
+            border-bottom: 2px solid var(--bureau-blue);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
-            top: 0;
+            top: var(--border-outer);
             z-index: 1000;
         }
 
-        .logo { font-family: 'Libre Baskerville'; color: var(--bureau-gold); font-size: 1.2rem; letter-spacing: 2px; }
+        .logo { font-family: 'Libre Baskerville'; color: var(--bureau-blue); font-weight: 700; font-size: 1.1rem; text-transform: uppercase; }
         
-        nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
-        nav a { text-decoration: none; color: #888; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        nav a:hover, nav a.active { color: var(--bureau-gold); }
+        nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+        nav a { text-decoration: none; color: var(--bureau-blue); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-active { border-bottom: 2px solid var(--bureau-gold); padding-bottom: 5px; }
 
-        .price-link { border: 1px solid var(--bureau-gold); padding: 8px 15px; color: var(--bureau-gold); }
+        /* SEARCH DIRECTORY ENGINE */
+        .search-hero { background: var(--government-gray); padding: 60px 20px; text-align: center; border-bottom: 1px solid #ddd; }
+        h1 { font-family: 'Libre Baskerville'; color: var(--bureau-blue); font-size: 2.2rem; margin-bottom: 10px; }
+        
+        .search-container { max-width: 800px; margin: 30px auto; position: relative; }
+        #ledger-search { 
+            width: 100%; padding: 20px 25px; border: 2px solid var(--bureau-blue); 
+            font-family: 'Montserrat'; font-size: 1rem; border-radius: 0; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
 
-        /* LEDGER CONTENT */
-        .ledger-container { max-width: 1200px; margin: 80px auto; padding: 0 20px; text-align: center; }
-        h1 { font-family: 'Libre Baskerville'; font-size: 3rem; margin-bottom: 10px; }
-        .ledger-subtitle { color: var(--bureau-gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 60px; }
+        /* DIRECTORY CARDS */
+        .directory-grid { max-width: 1100px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr; gap: 20px; }
+        
+        .registry-card { 
+            display: grid; grid-template-columns: 150px 1fr 200px; 
+            align-items: center; padding: 25px; border: 1px solid #eee; 
+            background: #fff; transition: 0.3s;
+        }
+        .registry-card:hover { border-left: 5px solid var(--bureau-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
-        .ledger-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px; }
-        .asset-record { background: #0a0a0c; border: 1px solid #222; padding: 30px; text-align: left; transition: 0.4s; }
-        .asset-record:hover { border-color: var(--bureau-gold); transform: translateY(-5px); }
-        .asset-record h3 { font-family: 'Libre Baskerville'; margin-top: 0; }
-        .ck-badge { font-size: 0.6rem; background: var(--bureau-gold); color: #000; padding: 3px 8px; font-weight: 800; display: inline-block; margin-bottom: 15px; }
+        .id-stamp { font-size: 0.6rem; font-weight: 800; color: #999; letter-spacing: 1px; }
+        .project-info h3 { margin: 5px 0; font-family: 'Libre Baskerville'; color: var(--bureau-blue); }
+        .cert-status { text-align: right; }
+        .badge-verified { background: var(--bureau-blue); color: #fff; font-size: 0.6rem; padding: 5px 10px; font-weight: 700; }
 
-        /* PERSISTENT FOOTER */
+        /* FOOTER LINKS */
         footer {
-            background: #000;
-            border-top: 1px solid #222;
-            padding: 60px 5%;
+            background: var(--government-gray);
+            padding: 80px 5%;
             margin-top: 100px;
             text-align: center;
-            font-size: 0.6rem;
-            color: #444;
-            letter-spacing: 1px;
+            border-top: 1px solid #ddd;
         }
+        .footer-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; }
+        .footer-links a { text-decoration: none; color: #666; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">AI-IPVB / 1.0v</div>
+        <div class="logo">Bureau of AI-IP Verification</div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="ledger.html" class="active">The Ledger</a></li>
-                <li><a href="prices.html" class="price-link">Tiers & Pricing</a></li>
-                <li><a href="login.html">Access Vault</a></li>
+                <li><a href="ledger.html" class="nav-active">Registry</a></li>
+                <li><a href="prices.html">Institutional Tiers</a></li>
+                <li><a href="login.html">Architect Login</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="ledger-container">
-        <h1>The Public Ledger</h1>
-        <div class="ledger-subtitle">Verifiable Creative Parentage Registry</div>
+    <section class="search-hero">
+        <h1>Public Registry & Ledger</h1>
+        <p style="color: #666; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Verify Creative Parentage & $C_k$ Certification</p>
+        
+        <div class="search-container">
+            <input type="text" id="ledger-search" placeholder="Enter Project ID, Architect Name, or Creative Hash..." onkeyup="filterLedger()">
+        </div>
+    </section>
 
-        <div class="ledger-grid">
-            <div class="asset-record">
-                <div class="ck-badge">$C_k$ CERTIFIED</div>
-                <h3>Kin-Sense Alpha v1</h3>
-                <p style="font-size: 0.7rem; color: #666;">ID: USA-KIN-88291-00</p>
-                <p style="font-size: 0.8rem; line-height: 1.6;">Forensic metadata confirms 100% human-originated architectural prompt logic.</p>
-                <a href="#" style="color: var(--bureau-gold); font-size: 0.6rem; text-decoration: none; font-weight: 700;">VIEW FULL CERTIFICATE →</a>
+    <main class="directory-grid" id="registry-list">
+        <div class="registry-card" data-search="kin-sense lethal ledger nehemiah brown">
+            <div class="id-stamp">ID: USA-KIN-001</div>
+            <div class="project-info">
+                <h3>Lethal Ledger Prototype</h3>
+                <p style="font-size: 0.75rem; color: #666;">Architect: Nehemiah Mia Brown | Discipline: AI Film</p>
             </div>
-
-            <div class="asset-record">
-                <div class="ck-badge">$C_k$ CERTIFIED</div>
-                <h3>Sonic-Node Metrology</h3>
-                <p style="font-size: 0.7rem; color: #666;">ID: USA-KIN-44321-09</p>
-                <p style="font-size: 0.8rem; line-height: 1.6;">Audiology delta verification successful for parentage claim #99-B.</p>
-                <a href="#" style="color: var(--bureau-gold); font-size: 0.6rem; text-decoration: none; font-weight: 700;">VIEW FULL CERTIFICATE →</a>
+            <div class="cert-status">
+                <span class="badge-verified">$C_k$ CERTIFIED: 98%</span>
             </div>
         </div>
-    </div>
+
+        <div class="registry-card" data-search="solomon kin records music sonic">
+            <div class="id-stamp">ID: USA-KIN-002</div>
+            <div class="project-info">
+                <h3>Vexilla AITS Audio Engine</h3>
+                <p style="font-size: 0.75rem; color: #666;">Architect: Solomon Kin | Discipline: Sonic Production</p>
+            </div>
+            <div class="cert-status">
+                <span class="badge-verified">$C_k$ CERTIFIED: 94%</span>
+            </div>
+        </div>
+    </main>
 
     <footer>
-        <p>© 2026 USA KINsense 1.0vRoot | Solomon Kin Protocol | Federal AI-IP Compliance</p>
-        <p>Unauthorized duplication of ledger records is subject to Article III prosecution.</p>
+        <div class="footer-links">
+            <a href="about.html">Bureau Mandate</a>
+            <a href="legal.html">Article III Compliance</a>
+            <a href="contact.html">Registry Inquiry</a>
+            <a href="privacy.html">Data Sovereignty</a>
+        </div>
+        <p style="font-size: 0.6rem; color: #999;">© 2026 USA KINsense 1.0vRoot. All metadata anchored via Solomon Kin Protocol.</p>
     </footer>
+
+    <script>
+        function filterLedger() {
+            let input = document.getElementById('ledger-search').value.toLowerCase();
+            let cards = document.getElementsByClassName('registry-card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let searchData = cards[i].getAttribute('data-search');
+                if (searchData.includes(input)) {
+                    cards[i].style.display = "grid";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
