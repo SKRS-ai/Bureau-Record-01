@@ -1,39 +1,122 @@
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHITECT ENROLLMENT | USA KINsense 1.0vRoot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
-    // --- OFFICIAL 1.0vROOT CONFIGURATION ---
-const SUPABASE_URL = 'https://uddnjukvtpypjrwlzoby.supabase.co'; 
-const SUPABASE_KEY = '411d9f38-b348-453c-9c1c-2270c4131e9e'
+    <style>
+        :root { --bureau-blue: #001f3f; --bureau-gold: #b8860b; --bg: #050505; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: #fff; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 40px 20px; }
+        
+        .enrollment-box { background: #0a0a0c; border: 1px solid #222; padding: 60px; width: 100%; max-width: 500px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,0.8); }
+        h1 { font-family: 'Libre Baskerville'; color: var(--bureau-gold); font-size: 1.8rem; margin-bottom: 10px; }
+        p.subtitle { font-size: 0.65rem; letter-spacing: 3px; color: #555; text-transform: uppercase; margin-bottom: 40px; }
+        
+        form { text-align: left; }
+        label { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bureau-gold); margin-bottom: 8px; }
+        input, select { width: 100%; padding: 15px; margin-bottom: 25px; background: #000; border: 1px solid #333; color: #fff; box-sizing: border-box; font-family: 'Montserrat'; }
+        
+        .btn-execute { background: var(--bureau-gold); color: #000; width: 100%; padding: 20px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; letter-spacing: 3px; transition: 0.3s; }
+        .btn-execute:hover { background: #fff; transform: translateY(-2px); }
 
-// This line initializes the connection
-const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        /* THE THREE PLIES */
+        .status-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 40px; width: 100%; max-width: 600px; }
+        .ply { background: #0d0d0f; border: 1px solid #222; padding: 20px; text-align: center; }
+        .ply h4 { font-size: 0.7rem; color: var(--bureau-gold); margin: 0 0 10px; text-transform: uppercase; }
+        .ply p { font-size: 0.6rem; color: #666; line-height: 1.4; margin: 0; }
 
-    async function handleRegistration(event) {
-        event.preventDefault();
-        console.log("HANDSHAKE: Anchoring Architect to 1.0vRoot...");
+        footer { margin-top: 50px; font-size: 0.6rem; color: #333; text-align: center; max-width: 600px; line-height: 1.6; }
+    </style>
+</head>
+<body>
 
-        const email = document.getElementById('reg-email').value;
-        const password = document.getElementById('reg-key').value;
-        const fullName = document.getElementById('reg-name').value;
+    <div class="enrollment-box">
+        <h1>Architect Enrollment</h1>
+        <p class="subtitle">Establish Pillar One Identity</p>
+        
+        <form id="registration-form">
+            <label>Full Legal Name</label>
+            <input type="text" id="reg-name" placeholder="FOR ARTICLE III USE" required>
 
-        try {
+            <label>Architect ID (Email)</label>
+            <input type="email" id="reg-email" placeholder="primary@email.io" required>
+
+            <label>Primary Discipline</label>
+            <select id="reg-discipline">
+                <option>Visual Architect</option>
+                <option>Sonic Producer</option>
+                <option>AI Film Director</option>
+                <option>Software Architect</option>
+            </select>
+
+            <label>Security Key (Password)</label>
+            <input type="password" id="reg-key" placeholder="••••••••" required>
+            
+            <button type="submit" class="btn-execute">Initialize Pillar One</button>
+        </form>
+    </div>
+
+    <div class="status-grid">
+        <div class="ply">
+            <h4>Newsletter</h4>
+            <p>Stay updated on AI-IP case law and $C_k$ updates.</p>
+            <input type="checkbox" id="news-opt" checked style="width: auto; margin-top: 10px;">
+        </div>
+        <div class="ply">
+            <h4>Root Privilege</h4>
+            <p>You are now part of the 1% with verifiable digital DNA.</p>
+        </div>
+        <div class="ply">
+            <h4>AI Disclaimer</h4>
+            <p>If your AI starts arguing about its score, contact HR.</p>
+        </div>
+    </div>
+
+    <footer>
+        By enrolling, you acknowledge that all creative parentage claims are subject to the Solomon Kin Protocol. Unauthorized use of Node 1.0vRoot is prohibited under Federal Law.
+    </footer>
+
+    <script>
+        // --- 2. MANDATORY: PASTE YOUR JWT KEYS BELOW ---
+        const SUPABASE_URL = 'https://uddnjukvtpypjrwlzoby.supabase.co'; 
+        const SUPABASE_KEY = 'PASTE_YOUR_LONG_EYJ_JWT_KEY_HERE'; 
+
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        const regForm = document.getElementById('registration-form');
+
+        regForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-key').value;
+            const fullName = document.getElementById('reg-name').value;
+            const newsSub = document.getElementById('news-opt').checked;
+
+            console.log("HANDSHAKE: Anchoring Architect...");
+
             const { data, error } = await _supabase.auth.signUp({
                 email: email,
                 password: password,
                 options: {
-                    data: { display_name: fullName }
+                    data: { 
+                        display_name: fullName,
+                        newsletter: newsSub
+                    }
                 }
             });
 
             if (error) {
-                alert("INGEST ERROR: " + error.message);
+                alert("ENROLLMENT BLOCK: " + error.message);
             } else {
-                alert("CONGRATULATIONS ARCHITECT. Identity Anchored. Redirecting...");
+                alert("IDENTITY ANCHORED. Check your email for verification.");
                 window.location.href = 'success.html';
             }
-        } catch (err) {
-            alert("CRITICAL ERROR: Check Console for details.");
-            console.error(err);
-        }
-    }
-</script>
+        });
+    </script>
+</body>
+</html>
