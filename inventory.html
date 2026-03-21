@@ -3,138 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forensic Inventory | AI-IPVB Member Portal</title>
+    <title>THE VAULT | Architect Dashboard | AI-IPVB Secure Node</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bureau-blue: #003366;
+            --bureau-blue: #001f3f;
             --bureau-gold: #b8860b;
-            --bureau-silver: #7a7a7a;
-            --bg-off: #f4f7f9;
-            --border-std: #dcdcdc;
+            --tactical-slate: #121214;
+            --card-bg: #1a1a1c;
+            --status-green: #39ff14;
+            --text-muted: #888;
+            --audit-glow: 0 0 30px rgba(255, 255, 255, 0.15);
         }
 
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-off); color: #1a1a1b; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--tactical-slate); color: #fff; line-height: 1.6; }
 
-        /* UNIVERSAL BUREAU HEADER */
-        .bureau-header { 
-            background: #fff; border-bottom: 2px solid var(--bureau-blue); 
-            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 10000;
+        /* 1. ARCHITECT TELEMETRY BAR */
+        .vault-telemetry {
+            background: #000; padding: 15px 5%; border-bottom: 1px solid #333;
+            display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 2px; color: var(--bureau-gold);
         }
-        .bureau-logo { font-family: 'Libre Baskerville'; font-weight: 700; font-size: 1.1rem; color: var(--bureau-blue); text-decoration: none; }
-        .user-meta { font-size: 0.7rem; font-weight: 700; color: #666; }
+        .user-id { color: #fff; }
 
-        /* INVENTORY LAYOUT */
-        .inventory-wrapper { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
+        /* 2. VAULT HEADER */
+        .vault-header { padding: 60px 5% 20px; border-bottom: 2px solid #222; margin-bottom: 50px; }
+        .vault-header h1 { font-family: 'Libre Baskerville'; font-size: 2.5rem; margin: 0; }
+        .vault-header p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 5px; color: var(--text-muted); }
+
+        /* 3. ASSET GRID */
+        .asset-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px; padding: 0 5% 100px;
+        }
+
+        .asset-card {
+            background: var(--card-bg); border: 1px solid #333; padding: 30px;
+            position: relative; transition: 0.4s;
+        }
+        .asset-card:hover { border-color: var(--bureau-gold); box-shadow: var(--audit-glow); }
+
+        /* ASSET THUMBNAIL & $C_k$ GAUGE */
+        .asset-preview {
+            width: 100%; height: 250px; background: #000; margin-bottom: 25px;
+            position: relative; overflow: hidden; border: 1px solid #222;
+        }
+        .asset-preview img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
         
-        .inventory-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
-        .inventory-header h1 { font-family: 'Libre Baskerville'; font-size: 2.2rem; color: var(--bureau-blue); margin: 0; }
+        .ck-gauge {
+            position: absolute; top: 15px; right: 15px;
+            background: rgba(0,0,0,0.8); padding: 10px; border: 1px solid var(--bureau-gold);
+            font-size: 0.7rem; font-weight: 700; text-align: center;
+        }
+        .ck-gauge span { display: block; font-size: 1.1rem; color: var(--bureau-gold); }
 
-        /* FILTERS */
-        .filter-bar { display: flex; gap: 15px; margin-bottom: 30px; }
-        .filter-btn { padding: 8px 20px; border: 1px solid var(--border-std); background: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
-        .filter-btn:hover, .filter-btn.active { background: var(--bureau-blue); color: #fff; border-color: var(--bureau-blue); }
-
-        /* ASSET CARDS */
-        .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-        .asset-card { background: #fff; border: 1px solid var(--border-std); overflow: hidden; transition: 0.3s; position: relative; }
-        .asset-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        /* ASSET INFO */
+        .asset-info h3 { font-family: 'Libre Baskerville'; margin: 0 0 10px; font-size: 1.4rem; }
+        .asset-meta { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 20px; }
         
-        /* TIER RIBBONS */
-        .tier-ribbon { position: absolute; top: 15px; right: 15px; padding: 4px 12px; font-size: 0.6rem; font-weight: 800; text-transform: uppercase; border-radius: 2px; color: #fff; }
-        .ribbon-t1 { background: var(--bureau-silver); }
-        .ribbon-t2 { background: var(--bureau-blue); }
-        .ribbon-t3 { background: var(--bureau-gold); }
+        .tier-indicator {
+            display: inline-block; padding: 5px 12px; border-radius: 3px;
+            font-size: 0.65rem; font-weight: 700; margin-bottom: 20px;
+        }
+        .tier-t1 { background: #444; color: #fff; }
+        .tier-t3 { background: var(--bureau-blue); color: #fff; border: 1px solid var(--bureau-gold); }
 
-        .asset-preview { width: 100%; height: 200px; background: #eee; object-fit: cover; border-bottom: 1px solid #eee; }
-        .asset-info { padding: 20px; }
-        .asset-info h3 { font-family: 'Libre Baskerville'; font-size: 1.1rem; margin: 0 0 10px 0; color: var(--bureau-blue); }
-        
-        .asset-meta { font-size: 0.7rem; color: #888; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
-        .asset-meta strong { color: #333; }
+        /* ACTIONS */
+        .asset-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .btn-vault {
+            padding: 12px; text-align: center; font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; text-decoration: none; transition: 0.3s;
+        }
+        .btn-primary { background: var(--bureau-blue); color: #fff; border: 1px solid var(--bureau-blue); }
+        .btn-primary:hover { background: transparent; color: var(--bureau-blue); }
+        .btn-secondary { background: transparent; border: 1px solid #333; color: #fff; }
+        .btn-secondary:hover { border-color: #fff; }
 
-        .btn-view { display: block; text-align: center; padding: 12px; background: #f4f4f4; color: var(--bureau-blue); text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; border: 1px solid #ddd; }
-        .btn-view:hover { background: #eee; }
+        .btn-locked { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
 
-        footer { background: #1a1a1b; color: #ccc; padding: 40px 10%; font-size: 0.7rem; text-align: center; margin-top: 60px; }
+        /* FOOTER */
+        .vault-footer { padding: 40px 5%; text-align: center; border-top: 1px solid #222; font-size: 0.65rem; color: #444; }
     </style>
 </head>
 <body>
 
-<header class="bureau-header">
-    <a href="index.html" class="bureau-logo">AI Intellectual Property<br><span style="font-weight: 400; font-size: 0.8rem;">& Verification Bureau</span></a>
-    <div class="user-meta">ARCHITECT: NEHEMIAH M. BROWN | NODE: PHL-01</div>
-</header>
-
-<main class="inventory-wrapper">
-    <div class="inventory-header">
-        <div>
-            <h1>Forensic Inventory</h1>
-            <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">Authorized repository of verified authorship assets.</p>
-        </div>
-        <a href="vault-upload.html" style="background: var(--bureau-gold); color: white; padding: 12px 25px; text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase;">+ New Intake</a>
+    <div class="vault-telemetry">
+        <div>NODE ID: PHL-01-ARCHITECT-MASTER</div>
+        <div>SESSION: SECURE | ENCRYPTION: AES-256</div>
+        <div>ARCHITECT: <span class="user-id">MUSTAFA KING BROWN</span></div>
     </div>
 
-    <div class="filter-bar">
-        <button class="filter-btn active">All Assets</button>
-        <button class="filter-btn">Tier 3 Sovereign</button>
-        <button class="filter-btn">Tier 2 Collaborative</button>
-        <button class="filter-btn">Tier 1 Assisted</button>
-    </div>
+    <header class="vault-header">
+        <h1>The Sovereign Vault</h1>
+        <p>Private Inventory & Metrology Terminal</p>
+    </header>
 
-    <div class="asset-grid">
+    <main class="asset-grid">
+
         <div class="asset-card">
-            <div class="tier-ribbon ribbon-t3">Tier 3 Sovereign</div>
-            <img src="img/preview-placeholder.png" alt="Asset Preview" class="asset-preview">
-            <div class="asset-info">
-                <h3>Neural_Drift_Pilot_Master</h3>
-                <div class="asset-meta">
-                    <div>Status: <strong style="color: green;">VERIFIED</strong></div>
-                    <div>$C_k$: <strong>89.4%</strong></div>
-                    <div>Hash: <strong class="hash-font">8F3E9...</strong></div>
-                    <div>Node: <strong>PHL-01</strong></div>
+            <div class="asset-preview">
+                <div style="background: linear-gradient(45deg, #111, #222); width:100%; height:100%;"></div>
+                <div class="ck-gauge">
+                    $C_k$ DELTA
+                    <span>68.4%</span>
                 </div>
-                <a href="ledger-details.html" class="btn-view">View Sovereignty Receipt</a>
+            </div>
+            <div class="asset-info">
+                <div class="tier-indicator tier-t3">TIER 3: SOVEREIGN</div>
+                <h3>Lethal Ledger Doc-Asset 01</h3>
+                <div class="asset-meta">Anchored: 2026-03-12 | Registry: PHL-01-A99</div>
+                <div class="asset-actions">
+                    <a href="library.html#vault-sk-met" class="btn-vault btn-primary">View Research Ledger</a>
+                    <a href="purchase-t4.html" class="btn-vault btn-secondary">Upgrade to Article III</a>
+                </div>
             </div>
         </div>
 
         <div class="asset-card">
-            <div class="tier-ribbon ribbon-t2">Tier 2 Collaborative</div>
-            <img src="img/preview-placeholder.png" alt="Asset Preview" class="asset-preview">
-            <div class="asset-info">
-                <h3>Lethal_Ledger_Character_04</h3>
-                <div class="asset-meta">
-                    <div>Status: <strong style="color: green;">VERIFIED</strong></div>
-                    <div>$C_k$: <strong>42.1%</strong></div>
-                    <div>Hash: <strong class="hash-font">2D1B4...</strong></div>
-                    <div>Node: <strong>MSP-04</strong></div>
+            <div class="asset-preview">
+                <div style="background: linear-gradient(45deg, #111, #0a0a0c); width:100%; height:100%;"></div>
+                <div class="ck-gauge" style="border-color: #444;">
+                    $C_k$ DELTA
+                    <span style="color: #fff;">12.2%</span>
                 </div>
-                <a href="ledger-details.html" class="btn-view">View Collaborative Cert</a>
+            </div>
+            <div class="asset-info">
+                <div class="tier-indicator tier-t1">TIER 1: ASSISTED</div>
+                <h3>AI Radio Pod Concept-A</h3>
+                <div class="asset-meta">Anchored: 2026-03-19 | Registry: PHL-01-B12</div>
+                <div class="asset-actions">
+                    <a href="purchase-t2.html" class="btn-vault btn-primary">Commence Collab Audit</a>
+                    <a href="#" class="btn-vault btn-secondary btn-locked">Sovereign Locked</a>
+                </div>
             </div>
         </div>
 
-        <div class="asset-card">
-            <div class="tier-ribbon ribbon-t1">Tier 1 Assisted</div>
-            <img src="img/preview-placeholder.png" alt="Asset Preview" class="asset-preview">
-            <div class="asset-info">
-                <h3>Social_AI_Avatar_Seed</h3>
-                <div class="asset-meta">
-                    <div>Status: <strong style="color: orange;">SCANNING</strong></div>
-                    <div>$C_k$: <strong>--</strong></div>
-                    <div>Hash: <strong class="hash-font">PENDING</strong></div>
-                    <div>Node: <strong>PHL-01</strong></div>
-                </div>
-                <a href="#" class="btn-view" style="opacity: 0.5; cursor: not-allowed;">Processing Audit...</a>
+        <div class="asset-card" style="border-style: dashed; background: transparent; display: flex; align-items: center; justify-content: center; text-align: center;">
+            <div>
+                <div style="font-size: 3rem; margin-bottom: 20px; opacity: 0.3;">+</div>
+                <h3 style="opacity: 0.5;">Add New Asset</h3>
+                <p style="font-size: 0.7rem; color: var(--text-muted);">UPLOAD FILES FOR METROLOGY CHECK</p>
             </div>
         </div>
-    </div>
-</main>
 
-<footer>
-    © 2026 AI-IPVB | SOLOMON KIN, LLC | Philadelphia Authority Node<br>
-    Standardizing the Human Spark Worldwide. Lead Architect: Mustafa King Brown.
-</footer>
+    </main>
+
+    <footer class="vault-footer">
+        SOLOMON KIN, LLC | ARCHITECT VAULT | v7.4.2 SECURE<br>
+        RESTRICTED ACCESS: ALL DASHBOARD ACTIONS ARE LOGGED AT PHL-01 ROOT.
+    </footer>
 
 </body>
 </html>
