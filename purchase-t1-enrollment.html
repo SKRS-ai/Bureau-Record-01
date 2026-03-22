@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Architect Enrollment | AI-IPVB PHL-01</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bureau-blue: #001f3f;
+            --bureau-gold: #b8860b;
+            --vexilla-blue: #003366;
+            --bg-dark: #020508;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bg-dark); color: white; overflow-x: hidden; }
+
+        /* MAINTENANCE CONSOLE BACKGROUND */
+        .maintenance-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,31,63,0.9), rgba(2,5,8,1)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; z-index: -1; opacity: 0.5;
+        }
+
+        /* TERMINAL HEADER */
+        .terminal-header {
+            padding: 100px 10% 60px; text-align: center;
+            border-bottom: 1px solid rgba(184,134,11,0.2);
+        }
+        .terminal-header h1 { font-family: 'Libre Baskerville'; font-size: 3.5rem; margin-bottom: 10px; color: #fff; }
+        .terminal-header .tier-badge { 
+            display: inline-block; padding: 8px 25px; background: var(--bureau-gold); 
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px;
+        }
+
+        /* MAIN SPECS AREA */
+        .specs-container { 
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; 
+            max-width: 1400px; margin: 80px auto; padding: 0 5%;
+        }
+
+        .product-brief h2 { font-family: 'Libre Baskerville'; font-size: 2.2rem; color: var(--bureau-gold); margin-bottom: 30px; }
+        .product-brief p { font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 40px; }
+
+        .feature-list { list-style: none; padding: 0; }
+        .feature-item { 
+            background: var(--glass); border: 1px solid rgba(255,255,255,0.05);
+            padding: 30px; margin-bottom: 20px; backdrop-filter: blur(10px);
+        }
+        .feature-item h4 { margin: 0 0 10px; color: var(--bureau-gold); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+        .feature-item p { font-size: 0.85rem; margin: 0; color: #aaa; line-height: 1.6; }
+
+        /* THE CHECKOUT PANEL */
+        .checkout-panel { 
+            background: #000; border: 1px solid #222; padding: 50px; 
+            box-shadow: 0 50px 100px rgba(0,0,0,0.5); position: sticky; top: 120px; height: fit-content;
+        }
+        .price-display { font-family: 'Libre Baskerville'; font-size: 3rem; margin-bottom: 10px; }
+        .price-sub { font-size: 0.7rem; color: #666; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; }
+
+        .btn-subscribe { 
+            width: 100%; padding: 25px; background: var(--bureau-gold); border: none; color: white;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-subscribe:hover { background: #fff; color: #000; transform: scale(1.02); }
+
+        .secure-footer { margin-top: 40px; font-size: 0.6rem; color: #444; text-align: center; line-height: 2; }
+        .it-seal { margin-top: 20px; opacity: 0.5; font-weight: 700; font-size: 0.6rem; color: var(--vexilla-blue); }
+    </style>
+</head>
+<body>
+
+    <div class="maintenance-bg"></div>
+
+    <header class="terminal-header">
+        <div class="tier-badge">Infrastructure Maintenance</div>
+        <h1>Visual Architect</h1>
+        <p style="font-size: 0.9rem; letter-spacing: 5px; color: #666; text-transform: uppercase;">Identity Enrollment Protocol</p>
+    </header>
+
+    <main class="specs-container">
+        <div class="product-brief">
+            <h2>The Entry-Level Anchor.</h2>
+            <p>
+                The **Visual Architect** tier is the primary gateway for creators who require continuous, persistent protection of their digital identity. Unlike one-time audits, this enrollment ensures your creative data is constantly synchronized with the **PHL-01 Root Ledger**, maintaining your spot in the global history of human authorship.
+            </p>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>50 Assets / 50% First Claim Priority</h4>
+                    <p>Every piece of content you anchor through this tier receives immediate mid-level priority. Your claim is indexed before standard public generation, creating a forensic buffer against imitation.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Hibernation & Ledger Retention</h4>
+                    <p>Even during dormant creative periods, your identity remains 'Hot' on the ledger. This prevents third-party 'Identity Squatting' on your unique $C_k$ markers and creative aesthetic.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Continuous Maintenance</h4>
+                    <p>Managed by Vexilla AITS Inc., your metadata is periodically re-verified against the latest NIST ARIA standards to ensure long-term trial readiness.</p>
+                </div>
+            </div>
+        </div>
+
+        <aside class="checkout-panel">
+            <div class="price-display">$49</div>
+            <div class="price-sub">Per Month / Identity Maintenance</div>
+            
+            <div style="margin-bottom: 30px;">
+                <label style="font-size: 0.6rem; font-weight: 700; color: #555; text-transform: uppercase; display: block; margin-bottom: 10px;">Authorized Architect Email</label>
+                <input type="email" placeholder="architect@phl-01.com" style="width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: white; box-sizing: border-box;">
+            </div>
+
+            <button class="btn-subscribe">Execute Enrollment</button>
+
+            <div class="it-seal">CERTIFIED BY VEXILLA AITS INC. | INFRASTRUCTURE DIVISION</div>
+            
+            <div class="secure-footer">
+                TRANSACTION SECURED BY PHL-01 CRYPTOGRAPHY<br>
+                AES-256 ENCRYPTION ACTIVE<br>
+                © 2026 AI-IPVB | BUREAU OF AI INTELLECTUAL PROPERTY
+            </div>
+        </aside>
+    </main>
+
+    <footer style="text-align: center; padding: 50px; color: #222; font-size: 0.7rem; letter-spacing: 2px; border-top: 1px solid #111;">
+        OFFICE OF THE LEAD ARCHITECT | PHL-01 ROOT AUTHORITY
+    </footer>
+
+</body>
+</html>
