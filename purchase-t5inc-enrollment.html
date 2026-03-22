@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institutional Node | Tier 5 Agency Enrollment</title>
+    <style>
+        :root {
+            --institutional-gold: #D4AF37;
+            --mirror-gold: #FFFACD;
+            --cobalt-deep: #002366;
+            --terminal-black: #050505;
+            --ui-blue: #007FFF;
+        }
+
+        body {
+            background-color: var(--terminal-black);
+            color: #ffffff;
+            font-family: 'Segoe UI', 'Courier New', monospace;
+            margin: 0;
+            overflow-x: hidden;
+            background: radial-gradient(circle at center, #0a1128 0%, #000 100%);
+        }
+
+        /* Scanline Overlay for Forensic Texture */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(0, 255, 255, 0.03), rgba(0, 0, 0, 0), rgba(212, 175, 55, 0.03));
+            z-index: 10;
+            background-size: 100% 3px, 5px 100%;
+            pointer-events: none;
+        }
+
+        .terminal-interface {
+            max-width: 1100px;
+            margin: 50px auto;
+            border: 1px solid var(--institutional-gold);
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.85);
+            box-shadow: 0 0 60px rgba(212, 175, 55, 0.15);
+            position: relative;
+            z-index: 5;
+        }
+
+        .terminal-header {
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .terminal-header h1 {
+            color: var(--institutional-gold);
+            font-size: 2.8rem;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            margin: 10px 0;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .price-anchor {
+            font-size: 4.5rem;
+            color: #fff;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: 100;
+        }
+
+        .anchor-sub {
+            display: block;
+            font-size: 1rem;
+            color: var(--ui-blue);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Central Mirror Gold Coin Display */
+        .seal-anchor {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+
+        .seal-anchor img {
+            width: 380px;
+            filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.4));
+            transition: 0.5s;
+        }
+
+        .seal-anchor img:hover {
+            transform: scale(1.03);
+            filter: drop-shadow(0 0 60px rgba(212, 175, 55, 0.6));
+        }
+
+        /* Active Group Modules */
+        .active-group {
+            margin: 25px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 5px solid var(--institutional-gold);
+            border-right: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .group-label {
+            color: var(--institutional-gold);
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .active-group h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .active-group p {
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* The Institutional CTA */
+        .enroll-btn {
+            display: block;
+            width: 100%;
+            padding: 25px;
+            background: transparent;
+            border: 2px solid var(--institutional-gold);
+            color: var(--institutional-gold);
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-top: 50px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enroll-btn:hover {
+            background: var(--institutional-gold);
+            color: #000;
+            box-shadow: 0 0 40px var(--institutional-gold);
+        }
+
+        .footer-tag {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--ui-blue);
+            opacity: 0.6;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-interface">
+        <header class="terminal-header">
+            <p style="color: var(--ui-blue); font-size: 0.8rem; letter-spacing: 5px; margin: 0;">BUREAU OF AI-IP VERIFICATION // AGENCY SECTOR</p>
+            <h1>INSTITUTIONAL NODE</h1>
+            <p class="anchor-sub">Infrastructure Maintenance & Executive Command</p>
+        </header>
+
+        <div class="price-anchor">$499 <span style="font-size: 1.2rem; vertical-align: middle; opacity: 0.5;">/ MONTH</span></div>
+
+        <div class="seal-anchor">
+            <img src="sovereign-ai-gold-coin.png" alt="Institutional Sovereign AI Seal">
+        </div>
+
+        <div class="active-group">
+            <span class="group-label">ACTIVE GROUP A: COMMAND LOGISTICS</span>
+            <h3>UNLIMITED ASSETS / 75% PRIORITY</h3>
+            <p>Deploy the Bureau’s heavy-lifting verification engines without limitation. This tier provides unlimited asset ingestion with a 75% priority weight across all global Bureau clusters.</p>
+        </div>
+
+        <div class="active-group">
+            <span class="group-label">ACTIVE GROUP B: NETWORK SCALE</span>
+            <h3>AGENCY-GRADE INFRASTRUCTURE</h3>
+            <p>Direct integration into the Bureau’s root nodes. This is the official baseline for agencies, studios, and high-volume architects requiring dedicated processing pipelines and institutional-grade uptime.</p>
+        </div>
+
+        <div class="active-group">
+            <span class="group-label">ACTIVE GROUP C: FORENSIC ADVISORY</span>
+            <h3>MULTI-JURISDICTIONAL EXECUTIVE CONSULTATION</h3>
+            <p>In the event of an asset conflict or institutional challenge, Tier 5 enrollees receive direct executive consultation. We provide the forensic documentation and expert audit path to resolve cross-border IP disputes.</p>
+        </div>
+
+        <a href="#purchase" class="enroll-btn">Initialize Agency Enrollment</a>
+
+        <div class="footer-tag">
+            USA-v1.0 ROOT AUTHORITY | FORENSIC AUDIT SECTOR | CERTIFIED SECURE 2026
+        </div>
+    </div>
+
+</body>
+</html>
