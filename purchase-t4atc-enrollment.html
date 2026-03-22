@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architect-to-Collector | Official Deed of Assignment</title>
+    <style>
+        :root {
+            --bronze-primary: #8C7853;
+            --iron-secondary: #2B2B2B;
+            --kinetic-blue: #007FFF;
+            --terminal-black: #020202;
+            --text-muted: #A0A0A0;
+        }
+
+        body {
+            background-color: var(--terminal-black);
+            color: #ffffff;
+            font-family: 'OCR A Std', 'Courier New', monospace;
+            margin: 0;
+            background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" stroke="rgba(140,120,83,0.05)" stroke-width="0.5" width="100" height="100"/></svg>');
+        }
+
+        .high-stakes-terminal {
+            max-width: 1000px;
+            margin: 40px auto;
+            border: 2px solid var(--bronze-primary);
+            background: rgba(10, 10, 10, 0.95);
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 1), inset 0 0 20px rgba(140, 120, 83, 0.2);
+            position: relative;
+        }
+
+        /* Sector IV Header */
+        .terminal-header {
+            border-bottom: 1px solid var(--bronze-primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .terminal-header h1 {
+            color: var(--bronze-primary);
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+        }
+
+        .transaction-id {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+        }
+
+        .deed-price {
+            font-size: 3.5rem;
+            color: #fff;
+            text-align: center;
+            margin: 10px 0;
+            border: 1px solid rgba(140, 120, 83, 0.3);
+            display: inline-block;
+            padding: 10px 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Kinetic Legacy Anchor */
+        .knot-anchor {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .knot-anchor img {
+            width: 320px;
+            filter: sepia(0.5) contrast(1.2) drop-shadow(0 0 25px rgba(0, 127, 255, 0.3));
+        }
+
+        /* Active Group Logic */
+        .active-group {
+            background: var(--iron-secondary);
+            margin: 20px 0;
+            padding: 25px;
+            border-right: 5px solid var(--bronze-primary);
+            position: relative;
+        }
+
+        .group-header {
+            color: var(--bronze-primary);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .active-group h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .active-group p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        /* The Handshake Button */
+        .execute-btn {
+            display: block;
+            width: 100%;
+            padding: 25px;
+            background: transparent;
+            border: 2px solid var(--bronze-primary);
+            color: var(--bronze-primary);
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 40px;
+        }
+
+        .execute-btn:hover {
+            background: var(--bronze-primary);
+            color: #000;
+            box-shadow: 0 0 30px rgba(140, 120, 83, 0.5);
+        }
+
+        /* CRT Scanlines Overlay */
+        .high-stakes-terminal::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="high-stakes-terminal">
+        <header class="terminal-header">
+            <div>
+                <p style="color: var(--kinetic-blue); font-size: 0.7rem; margin: 0;">PROTOCOL: CREATOR &rarr; BUYER</p>
+                <h1>ARCHITECT-TO-COLLECTOR</h1>
+            </div>
+            <div class="transaction-id">BUREAU-REF: ART-III-ATC</div>
+        </header>
+
+        <div class="deed-price">$349 <span style="font-size: 1rem; color: var(--bronze-primary);">/ DEED FILING</span></div>
+
+        <div class="knot-anchor">
+            <img src="kinetic-legacy-bronze-hash.png" alt="Kinetic Legacy Bronze Hash Seal">
+        </div>
+
+        <div class="active-group">
+            <span class="group-header">ACTIVE GROUP A: LEGAL MANDATE</span>
+            <h2>OFFICIAL DEED OF ASSIGNMENT</h2>
+            <p>Generate the legally binding forensic deed. This document serves as the Institutional Certificate of Title, recognized under the AI-IPVB standard as the absolute transfer of creative authority.</p>
+        </div>
+
+        <div class="active-group">
+            <span class="group-header">ACTIVE GROUP B: KINETIC LINKAGE</span>
+            <h2>THE HANDSHAKE KNOT</h2>
+            <p>Our proprietary cryptographic knot updates the Ledger to show the new Owner while permanently citing the Original Parent. The lineage is preserved; the authority is moved. Indefeasible provenance is maintained.</p>
+        </div>
+
+        <div class="active-group">
+            <span class="group-header">ACTIVE GROUP C: RECOGNITION</span>
+            <h2>LEDGER CITATION UPDATE</h2>
+            <p>The global record is synchronized. The Collector is now verified as the High-Stakes Holder of the asset hash, with full rights to all future forensic audits and protection protocols.</p>
+        </div>
+
+        <button class="execute-btn" onclick="alert('Initializing Handshake Protocol...')">Execute Assignment</button>
+
+        <footer style="margin-top: 40px; text-align: center; color: var(--bronze-primary); font-size: 0.7rem; opacity: 0.6; letter-spacing: 2px;">
+            ARTICLE III ELITE ENROLLMENT | USA-v1.0 ROOT AUTHORITY | 2026
+        </footer>
+    </div>
+
+</body>
+</html>
