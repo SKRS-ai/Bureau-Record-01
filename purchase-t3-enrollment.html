@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institutional Node | Tier 3 Sovereign Enrollment</title>
+    <style>
+        :root {
+            --institutional-gold: #D4AF37;
+            --mirror-gold-shine: #FFFACD;
+            --deep-indigo: #0A0E1A;
+            --cobalt-ui: #0047AB;
+            --text-gold: #E5C100;
+        }
+
+        body {
+            background-color: var(--deep-indigo);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            background: radial-gradient(circle at center, #1a2333 0%, #050505 100%);
+        }
+
+        .terminal-interface {
+            max-width: 1200px;
+            margin: 60px auto;
+            border: 1px solid var(--institutional-gold);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.1);
+            position: relative;
+            background: rgba(0, 0, 0, 0.8);
+            padding-bottom: 40px;
+        }
+
+        /* Gold-Leaf Header Border */
+        .terminal-interface::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--institutional-gold), transparent);
+        }
+
+        .header-block {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .header-block h1 {
+            color: var(--text-gold);
+            font-size: 3rem;
+            letter-spacing: 12px;
+            margin: 10px 0;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(229, 193, 0, 0.4);
+        }
+
+        .price-tag {
+            font-size: 4rem;
+            color: #fff;
+            margin: 20px 0;
+            font-weight: 200;
+        }
+
+        /* Central Mirror Gold Coin Display */
+        .coin-anchor {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .coin-anchor img {
+            width: 400px;
+            filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.5));
+            animation: pulse-gold 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.3)); }
+            50% { filter: drop-shadow(0 0 60px rgba(212, 175, 55, 0.6)); }
+        }
+
+        /* Institutional Active Groups */
+        .active-group-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 0 40px;
+        }
+
+        .active-group {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 30px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .active-group:hover {
+            background: rgba(212, 175, 55, 0.05);
+            border-color: var(--institutional-gold);
+        }
+
+        .group-tag {
+            color: var(--institutional-gold);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .active-group h3 {
+            color: #fff;
+            margin-top: 0;
+            font-weight: 400;
+        }
+
+        .apply-now-btn {
+            display: block;
+            width: 80%;
+            margin: 50px auto 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #b8860b, #ffd700);
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 1.2rem;
+            transition: 0.4s;
+            clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+        }
+
+        .apply-now-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px var(--institutional-gold);
+            filter: brightness(1.2);
+        }
+
+        /* Status Verification Pulse */
+        .root-auth-status {
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: 40px;
+            color: var(--cobalt-ui);
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-interface">
+        <header class="header-block">
+            <p style="color: var(--cobalt-ui); font-size: 0.9rem; letter-spacing: 5px;">BUREAU OF AI-IP VERIFICATION // SOVEREIGN LEVEL III</p>
+            <h1>INSTITUTIONAL NODE</h1>
+            <div class="price-tag">$499 <span style="font-size: 1rem;">/ MO</span></div>
+        </header>
+
+        <div class="coin-anchor">
+            <img src="sovereign-ai-gold-coin.png" alt="Sovereign AI Tier 3 Gold Coin">
+        </div>
+
+        <div class="active-group-grid">
+            <div class="active-group">
+                <span class="group-tag">ACTIVE GROUP A: LOGISTICS</span>
+                <h3>75% FIRST CLAIM + HIBERNATION</h3>
+                <p>The highest processing weight available. Secure your assets with absolute priority. If your account goes inactive, our "Hibernation" protocol locks your claims indefinitely within the USA-v1.0 Root Ledger.</p>
+            </div>
+
+            <div class="active-group">
+                <span class="group-tag">ACTIVE GROUP B: AGENCY PROTOCOL</span>
+                <h3>WHITE-LABEL AGENCY PORTAL</h3>
+                <p>Deploy the Bureau’s verification infrastructure under your own banner. Manage sub-creators and multi-user handshakes from a single, high-security white-labeled interface.</p>
+            </div>
+
+            <div class="active-group">
+                <span class="group-tag">ACTIVE GROUP C: BULK PROCESSING</span>
+                <h3>BULK ASSET INGESTION</h3>
+                <p>Designed for large-scale creative houses. Hash and verify entire libraries, datasets, and creative archives in single-cycle forensic batching.</p>
+            </div>
+
+            <div class="active-group">
+                <span class="group-tag">ACTIVE GROUP D: FINALITY</span>
+                <h3>INDEFEASIBLE AUDIT RIGHTS</h3>
+                <p>Institutional Nodes carry the weight of full Bureau audits. This tier grants you direct recourse to the Forensic Audit Sector for manual asset recovery and protection.</p>
+            </div>
+        </div>
+
+        <a href="#apply" class="apply-now-btn">Apply Now for Enrollment</a>
+
+        <div class="root-auth-status">
+            STATUS: SECURE // USA-v1.0 ROOT AUTHORITY // 2026-MET-PHL/MSP
+        </div>
+    </div>
+
+</body>
+</html>
