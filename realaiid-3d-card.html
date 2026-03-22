@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Identity | RealAIID.com</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <style>
+        body { margin: 0; background: #050505; overflow: hidden; font-family: 'Inter', sans-serif; }
+        #canvas-container { width: 100vw; height: 100vh; cursor: grab; }
+        #canvas-container:active { cursor: grabbing; }
+        
+        /* UI Overlay */
+        .overlay {
+            position: absolute; top: 20px; left: 20px; color: white;
+            pointer-events: none; z-index: 10;
+        }
+        .verified-badge {
+            display: inline-flex; align-items: center; background: rgba(0, 255, 204, 0.1);
+            border: 1px solid #00ffcc; padding: 4px 12px; border-radius: 99px;
+            font-size: 12px; color: #00ffcc; text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay">
+        <div class="verified-badge">● AI-IPVB Verified Sovereign</div>
+        <h1 class="text-3xl font-bold mt-2 uppercase tracking-tighter">Real AI-ID Registry</h1>
+        <p class="text-gray-400 text-sm">Status: Authorized | Tier 2: Sovereign Shield</p>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // --- SCENE SETUP ---
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        camera.position.z = 5;
+
+        // --- CARD GEOMETRY ---
+        const geometry = new THREE.BoxGeometry(3.5, 2.2, 0.05); // Credit card aspect ratio
+        
+        // Materials (Glassmorphism Effect)
+        const material = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff,
+            metalness: 0.1,
+            roughness: 0.05,
+            transmission: 0.9, // Transparent glass effect
+            thickness: 0.2,
+            envMapIntensity: 1,
+            clearcoat: 1,
+            transparent: true,
+            opacity: 0.8
+        });
+
+        const card = new THREE.Mesh(geometry, material);
+        scene.add(card);
+
+        // --- LIGHTING ---
+        const light = new THREE.DirectionalLight(0x00ffcc, 2);
+        light.position.set(5, 5, 5);
+        scene.add(light);
+        
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+
+        // --- INTERACTIVITY ---
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = true;
+        controls.autoRotate = true; // Floating effect
+        controls.autoRotateSpeed = 1.0;
+
+        // --- TEXTURE/DATA GENERATION (Simulated) ---
+        // In a real app, you would use a CanvasTexture to draw the ID details onto the card face.
+        function createCardTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 320;
+            const ctx = canvas.getContext('2d');
+
+            // Background
+            ctx.fillStyle = '#111';
+            ctx.fillRect(0, 0, 512, 320);
+
+            // Text Styles
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 24px Inter';
+            ctx.fillText('ARCHITECT NAME', 30, 60);
+            
+            ctx.fillStyle = '#888';
+            ctx.font = '14px Inter';
+            ctx.fillText('AIID: 000-817-2026-X', 30, 90);
+            
+            ctx.fillStyle = '#00ffcc';
+            ctx.fillText('HASH: 8f9e2...d41b', 30, 280);
+
+            return new THREE.CanvasTexture(canvas);
+        }
+
+        const faceMaterial = new THREE.MeshBasicMaterial({ map: createCardTexture(), transparent: true, opacity: 0.9 });
+        const materials = [
+            material, material, // sides
+            material, material, // top/bottom
+            faceMaterial,       // front (ID side)
+            material            // back
+        ];
+        
+        card.material = materials;
+
+        // --- ANIMATION LOOP ---
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Responsive
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+    </script>
+</body>
+</html>
