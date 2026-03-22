@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Producer | Tier 2 Enrollment Terminal</title>
+    <link rel="stylesheet" href="styles.css"> <style>
+        :root {
+            --institutional-gold: #e0c38c;
+            --cobalt-glow: #0047ab;
+            --white-gold: #f5f5f5;
+            --terminal-black: #050505;
+        }
+
+        body {
+            background-color: var(--terminal-black);
+            color: var(--white-gold);
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+        }
+
+        .terminal-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid rgba(245, 245, 245, 0.1);
+            position: relative;
+        }
+
+        /* Institutional Shine Header */
+        .product-header {
+            text-align: center;
+            border-bottom: 2px solid var(--white-gold);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .product-header h1 {
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-size: 2.5em;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Forensic Coin Anchor */
+        .seal-display {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            perspective: 1000px;
+        }
+
+        .seal-display img {
+            width: 350px;
+            filter: drop-shadow(0 0 30px var(--cobalt-glow));
+            transition: transform 0.5s ease;
+        }
+
+        .seal-display img:hover {
+            transform: rotateY(15deg) scale(1.05);
+        }
+
+        /* Active Group Blocks */
+        .active-group {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--cobalt-glow);
+        }
+
+        .group-label {
+            color: var(--cobalt-glow);
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .price-anchor {
+            font-size: 3em;
+            color: var(--institutional-gold);
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .purchase-btn {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: transparent;
+            border: 2px solid var(--white-gold);
+            color: var(--white-gold);
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 40px;
+        }
+
+        .purchase-btn:hover {
+            background: var(--white-gold);
+            color: #000;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Scanning Line Effect */
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 71, 171, 0.2);
+            position: absolute;
+            top: 0;
+            animation: scan 8s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scanline"></div>
+
+    <div class="terminal-container">
+        <header class="product-header">
+            <p>BUREAU OF AI-IP VERIFICATION // SECTOR II</p>
+            <h1>SOVEREIGN PRODUCER</h1>
+            <p>Institutional Handshake Protocol v1.0</p>
+        </header>
+
+        <div class="price-anchor">$129 <span style="font-size: 0.4em;">/ MONTH</span></div>
+
+        <div class="seal-display">
+            <img src="collaborative-audit-forensic-coin.png" alt="Collaborative Audit Seal">
+        </div>
+
+        <div class="active-group">
+            <span class="group-label">ACTIVE GROUP A: LOGISTICS & PRIORITY</span>
+            <h3>60% FIRST CLAIM + DELTA LOGS</h3>
+            <p>Elevated forensic weight within the ledger. Your claims are processed with 60% priority, including full Delta Log transparency for every forensic iteration.</p>
+        </div>
+
+        <div class="active-group">
+            <span class="group-label">ACTIVE GROUP B: ITERATIVE PROOF</span>
+            <h3>DIRECTORIAL HANDSHAKE HISTORY</h3>
+            <p>Unlock the permanent record of every directorial decision. This handshake history proves the human-in-the-loop evolution of your assets, rendering authorship indefeasible under the AI-IPVB standard.</p>
+        </div>
+
+        <div class="active-group">
+            <span class="group-label">ACTIVE GROUP C: NODE SECURITY</span>
+            <h3>PRIORITY NODE REDUNDANCY</h3>
+            <p>Your handshake data is mirrored across high-priority Bureau nodes. Even in the event of local data corruption, your institutional status is preserved via triple-redundant forensic backups.</p>
+        </div>
+
+        <a href="#checkout" class="purchase-btn">Initialize Sovereign Enrollment</a>
+
+        <footer style="margin-top: 50px; text-align: center; font-size: 0.8em; opacity: 0.5;">
+            USA-v1.0 ROOT AUTHORITY | CERTIFIED SECURE TERMINAL | 2026
+        </footer>
+    </div>
+
+</body>
+</html>
