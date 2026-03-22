@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOVEREIGN MARKETPLACE | USA KINsense 1.0vRoot</title>
+    <title>THE SOVEREIGN EXCHANGE | USA KINsense 1.0vRoot</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -12,7 +12,7 @@
             --gov-gray: #f4f4f4;
             --text-dark: #1a1a1a;
             --border-frame: 15px;
-            --audit-glow: 0 0 40px rgba(184, 134, 11, 0.3);
+            --glow: 0 0 50px rgba(184, 134, 11, 0.2);
         }
 
         body { 
@@ -22,8 +22,10 @@
             margin: 0; 
             padding: var(--border-frame);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
+        /* SOVEREIGN FRAME */
         body::before {
             content: "";
             position: fixed;
@@ -46,144 +48,177 @@
         }
 
         .logo { font-family: 'Libre Baskerville'; color: var(--bureau-blue); font-weight: 700; font-size: 1.1rem; text-transform: uppercase; }
-        nav a { text-decoration: none; color: var(--bureau-blue); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-left: 25px; }
-
-        .market-hero { text-align: center; padding: 100px 10% 60px; background: var(--gov-gray); border-bottom: 1px solid #ddd; }
-        .market-hero h1 { font-family: 'Libre Baskerville'; font-size: 3rem; color: var(--bureau-blue); margin: 0; }
-        .market-hero p { color: var(--bureau-gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; font-weight: 700; margin-top: 15px; }
-
-        /* THE THREE SECTORS */
-        .market-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr 1fr; 
-            gap: 2px; 
-            background: #eee; 
-            border: 1px solid #eee;
-            margin-top: 40px;
-        }
-
-        .sector { background: #fff; padding: 60px 40px; text-align: center; }
-        .sector-title { font-family: 'Libre Baskerville'; color: var(--bureau-blue); font-size: 1.8rem; margin-bottom: 40px; }
-        .sector-subtitle { font-size: 0.65rem; color: #999; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 60px; }
-
-        /* SEAL CARD STYLING */
-        .seal-card { margin-bottom: 80px; transition: 0.4s; padding: 20px; }
-        .seal-card:hover { transform: translateY(-10px); }
         
-        .seal-img { 
-            width: 280px; height: 280px; 
-            border-radius: 50%; 
-            margin: 0 auto 30px; 
-            background: #fdfdfd; 
-            border: 1px solid #eee; 
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.5s;
-        }
-        .seal-card:hover .seal-img { box-shadow: var(--audit-glow); border-color: var(--bureau-gold); }
+        /* MARKETPLACE HERO */
+        .market-hero { text-align: center; padding: 120px 10% 80px; background: var(--gov-gray); border-bottom: 1px solid #ddd; }
+        .market-hero h1 { font-family: 'Libre Baskerville'; font-size: 3.5rem; color: var(--bureau-blue); margin: 0; letter-spacing: -1px; }
+        .market-hero p { color: var(--bureau-gold); letter-spacing: 6px; text-transform: uppercase; font-size: 0.9rem; font-weight: 800; margin-top: 20px; }
+        .manifesto { max-width: 800px; margin: 40px auto 0; font-size: 1.1rem; color: #555; font-weight: 300; line-height: 2; }
 
-        .seal-card h4 { font-family: 'Libre Baskerville'; color: var(--bureau-blue); font-size: 1.2rem; margin: 10px 0; }
-        .seal-card .price-tag { font-weight: 800; color: #333; font-size: 1.4rem; display: block; margin-bottom: 15px; }
-        .seal-card p { font-size: 0.8rem; color: #666; line-height: 1.6; margin-bottom: 25px; min-height: 60px; }
+        /* THE EXCHANGE GRID */
+        .exchange-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; background: #eee; border: 1px solid #eee; margin-top: 2px; }
+        .exchange-sector { background: #fff; padding: 80px 40px; text-align: center; transition: 0.3s; }
+        
+        .sector-header { margin-bottom: 80px; }
+        .sector-header h2 { font-family: 'Libre Baskerville'; font-size: 2rem; color: var(--bureau-blue); margin: 0; }
+        .sector-header span { font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 4px; display: block; margin-top: 10px; }
 
-        .btn-market { 
-            display: inline-block; padding: 15px 40px; border: 2px solid var(--bureau-blue); 
-            color: var(--bureau-blue); text-decoration: none; font-size: 0.7rem; 
+        /* PRODUCT CARDS */
+        .product-card { margin-bottom: 120px; padding: 0 20px; }
+        .seal-container { width: 300px; height: 300px; margin: 0 auto 40px; position: relative; transition: 0.5s; }
+        .seal-container img { width: 100%; height: auto; border-radius: 50%; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1)); }
+        .product-card:hover .seal-container { transform: scale(1.05); }
+
+        .product-card h3 { font-family: 'Libre Baskerville'; font-size: 1.5rem; color: var(--bureau-blue); margin: 10px 0; }
+        .product-card .price { font-size: 1.8rem; font-weight: 800; color: #000; margin-bottom: 5px; display: block; }
+        .product-card .capacity { font-size: 0.7rem; color: var(--bureau-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 20px; }
+        .product-card p { font-size: 0.85rem; color: #666; min-height: 80px; }
+
+        .btn-execute { 
+            display: inline-block; padding: 18px 50px; border: 2px solid var(--bureau-blue); 
+            color: var(--bureau-blue); text-decoration: none; font-size: 0.75rem; 
             font-weight: 800; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
         }
-        .btn-market:hover { background: var(--bureau-blue); color: #fff; }
-        .btn-gold { border-color: var(--bureau-gold); color: var(--bureau-gold); }
-        .btn-gold:hover { background: var(--bureau-gold); color: #000; }
+        .btn-execute:hover { background: var(--bureau-blue); color: #fff; box-shadow: 0 10px 20px rgba(0,31,63,0.2); }
+        .gold-btn { border-color: var(--bureau-gold); color: var(--bureau-gold); }
+        .gold-btn:hover { background: var(--bureau-gold); color: #000; }
 
-        footer { background: var(--gov-gray); padding: 80px 5%; text-align: center; border-top: 1px solid #ddd; font-size: 0.7rem; color: #999; }
+        /* FOOTER */
+        footer { background: var(--gov-gray); padding: 100px 10%; border-top: 1px solid #ddd; text-align: center; }
+        .footer-disclaimer { font-size: 0.7rem; color: #999; max-width: 900px; margin: 40px auto 0; line-height: 2; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Sovereign Marketplace Hub // 1.0v</div>
+        <div class="logo">The Sovereign Exchange // 1.0v Marketplace</div>
         <nav>
             <a href="index.html">Home</a>
             <a href="ledger.html">Ledger</a>
             <a href="prices.html">Tiers</a>
-            <a href="login.html">Login</a>
+            <a href="members-support.html">Support</a>
         </nav>
     </header>
 
     <section class="market-hero">
-        <h1>The Sovereign Exchange</h1>
-        <p>Official Ownership Hub of AI Intellectual Property</p>
+        <p>PHL-01 Root Authority // Institutional Marketplace</p>
+        <h1>Secure. Certify. <span style="color:var(--bureau-gold)">Succeed.</span></h1>
+        <div class="manifesto">
+            The Bureau Marketplace is the world's first regulated exchange for the <strong>Human Spark</strong>. We do not just sell services; we issue legal deeds of parentage. Every asset listed, transferred, or audited here is anchored in the 1.0vRoot—ensuring that synthetic output becomes unshakeable human property.
+        </div>
     </section>
 
-    <div class="market-grid">
-        
-        <div class="sector" style="border-right: 1px solid #eee;">
-            <span class="sector-subtitle">Sector I: Identity Maintenance</span>
-            <h2 class="sector-title">Active Enrollment</h2>
+    <div class="exchange-grid">
 
-            <div class="seal-card">
-                <div class="seal-img">[ SILVER SHIELD SEAL ]</div>
-                <h4>Visual Architect</h4>
-                <span class="price-tag">$49 <span>/mo</span></span>
-                <p>Continuous identity anchoring for active creators. Includes First Claim Priority for up to 50 assets.</p>
-                <a href="register.html" class="btn-market">Enroll Now</a>
+        <div class="exchange-sector">
+            <div class="sector-header">
+                <span>Infrastructure Maintenance</span>
+                <h2>Identity Enrollment</h2>
             </div>
 
-            <div class="seal-card">
-                <div class="seal-img" style="border-color:var(--bureau-gold);">[ PLATINUM PRODUCER SEAL ]</div>
-                <h4>Sovereign Producer</h4>
-                <span class="price-tag">$129 <span>/mo</span></span>
-                <p>Professional grade anchoring with Delta-Logic tracking. 60% First Claim Priority + Node Redundancy.</p>
-                <a href="register.html" class="btn-market btn-gold">Enroll Now</a>
-            </div>
-        </div>
-
-        <div class="sector" style="background: var(--gov-gray);">
-            <span class="sector-subtitle">Sector II: Forensic Finality</span>
-            <h2 class="sector-title">Forensic Audits</h2>
-
-            <div class="seal-card">
-                <div class="seal-img" style="background:#fff;">[ GOLD $C_k$ SEAL ]</div>
-                <h4>Sovereign Audit</h4>
-                <span class="price-tag">$1,949</span>
-                <p>The definitive $C_k$ Seal. 54%+ Human Delta Certification for absolute Article III defense.</p>
-                <a href="#" class="btn-market btn-gold" style="background:var(--bureau-gold); color:#000;">Execute Audit</a>
+            <div class="product-card">
+                <div class="seal-container"><img src="silver-shield-seal.png" alt="Visual Architect Seal"></div>
+                <h3>Visual Architect</h3>
+                <span class="price">$49 <span>/mo</span></span>
+                <span class="capacity">50 Assets / 50% Priority</span>
+                <p>The entry-level anchor. Continuous protection and First Claim Priority. Retain your spot in the Ledger even during dormancy.</p>
+                <a href="register.html" class="btn-execute">Initialize Enrollment</a>
             </div>
 
-            <div class="seal-card">
-                <div class="seal-img" style="background:#000; color:#fff; border:none;">[ APEX ELITE SEAL ]</div>
-                <h4>Article III Elite</h4>
-                <span class="price-tag">$3,499</span>
-                <p>Trial-Ready Forensic Evidence. Physical Notarized Ledger + Expert Testimony Standby.</p>
-                <a href="#" class="btn-market" style="background:#000; color:#fff; border:none;">Access Apex</a>
+            <div class="product-card">
+                <div class="seal-container"><img src="platinum-laurel-seal.png" alt="Sovereign Producer Seal"></div>
+                <h3>Sovereign Producer</h3>
+                <span class="price">$129 <span>/mo</span></span>
+                <span class="capacity">250 Assets / 60% Priority</span>
+                <p>For high-volume directors. Full Forensic Delta-Logic tracking. Your creative handshake is preserved in deep hibernation.</p>
+                <a href="register.html" class="btn-execute gold-btn">Claim Sovereignty</a>
+            </div>
+
+            <div class="product-card">
+                <div class="seal-container"><img src="cobalt-key-seal.png" alt="Institutional Node Seal"></div>
+                <h3>Institutional Node</h3>
+                <span class="price">$499 <span>/mo</span></span>
+                <span class="capacity">Unlimited / 75% Priority</span>
+                <p>Agency-grade infrastructure. Multi-jurisdictional first claim with executive consultation on all asset conflicts.</p>
+                <a href="members-support.html" class="btn-execute">Request Access</a>
             </div>
         </div>
 
-        <div class="sector" style="border-left: 1px solid #eee;">
-            <span class="sector-subtitle">Sector III: Rights Handover</span>
-            <h2 class="sector-title">Sovereign Transfers</h2>
-
-            <div class="seal-card">
-                <div class="seal-img" style="border: 2px dashed #000;">[ STEEL ACQUISITION SEAL ]</div>
-                <h4>Commercial Acquisition</h4>
-                <span class="price-tag">$849</span>
-                <p>Transfer full creative parentage to a Studio or Agency. Includes Forensic Handshake & Registry Update.</p>
-                <a href="#" class="btn-market" style="background:var(--bureau-blue); color:#fff;">Initialize Transfer</a>
+        <div class="exchange-sector" style="background:var(--gov-gray);">
+            <div class="sector-header">
+                <span>Forensic Finality</span>
+                <h2>Institutional Audits</h2>
             </div>
 
-            <div class="seal-card">
-                <div class="seal-img" style="border: 2px solid #cd7f32;">[ BRONZE LEGACY SEAL ]</div>
-                <h4>Family Succession</h4>
-                <span class="price-tag">$599</span>
-                <p>DNA-Linked Beneficiary Anchor. Secure your creative estate for heirs and future generations.</p>
-                <a href="#" class="btn-market" style="border-color:#cd7f32; color:#cd7f32;">Secure Bloodline</a>
+            <div class="product-card">
+                <div class="seal-container"><img src="tier-1-shield.png" alt="Assisted Audit Seal"></div>
+                <h3>Assisted Audit</h3>
+                <span class="price">$299</span>
+                <span class="capacity">Permanent Deed</span>
+                <p>"The Receipt." Metadata hardening and foundational prompt-origin verification. Unshakeable entry in the Public Ledger.</p>
+                <a href="#" class="btn-execute">Order Receipt</a>
+            </div>
+
+            <div class="product-card">
+                <div class="seal-container"><img src="tier-3-shield.png" alt="Sovereign Audit Seal"></div>
+                <h3>Sovereign Audit</h3>
+                <span class="price">$1,949</span>
+                <span class="capacity">54%+ Human Delta Seal</span>
+                <p>Definitive Copyright Evidence. Scientific proof of human parentage required for high-stakes intellectual property protection.</p>
+                <a href="#" class="btn-execute gold-btn" style="background:var(--bureau-gold); color:#000;">Execute Seal</a>
+            </div>
+
+            <div class="product-card">
+                <div class="seal-container"><img src="tier-4-elite.png" alt="Article III Elite Seal"></div>
+                <h3>Article III Elite</h3>
+                <span class="price">$3,499</span>
+                <span class="capacity">Trial-Ready Arsenal</span>
+                <p>The Nuclear Option. Physical Notarized Ledger and expert testimony standby for federal-level high-stakes litigation.</p>
+                <a href="#" class="btn-execute" style="background:#000; color:#fff; border-color:#000;">Access Apex</a>
+            </div>
+        </div>
+
+        <div class="exchange-sector">
+            <div class="sector-header">
+                <span>Economic Liquidity</span>
+                <h2>Rights Transfer</h2>
+            </div>
+
+            <div class="product-card">
+                <div class="seal-container"><img src="bronze-knot-seal.png" alt="Collector Transfer Seal"></div>
+                <h3>Architect-to-Collector</h3>
+                <span class="price">$349</span>
+                <span class="capacity">Creator &rarr; Buyer</span>
+                <p>"The Handshake Knot." Official Deed of Assignment. Updates the Ledger to show the new owner while citing the original Parent.</p>
+                <a href="#" class="btn-execute">Execute Transfer</a>
+            </div>
+
+            <div class="product-card">
+                <div class="seal-container"><img src="steel-gavel-seal.png" alt="Commercial Acquisition Seal"></div>
+                <h3>Commercial Acquisition</h3>
+                <span class="price">$849</span>
+                <span class="capacity">Creator &rarr; Studio</span>
+                <p>"The Gavel & Column." Full Sovereignty Handover. Forensic transfer of all prompts, metadata, and vault data for corporate use.</p>
+                <a href="#" class="btn-execute" style="background:var(--bureau-blue); color:#fff;">Initialize Acquisition</a>
+            </div>
+
+            <div class="product-card">
+                <div class="seal-container"><img src="copper-tree-seal.png" alt="Legacy Succession Seal"></div>
+                <h3>Family Succession</h3>
+                <span class="price">$599</span>
+                <span class="capacity">Creator &rarr; Heir</span>
+                <p>"The DNA Tree." DNA-Linked Beneficiary Anchor. Secures your digital creative soul for future generations and heirs.</p>
+                <a href="#" class="btn-execute" style="border-color:#cd7f32; color:#cd7f32;">Secure Lineage</a>
             </div>
         </div>
 
     </div>
 
     <footer>
-        <p>© 2026 USA KINsense 1.0vRoot | Solomon Kin Protocol | The Institutional Standard for AI Ownership</p>
+        <div class="logo">USA KINsense 1.0v Marketplace</div>
+        <div class="footer-disclaimer">
+            All creative parentage verified by the AI-IPVB is cryptographically anchored at the USA KINsense 1.0vRoot in Philadelphia, PA. The Bureau acts as the sovereign registry for human-AI collaboration. Unauthorized replication of Bureau-certified assets is subject to international enforcement under the Solomon Kin Protocol.
+        </div>
     </footer>
 
 </body>
