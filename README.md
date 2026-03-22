@@ -179,3 +179,21 @@ Lead Architect: Nehemiah M. Brown (NMMMB)
 Parent Entity: Solomon Kin, LLC
 
 Jurisdiction: BASE: Philadelphia, PA |REACH: Minneapolis, MN |REACH: USA |REACH: WORLDWIDE
+
+INTELLECTUAL PROPERTY & SERVICE RIGHTS NOTICE
+Organization: AI-IP Verification Bureau (AI-IPVB)
+Effective Date: March 22, 2026
+
+1. PROPRIETARY SERVICE ARCHITECTURE:
+The AI-IP Verification Bureau (AI-IPVB) hereby asserts its exclusive rights over the proprietary methodologies and system architectures known as the Handshake Knot™, T4-ATC Enrollment Pipeline, and the Official Deed of Synthetic Assignment. These systems constitute a novel technical solution for the verification, certification, and cryptographic securing of AI-generated and human-hybrid intellectual property.
+
+2. PATENT PENDING & TRADE SECRET STATUS:
+Notice is hereby given that the functional workflows, data normalization protocols, and multi-tier verification levels (T1–T4) are protected as Trade Secrets and are subject to pending patent applications under the USPTO Desjardins Framework (2026). Any unauthorized replication of these service structures, including the "Real-ID to AI-Likeness" mapping process, is strictly prohibited and constitutes a violation of trade secret protections and unfair competition laws.
+
+3. TRADEMARK & CERTIFICATION SEALS:
+All digital seals, including the AI-Likeness Real-ID Seal, Sovereign Shield, Ethical Lending Library Seal, and Eternal Identity Vault Seal, are protected trademarks of the AI-IP Verification Bureau. Unauthorized use of these seals to imply certification or verification is a violation of the Lanham Act and the EU AI Act’s transparency requirements.
+
+4. EXCLUSIVE JURISDICTION:
+The AI-IPVB reserves the sole right to issue Digital Asset Warrants and Certificates of Authenticity utilizing the Bureau’s proprietary metadata standards. No other entity is authorized to provide "Bureau-Grade" AI-IP verification utilizing these specific protocols.
+
+© 2026 AI-IP Verification Bureau. ALL RIGHTS RESERVED.
